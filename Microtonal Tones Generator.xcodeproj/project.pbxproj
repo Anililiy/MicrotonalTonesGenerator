@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		954B13DD19C4F912008FE21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DC19C4F912008FE21B /* Foundation.framework */; };
+		954B13DF19C4F912008FE21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DE19C4F912008FE21B /* CoreGraphics.framework */; };
+		954B13E119C4F912008FE21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13E019C4F912008FE21B /* UIKit.framework */; };
+		954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 954B13E519C4F912008FE21B /* InfoPlist.strings */; };
+		954B13E919C4F912008FE21B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B13E819C4F912008FE21B /* main.m */; };
+		954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B13EC19C4F912008FE21B /* MTGAppDelegate.m */; };
+		954B13EF19C4F912008FE21B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954B13EE19C4F912008FE21B /* Images.xcassets */; };
+		954B13F619C4F912008FE21B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13F519C4F912008FE21B /* XCTest.framework */; };
+		954B13F719C4F912008FE21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DC19C4F912008FE21B /* Foundation.framework */; };
+		954B13F819C4F913008FE21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13E019C4F912008FE21B /* UIKit.framework */; };
+		954B140019C4F913008FE21B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 954B13FE19C4F913008FE21B /* InfoPlist.strings */; };
+		954B140219C4F913008FE21B /* Microtonal_Tones_GeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B140119C4F913008FE21B /* Microtonal_Tones_GeneratorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		954B13F919C4F913008FE21B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 954B13D119C4F912008FE21B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 954B13D819C4F912008FE21B;
+			remoteInfo = "Microtonal Tones Generator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Microtonal Tones Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		954B13DC19C4F912008FE21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		954B13DE19C4F912008FE21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		954B13E019C4F912008FE21B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		954B13E419C4F912008FE21B /* Microtonal Tones Generator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Microtonal Tones Generator-Info.plist"; sourceTree = "<group>"; };
+		954B13E619C4F912008FE21B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		954B13E819C4F912008FE21B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		954B13EA19C4F912008FE21B /* Microtonal Tones Generator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Microtonal Tones Generator-Prefix.pch"; sourceTree = "<group>"; };
+		954B13EB19C4F912008FE21B /* MTGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTGAppDelegate.h; sourceTree = "<group>"; };
+		954B13EC19C4F912008FE21B /* MTGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTGAppDelegate.m; sourceTree = "<group>"; };
+		954B13EE19C4F912008FE21B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		954B13F419C4F912008FE21B /* Microtonal Tones GeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Microtonal Tones GeneratorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		954B13F519C4F912008FE21B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		954B13FD19C4F913008FE21B /* Microtonal Tones GeneratorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Microtonal Tones GeneratorTests-Info.plist"; sourceTree = "<group>"; };
+		954B13FF19C4F913008FE21B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		954B140119C4F913008FE21B /* Microtonal_Tones_GeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Microtonal_Tones_GeneratorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		954B13D619C4F912008FE21B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954B13DF19C4F912008FE21B /* CoreGraphics.framework in Frameworks */,
+				954B13E119C4F912008FE21B /* UIKit.framework in Frameworks */,
+				954B13DD19C4F912008FE21B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		954B13F119C4F912008FE21B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954B13F619C4F912008FE21B /* XCTest.framework in Frameworks */,
+				954B13F819C4F913008FE21B /* UIKit.framework in Frameworks */,
+				954B13F719C4F912008FE21B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		954B13D019C4F912008FE21B = {
+			isa = PBXGroup;
+			children = (
+				954B13E219C4F912008FE21B /* Microtonal Tones Generator */,
+				954B13FB19C4F913008FE21B /* Microtonal Tones GeneratorTests */,
+				954B13DB19C4F912008FE21B /* Frameworks */,
+				954B13DA19C4F912008FE21B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		954B13DA19C4F912008FE21B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */,
+				954B13F419C4F912008FE21B /* Microtonal Tones GeneratorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		954B13DB19C4F912008FE21B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				954B13DC19C4F912008FE21B /* Foundation.framework */,
+				954B13DE19C4F912008FE21B /* CoreGraphics.framework */,
+				954B13E019C4F912008FE21B /* UIKit.framework */,
+				954B13F519C4F912008FE21B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		954B13E219C4F912008FE21B /* Microtonal Tones Generator */ = {
+			isa = PBXGroup;
+			children = (
+				954B13EB19C4F912008FE21B /* MTGAppDelegate.h */,
+				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
+				954B13EE19C4F912008FE21B /* Images.xcassets */,
+				954B13E319C4F912008FE21B /* Supporting Files */,
+			);
+			path = "Microtonal Tones Generator";
+			sourceTree = "<group>";
+		};
+		954B13E319C4F912008FE21B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				954B13E419C4F912008FE21B /* Microtonal Tones Generator-Info.plist */,
+				954B13E519C4F912008FE21B /* InfoPlist.strings */,
+				954B13E819C4F912008FE21B /* main.m */,
+				954B13EA19C4F912008FE21B /* Microtonal Tones Generator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		954B13FB19C4F913008FE21B /* Microtonal Tones GeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				954B140119C4F913008FE21B /* Microtonal_Tones_GeneratorTests.m */,
+				954B13FC19C4F913008FE21B /* Supporting Files */,
+			);
+			path = "Microtonal Tones GeneratorTests";
+			sourceTree = "<group>";
+		};
+		954B13FC19C4F913008FE21B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				954B13FD19C4F913008FE21B /* Microtonal Tones GeneratorTests-Info.plist */,
+				954B13FE19C4F913008FE21B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		954B13D819C4F912008FE21B /* Microtonal Tones Generator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 954B140519C4F913008FE21B /* Build configuration list for PBXNativeTarget "Microtonal Tones Generator" */;
+			buildPhases = (
+				954B13D519C4F912008FE21B /* Sources */,
+				954B13D619C4F912008FE21B /* Frameworks */,
+				954B13D719C4F912008FE21B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Microtonal Tones Generator";
+			productName = "Microtonal Tones Generator";
+			productReference = 954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		954B13F319C4F912008FE21B /* Microtonal Tones GeneratorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 954B140819C4F913008FE21B /* Build configuration list for PBXNativeTarget "Microtonal Tones GeneratorTests" */;
+			buildPhases = (
+				954B13F019C4F912008FE21B /* Sources */,
+				954B13F119C4F912008FE21B /* Frameworks */,
+				954B13F219C4F912008FE21B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				954B13FA19C4F913008FE21B /* PBXTargetDependency */,
+			);
+			name = "Microtonal Tones GeneratorTests";
+			productName = "Microtonal Tones GeneratorTests";
+			productReference = 954B13F419C4F912008FE21B /* Microtonal Tones GeneratorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		954B13D119C4F912008FE21B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MTG;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Anna;
+				TargetAttributes = {
+					954B13F319C4F912008FE21B = {
+						TestTargetID = 954B13D819C4F912008FE21B;
+					};
+				};
+			};
+			buildConfigurationList = 954B13D419C4F912008FE21B /* Build configuration list for PBXProject "Microtonal Tones Generator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 954B13D019C4F912008FE21B;
+			productRefGroup = 954B13DA19C4F912008FE21B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				954B13D819C4F912008FE21B /* Microtonal Tones Generator */,
+				954B13F319C4F912008FE21B /* Microtonal Tones GeneratorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		954B13D719C4F912008FE21B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
+				954B13EF19C4F912008FE21B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		954B13F219C4F912008FE21B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954B140019C4F913008FE21B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		954B13D519C4F912008FE21B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954B13E919C4F912008FE21B /* main.m in Sources */,
+				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		954B13F019C4F912008FE21B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954B140219C4F913008FE21B /* Microtonal_Tones_GeneratorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		954B13FA19C4F913008FE21B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 954B13D819C4F912008FE21B /* Microtonal Tones Generator */;
+			targetProxy = 954B13F919C4F913008FE21B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		954B13E519C4F912008FE21B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				954B13E619C4F912008FE21B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		954B13FE19C4F913008FE21B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				954B13FF19C4F913008FE21B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		954B140319C4F913008FE21B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		954B140419C4F913008FE21B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		954B140619C4F913008FE21B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Microtonal Tones Generator/Microtonal Tones Generator-Prefix.pch";
+				INFOPLIST_FILE = "Microtonal Tones Generator/Microtonal Tones Generator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		954B140719C4F913008FE21B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Microtonal Tones Generator/Microtonal Tones Generator-Prefix.pch";
+				INFOPLIST_FILE = "Microtonal Tones Generator/Microtonal Tones Generator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		954B140919C4F913008FE21B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Microtonal Tones Generator.app/Microtonal Tones Generator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Microtonal Tones Generator/Microtonal Tones Generator-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Microtonal Tones GeneratorTests/Microtonal Tones GeneratorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		954B140A19C4F913008FE21B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Microtonal Tones Generator.app/Microtonal Tones Generator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Microtonal Tones Generator/Microtonal Tones Generator-Prefix.pch";
+				INFOPLIST_FILE = "Microtonal Tones GeneratorTests/Microtonal Tones GeneratorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		954B13D419C4F912008FE21B /* Build configuration list for PBXProject "Microtonal Tones Generator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				954B140319C4F913008FE21B /* Debug */,
+				954B140419C4F913008FE21B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		954B140519C4F913008FE21B /* Build configuration list for PBXNativeTarget "Microtonal Tones Generator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				954B140619C4F913008FE21B /* Debug */,
+				954B140719C4F913008FE21B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		954B140819C4F913008FE21B /* Build configuration list for PBXNativeTarget "Microtonal Tones GeneratorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				954B140919C4F913008FE21B /* Debug */,
+				954B140A19C4F913008FE21B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 954B13D119C4F912008FE21B /* Project object */;
+}

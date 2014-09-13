@@ -19,6 +19,12 @@
 		954B13F819C4F913008FE21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13E019C4F912008FE21B /* UIKit.framework */; };
 		954B140019C4F913008FE21B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 954B13FE19C4F913008FE21B /* InfoPlist.strings */; };
 		954B140219C4F913008FE21B /* Microtonal_Tones_GeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B140119C4F913008FE21B /* Microtonal_Tones_GeneratorTests.m */; };
+		954B141619C4FC74008FE21B /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B141119C4FBE3008FE21B /* libpd-ios.a */; };
+		954B141819C4FC78008FE21B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B141719C4FC78008FE21B /* AVFoundation.framework */; };
+		954B141A19C4FC7E008FE21B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B141919C4FC7E008FE21B /* AudioToolbox.framework */; };
+		954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B141C19C4FCB6008FE21B /* MTGViewController.m */; };
+		954B141F19C4FCB6008FE21B /* MTGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954B141D19C4FCB6008FE21B /* MTGViewController.xib */; };
+		954B142419C4FF9B008FE21B /* tuner.pd in Resources */ = {isa = PBXBuildFile; fileRef = 954B142319C4FF9B008FE21B /* tuner.pd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +34,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 954B13D819C4F912008FE21B;
 			remoteInfo = "Microtonal Tones Generator";
+		};
+		954B141019C4FBE3008FE21B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 954B140B19C4FBE3008FE21B /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = "libpd-ios";
+		};
+		954B141219C4FBE3008FE21B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 954B140B19C4FBE3008FE21B /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 119013AB1486450C00086F19;
+			remoteInfo = "libpd-osx";
+		};
+		954B141419C4FC6E008FE21B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 954B140B19C4FBE3008FE21B /* libpd.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "libpd-ios";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -48,6 +75,13 @@
 		954B13FD19C4F913008FE21B /* Microtonal Tones GeneratorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Microtonal Tones GeneratorTests-Info.plist"; sourceTree = "<group>"; };
 		954B13FF19C4F913008FE21B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		954B140119C4F913008FE21B /* Microtonal_Tones_GeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Microtonal_Tones_GeneratorTests.m; sourceTree = "<group>"; };
+		954B140B19C4FBE3008FE21B /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = libpd/libpd.xcodeproj; sourceTree = SOURCE_ROOT; };
+		954B141719C4FC78008FE21B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		954B141919C4FC7E008FE21B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		954B141B19C4FCB6008FE21B /* MTGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGViewController.h; sourceTree = "<group>"; };
+		954B141C19C4FCB6008FE21B /* MTGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGViewController.m; sourceTree = "<group>"; };
+		954B141D19C4FCB6008FE21B /* MTGViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGViewController.xib; sourceTree = "<group>"; };
+		954B142319C4FF9B008FE21B /* tuner.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tuner.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954B141A19C4FC7E008FE21B /* AudioToolbox.framework in Frameworks */,
+				954B141819C4FC78008FE21B /* AVFoundation.framework in Frameworks */,
+				954B141619C4FC74008FE21B /* libpd-ios.a in Frameworks */,
 				954B13DF19C4F912008FE21B /* CoreGraphics.framework in Frameworks */,
 				954B13E119C4F912008FE21B /* UIKit.framework in Frameworks */,
 				954B13DD19C4F912008FE21B /* Foundation.framework in Frameworks */,
@@ -77,6 +114,7 @@
 		954B13D019C4F912008FE21B = {
 			isa = PBXGroup;
 			children = (
+				954B140B19C4FBE3008FE21B /* libpd.xcodeproj */,
 				954B13E219C4F912008FE21B /* Microtonal Tones Generator */,
 				954B13FB19C4F913008FE21B /* Microtonal Tones GeneratorTests */,
 				954B13DB19C4F912008FE21B /* Frameworks */,
@@ -96,6 +134,8 @@
 		954B13DB19C4F912008FE21B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				954B141919C4FC7E008FE21B /* AudioToolbox.framework */,
+				954B141719C4FC78008FE21B /* AVFoundation.framework */,
 				954B13DC19C4F912008FE21B /* Foundation.framework */,
 				954B13DE19C4F912008FE21B /* CoreGraphics.framework */,
 				954B13E019C4F912008FE21B /* UIKit.framework */,
@@ -109,6 +149,9 @@
 			children = (
 				954B13EB19C4F912008FE21B /* MTGAppDelegate.h */,
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
+				954B141B19C4FCB6008FE21B /* MTGViewController.h */,
+				954B141C19C4FCB6008FE21B /* MTGViewController.m */,
+				954B141D19C4FCB6008FE21B /* MTGViewController.xib */,
 				954B13EE19C4F912008FE21B /* Images.xcassets */,
 				954B13E319C4F912008FE21B /* Supporting Files */,
 			);
@@ -118,6 +161,7 @@
 		954B13E319C4F912008FE21B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				954B142319C4FF9B008FE21B /* tuner.pd */,
 				954B13E419C4F912008FE21B /* Microtonal Tones Generator-Info.plist */,
 				954B13E519C4F912008FE21B /* InfoPlist.strings */,
 				954B13E819C4F912008FE21B /* main.m */,
@@ -144,6 +188,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		954B140C19C4FBE3008FE21B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				954B141119C4FBE3008FE21B /* libpd-ios.a */,
+				954B141319C4FBE3008FE21B /* libpd-osx.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,6 +211,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				954B141519C4FC6E008FE21B /* PBXTargetDependency */,
 			);
 			name = "Microtonal Tones Generator";
 			productName = "Microtonal Tones Generator";
@@ -207,6 +261,12 @@
 			mainGroup = 954B13D019C4F912008FE21B;
 			productRefGroup = 954B13DA19C4F912008FE21B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 954B140C19C4FBE3008FE21B /* Products */;
+					ProjectRef = 954B140B19C4FBE3008FE21B /* libpd.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				954B13D819C4F912008FE21B /* Microtonal Tones Generator */,
@@ -215,11 +275,30 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		954B141119C4FBE3008FE21B /* libpd-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-ios.a";
+			remoteRef = 954B141019C4FBE3008FE21B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		954B141319C4FBE3008FE21B /* libpd-osx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-osx.a";
+			remoteRef = 954B141219C4FBE3008FE21B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		954B13D719C4F912008FE21B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954B142419C4FF9B008FE21B /* tuner.pd in Resources */,
+				954B141F19C4FCB6008FE21B /* MTGViewController.xib in Resources */,
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
 				954B13EF19C4F912008FE21B /* Images.xcassets in Resources */,
 			);
@@ -241,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				954B13E919C4F912008FE21B /* main.m in Sources */,
+				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +340,11 @@
 			isa = PBXTargetDependency;
 			target = 954B13D819C4F912008FE21B /* Microtonal Tones Generator */;
 			targetProxy = 954B13F919C4F913008FE21B /* PBXContainerItemProxy */;
+		};
+		954B141519C4FC6E008FE21B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libpd-ios";
+			targetProxy = 954B141419C4FC6E008FE21B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -364,6 +449,7 @@
 				GCC_PREFIX_HEADER = "Microtonal Tones Generator/Microtonal Tones Generator-Prefix.pch";
 				INFOPLIST_FILE = "Microtonal Tones Generator/Microtonal Tones Generator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../libpd/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -377,6 +463,7 @@
 				GCC_PREFIX_HEADER = "Microtonal Tones Generator/Microtonal Tones Generator-Prefix.pch";
 				INFOPLIST_FILE = "Microtonal Tones Generator/Microtonal Tones Generator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../libpd/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -440,6 +527,7 @@
 				954B140719C4F913008FE21B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		954B140819C4F913008FE21B /* Build configuration list for PBXNativeTarget "Microtonal Tones GeneratorTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +536,7 @@
 				954B140A19C4F913008FE21B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

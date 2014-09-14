@@ -11,8 +11,6 @@
 
 @implementation MTGAppDelegate
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
 @synthesize audioController = _audioController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -23,10 +21,6 @@
         NSLog(@"failed to initialize audio component");
     }
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController =[[MTGViewController alloc] initWithNibName:@"MTGViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
     return YES;
 }
 

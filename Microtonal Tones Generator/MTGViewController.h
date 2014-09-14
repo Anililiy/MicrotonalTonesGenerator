@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "PdDispatcher.h"
+#import "SWRevealViewController.h"
+
 
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
@@ -21,5 +23,8 @@
 -(IBAction)playB:(id)sender;
 -(IBAction)playE2:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
 
 @end

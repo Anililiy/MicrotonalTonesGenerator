@@ -48,6 +48,9 @@
     _savedStatesSlideButton.target = self.revealViewController;
     _savedStatesSlideButton.action = @selector(rightRevealToggle:);
     
+   // self.navigationItem.rightBarButtonItem = rightRevealButtonItem;
+
+    
     //set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }

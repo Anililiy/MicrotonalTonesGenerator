@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
 
-
 @interface MTGSidebarTableViewController : UITableViewController
 
 @end

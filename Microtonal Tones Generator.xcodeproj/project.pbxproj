@@ -153,6 +153,15 @@
 			name = Slidebars;
 			sourceTree = "<group>";
 		};
+		951058C019C5BDFF008F5F76 /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				954B141B19C4FCB6008FE21B /* MTGViewController.h */,
+				954B141C19C4FCB6008FE21B /* MTGViewController.m */,
+			);
+			name = "Main View";
+			sourceTree = "<group>";
+		};
 		954B13D019C4F912008FE21B = {
 			isa = PBXGroup;
 			children = (
@@ -191,8 +200,7 @@
 			children = (
 				954B13EB19C4F912008FE21B /* MTGAppDelegate.h */,
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
-				954B141B19C4FCB6008FE21B /* MTGViewController.h */,
-				954B141C19C4FCB6008FE21B /* MTGViewController.m */,
+				951058C019C5BDFF008F5F76 /* Main View */,
 				954B142519C59786008FE21B /* Main.storyboard */,
 				954B142D19C59977008FE21B /* MTGSettingsViewController.h */,
 				954B142E19C59977008FE21B /* MTGSettingsViewController.m */,

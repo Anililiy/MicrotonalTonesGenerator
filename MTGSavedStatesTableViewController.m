@@ -34,7 +34,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.savedItems =@[@"state1", @"state2", @"state3", @"state4"];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
+    
+    self.savedItems =@[@"title",@"state1", @"state2", @"state3", @"state4"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +57,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     return [self.savedItems count];
 }
 

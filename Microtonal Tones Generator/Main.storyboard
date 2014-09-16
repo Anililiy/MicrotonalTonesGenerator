@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWB-M4-mEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1571" y="-599"/>
+            <point key="canvasLocation" x="-2139" y="704"/>
         </scene>
         <!--Sidebar Table View Controller-->
         <scene sceneID="p9x-iX-174">
@@ -120,7 +120,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzW-T5-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-379" y="-635"/>
+            <point key="canvasLocation" x="-811" y="-579"/>
         </scene>
         <!--Load Table View Controller - Title-->
         <scene sceneID="bLh-Ua-feL">
@@ -196,77 +196,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbo-sp-eWy">
-                                <rect key="frame" x="67" y="148" width="75" height="149"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmM-NE-Xh2">
+                                <rect key="frame" x="48" y="509" width="140" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.99487334490000001" green="0.77107447389999995" blue="0.77650976179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="E">
+                                <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="playE:" destination="ijD-Df-uuV" eventType="touchUpInside" id="NYc-JW-yAv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oni-Yp-x3Z">
-                                <rect key="frame" x="169" y="148" width="76" height="149"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.99156504869999995" green="0.58943670989999997" blue="0.60043740270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="A">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playA:" destination="ijD-Df-uuV" eventType="touchUpInside" id="l68-PO-efP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-KA-4af">
-                                <rect key="frame" x="288" y="148" width="77" height="149"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.9904431105" green="0.51691049339999995" blue="0.53070014720000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="D">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playD:" destination="ijD-Df-uuV" eventType="touchUpInside" id="GKr-KH-KMk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-3X-G5Y">
-                                <rect key="frame" x="416" y="148" width="74" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98897027969999995" green="0.4070281684" blue="0.42612597349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="G">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playG:" destination="ijD-Df-uuV" eventType="touchUpInside" id="kYI-vg-erH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9s-Wp-LlJ">
-                                <rect key="frame" x="522" y="148" width="73" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98782509569999999" green="0.30145782230000001" blue="0.3278279006" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="B">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playB:" destination="ijD-Df-uuV" eventType="touchUpInside" id="1tV-cj-T32"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwb-u0-eYy">
-                                <rect key="frame" x="632" y="148" width="71" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98698317999999996" green="0.19898658990000001" blue="0.23680236939999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="E2">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playE2:" destination="ijD-Df-uuV" eventType="touchUpInside" id="wSz-KT-EEQ"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -279,6 +216,7 @@
                     <connections>
                         <outlet property="savedStatesSlideButton" destination="bPv-c1-jyd" id="ZWJ-Wo-m1N"/>
                         <outlet property="sidebarButton" destination="Vzn-RD-Rda" id="dYq-m7-QnJ"/>
+                        <outlet property="startButton" destination="VmM-NE-Xh2" id="49f-D3-9pT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioh-E7-8HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,7 +345,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QG-Sf-MDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223" y="2017"/>
+            <point key="canvasLocation" x="-811" y="1937"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ItQ-fr-rie">
@@ -425,7 +363,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCK-CO-cRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-258" y="704"/>
+            <point key="canvasLocation" x="-811" y="704"/>
         </scene>
     </scenes>
     <resources>
@@ -437,6 +375,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zuq-O1-uWc"/>
+        <segue reference="Syd-wH-Orj"/>
     </inferredMetricsTieBreakers>
 </document>

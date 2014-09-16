@@ -16,15 +16,12 @@
     void *patch;
 }
 
--(IBAction)playE:(id)sender;
--(IBAction)playA:(id)sender;
--(IBAction)playD:(id)sender;
--(IBAction)playG:(id)sender;
--(IBAction)playB:(id)sender;
--(IBAction)playE2:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
+@property float frequency;
+@property int numberOfSplits;
+@property float hueOfKeys;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property BOOL creationState;
 
 @end

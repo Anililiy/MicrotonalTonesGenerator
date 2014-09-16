@@ -13,6 +13,8 @@
 		951058A719C5A200008F5F76 /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 951058A619C5A200008F5F76 /* nav_bg.png */; };
 		951058BB19C5A9CB008F5F76 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951058BA19C5A9CB008F5F76 /* SWRevealViewController.m */; };
 		951058BE19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951058BD19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m */; };
+		951058C319C5C641008F5F76 /* MTGNoteKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 951058C219C5C641008F5F76 /* MTGNoteKey.m */; };
+		95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */; };
 		954B13DD19C4F912008FE21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DC19C4F912008FE21B /* Foundation.framework */; };
 		954B13DF19C4F912008FE21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DE19C4F912008FE21B /* CoreGraphics.framework */; };
 		954B13E119C4F912008FE21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13E019C4F912008FE21B /* UIKit.framework */; };
@@ -33,6 +35,7 @@
 		954B142619C59786008FE21B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954B142519C59786008FE21B /* Main.storyboard */; };
 		954B142F19C59977008FE21B /* MTGSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B142E19C59977008FE21B /* MTGSettingsViewController.m */; };
 		954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */; };
+		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		951058BA19C5A9CB008F5F76 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		951058BC19C5AA93008F5F76 /* MTGSavedStatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGSavedStatesTableViewController.h; path = ../MTGSavedStatesTableViewController.h; sourceTree = "<group>"; };
 		951058BD19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTGSavedStatesTableViewController.m; path = ../MTGSavedStatesTableViewController.m; sourceTree = "<group>"; };
+		951058C119C5C641008F5F76 /* MTGNoteKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGNoteKey.h; sourceTree = "<group>"; };
+		951058C219C5C641008F5F76 /* MTGNoteKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGNoteKey.m; sourceTree = "<group>"; };
+		95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote2.pd; sourceTree = "<group>"; };
 		954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Microtonal Tones Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		954B13DC19C4F912008FE21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		954B13DE19C4F912008FE21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,6 +109,7 @@
 		954B142E19C59977008FE21B /* MTGSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSettingsViewController.m; sourceTree = "<group>"; };
 		954B143019C59ABE008FE21B /* MTGSidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSidebarTableViewController.h; sourceTree = "<group>"; };
 		954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSidebarTableViewController.m; sourceTree = "<group>"; };
+		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +169,15 @@
 			name = "Main View";
 			sourceTree = "<group>";
 		};
+		951058C419C5C648008F5F76 /* Note Keys Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				951058C119C5C641008F5F76 /* MTGNoteKey.h */,
+				951058C219C5C641008F5F76 /* MTGNoteKey.m */,
+			);
+			name = "Note Keys Configuration";
+			sourceTree = "<group>";
+		};
 		954B13D019C4F912008FE21B = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +218,7 @@
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
 				951058C019C5BDFF008F5F76 /* Main View */,
 				954B142519C59786008FE21B /* Main.storyboard */,
+				951058C419C5C648008F5F76 /* Note Keys Configuration */,
 				954B142D19C59977008FE21B /* MTGSettingsViewController.h */,
 				954B142E19C59977008FE21B /* MTGSettingsViewController.m */,
 				9510589E19C59BA7008F5F76 /* MTGLoadTableViewController.h */,
@@ -221,6 +238,8 @@
 				951058A319C59D74008F5F76 /* menu@2x.png */,
 				951058A619C5A200008F5F76 /* nav_bg.png */,
 				954B142319C4FF9B008FE21B /* tuner.pd */,
+				95B581B719C61009007E9510 /* KeyNote.pd */,
+				95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */,
 				954B13E419C4F912008FE21B /* Microtonal Tones Generator-Info.plist */,
 				954B13E519C4F912008FE21B /* InfoPlist.strings */,
 				954B13E819C4F912008FE21B /* main.m */,
@@ -357,8 +376,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				954B142419C4FF9B008FE21B /* tuner.pd in Resources */,
+				95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */,
 				951058A519C59D74008F5F76 /* menu@2x.png in Resources */,
 				951058A719C5A200008F5F76 /* nav_bg.png in Resources */,
+				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
 				954B142619C59786008FE21B /* Main.storyboard in Resources */,
 				951058A419C59D74008F5F76 /* menu.png in Resources */,
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
@@ -389,6 +410,7 @@
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,
 				951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */,
+				951058C319C5C641008F5F76 /* MTGNoteKey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

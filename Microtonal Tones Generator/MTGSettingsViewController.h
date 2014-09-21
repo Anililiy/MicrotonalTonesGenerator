@@ -12,5 +12,8 @@
 @interface MTGSettingsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (weak, nonatomic) IBOutlet UITextField *numberOfSplitsInput;
+@property (weak, nonatomic) IBOutlet UIPickerView *inputFrequency;
+
 
 @end

@@ -7,8 +7,15 @@
 //
 
 #import "MTGViewController.h"
+#import "PdFile.h"
+#import "PdBase.h"
+
+NSString *const kTestPatchName = @"test2.pd";
 
 @interface MTGViewController ()
+
+@property (nonatomic, retain) NSMutableArray *patches;
+@property (nonatomic, assign) int dollarZero;
 
 @end
 
@@ -19,6 +26,9 @@
 @synthesize hueOfKeys;
 @synthesize startButton;
 @synthesize creationState;
+@synthesize patches = _patches;
+@synthesize dollarZero = dollarZero_;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,15 +53,7 @@
     
     //
     numberOfSplits+=1;
-    
-    // sound creation
-    dispatcher = [[PdDispatcher alloc]init];
-    [PdBase setDelegate:dispatcher];
-    patch = [PdBase openFile:@"KeyNote.pd" path:[[NSBundle mainBundle] resourcePath]];
-    if (!patch) {
-        NSLog(@"Failed to open patch!");
-    }
-    
+    self.patches = [NSMutableArray array];
     
     //change button color
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
@@ -68,29 +70,9 @@
     _savedStatesSlideButton.target = self.revealViewController;
     _savedStatesSlideButton.action = @selector(rightRevealToggle:);
     
-    //get length and height of screen
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    
-    // calculate the width of key
-    float widthOfKey = 3*(float)screenHeight / (4*(numberOfSplits));
-    float divisionOfScreen = (float)screenHeight / (numberOfSplits);
-   //create array of buttons
-    NSLog(@"Number of splits %i", numberOfSplits);
-    
+    //create an array of buttons
     for( int i = 0; i < numberOfSplits; i++ ) {
-        UIButton* aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [aButton setTag:i];
-        [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-        NSString* title =[NSString stringWithFormat:@"%d", i+1];;
-        [aButton setTitle:title forState:UIControlStateNormal];
-        [aButton setTintColor:[UIColor blackColor]];
-        float saturation = 1.0*(i+1)/((float)numberOfSplits+1);
-        aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:1.0 alpha:1.0];
-        aButton.frame = CGRectMake(i*divisionOfScreen+(divisionOfScreen-widthOfKey)/2, 100.0, widthOfKey, screenWidth/2);
-        [self.view addSubview:aButton];
+        [self createButton: i];
     }
     
     //set the gesture
@@ -114,28 +96,24 @@
     [super didReceiveMemoryWarning];
 }
 
-// then ...
 
 - (void)buttonClicked:(UIButton*)aButton
 {
     NSLog(@"Button %ld clicked.", (long int)[aButton tag]);
-    
+
     float a = powf(2, 1/((float)(numberOfSplits)));
     float n = (([aButton tag]+40) - 49);
     float frequencyOfNote = frequency * (powf(a,n));
     NSLog(@"frequency: %f", frequencyOfNote);
-    //[self playNote:frequencyOfNote];
+
     if (creationState) {
         [self playNote:frequencyOfNote];
+        //aButton.backgroundColor = [UIColor yellowColor];
     }
     else{
-        
+        [self.patches removeAllObjects];
     }
 }
-- (IBAction)buttonPressed:(id)sender
-{
-}
-
 
 -(void)startPressed:(UIButton*)button
 {
@@ -147,15 +125,50 @@
     {
         [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
         creationState = false;
+        [self.patches removeAllObjects];
     }
     
 }
 
+-(void)createButton:(int)index{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    // calculate the width of key
+    float widthOfKey = 3*(float)screenHeight / (4*(numberOfSplits));
+    float divisionOfScreen = (float)screenHeight / (numberOfSplits);
+    
+    UIButton* aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [aButton setTag:index];
+    
+    //action of button
+    [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSString* title =[NSString stringWithFormat:@"%d", index];;
+    [aButton setTitle:title forState:UIControlStateNormal];
+    [aButton setTintColor:[UIColor blackColor]];
+    float saturation = 1.0*(index+1)/((float)numberOfSplits+1);
+    aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:1.0 alpha:1.0];
+    aButton.frame = CGRectMake(index*divisionOfScreen+(divisionOfScreen-widthOfKey)/2, 100.0, widthOfKey, screenWidth/2);
+    [self.view addSubview:aButton];
+
+}
+
+
 #pragma mark - button call back
 
 -(void)playNote:(int)n{
-    [PdBase sendFloat:n toReceiver:@"midinote"];
-    [PdBase sendBangToReceiver:@"trigger"];
+    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+    PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
+    if (patchOfKey) {
+        NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
+        
+        [self.patches addObject:patchOfKey];
+    } else {
+        NSLog(@"error: couldn't open patch");
+    }
+    [PdBase sendFloat:n toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
 }
 
 

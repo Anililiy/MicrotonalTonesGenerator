@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PdAudioController.h"
+#import "PdBase.h"
 
-@interface MTGAppDelegate : UIResponder <UIApplicationDelegate>
+@interface MTGAppDelegate : UIResponder <UIApplicationDelegate, PdReceiverDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

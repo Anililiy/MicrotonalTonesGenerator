@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "PdDispatcher.h"
 #import "SWRevealViewController.h"
+#import "MTGKeyView.h"
 
 
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
     void *patch;
+    MTGKeyView *keyView;
+    NSMutableArray *keyboard;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;

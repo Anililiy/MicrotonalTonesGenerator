@@ -15,13 +15,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [PdBase setDelegate:self];
     
-    _audioController =[[PdAudioController alloc] init];
-    if ([self.audioController configureAmbientWithSampleRate:44100 numberChannels:2 mixingEnabled:YES]!= PdAudioOK) {
-        NSLog(@"failed to initialize audio component");
-    }
+    [self initAudio];
     
     return YES;
+}
+
+- (void)setAudioActive:(BOOL)active {
+	[self.audioController setActive:active];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -54,6 +56,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+-(void)initAudio
+{
+    _audioController = [[PdAudioController alloc] init];
+    PdAudioStatus status = [self.audioController configurePlaybackWithSampleRate:44100 numberChannels:2 inputEnabled:YES mixingEnabled:NO];
+    if (status == PdAudioError) {
+        NSLog(@"failed to initialize audio component");
+    } else if (status == PdAudioPropertyChanged) {
+        NSLog(@"Audio properties changed.");
+    }
+    
 }
 
 @end

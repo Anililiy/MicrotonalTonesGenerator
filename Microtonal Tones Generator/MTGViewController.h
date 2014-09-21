@@ -28,4 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property BOOL creationState;
 
+@property (nonatomic, strong) id numberOfSplitsRequest;
+@property (nonatomic, strong) id frquencyRequest;
+
 @end

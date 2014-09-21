@@ -28,6 +28,8 @@ NSString *const kTestPatchName = @"test2.pd";
 @synthesize creationState;
 @synthesize patches = _patches;
 @synthesize dollarZero = dollarZero_;
+@synthesize numberOfSplitsRequest;
+@synthesize frquencyRequest;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,15 +45,21 @@ NSString *const kTestPatchName = @"test2.pd";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
     //inputed settings
+     NSLog(@"received number of splits %@", [self.numberOfSplitsRequest description]);
+    NSString *numberOfSplitsInp = [self.numberOfSplitsRequest description];
+    numberOfSplits = [numberOfSplitsInp intValue];
     
-    frequency = 440;
-    numberOfSplits = 12;
+    NSLog(@"received frequency %@", [self.frquencyRequest description]);
+    NSString *frequencyInput = [self.frquencyRequest description];
+    frequency = [frequencyInput floatValue];
+    
     hueOfKeys = 0.1;
-    creationState = false;
     
-    //
+    //setting of prog
+    
+    creationState = false;
     numberOfSplits+=1;
     self.patches = [NSMutableArray array];
     

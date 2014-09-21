@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
 
+
 @interface MTGSettingsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UITextField *numberOfSplitsInput;
-@property (weak, nonatomic) IBOutlet UIPickerView *inputFrequency;
+@property NSString *chosenFrequency;
 
+- (IBAction)sendInformation:(id)sender;
+
+@property (nonatomic,retain) UIPopoverController *popoverController;
+- (IBAction)showPopover:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *customFrequency;
 
 @end

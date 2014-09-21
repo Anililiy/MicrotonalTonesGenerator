@@ -36,6 +36,8 @@
 		954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */; };
 		956C6F9B19CEC0C80065F3CE /* test2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 956C6F9A19CEC0C80065F3CE /* test2.pd */; };
 		956C6FA719CECF250065F3CE /* MTGFirstLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */; };
+		956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */; };
+		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
 		95A25C2019C99A8200BA2D75 /* MTGKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A25C1F19C99A8200BA2D75 /* MTGKeyView.m */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 /* End PBXBuildFile section */
@@ -112,6 +114,9 @@
 		956C6F9A19CEC0C80065F3CE /* test2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.pd; sourceTree = "<group>"; };
 		956C6FA519CECF250065F3CE /* MTGFirstLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGFirstLoginViewController.h; path = ../MTGFirstLoginViewController.h; sourceTree = "<group>"; };
 		956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTGFirstLoginViewController.m; path = ../MTGFirstLoginViewController.m; sourceTree = "<group>"; };
+		956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColoursViewController.h; sourceTree = "<group>"; };
+		956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGColoursViewController.m; sourceTree = "<group>"; };
+		956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGColoursViewController.xib; sourceTree = "<group>"; };
 		95A25C1E19C99A8200BA2D75 /* MTGKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGKeyView.h; path = ../MTGKeyView.h; sourceTree = "<group>"; };
 		95A25C1F19C99A8200BA2D75 /* MTGKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTGKeyView.m; path = ../MTGKeyView.m; sourceTree = "<group>"; };
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
@@ -224,8 +229,7 @@
 				951058C019C5BDFF008F5F76 /* Main View */,
 				954B142519C59786008FE21B /* Main.storyboard */,
 				951058C419C5C648008F5F76 /* Note Keys Configuration */,
-				954B142D19C59977008FE21B /* MTGSettingsViewController.h */,
-				954B142E19C59977008FE21B /* MTGSettingsViewController.m */,
+				956C6FA819CED8AE0065F3CE /* Settings */,
 				9510589E19C59BA7008F5F76 /* MTGLoadTableViewController.h */,
 				9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */,
 				956C6FA519CECF250065F3CE /* MTGFirstLoginViewController.h */,
@@ -281,6 +285,18 @@
 				954B141319C4FBE3008FE21B /* libpd-osx.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		956C6FA819CED8AE0065F3CE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				954B142D19C59977008FE21B /* MTGSettingsViewController.h */,
+				954B142E19C59977008FE21B /* MTGSettingsViewController.m */,
+				956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */,
+				956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */,
+				956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +401,7 @@
 			files = (
 				954B142419C4FF9B008FE21B /* tuner.pd in Resources */,
 				95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */,
+				956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */,
 				951058A519C59D74008F5F76 /* menu@2x.png in Resources */,
 				951058A719C5A200008F5F76 /* nav_bg.png in Resources */,
 				956C6F9B19CEC0C80065F3CE /* test2.pd in Resources */,
@@ -417,6 +434,7 @@
 				954B13E919C4F912008FE21B /* main.m in Sources */,
 				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
 				95A25C2019C99A8200BA2D75 /* MTGKeyView.m in Sources */,
+				956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */,
 				951058BE19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,

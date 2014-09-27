@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTGFirstLoginViewController : UIViewController
+@interface MTGFirstLoginViewController : UIViewController{
+    
+    IBOutlet UITextField *nameOfUser;
+    IBOutlet UITextField *defaultFrequencyInp;
+    IBOutlet UITextField *defaultSplitsInp;
+
+}
+
+- (IBAction)save:(id)sender;
 
 @end

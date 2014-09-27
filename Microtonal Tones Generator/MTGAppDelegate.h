@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PdAudioController.h"
 #import "PdBase.h"
+#import "MTGFirstLoginViewController.h"
+
 
 @interface MTGAppDelegate : UIResponder <UIApplicationDelegate, PdReceiverDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong,nonatomic,readonly) PdAudioController *audioController;
+@property (nonatomic) BOOL authenticated;
+
 @end

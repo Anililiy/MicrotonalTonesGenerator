@@ -9,6 +9,8 @@
 #import "MTGViewController.h"
 #import "PdFile.h"
 #import "PdBase.h"
+#import "MTGAppDelegate.h"
+#import "MTGRootViewController.h"
 
 NSString *const kTestPatchName = @"test2.pd";
 
@@ -45,15 +47,22 @@ NSString *const kTestPatchName = @"test2.pd";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
+    frequency = [defaults floatForKey:@"defaultFrequency"];
     
     //inputed settings
-     NSLog(@"received number of splits %@", [self.numberOfSplitsRequest description]);
+    NSLog(@"received number of splits %@", [self.numberOfSplitsRequest description]);
     NSString *numberOfSplitsInp = [self.numberOfSplitsRequest description];
-    numberOfSplits = [numberOfSplitsInp intValue];
-    
+    if ([numberOfSplitsInp intValue]>=1) {
+        numberOfSplits = [numberOfSplitsInp intValue];
+    }
     NSLog(@"received frequency %@", [self.frquencyRequest description]);
     NSString *frequencyInput = [self.frquencyRequest description];
-    frequency = [frequencyInput floatValue];
+    if ([frequencyInput floatValue]>200) {
+        frequency = [frequencyInput floatValue];
+    }
     
     hueOfKeys = 0.1;
     
@@ -89,8 +98,19 @@ NSString *const kTestPatchName = @"test2.pd";
     //control of a start button
     self.startButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:1.0 brightness:0.8 alpha:1];
     [self.startButton addTarget:self action:@selector(startPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
+   ///
+    //
+    if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"initialView"];
+        [initView setModalPresentationStyle:UIModalPresentationFullScreen];
+        [self presentViewController:initView animated:NO completion:nil];
+    } else{
+        // proceed with the profile view
+    }
+
 }
 
 - (void)viewDidUnload {
@@ -104,24 +124,7 @@ NSString *const kTestPatchName = @"test2.pd";
     [super didReceiveMemoryWarning];
 }
 
-
-- (void)buttonClicked:(UIButton*)aButton
-{
-    NSLog(@"Button %ld clicked.", (long int)[aButton tag]);
-
-    float a = powf(2, 1/((float)(numberOfSplits)));
-    float n = (([aButton tag]+40) - 49);
-    float frequencyOfNote = frequency * (powf(a,n));
-    NSLog(@"frequency: %f", frequencyOfNote);
-
-    if (creationState) {
-        [self playNote:frequencyOfNote];
-        //aButton.backgroundColor = [UIColor yellowColor];
-    }
-    else{
-        [self.patches removeAllObjects];
-    }
-}
+#pragma mark - buttons regulation
 
 -(void)startPressed:(UIButton*)button
 {
@@ -159,14 +162,36 @@ NSString *const kTestPatchName = @"test2.pd";
     float saturation = 1.0*(index+1)/((float)numberOfSplits+1);
     aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:1.0 alpha:1.0];
     aButton.frame = CGRectMake(index*divisionOfScreen+(divisionOfScreen-widthOfKey)/2, 100.0, widthOfKey, screenWidth/2);
+    
     [self.view addSubview:aButton];
 
 }
+- (void)buttonClicked:(UIButton*)aButton
+{
+    NSLog(@"Button %ld clicked.", (long int)[aButton tag]);
+    int timesPressed = 1;
+    if (creationState) {
+        [self playNoteLong:calcFreqOfNote([aButton tag],numberOfSplits,frequency)];
+        //aButton.backgroundColor = [UIColor yellowColor];
+    }
+    else{
+        [self.patches removeAllObjects];
+    }
+}
 
+float calcFreqOfNote (int tag, int ns, float f) {
+    
+    float a = powf(2, 1/((float)(ns)));
+    float n = (tag+40) - 49;
+    float frequencyOfNote = f * (powf(a,n));
+    
+    NSLog(@"frequency: %f", frequencyOfNote);
 
+    return frequencyOfNote;
+}
 #pragma mark - button call back
 
--(void)playNote:(int)n{
+-(void)playNoteLong:(int)n{
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
     if (patchOfKey) {
@@ -177,6 +202,36 @@ NSString *const kTestPatchName = @"test2.pd";
         NSLog(@"error: couldn't open patch");
     }
     [PdBase sendFloat:n toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
+}
+-(void)playNoteShort:(int)n{
+    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+    PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
+    if (patchOfKey) {
+        NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
+        
+        [self.patches addObject:patchOfKey];
+    } else {
+        NSLog(@"error: couldn't open patch");
+    }
+    [PdBase sendFloat:n toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
+}
+
+#pragma mark - logout action
+
+- (IBAction)logoutAction:(id)sender {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:false forKey:@"firstRun"];
+    
+    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
+    authObj.authenticated = YES;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"initialView"];
+    [initView setModalPresentationStyle:UIModalPresentationFullScreen];
+    [self presentViewController:initView animated:NO completion:nil];
+    
 }
 
 

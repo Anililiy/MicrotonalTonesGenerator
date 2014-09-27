@@ -24,55 +24,6 @@
  
 */
 
-/*
-
- RELEASE NOTES
- 
- Version 1.1.2 (Current Version)
- 
- - The status bar style and appearance are now handled in sync with the class animations. 
-    You can implement the methods preferredStatusBarStyle and prefersStatusBarHidden on your child controllers to define the desired appearance
-    
- - The loadView method now calls a method, loadStoryboardControllers, just for the purpose of loading child controllers from a storyboard.
-    You can override this method and remove the @try @catch statements if you want the debuger not to stop at them in case you have set an exception breakpoint.
- 
- Version 1.1.1
- 
- - You can now get a tapGestureRecognizer from the class. See the tapGestureRecognizer method for more information.
- 
- - Both the panGestureRecognizer and the tapGestureRecognizer are now attached to the revealViewController's front content view
-    by default, so they will start working just by calling their access methods even if you do not attach them to any of your views.
-    This enables you to dissable interactions on your views -for example based on position- without breaking normal gesture behavior.
- 
- - Corrected a bug that caused a crash on iOS6 and earlier.
- 
- Version 1.1.0
-
- - The method setFrontViewController:animated now performs the correct animations both for left and right controllers.
-
- - The class now automatically handles the status bar appearance depending on the currently shown child controller.
-
- Version 1.0.8
- 
- - Support for constant width frontView by setting a negative value to reveal widths. See properties rearViewRevealWidth and rightViewRevealWidth
- 
- - Support for draggableBorderWidth. See property of the same name.
- 
- - The Pan gesture recongnizer can be disabled by implementing the following delegate method and returning NO
-    revealControllerPanGestureShouldBegin:
-
- - Added the ability to track pan gesture reveal progress through the following new delegate methods
-    revealController:panGestureBeganFromLocation:progress:
-    revealController:panGestureMovedToLocation:progress:
-    revealController:panGestureEndedToLocation:progress:
- 
- Previous Versions
- 
- - No release notes were updated for previous versions.
-
-*/
-
-
 #import <UIKit/UIKit.h>
 
 @class SWRevealViewController;

@@ -7,6 +7,8 @@
 //
 
 #import "MTGFirstLoginViewController.h"
+#import "MTGAppDelegate.h"
+#import "MTGRootViewController.h"
 
 @interface MTGFirstLoginViewController ()
 
@@ -22,6 +24,46 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)save:(id)sender{
+
+    // Hide the keyboard
+    [nameOfUser resignFirstResponder];
+    [defaultFrequencyInp resignFirstResponder];
+    [defaultSplitsInp resignFirstResponder];
+    
+    // Create strings and integer to store the text info
+    NSString *userName = [nameOfUser text];
+    int defNumberOfSplits = [[defaultSplitsInp text] integerValue];
+    float defFrequency = [[defaultFrequencyInp text] floatValue];
+    
+    // Store the data
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:userName forKey:@"userName"];
+    [defaults setInteger:defNumberOfSplits forKey:@"deaultNumberOfSplits"];
+    [defaults setFloat:defFrequency forKey:@"defaultFrequency"];
+    
+    //if (![defaults objectForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
+    [defaults setBool:FALSE forKey:@"firstRun"];
+    
+    [defaults synchronize];
+    
+    NSLog(@"Data saved");
+
+    //[defaults setBool:true forKey:@"firstRun"];
+    //create translation between screens
+    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
+    authObj.authenticated = YES;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+    [initView setModalPresentationStyle:UIModalPresentationFullScreen];
+    [self presentViewController:initView animated:NO completion:nil];
+
+    
 }
 
 /*

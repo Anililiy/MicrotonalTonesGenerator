@@ -36,7 +36,9 @@
     // Create strings and integer to store the text info
     NSString *userName = [nameOfUser text];
     int defNumberOfSplits = [[defaultSplitsInp text] integerValue];
-    float defFrequency = [[defaultFrequencyInp text] floatValue];
+    
+    //float defFrequency = [[defaultFrequencyInp text] floatValue];
+    float defFrequency = [chosenFrequency floatValue];
     
     // Store the data
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -64,6 +66,12 @@
     [self presentViewController:initView animated:NO completion:nil];
 
     
+}
+
+- (IBAction)chooseFreq:(UIButton*)aButton {
+    NSString *buttonName = [aButton titleForState:UIControlStateNormal];
+    chosenFrequency = buttonName;
+    NSLog(@"Frequency inputed : %@", chosenFrequency);
 }
 
 /*

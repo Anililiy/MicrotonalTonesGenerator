@@ -13,7 +13,9 @@
     IBOutlet UITextField *nameOfUser;
     IBOutlet UITextField *defaultFrequencyInp;
     IBOutlet UITextField *defaultSplitsInp;
-
+    IBOutlet UIButton *colorSelector;
+    IBOutletCollection(UIButton) NSArray *defFreqInp;
+    NSString* chosenFrequency;
 }
 
 - (IBAction)save:(id)sender;

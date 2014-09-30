@@ -93,8 +93,9 @@
                          permittedArrowDirections:UIPopoverArrowDirectionUp
                                          animated:YES];
 }
+
 - (IBAction)sendInformation:(id)sender {
-    
+
 }
 
 -(void)createButton:(float)fixedFrequency:(int)yCoordinate{
@@ -115,7 +116,7 @@
 - (void)buttonClicked:(UIButton*)aButton
 {
     NSLog(@"Button %f clicked.", (float)[aButton tag]);
-    customFrequency.text = NULL;
+    //customFrequency.text = NULL;
     chosenFrequency = [NSString stringWithFormat:@"%ld",(long)[aButton tag]];
      NSLog(@"Frequency inputed : %@", chosenFrequency);
     

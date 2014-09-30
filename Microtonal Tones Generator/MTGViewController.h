@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PdDispatcher.h"
 #import "SWRevealViewController.h"
-#import "MTGKeyView.h"
+#import "MTGKey.h"
 
 
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
     void *patch;
-    MTGKeyView *keyView;
+    MTGKey *key;
     NSMutableArray *keyboard;
     
 }
@@ -27,6 +27,7 @@
 @property float hueOfKeys;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property BOOL creationState;
+@property int buttonPressedTimes;
 
 @property (nonatomic, strong) id numberOfSplitsRequest;
 @property (nonatomic, strong) id frquencyRequest;

@@ -32,10 +32,10 @@ NSString *const kTestPatchName = @"test2.pd";
 @synthesize dollarZero = dollarZero_;
 @synthesize numberOfSplitsRequest;
 @synthesize frquencyRequest;
+@synthesize buttonPressedTimes;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -44,35 +44,48 @@ NSString *const kTestPatchName = @"test2.pd";
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
+    
+    // sound creation
+    dispatcher = [[PdDispatcher alloc]init];
+    [PdBase setDelegate:dispatcher];
+    patch = [PdBase openFile:@"KeyNote.pd" path:[[NSBundle mainBundle] resourcePath]];
+    if (!patch) {
+        NSLog(@"Failed to open patch!");
+    }
     //
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
     frequency = [defaults floatForKey:@"defaultFrequency"];
     
     //inputed settings
-    NSLog(@"received number of splits %@", [self.numberOfSplitsRequest description]);
+    
     NSString *numberOfSplitsInp = [self.numberOfSplitsRequest description];
     if ([numberOfSplitsInp intValue]>=1) {
+        NSLog(@"received number of splits %@", [self.numberOfSplitsRequest description]);
         numberOfSplits = [numberOfSplitsInp intValue];
     }
-    NSLog(@"received frequency %@", [self.frquencyRequest description]);
     NSString *frequencyInput = [self.frquencyRequest description];
-    if ([frequencyInput floatValue]>200) {
+    if ([frequencyInput floatValue]>100) {
+        NSLog(@"received frequency %@", [self.frquencyRequest description]);
         frequency = [frequencyInput floatValue];
     }
     
     hueOfKeys = 0.1;
-    
+    buttonPressedTimes = 0;
     //setting of prog
     
     creationState = false;
-    numberOfSplits+=1;
-    self.patches = [NSMutableArray array];
+    //numberOfSplits+=1;
     
-    //change button color
+    _patches = [NSMutableArray array];
+    for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
+    NSLog(@"Patches: %i", [_patches count]);
+    
+    {
+    //change slidebar button color
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
     _savedStatesSlideButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
     
@@ -86,19 +99,16 @@ NSString *const kTestPatchName = @"test2.pd";
     //set the slide bar button action. When it is tapped, it will show up the slidebar.
     _savedStatesSlideButton.target = self.revealViewController;
     _savedStatesSlideButton.action = @selector(rightRevealToggle:);
-    
+    }
     //create an array of buttons
-    for( int i = 0; i < numberOfSplits; i++ ) {
+    for( int i = 0; i <= numberOfSplits; i++ ) {
         [self createButton: i];
     }
-    
-    //set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
+   
     //control of a start button
     self.startButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:1.0 brightness:0.8 alpha:1];
     [self.startButton addTarget:self action:@selector(startPressed:) forControlEvents:UIControlEventTouchUpInside];
-   ///
+    ///
     //
     if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
         
@@ -119,15 +129,13 @@ NSString *const kTestPatchName = @"test2.pd";
     [PdBase setDelegate:nil];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark - buttons regulation
 
--(void)startPressed:(UIButton*)button
-{
+-(void)startPressed:(UIButton*)button{
     if (!creationState){
         [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
         creationState = true;
@@ -137,6 +145,11 @@ NSString *const kTestPatchName = @"test2.pd";
         [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
         creationState = false;
         [self.patches removeAllObjects];
+        for (int i = 0; i<numberOfSplits; i++)
+        {
+            [_patches addObject:@"1"];
+        }
+        NSLog(@"Patches: %i", [_patches count]);
     }
     
 }
@@ -147,8 +160,8 @@ NSString *const kTestPatchName = @"test2.pd";
     CGFloat screenHeight = screenRect.size.height;
     
     // calculate the width of key
-    float widthOfKey = 3*(float)screenHeight / (4*(numberOfSplits));
-    float divisionOfScreen = (float)screenHeight / (numberOfSplits);
+    float widthOfKey = 3*(float)screenHeight / (4*(numberOfSplits+1));
+    float divisionOfScreen = (float)screenHeight / (numberOfSplits+1);
     
     UIButton* aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [aButton setTag:index];
@@ -166,54 +179,61 @@ NSString *const kTestPatchName = @"test2.pd";
     [self.view addSubview:aButton];
 
 }
-- (void)buttonClicked:(UIButton*)aButton
-{
-    NSLog(@"Button %ld clicked.", (long int)[aButton tag]);
-    int timesPressed = 1;
-    if (creationState) {
-        [self playNoteLong:calcFreqOfNote([aButton tag],numberOfSplits,frequency)];
-        //aButton.backgroundColor = [UIColor yellowColor];
+
+- (void)buttonClicked:(UIButton*)aButton{
+    
+    NSLog(@"Button %i clicked.",[aButton tag]);
+    
+    float frequencyOfNote = calcFreqOfNote([aButton tag], numberOfSplits, frequency);
+    
+    if (creationState){
+        if(!aButton.selected) {
+            aButton.selected = true;
+            [self playNoteLong:frequencyOfNote:[aButton tag]];
+        }
+        else{
+            NSLog(@"Patch removed with %i", [aButton tag]);
+            [self.patches removeObjectAtIndex:[aButton tag]];
+            [self.patches insertObject:@"1" atIndex:[aButton tag]];
+            aButton.selected =!aButton.selected;
+        }
     }
     else{
-        [self.patches removeAllObjects];
+        [self playNoteShort:frequencyOfNote];
+        aButton.selected =false;
     }
 }
 
-float calcFreqOfNote (int tag, int ns, float f) {
+float calcFreqOfNote (int tag, int ns, float f){
     
     float a = powf(2, 1/((float)(ns)));
     float n = (tag+40) - 49;
     float frequencyOfNote = f * (powf(a,n));
     
-    NSLog(@"frequency: %f", frequencyOfNote);
+    NSLog(@"frequency calculated: %f", frequencyOfNote);
 
     return frequencyOfNote;
 }
 #pragma mark - button call back
 
--(void)playNoteLong:(int)n{
+-(void)playNoteLong:(int)n:(int)index{
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
     if (patchOfKey) {
         NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
-        
-        [self.patches addObject:patchOfKey];
-    } else {
+        NSLog(@"Patches: %i", [_patches count]);
+
+        [_patches insertObject:patchOfKey atIndex:index];
+    }
+    else {
         NSLog(@"error: couldn't open patch");
     }
     [PdBase sendFloat:n toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
 }
+
 -(void)playNoteShort:(int)n{
-    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
-    PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
-    if (patchOfKey) {
-        NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
-        
-        [self.patches addObject:patchOfKey];
-    } else {
-        NSLog(@"error: couldn't open patch");
-    }
-    [PdBase sendFloat:n toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
+    [PdBase sendFloat:n toReceiver:@"midinote"];
+    [PdBase sendBangToReceiver:@"trigger"];
 }
 
 #pragma mark - logout action
@@ -233,6 +253,5 @@ float calcFreqOfNote (int tag, int ns, float f) {
     [self presentViewController:initView animated:NO completion:nil];
     
 }
-
 
 @end

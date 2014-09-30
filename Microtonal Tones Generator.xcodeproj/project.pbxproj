@@ -8,13 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */; };
-		951058A419C59D74008F5F76 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 951058A219C59D74008F5F76 /* menu.png */; };
-		951058A519C59D74008F5F76 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 951058A319C59D74008F5F76 /* menu@2x.png */; };
-		951058A719C5A200008F5F76 /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 951058A619C5A200008F5F76 /* nav_bg.png */; };
 		951058BB19C5A9CB008F5F76 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951058BA19C5A9CB008F5F76 /* SWRevealViewController.m */; };
 		951058BE19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951058BD19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m */; };
 		95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */; };
 		9540DEE519D6D741001C1CC1 /* MTGRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */; };
+		9540DEFB19D833A3001C1CC1 /* MTGKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540DEFA19D833A3001C1CC1 /* MTGKey.m */; };
+		9540DF0D19DB0C22001C1CC1 /* ETWavesClose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0119DB0C22001C1CC1 /* ETWavesClose.jpg */; };
+		9540DF0E19DB0C22001C1CC1 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0219DB0C22001C1CC1 /* facebook.png */; };
+		9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0319DB0C22001C1CC1 /* menu.png */; };
+		9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0419DB0C22001C1CC1 /* menu@2x.png */; };
+		9540DF1119DB0C22001C1CC1 /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0519DB0C22001C1CC1 /* nav_bg.png */; };
+		9540DF1219DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0619DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg */; };
+		9540DF1319DB0C22001C1CC1 /* spanner-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0719DB0C22001C1CC1 /* spanner-7.png */; };
+		9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0819DB0C22001C1CC1 /* star-7.png */; };
+		9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0919DB0C22001C1CC1 /* test2.pd */; };
+		9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0A19DB0C22001C1CC1 /* tuner.pd */; };
+		9540DF1719DB0C22001C1CC1 /* X-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0B19DB0C22001C1CC1 /* X-2.png */; };
+		9540DF1819DB0C22001C1CC1 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0C19DB0C22001C1CC1 /* x.png */; };
+		9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */; };
+		9540DF1C19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF1B19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png */; };
 		954B13DD19C4F912008FE21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DC19C4F912008FE21B /* Foundation.framework */; };
 		954B13DF19C4F912008FE21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DE19C4F912008FE21B /* CoreGraphics.framework */; };
 		954B13E119C4F912008FE21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13E019C4F912008FE21B /* UIKit.framework */; };
@@ -31,15 +43,12 @@
 		954B141819C4FC78008FE21B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B141719C4FC78008FE21B /* AVFoundation.framework */; };
 		954B141A19C4FC7E008FE21B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B141919C4FC7E008FE21B /* AudioToolbox.framework */; };
 		954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B141C19C4FCB6008FE21B /* MTGViewController.m */; };
-		954B142419C4FF9B008FE21B /* tuner.pd in Resources */ = {isa = PBXBuildFile; fileRef = 954B142319C4FF9B008FE21B /* tuner.pd */; };
 		954B142F19C59977008FE21B /* MTGSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B142E19C59977008FE21B /* MTGSettingsViewController.m */; };
 		954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */; };
-		956C6F9B19CEC0C80065F3CE /* test2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 956C6F9A19CEC0C80065F3CE /* test2.pd */; };
 		956C6FA719CECF250065F3CE /* MTGFirstLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */; };
 		956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */; };
 		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
 		95795F2F19D2F2F3003803C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95795F2E19D2F2F3003803C4 /* Main.storyboard */; };
-		95A25C2019C99A8200BA2D75 /* MTGKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A25C1F19C99A8200BA2D75 /* MTGKeyView.m */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 /* End PBXBuildFile section */
 
@@ -77,9 +86,6 @@
 /* Begin PBXFileReference section */
 		9510589E19C59BA7008F5F76 /* MTGLoadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGLoadTableViewController.h; sourceTree = "<group>"; };
 		9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGLoadTableViewController.m; sourceTree = "<group>"; };
-		951058A219C59D74008F5F76 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
-		951058A319C59D74008F5F76 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
-		951058A619C5A200008F5F76 /* nav_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bg.png; sourceTree = "<group>"; };
 		951058B919C5A9CB008F5F76 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		951058BA19C5A9CB008F5F76 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		951058BC19C5AA93008F5F76 /* MTGSavedStatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGSavedStatesTableViewController.h; path = ../MTGSavedStatesTableViewController.h; sourceTree = "<group>"; };
@@ -87,6 +93,22 @@
 		95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote2.pd; sourceTree = "<group>"; };
 		9540DEE319D6D741001C1CC1 /* MTGRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGRootViewController.h; sourceTree = "<group>"; };
 		9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGRootViewController.m; sourceTree = "<group>"; };
+		9540DEF919D833A3001C1CC1 /* MTGKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGKey.h; sourceTree = "<group>"; };
+		9540DEFA19D833A3001C1CC1 /* MTGKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKey.m; sourceTree = "<group>"; };
+		9540DF0119DB0C22001C1CC1 /* ETWavesClose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ETWavesClose.jpg; sourceTree = "<group>"; };
+		9540DF0219DB0C22001C1CC1 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		9540DF0319DB0C22001C1CC1 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		9540DF0419DB0C22001C1CC1 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		9540DF0519DB0C22001C1CC1 /* nav_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bg.png; sourceTree = "<group>"; };
+		9540DF0619DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Op Art Multicolor Zig Zag One.jpg"; sourceTree = "<group>"; };
+		9540DF0719DB0C22001C1CC1 /* spanner-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spanner-7.png"; sourceTree = "<group>"; };
+		9540DF0819DB0C22001C1CC1 /* star-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-7.png"; sourceTree = "<group>"; };
+		9540DF0919DB0C22001C1CC1 /* test2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.pd; sourceTree = "<group>"; };
+		9540DF0A19DB0C22001C1CC1 /* tuner.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tuner.pd; sourceTree = "<group>"; };
+		9540DF0B19DB0C22001C1CC1 /* X-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "X-2.png"; sourceTree = "<group>"; };
+		9540DF0C19DB0C22001C1CC1 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AlternateWaveforms1.jpg; sourceTree = "<group>"; };
+		9540DF1B19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texto_png_lets_go__by_infinitylovato-d689ee3.png"; sourceTree = "<group>"; };
 		954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Microtonal Tones Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		954B13DC19C4F912008FE21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		954B13DE19C4F912008FE21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,20 +130,16 @@
 		954B141919C4FC7E008FE21B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		954B141B19C4FCB6008FE21B /* MTGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGViewController.h; sourceTree = "<group>"; };
 		954B141C19C4FCB6008FE21B /* MTGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGViewController.m; sourceTree = "<group>"; };
-		954B142319C4FF9B008FE21B /* tuner.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tuner.pd; sourceTree = "<group>"; };
 		954B142D19C59977008FE21B /* MTGSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSettingsViewController.h; sourceTree = "<group>"; };
 		954B142E19C59977008FE21B /* MTGSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSettingsViewController.m; sourceTree = "<group>"; };
 		954B143019C59ABE008FE21B /* MTGSidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSidebarTableViewController.h; sourceTree = "<group>"; };
 		954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSidebarTableViewController.m; sourceTree = "<group>"; };
-		956C6F9A19CEC0C80065F3CE /* test2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.pd; sourceTree = "<group>"; };
 		956C6FA519CECF250065F3CE /* MTGFirstLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGFirstLoginViewController.h; path = ../MTGFirstLoginViewController.h; sourceTree = "<group>"; };
 		956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTGFirstLoginViewController.m; path = ../MTGFirstLoginViewController.m; sourceTree = "<group>"; };
 		956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColoursViewController.h; sourceTree = "<group>"; };
 		956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGColoursViewController.m; sourceTree = "<group>"; };
 		956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGColoursViewController.xib; sourceTree = "<group>"; };
 		95795F2E19D2F2F3003803C4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
-		95A25C1E19C99A8200BA2D75 /* MTGKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGKeyView.h; path = ../MTGKeyView.h; sourceTree = "<group>"; };
-		95A25C1F19C99A8200BA2D75 /* MTGKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTGKeyView.m; path = ../MTGKeyView.m; sourceTree = "<group>"; };
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,10 +204,31 @@
 		951058C419C5C648008F5F76 /* Note Keys Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				95A25C1E19C99A8200BA2D75 /* MTGKeyView.h */,
-				95A25C1F19C99A8200BA2D75 /* MTGKeyView.m */,
+				9540DEF919D833A3001C1CC1 /* MTGKey.h */,
+				9540DEFA19D833A3001C1CC1 /* MTGKey.m */,
 			);
 			name = "Note Keys Configuration";
+			sourceTree = "<group>";
+		};
+		9540DF0019DB0C22001C1CC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9540DF0119DB0C22001C1CC1 /* ETWavesClose.jpg */,
+				9540DF0219DB0C22001C1CC1 /* facebook.png */,
+				9540DF0319DB0C22001C1CC1 /* menu.png */,
+				9540DF0419DB0C22001C1CC1 /* menu@2x.png */,
+				9540DF0519DB0C22001C1CC1 /* nav_bg.png */,
+				9540DF0619DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg */,
+				9540DF0719DB0C22001C1CC1 /* spanner-7.png */,
+				9540DF0819DB0C22001C1CC1 /* star-7.png */,
+				9540DF0919DB0C22001C1CC1 /* test2.pd */,
+				9540DF0A19DB0C22001C1CC1 /* tuner.pd */,
+				9540DF0B19DB0C22001C1CC1 /* X-2.png */,
+				9540DF0C19DB0C22001C1CC1 /* x.png */,
+				9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */,
+				9540DF1B19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		954B13D019C4F912008FE21B = {
@@ -250,11 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				951058B819C5A9CB008F5F76 /* SWRevealViewController */,
-				951058A219C59D74008F5F76 /* menu.png */,
-				951058A319C59D74008F5F76 /* menu@2x.png */,
-				951058A619C5A200008F5F76 /* nav_bg.png */,
-				956C6F9A19CEC0C80065F3CE /* test2.pd */,
-				954B142319C4FF9B008FE21B /* tuner.pd */,
+				9540DF0019DB0C22001C1CC1 /* Supporting Files */,
 				95B581B719C61009007E9510 /* KeyNote.pd */,
 				95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */,
 				954B13E419C4F912008FE21B /* Microtonal Tones Generator-Info.plist */,
@@ -404,16 +439,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				954B142419C4FF9B008FE21B /* tuner.pd in Resources */,
+				9540DF1119DB0C22001C1CC1 /* nav_bg.png in Resources */,
+				9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */,
+				9540DF0D19DB0C22001C1CC1 /* ETWavesClose.jpg in Resources */,
+				9540DF1C19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png in Resources */,
+				9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */,
 				95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */,
 				956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */,
-				951058A519C59D74008F5F76 /* menu@2x.png in Resources */,
-				951058A719C5A200008F5F76 /* nav_bg.png in Resources */,
+				9540DF1219DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg in Resources */,
+				9540DF1819DB0C22001C1CC1 /* x.png in Resources */,
+				9540DF1719DB0C22001C1CC1 /* X-2.png in Resources */,
 				95795F2F19D2F2F3003803C4 /* Main.storyboard in Resources */,
-				956C6F9B19CEC0C80065F3CE /* test2.pd in Resources */,
+				9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */,
+				9540DF1319DB0C22001C1CC1 /* spanner-7.png in Resources */,
+				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
 				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
-				951058A419C59D74008F5F76 /* menu.png in Resources */,
+				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
+				9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */,
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
+				9540DF0E19DB0C22001C1CC1 /* facebook.png in Resources */,
 				954B13EF19C4F912008FE21B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,12 +478,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				951058BB19C5A9CB008F5F76 /* SWRevealViewController.m in Sources */,
+				9540DEFB19D833A3001C1CC1 /* MTGKey.m in Sources */,
 				954B142F19C59977008FE21B /* MTGSettingsViewController.m in Sources */,
 				956C6FA719CECF250065F3CE /* MTGFirstLoginViewController.m in Sources */,
 				954B13E919C4F912008FE21B /* main.m in Sources */,
 				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
 				9540DEE519D6D741001C1CC1 /* MTGRootViewController.m in Sources */,
-				95A25C2019C99A8200BA2D75 /* MTGKeyView.m in Sources */,
 				956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */,
 				951058BE19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,

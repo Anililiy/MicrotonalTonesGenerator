@@ -18,7 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    errorSplit.text = nil;
+    splitInput = false;
+    freqInput = false;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,43 +30,72 @@
 
 - (IBAction)save:(id)sender{
 
-    // Hide the keyboard
-    [nameOfUser resignFirstResponder];
-    [defaultSplitsInp resignFirstResponder];
-    
-    // Create strings and integer to store the text info
-    NSString *userName = [nameOfUser text];
-    int defNumberOfSplits = [[defaultSplitsInp text] integerValue];
-    
-    //float defFrequency = [[defaultFrequencyInp text] floatValue];
-    float defFrequency = [chosenFrequency floatValue];
-    
-    // Store the data
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:userName forKey:@"userName"];
-    [defaults setInteger:defNumberOfSplits forKey:@"deaultNumberOfSplits"];
-    [defaults setFloat:defFrequency forKey:@"defaultFrequency"];
-    
-    //if (![defaults objectForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
-    [defaults setBool:FALSE forKey:@"firstRun"];
-    
-    [defaults synchronize];
-    
-    NSLog(@"Data saved");
+    if (freqInput && splitInput){
+        // Hide the keyboard
+        [nameOfUser resignFirstResponder];
+        [defaultSplitsInp resignFirstResponder];
+        
+        // Create strings and integer to store the text info
+        NSString *userName = [nameOfUser text];
+        int defNumberOfSplits = [[defaultSplitsInp text] integerValue];
 
-    //[defaults setBool:true forKey:@"firstRun"];
-    //create translation between screens
-    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
-    authObj.authenticated = YES;
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"profileView"];
-    [initView setModalPresentationStyle:UIModalPresentationFullScreen];
-    [self presentViewController:initView animated:NO completion:nil];
+        float defFrequency = [chosenFrequency floatValue];
+        
+        // Store the data
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        [defaults setObject:userName forKey:@"userName"];
+        [defaults setInteger:defNumberOfSplits forKey:@"deaultNumberOfSplits"];
+        [defaults setFloat:defFrequency forKey:@"defaultFrequency"];
+        
+        //if (![defaults objectForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
+        [defaults setBool:FALSE forKey:@"firstRun"];
+        
+        [defaults synchronize];
+        
+        NSLog(@"Data saved");
+
+        //[defaults setBool:true forKey:@"firstRun"];
+        //create translation between screens
+        MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
+        authObj.authenticated = YES;
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+        [initView setModalPresentationStyle:UIModalPresentationFullScreen];
+        [self presentViewController:initView animated:NO completion:nil];
+    }
+    else {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                          message:@"Some data is not inputed"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }
 
     
+}
+
+- (IBAction)validateInput:(id)sender {
+    BOOL numberInputOnly = true;
+    char y = [defaultSplitsInp.text characterAtIndex:(defaultSplitsInp.text.length-1)];
+    if (y < '0' || y > '9'){
+        NSLog(@"wrong input");
+        numberInputOnly = false;
+    }
+
+    if (defaultSplitsInp.text.integerValue < 1 || defaultSplitsInp.text.integerValue> 64 || !numberInputOnly){
+        defaultSplitsInp.backgroundColor = [UIColor redColor];
+        splitInput = false;
+        errorSplit.text = @"No! Split is between 1 and 64";
+    }
+    else{
+        defaultSplitsInp.backgroundColor = nil;
+        splitInput = true;
+        errorSplit.text = nil;
+    }
 }
 
 - (IBAction)chooseFreq:(UIButton*)aButton {
@@ -76,8 +107,10 @@
     }
     if (chosenFrequency != buttonName) {
         chosenFrequency = buttonName;
+        freqInput = true;
+        NSLog(@"Frequency selected: %@", chosenFrequency);
     }
-    NSLog(@"Frequency selected: %@", chosenFrequency);
+    
 }
 
 /*

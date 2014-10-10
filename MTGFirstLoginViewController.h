@@ -14,9 +14,13 @@
     IBOutlet UITextField *defaultSplitsInp;
     IBOutlet UIButton *colorSelector;
     IBOutletCollection(UIButton) NSArray *defFreqInp;
+    IBOutlet UILabel *errorSplit;
+    BOOL freqInput;
+    BOOL splitInput;
     NSString* chosenFrequency;
 }
 
 - (IBAction)save:(id)sender;
+- (IBAction)validateInput:(id)sender;
 
 @end

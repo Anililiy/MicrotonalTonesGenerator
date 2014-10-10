@@ -83,11 +83,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPE-qC-v54">
-                                <rect key="frame" x="820" y="229" width="103" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="next"/>
-                            </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jL2-dD-La8">
                                 <rect key="frame" x="847" y="522" width="51" height="31"/>
                             </switch>
@@ -154,6 +149,20 @@
                                     <action selector="chooseFreq:" destination="sTD-DT-Rpo" eventType="touchUpInside" id="Gqf-Ki-5hn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3Yj-xk-6wI">
+                                <rect key="frame" x="820" y="261" width="132" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPE-qC-v54">
+                                <rect key="frame" x="820" y="229" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="validateInput:" destination="sTD-DT-Rpo" eventType="editingChanged" id="NTL-CJ-p5V"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -162,6 +171,7 @@
                     <connections>
                         <outlet property="colorSelector" destination="WTv-yw-lh5" id="ipx-UK-Xod"/>
                         <outlet property="defaultSplitsInp" destination="vPE-qC-v54" id="vUa-IJ-gkd"/>
+                        <outlet property="errorSplit" destination="3Yj-xk-6wI" id="Lsb-kR-MEq"/>
                         <outlet property="nameOfUser" destination="YMd-nz-rR0" id="gTE-gs-Kem"/>
                         <outletCollection property="defFreqInp" destination="r9Y-L8-exl" id="ukw-yP-CPX"/>
                         <outletCollection property="defFreqInp" destination="afk-bc-ycA" id="AOm-fz-Y1d"/>

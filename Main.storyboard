@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -84,11 +83,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOT-aq-tsu">
-                                <rect key="frame" x="886" y="295" width="37" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPE-qC-v54">
                                 <rect key="frame" x="820" y="229" width="103" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -131,7 +125,7 @@
                                 <rect key="frame" x="33" y="0.0" width="316" height="774"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-i0-Gin">
-                                <rect key="frame" x="714" y="296" width="30" height="30"/>
+                                <rect key="frame" x="773" y="296" width="30" height="30"/>
                                 <state key="normal" title="256">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,7 +135,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9Y-L8-exl">
-                                <rect key="frame" x="820" y="296" width="30" height="30"/>
+                                <rect key="frame" x="879" y="296" width="30" height="30"/>
                                 <state key="normal" title="440">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,7 +145,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afk-bc-ycA">
-                                <rect key="frame" x="769" y="296" width="30" height="30"/>
+                                <rect key="frame" x="828" y="296" width="30" height="30"/>
                                 <state key="normal" title="415">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,7 +161,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="colorSelector" destination="WTv-yw-lh5" id="ipx-UK-Xod"/>
-                        <outlet property="defaultFrequencyInp" destination="DOT-aq-tsu" id="eYV-Nq-omr"/>
                         <outlet property="defaultSplitsInp" destination="vPE-qC-v54" id="vUa-IJ-gkd"/>
                         <outlet property="nameOfUser" destination="YMd-nz-rR0" id="gTE-gs-Kem"/>
                         <outletCollection property="defFreqInp" destination="r9Y-L8-exl" id="ukw-yP-CPX"/>

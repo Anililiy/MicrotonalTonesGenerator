@@ -11,7 +11,6 @@
 @interface MTGFirstLoginViewController : UIViewController{
     
     IBOutlet UITextField *nameOfUser;
-    IBOutlet UITextField *defaultFrequencyInp;
     IBOutlet UITextField *defaultSplitsInp;
     IBOutlet UIButton *colorSelector;
     IBOutletCollection(UIButton) NSArray *defFreqInp;

@@ -30,7 +30,6 @@
 
     // Hide the keyboard
     [nameOfUser resignFirstResponder];
-    [defaultFrequencyInp resignFirstResponder];
     [defaultSplitsInp resignFirstResponder];
     
     // Create strings and integer to store the text info
@@ -70,8 +69,15 @@
 
 - (IBAction)chooseFreq:(UIButton*)aButton {
     NSString *buttonName = [aButton titleForState:UIControlStateNormal];
-    chosenFrequency = buttonName;
-    NSLog(@"Frequency inputed : %@", chosenFrequency);
+
+    for (UIButton* button in defFreqInp){
+        if (button == aButton) button.selected = true;
+        else button.selected = false;
+    }
+    if (chosenFrequency != buttonName) {
+        chosenFrequency = buttonName;
+    }
+    NSLog(@"Frequency selected: %@", chosenFrequency);
 }
 
 /*

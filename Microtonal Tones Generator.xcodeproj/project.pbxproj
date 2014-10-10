@@ -271,8 +271,6 @@
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
 				9540DEE319D6D741001C1CC1 /* MTGRootViewController.h */,
 				9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */,
-				956C6FA519CECF250065F3CE /* MTGFirstLoginViewController.h */,
-				956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */,
 				951058C019C5BDFF008F5F76 /* Main View */,
 				951058C419C5C648008F5F76 /* Note Keys Configuration */,
 				956C6FA819CED8AE0065F3CE /* Settings */,
@@ -330,6 +328,8 @@
 		956C6FA819CED8AE0065F3CE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				956C6FA519CECF250065F3CE /* MTGFirstLoginViewController.h */,
+				956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */,
 				954B142D19C59977008FE21B /* MTGSettingsViewController.h */,
 				954B142E19C59977008FE21B /* MTGSettingsViewController.m */,
 				956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */,

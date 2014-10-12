@@ -20,7 +20,10 @@
     NSString* chosenFrequency;
 }
 
+@property (nonatomic,retain) UIPopoverController *popoverController;
+
 - (IBAction)save:(id)sender;
 - (IBAction)validateInput:(id)sender;
+- (IBAction)colorSelection:(id)sender;
 
 @end

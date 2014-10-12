@@ -9,12 +9,15 @@
 #import "MTGFirstLoginViewController.h"
 #import "MTGAppDelegate.h"
 #import "MTGRootViewController.h"
+#import "MTGColoursViewController.h"
 
 @interface MTGFirstLoginViewController ()
 
 @end
 
 @implementation MTGFirstLoginViewController
+
+@synthesize popoverController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,6 +99,18 @@
         splitInput = true;
         errorSplit.text = nil;
     }
+}
+
+- (IBAction)colorSelection:(id)sender {
+    MTGColoursViewController *newViewController = [[MTGColoursViewController alloc] initWithNibName:@"MTGColoursViewController" bundle:nil];
+    
+    
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:newViewController];
+    popoverController.popoverContentSize = CGSizeMake(225.0, 100.0);
+    [popoverController presentPopoverFromRect:[(UIButton *)sender frame]
+                                       inView:self.view
+                     permittedArrowDirections:UIPopoverArrowDirectionRight
+                                     animated:YES];
 }
 
 - (IBAction)chooseFreq:(UIButton*)aButton {

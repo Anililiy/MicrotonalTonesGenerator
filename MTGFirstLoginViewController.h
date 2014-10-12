@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTGColoursViewController.h"
 
-@interface MTGFirstLoginViewController : UIViewController{
+@interface MTGFirstLoginViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>{
     
     IBOutlet UITextField *nameOfUser;
     IBOutlet UITextField *defaultSplitsInp;

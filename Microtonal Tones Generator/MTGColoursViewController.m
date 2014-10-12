@@ -9,7 +9,7 @@
 #import "MTGColoursViewController.h"
 
 @interface MTGColoursViewController ()
-
+@property (nonatomic, strong) NSArray* colorButtons;
 
 @end
 
@@ -17,7 +17,7 @@
 
 @synthesize colours;
 @synthesize colourChosen;
-//@synthesize viewCotroller = _viewCotroller;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,21 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-         for (int i=0;i<12;i++){
-        
-        CGRect rect = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
-        UITapGestureRecognizer *tapGestureRecogniser = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(colorSelected:)];
-
-        UIView *colourView = [[UIView alloc] initWithFrame:rect];
-        float hue = (1/11.0)*(i);
-        colourView.backgroundColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0*i/2 alpha:1.0];
-        [colourView addGestureRecognizer:tapGestureRecogniser];
-        [colours addObject:colourView];
-        //NSLog(@"%@",colours);
-        [self.view addSubview:colourView];
-    }
-   
-    
+    [self createColorsArray];
+    [self setupColorButtons];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,10 +40,69 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)colorSelected:(UITapGestureRecognizer*)tapGestureRecognizer
-{
-    self.view =  (UIView*)[colours objectAtIndex:4];
-    NSLog(@"Color tapped:");
+-(void) createColorsArray{
+    self.colorCollection = [NSArray arrayWithObjects:
+                            [UIColor redColor],
+                            [UIColor orangeColor],
+                            [UIColor yellowColor],
+                            [UIColor purpleColor],
+                            [UIColor greenColor],
+                            [UIColor blueColor],
+                            [UIColor blackColor],
+                            [UIColor brownColor],
+                            [UIColor cyanColor],
+                            [UIColor magentaColor],
+                            [UIColor redColor],
+                            [UIColor redColor],nil];
+}
+
+
+-(void)setupColorButtons{
+    int maxNCol = 12;
+    
+    if (nil == self.colorButtons)
+    {
+        NSMutableArray* newColorButtons = [NSMutableArray arrayWithCapacity:maxNCol];
+        int colorNumber = 0;
+        for (int i=0;i<maxNCol;i++){
+
+            MTGColourButton *colorButton = [MTGColourButton buttonWithType:UIButtonTypeCustom];
+            colorButton.frame = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
+            
+            [colorButton addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [colorButton setSelected:NO];
+            [colorButton setNeedsDisplay];
+            [colorButton setBackgroundColor:[self.colorCollection objectAtIndex:colorNumber]];
+            //[colorButton setHexColor:[self.colorCollection objectAtIndex:colorNumber]];
+            [colorButton setColour:[self.colorCollection objectAtIndex:colorNumber]];
+            colorButton.tag = colorNumber;
+
+            colorNumber ++;
+            [newColorButtons addObject:colorButton];
+            [self.view addSubview:colorButton];
+        }
+        self.colorButtons = [newColorButtons copy];
+
+    }
+    else{
+        for (UIButton* colorButton in self.colorButtons)
+        {
+            int colorNumber = colorButton.tag;
+            
+            int i = colorNumber;
+            colorButton.frame = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
+        }
+    }
+}
+
+
+
+-(void) buttonPushed:(id)sender{
+   
+    MTGColourButton *btn = (MTGColourButton *)sender;
+    btn.selected = true;
+    [delegate colorPopoverControllerDidSelectColor:btn.colourOfScale];
 }
 
 /*

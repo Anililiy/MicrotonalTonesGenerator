@@ -104,7 +104,7 @@
 - (IBAction)colorSelection:(id)sender {
     MTGColoursViewController *newViewController = [[MTGColoursViewController alloc] initWithNibName:@"MTGColoursViewController" bundle:nil];
     
-    
+    newViewController.delegate = self;
     popoverController = [[UIPopoverController alloc] initWithContentViewController:newViewController];
     popoverController.popoverContentSize = CGSizeMake(225.0, 100.0);
     [popoverController presentPopoverFromRect:[(UIButton *)sender frame]
@@ -126,6 +126,14 @@
         NSLog(@"Frequency selected: %@", chosenFrequency);
     }
     
+}
+
+-(void)colorPopoverControllerDidSelectColor:(UIColor*) colour{
+    
+    colorSelector.backgroundColor = colour;
+    [self.view setNeedsDisplay];
+    [popoverController dismissPopoverAnimated:NO];
+    popoverController = nil;
 }
 
 /*

@@ -7,10 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTGColourButton.h"
+
+@class MTGColoursViewController;
+
+@protocol MTGColoursViewControllerDelegate<NSObject>
+
+- (void)colorPopoverControllerDidSelectColor:(UIColor*)colour;
+
+@end
 
 @interface MTGColoursViewController : UIViewController
 
 @property NSMutableArray *colours;
+@property (nonatomic, strong) NSArray *colorCollection;
+
+@property (nonatomic, weak) id <MTGColoursViewControllerDelegate> delegate;
+
 @property float colourChosen;
 
 @end

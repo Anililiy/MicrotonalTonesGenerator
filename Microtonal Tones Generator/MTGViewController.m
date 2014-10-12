@@ -100,7 +100,7 @@ NSString *const kTestPatchName = @"test2.pd";
     }
    
     //control of a start button
-    self.startButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:1.0 brightness:0.8 alpha:1];
+    self.startButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:1.0 brightness:0.8 alpha:1];
     [self.startButton addTarget:self action:@selector(startPressed:) forControlEvents:UIControlEventTouchUpInside];
     ///
     //
@@ -165,11 +165,14 @@ NSString *const kTestPatchName = @"test2.pd";
     
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
-    [aButton setTintColor:[UIColor blackColor]];
+    UIImage *btnImage = [UIImage imageNamed:@"greyButton2.png"];
+    [aButton setImage:btnImage forState:UIControlStateNormal];
+   // [aButton setTintColor:[UIColor blackColor]];
     float saturation = saturOfKeys*(index+1)/((float)numberOfSplits+1);
     float brightnesOfKey = brightOfKey;
     if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
-    aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
+    //aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
+    aButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
     
     aButton.frame = CGRectMake(index*divisionOfScreen+(divisionOfScreen-widthOfKey)/2, 100.0, widthOfKey, screenWidth/2);
     

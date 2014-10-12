@@ -50,6 +50,10 @@
 		956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */; };
 		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
 		95795F2F19D2F2F3003803C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95795F2E19D2F2F3003803C4 /* Main.storyboard */; };
+		95AAB6C719EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png */; };
+		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
+		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
+		95AAB6CE19EB4671002A53F7 /* greyButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CD19EB4671002A53F7 /* greyButton2.png */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +147,10 @@
 		956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGColoursViewController.m; sourceTree = "<group>"; };
 		956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGColoursViewController.xib; sourceTree = "<group>"; };
 		95795F2E19D2F2F3003803C4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		95AAB6C619EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "300px-Button_Icon_White.svg.png"; sourceTree = "<group>"; };
+		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
+		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
+		95AAB6CD19EB4671002A53F7 /* greyButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton2.png; sourceTree = "<group>"; };
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,9 +225,13 @@
 			isa = PBXGroup;
 			children = (
 				9540DF0119DB0C22001C1CC1 /* ETWavesClose.jpg */,
+				95AAB6C619EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png */,
 				9540DF0219DB0C22001C1CC1 /* facebook.png */,
+				95AAB6C919EB431F002A53F7 /* button2.png */,
 				9540DF0319DB0C22001C1CC1 /* menu.png */,
 				9540DF0419DB0C22001C1CC1 /* menu@2x.png */,
+				95AAB6CB19EB445D002A53F7 /* greyButton.png */,
+				95AAB6CD19EB4671002A53F7 /* greyButton2.png */,
 				9540DF0519DB0C22001C1CC1 /* nav_bg.png */,
 				9540DF0619DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg */,
 				9540DF0719DB0C22001C1CC1 /* spanner-7.png */,
@@ -444,6 +456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95AAB6CA19EB431F002A53F7 /* button2.png in Resources */,
 				9540DF1119DB0C22001C1CC1 /* nav_bg.png in Resources */,
 				9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */,
 				9540DF0D19DB0C22001C1CC1 /* ETWavesClose.jpg in Resources */,
@@ -457,8 +470,11 @@
 				95795F2F19D2F2F3003803C4 /* Main.storyboard in Resources */,
 				9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */,
 				9540DF1319DB0C22001C1CC1 /* spanner-7.png in Resources */,
+				95AAB6CE19EB4671002A53F7 /* greyButton2.png in Resources */,
 				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
+				95AAB6C719EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png in Resources */,
 				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
+				95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
 				9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */,
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,

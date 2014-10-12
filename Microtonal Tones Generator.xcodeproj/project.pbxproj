@@ -54,6 +54,10 @@
 		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
 		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
 		95AAB6CE19EB4671002A53F7 /* greyButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CD19EB4671002A53F7 /* greyButton2.png */; };
+		95AAB6D019EB4733002A53F7 /* greyButton3.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CF19EB4733002A53F7 /* greyButton3.png */; };
+		95AAB6D219EB4923002A53F7 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D119EB4923002A53F7 /* transparent.png */; };
+		95AAB6D419EB499D002A53F7 /* pattern.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D319EB499D002A53F7 /* pattern.jpg */; };
+		95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D519EB4B23002A53F7 /* textures_1.jpg */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +155,10 @@
 		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
 		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
 		95AAB6CD19EB4671002A53F7 /* greyButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton2.png; sourceTree = "<group>"; };
+		95AAB6CF19EB4733002A53F7 /* greyButton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton3.png; sourceTree = "<group>"; };
+		95AAB6D119EB4923002A53F7 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent.png; sourceTree = "<group>"; };
+		95AAB6D319EB499D002A53F7 /* pattern.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pattern.jpg; sourceTree = "<group>"; };
+		95AAB6D519EB4B23002A53F7 /* textures_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = textures_1.jpg; sourceTree = "<group>"; };
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,8 +239,12 @@
 				9540DF0319DB0C22001C1CC1 /* menu.png */,
 				9540DF0419DB0C22001C1CC1 /* menu@2x.png */,
 				95AAB6CB19EB445D002A53F7 /* greyButton.png */,
+				95AAB6D519EB4B23002A53F7 /* textures_1.jpg */,
 				95AAB6CD19EB4671002A53F7 /* greyButton2.png */,
 				9540DF0519DB0C22001C1CC1 /* nav_bg.png */,
+				95AAB6CF19EB4733002A53F7 /* greyButton3.png */,
+				95AAB6D119EB4923002A53F7 /* transparent.png */,
+				95AAB6D319EB499D002A53F7 /* pattern.jpg */,
 				9540DF0619DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg */,
 				9540DF0719DB0C22001C1CC1 /* spanner-7.png */,
 				9540DF0819DB0C22001C1CC1 /* star-7.png */,
@@ -460,9 +472,12 @@
 				9540DF1119DB0C22001C1CC1 /* nav_bg.png in Resources */,
 				9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */,
 				9540DF0D19DB0C22001C1CC1 /* ETWavesClose.jpg in Resources */,
+				95AAB6D219EB4923002A53F7 /* transparent.png in Resources */,
 				9540DF1C19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png in Resources */,
 				9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */,
+				95AAB6D019EB4733002A53F7 /* greyButton3.png in Resources */,
 				95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */,
+				95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */,
 				956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */,
 				9540DF1219DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg in Resources */,
 				9540DF1819DB0C22001C1CC1 /* x.png in Resources */,
@@ -472,6 +487,7 @@
 				9540DF1319DB0C22001C1CC1 /* spanner-7.png in Resources */,
 				95AAB6CE19EB4671002A53F7 /* greyButton2.png in Resources */,
 				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
+				95AAB6D419EB499D002A53F7 /* pattern.jpg in Resources */,
 				95AAB6C719EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png in Resources */,
 				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
 				95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */,

@@ -50,6 +50,9 @@
         [defaults setObject:userName forKey:@"userName"];
         [defaults setInteger:defNumberOfSplits forKey:@"deaultNumberOfSplits"];
         [defaults setFloat:defFrequency forKey:@"defaultFrequency"];
+        [defaults setFloat:colourHue forKey:@"initThemeHue"];
+        [defaults setFloat:colourSat forKey:@"initThemeSat"];
+        [defaults setFloat:colourBrg forKey:@"initThemeBrg"];
         
         //if (![defaults objectForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
         [defaults setBool:FALSE forKey:@"firstRun"];
@@ -134,6 +137,15 @@
     [self.view setNeedsDisplay];
     [popoverController dismissPopoverAnimated:NO];
     popoverController = nil;
+    CGFloat hue;
+    CGFloat saturation;
+    CGFloat brightness;
+    CGFloat alpha;
+    BOOL success = [colour getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
+    NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
+    colourHue = hue;
+    colourSat = saturation;
+    colourBrg = brightness;
 }
 
 /*

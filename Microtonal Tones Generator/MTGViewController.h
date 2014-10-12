@@ -17,17 +17,20 @@
     void *patch;
     MTGKey *key;
     NSMutableArray *keyboard;
-    
+    int numberOfSplits;
+    float hueOfKeys;
+    float saturOfKeys;
+    float brightOfKey;
+    BOOL creationState;
+    int buttonPressedTimes;
+    float frequency;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
-@property float frequency;
-@property int numberOfSplits;
-@property float hueOfKeys;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property BOOL creationState;
-@property int buttonPressedTimes;
 
 @property (nonatomic, strong) id numberOfSplitsRequest;
 @property (nonatomic, strong) id frquencyRequest;

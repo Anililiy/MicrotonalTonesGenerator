@@ -19,6 +19,9 @@
     BOOL freqInput;
     BOOL splitInput;
     NSString* chosenFrequency;
+    float colourHue;
+    float colourSat;
+    float colourBrg;
 }
 
 @property (nonatomic,retain) UIPopoverController *popoverController;

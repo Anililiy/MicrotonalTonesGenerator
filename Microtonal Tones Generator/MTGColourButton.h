@@ -10,8 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface MTGColourButton : UIButton
-
-//@property (strong) NSString *hexColor;
 @property UIColor *colourOfScale;
 -(void)setColour:(UIColor *)colour;
 

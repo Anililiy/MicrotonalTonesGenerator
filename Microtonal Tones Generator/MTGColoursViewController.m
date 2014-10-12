@@ -74,7 +74,6 @@
             [colorButton setSelected:NO];
             [colorButton setNeedsDisplay];
             [colorButton setBackgroundColor:[self.colorCollection objectAtIndex:colorNumber]];
-            //[colorButton setHexColor:[self.colorCollection objectAtIndex:colorNumber]];
             [colorButton setColour:[self.colorCollection objectAtIndex:colorNumber]];
             colorButton.tag = colorNumber;
 
@@ -101,7 +100,6 @@
 -(void) buttonPushed:(id)sender{
    
     MTGColourButton *btn = (MTGColourButton *)sender;
-    btn.selected = true;
     [delegate colorPopoverControllerDidSelectColor:btn.colourOfScale];
 }
 

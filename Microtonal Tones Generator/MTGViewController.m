@@ -23,17 +23,11 @@ NSString *const kTestPatchName = @"test2.pd";
 
 @implementation MTGViewController
 
-@synthesize frequency;
-@synthesize numberOfSplits;
-@synthesize hueOfKeys;
 @synthesize startButton;
-@synthesize creationState;
 @synthesize patches = _patches;
 @synthesize dollarZero = dollarZero_;
 @synthesize numberOfSplitsRequest;
 @synthesize frquencyRequest;
-@synthesize buttonPressedTimes;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -73,12 +67,12 @@ NSString *const kTestPatchName = @"test2.pd";
         frequency = [frequencyInput floatValue];
     }
     
-    hueOfKeys = 0.1;
-    buttonPressedTimes = 0;
+    hueOfKeys = [defaults floatForKey:@"initThemeHue"];
+    saturOfKeys = [defaults floatForKey:@"initThemeSat"];
+    brightOfKey = [defaults floatForKey:@"initThemeBrg"];
     //setting of prog
     
     creationState = false;
-    //numberOfSplits+=1;
     
     _patches = [NSMutableArray array];
     for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
@@ -172,8 +166,11 @@ NSString *const kTestPatchName = @"test2.pd";
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
     [aButton setTintColor:[UIColor blackColor]];
-    float saturation = 1.0*(index+1)/((float)numberOfSplits+1);
-    aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:1.0 alpha:1.0];
+    float saturation = saturOfKeys*(index+1)/((float)numberOfSplits+1);
+    float brightnesOfKey = brightOfKey;
+    if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
+    aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
+    
     aButton.frame = CGRectMake(index*divisionOfScreen+(divisionOfScreen-widthOfKey)/2, 100.0, widthOfKey, screenWidth/2);
     
     [self.view addSubview:aButton];

@@ -54,14 +54,12 @@
         [defaults setFloat:colourSat forKey:@"initThemeSat"];
         [defaults setFloat:colourBrg forKey:@"initThemeBrg"];
         
-        //if (![defaults objectForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
-        [defaults setBool:FALSE forKey:@"firstRun"];
+        if (![defaults objectForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
         
         [defaults synchronize];
         
         NSLog(@"Data saved");
 
-        //[defaults setBool:true forKey:@"firstRun"];
         //create translation between screens
         MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
         authObj.authenticated = YES;

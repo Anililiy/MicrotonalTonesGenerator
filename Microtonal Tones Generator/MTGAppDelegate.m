@@ -22,21 +22,10 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     self.authenticated = [defaults boolForKey:@"firstRun"];
-  /*
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([defaults objectForKey:@"firstRun"])
-    {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        SWRevealViewController *initView =  (SWRevealViewController*)[storyboard instantiateViewControllerWithIdentifier:@"initialView"];
-        [initView setModalPresentationStyle:UIModalPresentationFullScreen];
-        [self.viewController presentViewController:initView animated:NO completion:nil];
-         rootViewController =[[SWRevealViewController alloc]init];
-        [self.window setRootViewController:rootViewController];
-    }
+    NSLog(@"Logged in: %hhd", self.authenticated);
     
     [self.window makeKeyAndVisible];
-   */
+   
     return YES;
 }
 

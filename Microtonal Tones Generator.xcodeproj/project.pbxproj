@@ -57,6 +57,7 @@
 		95AAB6D419EB499D002A53F7 /* pattern.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D319EB499D002A53F7 /* pattern.jpg */; };
 		95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D519EB4B23002A53F7 /* textures_1.jpg */; };
 		95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */; };
+		95AAB6E719EE8C88002A53F7 /* goldenrectangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6E619EE8C88002A53F7 /* goldenrectangle.jpg */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +159,7 @@
 		95AAB6D519EB4B23002A53F7 /* textures_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = textures_1.jpg; sourceTree = "<group>"; };
 		95AAB6E319EE8680002A53F7 /* MTGCreateNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGCreateNewViewController.h; sourceTree = "<group>"; };
 		95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGCreateNewViewController.m; sourceTree = "<group>"; };
+		95AAB6E619EE8C88002A53F7 /* goldenrectangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goldenrectangle.jpg; sourceTree = "<group>"; };
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +232,7 @@
 		9540DF0019DB0C22001C1CC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				95AAB6E619EE8C88002A53F7 /* goldenrectangle.jpg */,
 				95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */,
 				9540DF0219DB0C22001C1CC1 /* facebook.png */,
 				95AAB6C919EB431F002A53F7 /* button2.png */,
@@ -507,6 +510,7 @@
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
 				9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */,
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
+				95AAB6E719EE8C88002A53F7 /* goldenrectangle.jpg in Resources */,
 				9540DF0E19DB0C22001C1CC1 /* facebook.png in Resources */,
 				954B13EF19C4F912008FE21B /* Images.xcassets in Resources */,
 			);

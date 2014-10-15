@@ -42,4 +42,17 @@
 */
 
 
+- (IBAction)createIt:(id)sender {
+    
+}
+
+- (IBAction)frequencyInputChanged:(UISlider *)slider {
+    frequency = slider.value;
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.1f Hz", frequency];
+}
+
+- (IBAction)splitInputChanged:(UISlider *)slider{
+    split = slider.value;
+    splitLabel.text = [NSString stringWithFormat:@"%i", split];
+}
 @end

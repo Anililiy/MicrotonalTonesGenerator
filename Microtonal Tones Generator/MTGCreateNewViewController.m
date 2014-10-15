@@ -24,7 +24,12 @@
     
     //set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    // Do any additional setup after loading the view.
+    
+    // init
+    frequency = 440.0;
+    split = 12;
+    splitLabel.text = [NSString stringWithFormat:@"%i", split];
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,15 +49,11 @@
 
 
 - (IBAction)createIt:(id)sender {
-    
-    // Create strings and integer to store the text info
-    
-    float defFrequency = [chosenFrequency floatValue];
-    
+
     // Store the data
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setInteger:split forKey:@"numberOfSplits"];
+    [defaults setInteger:split   forKey:@"numberOfSplits"];
     [defaults setFloat:frequency forKey:@"frequency"];
     [defaults setFloat:colourHue forKey:@"themeHue"];
     [defaults setFloat:colourSat forKey:@"themeSat"];
@@ -105,6 +106,7 @@
     if (chosenFrequency != buttonName) {
         chosenFrequency = buttonName;
         NSLog(@"Frequency selected: %@", chosenFrequency);
+        frequency = [chosenFrequency floatValue];
     }
     
 }

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MTGColoursViewController.h"
 
-@interface MTGCreateNewViewController : UIViewController{
+@interface MTGCreateNewViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>{
 
     IBOutletCollection(UIButton) NSArray *freqButtons;
     IBOutlet UILabel *frequencyLabel;

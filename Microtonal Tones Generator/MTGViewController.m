@@ -56,6 +56,7 @@ NSString *const kTestPatchName = @"test2.pd";
         NSLog(@"Failed to open patch!");
     }
     
+    //setting of prog
     //
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults integerForKey:@"numberOfSplits"]) {
@@ -73,22 +74,9 @@ NSString *const kTestPatchName = @"test2.pd";
         brightOfKey = [defaults floatForKey:@"themeBrg"];
     }
    
-    
-    //inputed settings
-    /*
-    NSString *numberOfSplitsInp = [self.numberOfSplitsRequest description];
-    if ([numberOfSplitsInp intValue]>=1) {
-        NSLog(@"received number of splits %@", [self.numberOfSplitsRequest description]);
-        numberOfSplits = [numberOfSplitsInp intValue];
-    }
-    NSString *frequencyInput = [self.frquencyRequest description];
-    if ([frequencyInput floatValue]>100) {
-        NSLog(@"received frequency %@", [self.frquencyRequest description]);
-        frequency = [frequencyInput floatValue];
-    }
-    */
+    NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
    
-    //setting of prog
+
     
     creationState = false;
     
@@ -148,15 +136,17 @@ NSString *const kTestPatchName = @"test2.pd";
 #pragma mark - buttons regulation
 
 -(void)startPressed:(UIButton*)button{
+    
     if (!creationState){
-        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [startButton setTitle:@"Stop" forState:UIControlStateNormal];
         creationState = true;
     }
     else
     {
-        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+        [startButton setTitle:@"Start" forState:UIControlStateNormal];
         creationState = false;
         [self.patches removeAllObjects];
+        
         for (int i = 0; i<numberOfSplits; i++)
         {
             [_patches addObject:@"1"];
@@ -183,7 +173,7 @@ NSString *const kTestPatchName = @"test2.pd";
     
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
-    UIImage *btnImage = [UIImage imageNamed:@"transparent.png"];
+    //UIImage *btnImage = [UIImage imageNamed:@"transparent.png"];
     //[aButton setImage:btnImage forState:UIControlStateNormal];
     [aButton setTintColor:[UIColor blackColor]];
     float saturation = saturOfKeys*(index+1)/((float)numberOfSplits+1);
@@ -207,7 +197,7 @@ NSString *const kTestPatchName = @"test2.pd";
     if (creationState){
         if(!aButton.selected) {
             aButton.selected = true;
-            [self playNoteLong:frequencyOfNote:[aButton tag]];
+            [self playNoteLong:frequencyOfNote at:[aButton tag]];
         }
         else{
             NSLog(@"Patch removed with %i", [aButton tag]);
@@ -234,7 +224,7 @@ float calcFreqOfNote (int tag, int ns, float f){
 }
 #pragma mark - button call back
 
--(void)playNoteLong:(int)n:(int)index{
+-(void)playNoteLong:(int)n at:(int)index{
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
     if (patchOfKey) {

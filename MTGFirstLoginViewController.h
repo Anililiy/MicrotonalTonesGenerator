@@ -10,7 +10,6 @@
 #import "MTGColoursViewController.h"
 
 @interface MTGFirstLoginViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>{
-    
     IBOutlet UITextField *nameOfUser;
     IBOutlet UITextField *defaultSplitsInp;
     IBOutlet UIButton *colorSelector;

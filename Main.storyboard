@@ -544,20 +544,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U2-91-U2U">
-                                <rect key="frame" x="926" y="644" width="82" height="32"/>
-                                <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmM-NE-Xh2">
-                                <rect key="frame" x="104" y="543" width="218" height="124"/>
+                                <rect key="frame" x="0.0" y="644" width="218" height="124"/>
                                 <fontDescription key="fontDescription" name="TeluguSangamMN" family="Telugu Sangam MN" pointSize="24"/>
                                 <color key="tintColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U2-91-U2U">
+                                <rect key="frame" x="310" y="683" width="82" height="32"/>
+                                <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>

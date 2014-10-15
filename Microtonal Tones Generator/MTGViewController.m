@@ -40,76 +40,6 @@ NSString *const kTestPatchName = @"test2.pd";
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    /*
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"textures_1.jpg"] drawInRect:self.view.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-    */
-    // sound creation
-    dispatcher = [[PdDispatcher alloc]init];
-    [PdBase setDelegate:dispatcher];
-    patch = [PdBase openFile:@"KeyNote.pd" path:[[NSBundle mainBundle] resourcePath]];
-    if (!patch) {
-        NSLog(@"Failed to open patch!");
-    }
-    
-    //setting of prog
-    //
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![defaults integerForKey:@"numberOfSplits"]) {
-        numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
-        frequency = [defaults floatForKey:@"defaultFrequency"];
-        hueOfKeys = [defaults floatForKey:@"initThemeHue"];
-        saturOfKeys = [defaults floatForKey:@"initThemeSat"];
-        brightOfKey = [defaults floatForKey:@"initThemeBrg"];
-    }
-    else{
-        numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
-        frequency = [defaults floatForKey:@"frequency"];
-        hueOfKeys = [defaults floatForKey:@"themeHue"];
-        saturOfKeys = [defaults floatForKey:@"themeSat"];
-        brightOfKey = [defaults floatForKey:@"themeBrg"];
-    }
-   
-    NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
-   
-
-    
-    creationState = false;
-    
-    _patches = [NSMutableArray array];
-    for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
-    NSLog(@"Patches: %i", [_patches count]);
-    
-    {
-    //change slidebar button color
-    _sidebarButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
-    _savedStatesSlideButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
-    
-    //set the slide bar button action. When it is tapped, it will show up the slidebar.
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
-    
-    //set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-    //set the slide bar button action. When it is tapped, it will show up the slidebar.
-    _savedStatesSlideButton.target = self.revealViewController;
-    _savedStatesSlideButton.action = @selector(rightRevealToggle:);
-    }
-    //create an array of buttons
-    for( int i = 0; i <= numberOfSplits; i++ ) {
-        [self createButton: i];
-    }
-   
-    //control of a start button
-    self.startButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:1.0 brightness:0.8 alpha:1];
-    [self.startButton addTarget:self action:@selector(startPressed:) forControlEvents:UIControlEventTouchUpInside];
-    ///
-    //
     if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -117,8 +47,77 @@ NSString *const kTestPatchName = @"test2.pd";
         MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"initialView"];
         [initView setModalPresentationStyle:UIModalPresentationFullScreen];
         [self presentViewController:initView animated:NO completion:nil];
+        
     } else{
-        // proceed with the profile view
+        /*
+         UIGraphicsBeginImageContext(self.view.frame.size);
+         [[UIImage imageNamed:@"textures_1.jpg"] drawInRect:self.view.bounds];
+         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+         UIGraphicsEndImageContext();
+         
+         self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+         */
+        // sound creation
+        dispatcher = [[PdDispatcher alloc]init];
+        [PdBase setDelegate:dispatcher];
+        patch = [PdBase openFile:@"KeyNote.pd" path:[[NSBundle mainBundle] resourcePath]];
+        if (!patch) {
+            NSLog(@"Failed to open patch!");
+        }
+        
+        //setting of prog
+        //
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if (![defaults integerForKey:@"numberOfSplits"]) {
+            numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
+            frequency = [defaults floatForKey:@"defaultFrequency"];
+            hueOfKeys = [defaults floatForKey:@"initThemeHue"];
+            saturOfKeys = [defaults floatForKey:@"initThemeSat"];
+            brightOfKey = [defaults floatForKey:@"initThemeBrg"];
+        }
+        else{
+            numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
+            frequency = [defaults floatForKey:@"frequency"];
+            hueOfKeys = [defaults floatForKey:@"themeHue"];
+            saturOfKeys = [defaults floatForKey:@"themeSat"];
+            brightOfKey = [defaults floatForKey:@"themeBrg"];
+        }
+        
+        NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
+        
+        
+        
+        creationState = false;
+        
+        _patches = [NSMutableArray array];
+        for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
+        NSLog(@"Patches: %i", [_patches count]);
+        
+        {
+            //change slidebar button color
+            _sidebarButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+            _savedStatesSlideButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+            
+            //set the slide bar button action. When it is tapped, it will show up the slidebar.
+            _sidebarButton.target = self.revealViewController;
+            _sidebarButton.action = @selector(revealToggle:);
+            
+            //set the gesture
+            [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+            
+            //set the slide bar button action. When it is tapped, it will show up the slidebar.
+            _savedStatesSlideButton.target = self.revealViewController;
+            _savedStatesSlideButton.action = @selector(rightRevealToggle:);
+        }
+        //create an array of buttons
+        for( int i = 0; i <= numberOfSplits; i++ ) {
+            [self createButton: i];
+        }
+        
+        //control of a start button
+        self.startButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:1.0 brightness:0.8 alpha:1];
+        [self.startButton addTarget:self action:@selector(startPressed:) forControlEvents:UIControlEventTouchUpInside];
+
     }
 
 }
@@ -161,10 +160,6 @@ NSString *const kTestPatchName = @"test2.pd";
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
     
-    // calculate the width of key
-    float widthOfKey = 3*(float)screenHeight / (4*(numberOfSplits+1));
-    float divisionOfScreen = (float)screenHeight / (numberOfSplits+1);
-    
     UIButton* aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [aButton setTag:index];
     
@@ -182,7 +177,23 @@ NSString *const kTestPatchName = @"test2.pd";
     aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
     //aButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:0.5f];
     
-    aButton.frame = CGRectMake(index*divisionOfScreen+(divisionOfScreen-widthOfKey)/2, 100.0, widthOfKey, screenWidth/2);
+    float keyWidth  = 3*screenWidth / (4*(numberOfSplits+1));
+    float keyHeight = screenHeight/2;
+    float divisionOfScreen = screenWidth / (numberOfSplits+1);
+    float xPosition = index*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
+    float yPosition = 100;
+    
+    if (numberOfSplits<=8) {
+        aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
+    }else if (numberOfSplits<=16){
+        
+        aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
+    }else if (numberOfSplits<=24){
+        aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
+    }else if (numberOfSplits<=32){
+        aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
+    }
+    
     
     [self.view addSubview:aButton];
 

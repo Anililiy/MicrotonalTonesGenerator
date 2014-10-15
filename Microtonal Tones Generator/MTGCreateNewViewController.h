@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTGColoursViewController.h"
 
 @interface MTGCreateNewViewController : UIViewController{
 
     IBOutletCollection(UIButton) NSArray *freqButtons;
     IBOutlet UILabel *frequencyLabel;
     IBOutlet UISlider *freqInputSlider;
+    
     IBOutlet UILabel *splitLabel;
     IBOutlet UISlider *splitSlider;
+    
     IBOutlet UIButton *chooseTheme;
-    BOOL splitInputed;
-    BOOL frequInputed;
+   
     NSString* chosenFrequency;
     float frequency;
     int   split;
@@ -27,8 +29,10 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (nonatomic,retain) UIPopoverController *popoverController;
 
 - (IBAction)createIt:(id)sender;
+- (IBAction)showColourPopup:(id)sender;
 - (IBAction)splitInputChanged:(UISlider *)slider;
 - (IBAction)frequencyInputChanged:(UISlider *)slider;
 

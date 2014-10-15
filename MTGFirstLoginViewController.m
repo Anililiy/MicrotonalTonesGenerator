@@ -7,9 +7,9 @@
 //
 
 #import "MTGFirstLoginViewController.h"
+
 #import "MTGAppDelegate.h"
 #import "MTGRootViewController.h"
-#import "MTGColoursViewController.h"
 
 @interface MTGFirstLoginViewController ()
 

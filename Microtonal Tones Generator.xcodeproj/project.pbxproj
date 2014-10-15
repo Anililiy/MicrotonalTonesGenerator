@@ -359,10 +359,7 @@
 				956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */,
 				954B142D19C59977008FE21B /* MTGSettingsViewController.h */,
 				954B142E19C59977008FE21B /* MTGSettingsViewController.m */,
-				956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */,
-				956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */,
-				95112EA219EB11F90015E3F8 /* MTGColourButton.h */,
-				95112EA319EB11F90015E3F8 /* MTGColourButton.m */,
+				95AAB6E819EEA655002A53F7 /* ColourPopup */,
 				956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */,
 			);
 			name = Settings;
@@ -384,6 +381,17 @@
 				951058BD19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m */,
 			);
 			name = "Saved states";
+			sourceTree = "<group>";
+		};
+		95AAB6E819EEA655002A53F7 /* ColourPopup */ = {
+			isa = PBXGroup;
+			children = (
+				956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */,
+				956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */,
+				95112EA219EB11F90015E3F8 /* MTGColourButton.h */,
+				95112EA319EB11F90015E3F8 /* MTGColourButton.m */,
+			);
+			name = ColourPopup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

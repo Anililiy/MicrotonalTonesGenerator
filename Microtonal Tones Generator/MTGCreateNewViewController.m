@@ -14,6 +14,7 @@
 @end
 
 @implementation MTGCreateNewViewController
+@synthesize popoverController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,11 +45,74 @@
 
 - (IBAction)createIt:(id)sender {
     
+    // Create strings and integer to store the text info
+    
+    float defFrequency = [chosenFrequency floatValue];
+    
+    // Store the data
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setInteger:split forKey:@"numberOfSplits"];
+    [defaults setFloat:frequency forKey:@"frequency"];
+    [defaults setFloat:colourHue forKey:@"themeHue"];
+    [defaults setFloat:colourSat forKey:@"themeSat"];
+    [defaults setFloat:colourBrg forKey:@"themeBrg"];
+    
+    [defaults synchronize];
+    
+    NSLog(@"Data saved");
+
+}
+
+- (IBAction)showColourPopup:(id)sender {
+    
+    MTGColoursViewController *newViewController = [[MTGColoursViewController alloc] initWithNibName:@"MTGColoursViewController" bundle:nil];
+    
+    newViewController.delegate = self;
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:newViewController];
+    popoverController.popoverContentSize = CGSizeMake(225.0, 100.0);
+    [popoverController presentPopoverFromRect:[(UIButton *)sender frame]
+                                       inView:self.view
+                     permittedArrowDirections:UIPopoverArrowDirectionRight
+                                     animated:YES];
+
+}
+
+-(void)colorPopoverControllerDidSelectColor:(UIColor*) colour{
+    
+    chooseTheme.backgroundColor = colour;
+    [self.view setNeedsDisplay];
+    [popoverController dismissPopoverAnimated:YES];
+    popoverController = nil;
+    CGFloat hue;
+    CGFloat saturation;
+    CGFloat brightness;
+    CGFloat alpha;
+    BOOL success = [colour getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
+    NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
+    colourHue = hue;
+    colourSat = saturation;
+    colourBrg = brightness;
+}
+
+- (IBAction)chooseFreq:(UIButton*)aButton {
+    NSString *buttonName = [aButton titleForState:UIControlStateNormal];
+    
+    for (UIButton* button in freqButtons){
+        if (button == aButton) button.selected = true;
+        else button.selected = false;
+    }
+    if (chosenFrequency != buttonName) {
+        chosenFrequency = buttonName;
+        NSLog(@"Frequency selected: %@", chosenFrequency);
+    }
+    
 }
 
 - (IBAction)frequencyInputChanged:(UISlider *)slider {
     frequency = slider.value;
-    frequencyLabel.text = [NSString stringWithFormat:@"%4.1f Hz", frequency];
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    for (UIButton* button in freqButtons)button.selected = false;
 }
 
 - (IBAction)splitInputChanged:(UISlider *)slider{

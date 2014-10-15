@@ -55,14 +55,27 @@ NSString *const kTestPatchName = @"test2.pd";
     if (!patch) {
         NSLog(@"Failed to open patch!");
     }
+    
     //
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
-    frequency = [defaults floatForKey:@"defaultFrequency"];
+    if (![defaults integerForKey:@"numberOfSplits"]) {
+        numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
+        frequency = [defaults floatForKey:@"defaultFrequency"];
+        hueOfKeys = [defaults floatForKey:@"initThemeHue"];
+        saturOfKeys = [defaults floatForKey:@"initThemeSat"];
+        brightOfKey = [defaults floatForKey:@"initThemeBrg"];
+    }
+    else{
+        numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
+        frequency = [defaults floatForKey:@"frequency"];
+        hueOfKeys = [defaults floatForKey:@"themeHue"];
+        saturOfKeys = [defaults floatForKey:@"themeSat"];
+        brightOfKey = [defaults floatForKey:@"themeBrg"];
+    }
+   
     
     //inputed settings
-    
+    /*
     NSString *numberOfSplitsInp = [self.numberOfSplitsRequest description];
     if ([numberOfSplitsInp intValue]>=1) {
         NSLog(@"received number of splits %@", [self.numberOfSplitsRequest description]);
@@ -73,10 +86,8 @@ NSString *const kTestPatchName = @"test2.pd";
         NSLog(@"received frequency %@", [self.frquencyRequest description]);
         frequency = [frequencyInput floatValue];
     }
-    
-    hueOfKeys = [defaults floatForKey:@"initThemeHue"];
-    saturOfKeys = [defaults floatForKey:@"initThemeSat"];
-    brightOfKey = [defaults floatForKey:@"initThemeBrg"];
+    */
+   
     //setting of prog
     
     creationState = false;

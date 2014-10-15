@@ -112,7 +112,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-dy-jcp">
                                 <rect key="frame" x="792" y="569" width="180" height="179"/>
-                                <state key="normal" title="Lets go!" image="texto_png_lets_go__by_infinitylovato-d689ee3.png">
+                                <state key="normal" title="Lets go!" image="letsGo.png">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -184,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RuI-cx-4e6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3922" y="428"/>
+            <point key="canvasLocation" x="-3882" y="422"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="thG-iw-bWJ">
@@ -219,10 +219,11 @@
         <scene sceneID="p9x-iX-174">
             <objects>
                 <tableViewController id="k8k-uI-Tfn" customClass="MTGSidebarTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ouV-1u-St7">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="1" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ouV-1u-St7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="title" id="v7M-xO-2k8">
                                 <rect key="frame" x="0.0" y="22" width="768" height="44"/>
@@ -239,11 +240,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="ijD-Df-uuV" kind="custom" customClass="SWRevealViewControllerSegue" id="zuq-O1-uWc"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="load" id="ySJ-46-RRa">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="load" id="ySJ-46-RRa">
                                 <rect key="frame" x="0.0" y="66" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ySJ-46-RRa" id="UI4-Wd-Zum">
@@ -262,7 +264,7 @@
                                     <segue destination="pgH-QK-fhb" kind="custom" customClass="SWRevealViewControllerSegue" id="ByD-xp-f0V"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settings" id="umn-wA-Ezt">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settings" id="umn-wA-Ezt">
                                 <rect key="frame" x="0.0" y="110" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umn-wA-Ezt" id="fKo-ve-ZLu">
@@ -280,7 +282,7 @@
                                     <segue destination="OD0-Hv-wZ2" kind="custom" customClass="SWRevealViewControllerSegue" id="EE0-Qd-u3D"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="new" id="LbJ-fT-x9I">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="new" id="LbJ-fT-x9I">
                                 <rect key="frame" x="0.0" y="154" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LbJ-fT-x9I" id="Y0q-zI-IQr">
@@ -294,33 +296,77 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="5SG-oa-Q8B" kind="custom" customClass="SWRevealViewControllerSegue" id="FW7-m1-LeO"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Log out" id="fxQ-Uz-h9L">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logout" id="fxQ-Uz-h9L">
                                 <rect key="frame" x="0.0" y="154" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxQ-Uz-h9L" id="fcb-aH-iBb">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPk-nI-q1z">
-                                            <rect key="frame" x="25" y="11" width="59" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0P-hB-g25">
+                                            <rect key="frame" x="32" y="-1" width="280" height="46"/>
+                                            <state key="normal" title="Log out">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="logOutAction:" destination="k8k-uI-Tfn" eventType="touchUpInside" id="QGW-zG-tDc"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oDU-d2-PpO">
+                                <rect key="frame" x="0.0" y="154" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oDU-d2-PpO" id="ZPP-1K-cXF">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="k8k-uI-Tfn" id="fTX-EA-0oq"/>
                             <outlet property="delegate" destination="k8k-uI-Tfn" id="nCM-Oo-mjd"/>
                         </connections>
                     </tableView>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzW-T5-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1383" y="-804"/>
+            <point key="canvasLocation" x="-1505" y="-725"/>
+        </scene>
+        <!--Create new scale-->
+        <scene sceneID="Kx1-uc-KIX">
+            <objects>
+                <viewController title="Create new scale" id="5SG-oa-Q8B" customClass="MTGCreateNewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MMw-xI-Y2z"/>
+                        <viewControllerLayoutGuide type="bottom" id="0mR-5N-dyu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Ex-o6-Y0M">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create new scale" id="DtA-kt-mHT">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="bnR-o1-7Bs"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="sidebarButton" destination="bnR-o1-7Bs" id="lnO-8N-6mb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07h-Kl-wZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="-1745"/>
         </scene>
         <!--Title-->
         <scene sceneID="bLh-Ua-feL">
@@ -347,8 +393,9 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="TN5-bN-pEU">
-                        <barButtonItem key="rightBarButtonItem" image="menu.png" id="N9V-rs-SSJ"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="N9V-rs-SSJ"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="sidebarButton" destination="N9V-rs-SSJ" id="O66-R5-Gs6"/>
@@ -356,7 +403,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bho-hL-15n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="-1760"/>
+            <point key="canvasLocation" x="449" y="-824"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ScT-5d-Vwk">
@@ -437,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fo5-iY-xTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298" y="-725"/>
+            <point key="canvasLocation" x="378" y="75"/>
         </scene>
         <!--Scale 1-->
         <scene sceneID="8bb-dI-s3D">
@@ -451,16 +498,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybe-qb-EXM">
-                                <rect key="frame" x="926" y="684" width="82" height="32"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Log out">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutAction:" destination="ijD-Df-uuV" eventType="touchUpInside" id="XEJ-Oe-1kV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U2-91-U2U">
                                 <rect key="frame" x="926" y="644" width="82" height="32"/>
                                 <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
@@ -470,9 +507,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmM-NE-Xh2">
                                 <rect key="frame" x="104" y="543" width="218" height="124"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="TeluguSangamMN" family="Telugu Sangam MN" pointSize="24"/>
                                 <color key="tintColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Start" backgroundImage="button2.png">
+                                <state key="normal" title="Start" backgroundImage="whiteCircButton.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -493,14 +530,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioh-E7-8HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="428"/>
+            <point key="canvasLocation" x="525" y="1268"/>
         </scene>
         <!--Saved States Table View Controller-->
         <scene sceneID="MS6-31-5Uh">
             <objects>
                 <tableViewController id="IEz-Bb-6rm" customClass="MTGSavedStatesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LT6-9e-s56">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -518,6 +555,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="ijD-Df-uuV" kind="custom" trigger="accessoryAction" customClass="SWRevealViewControllerSegue" id="6gs-Gq-1bT"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="state1" id="KfO-M8-xN6">
                                 <rect key="frame" x="0.0" y="66" width="768" height="44"/>
@@ -610,10 +651,11 @@
                         </connections>
                     </tableView>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QG-Sf-MDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2679" y="1480"/>
+            <point key="canvasLocation" x="-527" y="1548"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ItQ-fr-rie">
@@ -632,15 +674,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCK-CO-cRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1383" y="428"/>
+            <point key="canvasLocation" x="-1167" y="612"/>
         </scene>
     </scenes>
     <resources>
         <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
         <image name="X-2.png" width="20" height="20"/>
-        <image name="button2.png" width="399" height="234"/>
+        <image name="letsGo.png" width="500" height="500"/>
         <image name="menu.png" width="28" height="20"/>
-        <image name="texto_png_lets_go__by_infinitylovato-d689ee3.png" width="500" height="500"/>
+        <image name="whiteCircButton.png" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -648,6 +690,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zuq-O1-uWc"/>
+        <segue reference="A6Q-Ie-OyF"/>
     </inferredMetricsTieBreakers>
 </document>

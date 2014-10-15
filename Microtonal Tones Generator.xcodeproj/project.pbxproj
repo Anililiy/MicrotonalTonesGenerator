@@ -14,12 +14,10 @@
 		95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */; };
 		9540DEE519D6D741001C1CC1 /* MTGRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */; };
 		9540DEFB19D833A3001C1CC1 /* MTGKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540DEFA19D833A3001C1CC1 /* MTGKey.m */; };
-		9540DF0D19DB0C22001C1CC1 /* ETWavesClose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0119DB0C22001C1CC1 /* ETWavesClose.jpg */; };
 		9540DF0E19DB0C22001C1CC1 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0219DB0C22001C1CC1 /* facebook.png */; };
 		9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0319DB0C22001C1CC1 /* menu.png */; };
 		9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0419DB0C22001C1CC1 /* menu@2x.png */; };
 		9540DF1119DB0C22001C1CC1 /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0519DB0C22001C1CC1 /* nav_bg.png */; };
-		9540DF1219DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0619DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg */; };
 		9540DF1319DB0C22001C1CC1 /* spanner-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0719DB0C22001C1CC1 /* spanner-7.png */; };
 		9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0819DB0C22001C1CC1 /* star-7.png */; };
 		9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0919DB0C22001C1CC1 /* test2.pd */; };
@@ -27,7 +25,7 @@
 		9540DF1719DB0C22001C1CC1 /* X-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0B19DB0C22001C1CC1 /* X-2.png */; };
 		9540DF1819DB0C22001C1CC1 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0C19DB0C22001C1CC1 /* x.png */; };
 		9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */; };
-		9540DF1C19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF1B19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png */; };
+		9540DF1C19DB0D67001C1CC1 /* letsGo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF1B19DB0D67001C1CC1 /* letsGo.png */; };
 		954B13DD19C4F912008FE21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DC19C4F912008FE21B /* Foundation.framework */; };
 		954B13DF19C4F912008FE21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DE19C4F912008FE21B /* CoreGraphics.framework */; };
 		954B13E119C4F912008FE21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13E019C4F912008FE21B /* UIKit.framework */; };
@@ -50,7 +48,7 @@
 		956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */; };
 		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
 		95795F2F19D2F2F3003803C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95795F2E19D2F2F3003803C4 /* Main.storyboard */; };
-		95AAB6C719EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png */; };
+		95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */; };
 		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
 		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
 		95AAB6CE19EB4671002A53F7 /* greyButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CD19EB4671002A53F7 /* greyButton2.png */; };
@@ -58,6 +56,7 @@
 		95AAB6D219EB4923002A53F7 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D119EB4923002A53F7 /* transparent.png */; };
 		95AAB6D419EB499D002A53F7 /* pattern.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D319EB499D002A53F7 /* pattern.jpg */; };
 		95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D519EB4B23002A53F7 /* textures_1.jpg */; };
+		95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 /* End PBXBuildFile section */
 
@@ -106,12 +105,10 @@
 		9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGRootViewController.m; sourceTree = "<group>"; };
 		9540DEF919D833A3001C1CC1 /* MTGKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGKey.h; sourceTree = "<group>"; };
 		9540DEFA19D833A3001C1CC1 /* MTGKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKey.m; sourceTree = "<group>"; };
-		9540DF0119DB0C22001C1CC1 /* ETWavesClose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ETWavesClose.jpg; sourceTree = "<group>"; };
 		9540DF0219DB0C22001C1CC1 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		9540DF0319DB0C22001C1CC1 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		9540DF0419DB0C22001C1CC1 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		9540DF0519DB0C22001C1CC1 /* nav_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bg.png; sourceTree = "<group>"; };
-		9540DF0619DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Op Art Multicolor Zig Zag One.jpg"; sourceTree = "<group>"; };
 		9540DF0719DB0C22001C1CC1 /* spanner-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spanner-7.png"; sourceTree = "<group>"; };
 		9540DF0819DB0C22001C1CC1 /* star-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-7.png"; sourceTree = "<group>"; };
 		9540DF0919DB0C22001C1CC1 /* test2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.pd; sourceTree = "<group>"; };
@@ -119,7 +116,7 @@
 		9540DF0B19DB0C22001C1CC1 /* X-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "X-2.png"; sourceTree = "<group>"; };
 		9540DF0C19DB0C22001C1CC1 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AlternateWaveforms1.jpg; sourceTree = "<group>"; };
-		9540DF1B19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texto_png_lets_go__by_infinitylovato-d689ee3.png"; sourceTree = "<group>"; };
+		9540DF1B19DB0D67001C1CC1 /* letsGo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letsGo.png; sourceTree = "<group>"; };
 		954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Microtonal Tones Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		954B13DC19C4F912008FE21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		954B13DE19C4F912008FE21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,7 +148,7 @@
 		956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGColoursViewController.m; sourceTree = "<group>"; };
 		956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGColoursViewController.xib; sourceTree = "<group>"; };
 		95795F2E19D2F2F3003803C4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
-		95AAB6C619EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "300px-Button_Icon_White.svg.png"; sourceTree = "<group>"; };
+		95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteCircButton.png; sourceTree = "<group>"; };
 		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
 		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
 		95AAB6CD19EB4671002A53F7 /* greyButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton2.png; sourceTree = "<group>"; };
@@ -159,6 +156,8 @@
 		95AAB6D119EB4923002A53F7 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent.png; sourceTree = "<group>"; };
 		95AAB6D319EB499D002A53F7 /* pattern.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pattern.jpg; sourceTree = "<group>"; };
 		95AAB6D519EB4B23002A53F7 /* textures_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = textures_1.jpg; sourceTree = "<group>"; };
+		95AAB6E319EE8680002A53F7 /* MTGCreateNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGCreateNewViewController.h; sourceTree = "<group>"; };
+		95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGCreateNewViewController.m; sourceTree = "<group>"; };
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,10 +201,10 @@
 		951058BF19C5BBC8008F5F76 /* Slidebars */ = {
 			isa = PBXGroup;
 			children = (
-				954B143019C59ABE008FE21B /* MTGSidebarTableViewController.h */,
-				954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */,
-				951058BC19C5AA93008F5F76 /* MTGSavedStatesTableViewController.h */,
-				951058BD19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m */,
+				95AAB6E319EE8680002A53F7 /* MTGCreateNewViewController.h */,
+				95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */,
+				95AAB6DB19ED5584002A53F7 /* Main Menu */,
+				95AAB6DD19ED55AA002A53F7 /* Saved states */,
 			);
 			name = Slidebars;
 			sourceTree = "<group>";
@@ -215,7 +214,6 @@
 			children = (
 				954B141B19C4FCB6008FE21B /* MTGViewController.h */,
 				954B141C19C4FCB6008FE21B /* MTGViewController.m */,
-				95795F2E19D2F2F3003803C4 /* Main.storyboard */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -232,8 +230,7 @@
 		9540DF0019DB0C22001C1CC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9540DF0119DB0C22001C1CC1 /* ETWavesClose.jpg */,
-				95AAB6C619EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png */,
+				95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */,
 				9540DF0219DB0C22001C1CC1 /* facebook.png */,
 				95AAB6C919EB431F002A53F7 /* button2.png */,
 				9540DF0319DB0C22001C1CC1 /* menu.png */,
@@ -245,7 +242,6 @@
 				95AAB6CF19EB4733002A53F7 /* greyButton3.png */,
 				95AAB6D119EB4923002A53F7 /* transparent.png */,
 				95AAB6D319EB499D002A53F7 /* pattern.jpg */,
-				9540DF0619DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg */,
 				9540DF0719DB0C22001C1CC1 /* spanner-7.png */,
 				9540DF0819DB0C22001C1CC1 /* star-7.png */,
 				9540DF0919DB0C22001C1CC1 /* test2.pd */,
@@ -253,7 +249,7 @@
 				9540DF0B19DB0C22001C1CC1 /* X-2.png */,
 				9540DF0C19DB0C22001C1CC1 /* x.png */,
 				9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */,
-				9540DF1B19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png */,
+				9540DF1B19DB0D67001C1CC1 /* letsGo.png */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -298,6 +294,7 @@
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
 				9540DEE319D6D741001C1CC1 /* MTGRootViewController.h */,
 				9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */,
+				95795F2E19D2F2F3003803C4 /* Main.storyboard */,
 				951058C019C5BDFF008F5F76 /* Main View */,
 				951058C419C5C648008F5F76 /* Note Keys Configuration */,
 				956C6FA819CED8AE0065F3CE /* Settings */,
@@ -366,6 +363,24 @@
 				956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		95AAB6DB19ED5584002A53F7 /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				954B143019C59ABE008FE21B /* MTGSidebarTableViewController.h */,
+				954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */,
+			);
+			name = "Main Menu";
+			sourceTree = "<group>";
+		};
+		95AAB6DD19ED55AA002A53F7 /* Saved states */ = {
+			isa = PBXGroup;
+			children = (
+				951058BC19C5AA93008F5F76 /* MTGSavedStatesTableViewController.h */,
+				951058BD19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m */,
+			);
+			name = "Saved states";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,15 +486,13 @@
 				95AAB6CA19EB431F002A53F7 /* button2.png in Resources */,
 				9540DF1119DB0C22001C1CC1 /* nav_bg.png in Resources */,
 				9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */,
-				9540DF0D19DB0C22001C1CC1 /* ETWavesClose.jpg in Resources */,
 				95AAB6D219EB4923002A53F7 /* transparent.png in Resources */,
-				9540DF1C19DB0D67001C1CC1 /* texto_png_lets_go__by_infinitylovato-d689ee3.png in Resources */,
+				9540DF1C19DB0D67001C1CC1 /* letsGo.png in Resources */,
 				9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */,
 				95AAB6D019EB4733002A53F7 /* greyButton3.png in Resources */,
 				95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */,
 				95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */,
 				956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */,
-				9540DF1219DB0C22001C1CC1 /* Op Art Multicolor Zig Zag One.jpg in Resources */,
 				9540DF1819DB0C22001C1CC1 /* x.png in Resources */,
 				9540DF1719DB0C22001C1CC1 /* X-2.png in Resources */,
 				95795F2F19D2F2F3003803C4 /* Main.storyboard in Resources */,
@@ -488,7 +501,7 @@
 				95AAB6CE19EB4671002A53F7 /* greyButton2.png in Resources */,
 				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
 				95AAB6D419EB499D002A53F7 /* pattern.jpg in Resources */,
-				95AAB6C719EB40DB002A53F7 /* 300px-Button_Icon_White.svg.png in Resources */,
+				95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */,
 				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
 				95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
@@ -522,6 +535,7 @@
 				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
 				95112EA419EB11F90015E3F8 /* MTGColourButton.m in Sources */,
 				9540DEE519D6D741001C1CC1 /* MTGRootViewController.m in Sources */,
+				95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */,
 				956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */,
 				951058BE19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,

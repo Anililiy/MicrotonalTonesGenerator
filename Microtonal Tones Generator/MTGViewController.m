@@ -173,13 +173,13 @@ NSString *const kTestPatchName = @"test2.pd";
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
     UIImage *btnImage = [UIImage imageNamed:@"transparent.png"];
-    [aButton setImage:btnImage forState:UIControlStateNormal];
-   // [aButton setTintColor:[UIColor blackColor]];
+    //[aButton setImage:btnImage forState:UIControlStateNormal];
+    [aButton setTintColor:[UIColor blackColor]];
     float saturation = saturOfKeys*(index+1)/((float)numberOfSplits+1);
     float brightnesOfKey = brightOfKey;
     if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
-    //aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
-    aButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:0.5f];
+    aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
+    //aButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:0.5f];
     
     aButton.frame = CGRectMake(index*divisionOfScreen+(divisionOfScreen-widthOfKey)/2, 100.0, widthOfKey, screenWidth/2);
     
@@ -241,24 +241,6 @@ float calcFreqOfNote (int tag, int ns, float f){
 -(void)playNoteShort:(int)n{
     [PdBase sendFloat:n toReceiver:@"midinote"];
     [PdBase sendBangToReceiver:@"trigger"];
-}
-
-#pragma mark - logout action
-
-- (IBAction)logoutAction:(id)sender {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:false forKey:@"firstRun"];
-    
-    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
-    authObj.authenticated = YES;
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"initialView"];
-    [initView setModalPresentationStyle:UIModalPresentationFullScreen];
-    [self presentViewController:initView animated:NO completion:nil];
-    
 }
 
 @end

@@ -11,4 +11,6 @@
 
 @interface MTGSidebarTableViewController : UITableViewController
 
+- (IBAction)logOutAction:(id)sender;
+
 @end

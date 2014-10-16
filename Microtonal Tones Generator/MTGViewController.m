@@ -90,7 +90,7 @@ NSString *const kTestPatchName = @"test2.pd";
         creationState = false;
         
         _patches = [NSMutableArray array];
-        for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
+        for (int i = 0; i<=numberOfSplits; i++)[_patches addObject:@"1"];
         NSLog(@"Patches: %i", [_patches count]);
         
         {
@@ -177,23 +177,23 @@ NSString *const kTestPatchName = @"test2.pd";
     aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
     //aButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:0.5f];
     
-    float keyWidth  = 3*screenWidth / (4*(numberOfSplits+1));
-    float keyHeight = screenHeight/2;
-    float divisionOfScreen = screenWidth / (numberOfSplits+1);
-    float xPosition = index*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
-    float yPosition = 100;
+    float keyWidth  = 3*screenWidth / (4*((numberOfSplits%8+1)));
+    float keyHeight = screenHeight/(2*(numberOfSplits/8+1));
+    float divisionOfScreen = screenWidth / ((numberOfSplits%8)+1);
+    float xPosition = (index%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
+    float yPosition = 100+(index/8)*(keyHeight+50);
     
     if (numberOfSplits<=8) {
+
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }else if (numberOfSplits<=16){
-        
+       
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }else if (numberOfSplits<=24){
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }else if (numberOfSplits<=32){
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }
-    
     
     [self.view addSubview:aButton];
 

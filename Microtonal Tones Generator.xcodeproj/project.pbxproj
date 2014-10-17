@@ -58,6 +58,15 @@
 		95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6D519EB4B23002A53F7 /* textures_1.jpg */; };
 		95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */; };
 		95AAB6E719EE8C88002A53F7 /* goldenrectangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6E619EE8C88002A53F7 /* goldenrectangle.jpg */; };
+		95AAB6EA19F018A3002A53F7 /* arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6E919F018A3002A53F7 /* arrow2.png */; };
+		95AAB6EC19F018AA002A53F7 /* Simply_Beautiful_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6EB19F018AA002A53F7 /* Simply_Beautiful_Button.png */; };
+		95AAB6EE19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6ED19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png */; };
+		95AAB6F019F018B5002A53F7 /* Simply_Beautiful_Swirly_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6EF19F018B5002A53F7 /* Simply_Beautiful_Swirly_Button.png */; };
+		95AAB6F219F018BD002A53F7 /* Swirl_Funky_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6F119F018BD002A53F7 /* Swirl_Funky_2.png */; };
+		95AAB6F419F018C4002A53F7 /* Swirl_Funky_1_Earthy.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6F319F018C4002A53F7 /* Swirl_Funky_1_Earthy.png */; };
+		95AAB6F619F018F4002A53F7 /* arrow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6F519F018F4002A53F7 /* arrow1.png */; };
+		95AAB70119F02245002A53F7 /* arrow1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6FF19F02245002A53F7 /* arrow1-1.png */; };
+		95AAB70219F02245002A53F7 /* arrow2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB70019F02245002A53F7 /* arrow2-1.png */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +169,15 @@
 		95AAB6E319EE8680002A53F7 /* MTGCreateNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGCreateNewViewController.h; sourceTree = "<group>"; };
 		95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGCreateNewViewController.m; sourceTree = "<group>"; };
 		95AAB6E619EE8C88002A53F7 /* goldenrectangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goldenrectangle.jpg; sourceTree = "<group>"; };
+		95AAB6E919F018A3002A53F7 /* arrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow2.png; sourceTree = "<group>"; };
+		95AAB6EB19F018AA002A53F7 /* Simply_Beautiful_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Simply_Beautiful_Button.png; sourceTree = "<group>"; };
+		95AAB6ED19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Simply_Beautiful_Flower_Button.png; sourceTree = "<group>"; };
+		95AAB6EF19F018B5002A53F7 /* Simply_Beautiful_Swirly_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Simply_Beautiful_Swirly_Button.png; sourceTree = "<group>"; };
+		95AAB6F119F018BD002A53F7 /* Swirl_Funky_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swirl_Funky_2.png; sourceTree = "<group>"; };
+		95AAB6F319F018C4002A53F7 /* Swirl_Funky_1_Earthy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swirl_Funky_1_Earthy.png; sourceTree = "<group>"; };
+		95AAB6F519F018F4002A53F7 /* arrow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow1.png; sourceTree = "<group>"; };
+		95AAB6FF19F02245002A53F7 /* arrow1-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow1-1.png"; sourceTree = "<group>"; };
+		95AAB70019F02245002A53F7 /* arrow2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow2-1.png"; sourceTree = "<group>"; };
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +250,15 @@
 		9540DF0019DB0C22001C1CC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				95AAB6F519F018F4002A53F7 /* arrow1.png */,
+				95AAB6E919F018A3002A53F7 /* arrow2.png */,
+				95AAB6FF19F02245002A53F7 /* arrow1-1.png */,
+				95AAB70019F02245002A53F7 /* arrow2-1.png */,
+				95AAB6EB19F018AA002A53F7 /* Simply_Beautiful_Button.png */,
+				95AAB6ED19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png */,
+				95AAB6EF19F018B5002A53F7 /* Simply_Beautiful_Swirly_Button.png */,
+				95AAB6F119F018BD002A53F7 /* Swirl_Funky_2.png */,
+				95AAB6F319F018C4002A53F7 /* Swirl_Funky_1_Earthy.png */,
 				95AAB6E619EE8C88002A53F7 /* goldenrectangle.jpg */,
 				95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */,
 				9540DF0219DB0C22001C1CC1 /* facebook.png */,
@@ -495,13 +522,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				95AAB6CA19EB431F002A53F7 /* button2.png in Resources */,
+				95AAB6F419F018C4002A53F7 /* Swirl_Funky_1_Earthy.png in Resources */,
 				9540DF1119DB0C22001C1CC1 /* nav_bg.png in Resources */,
+				95AAB6F619F018F4002A53F7 /* arrow1.png in Resources */,
 				9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */,
 				95AAB6D219EB4923002A53F7 /* transparent.png in Resources */,
 				9540DF1C19DB0D67001C1CC1 /* letsGo.png in Resources */,
+				95AAB6EC19F018AA002A53F7 /* Simply_Beautiful_Button.png in Resources */,
 				9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */,
 				95AAB6D019EB4733002A53F7 /* greyButton3.png in Resources */,
+				95AAB6F019F018B5002A53F7 /* Simply_Beautiful_Swirly_Button.png in Resources */,
+				95AAB70119F02245002A53F7 /* arrow1-1.png in Resources */,
 				95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */,
+				95AAB6EA19F018A3002A53F7 /* arrow2.png in Resources */,
 				95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */,
 				956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */,
 				9540DF1819DB0C22001C1CC1 /* x.png in Resources */,
@@ -509,11 +542,14 @@
 				95795F2F19D2F2F3003803C4 /* Main.storyboard in Resources */,
 				9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */,
 				9540DF1319DB0C22001C1CC1 /* spanner-7.png in Resources */,
+				95AAB6F219F018BD002A53F7 /* Swirl_Funky_2.png in Resources */,
 				95AAB6CE19EB4671002A53F7 /* greyButton2.png in Resources */,
 				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
 				95AAB6D419EB499D002A53F7 /* pattern.jpg in Resources */,
 				95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */,
+				95AAB70219F02245002A53F7 /* arrow2-1.png in Resources */,
 				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
+				95AAB6EE19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png in Resources */,
 				95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
 				9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */,

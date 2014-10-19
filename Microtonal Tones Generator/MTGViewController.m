@@ -13,12 +13,12 @@
 #import "MTGRootViewController.h"
 
 NSString *const kTestPatchName = @"test2.pd";
+NSString *const kShortPatchName =@"KeyNote.pd";
 
 @interface MTGViewController ()
 
 @property (nonatomic, retain) NSMutableArray *patches;
 @property (nonatomic, assign) int dollarZero;
-
 @end
 
 @implementation MTGViewController
@@ -26,12 +26,23 @@ NSString *const kTestPatchName = @"test2.pd";
 @synthesize startButton;
 @synthesize patches = _patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize numberOfSplitsRequest;
-@synthesize frquencyRequest;
+
+float calcFreqOfNote (int position, int splits, float f0){
+    
+    float a = powf(2, 1/((float)(splits)));
+    //float n = (tag+40) - 49;
+    float n = position;
+    float frequencyOfNote = f0 * (powf(a,n));
+    
+    NSLog(@"frequency calculated: %f", frequencyOfNote);
+    
+    return frequencyOfNote;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // Custom initialization
         
     }
@@ -57,14 +68,6 @@ NSString *const kTestPatchName = @"test2.pd";
          
          self.view.backgroundColor = [UIColor colorWithPatternImage:image];
          */
-        // sound creation
-        dispatcher = [[PdDispatcher alloc]init];
-        [PdBase setDelegate:dispatcher];
-        patch = [PdBase openFile:@"KeyNote.pd" path:[[NSBundle mainBundle] resourcePath]];
-        if (!patch) {
-            NSLog(@"Failed to open patch!");
-        }
-        
         //setting of prog
         //
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -82,15 +85,21 @@ NSString *const kTestPatchName = @"test2.pd";
             saturOfKeys = [defaults floatForKey:@"themeSat"];
             brightOfKey = [defaults floatForKey:@"themeBrg"];
         }
-        
+
         NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
-        
-        
-        
         creationState = false;
-        
+        scale = [[MTGSavedScale alloc] init];
+        // sound creation
+        dispatcher = [[PdDispatcher alloc]init];
+        [PdBase setDelegate:dispatcher];
+        patch = [PdBase openFile:kShortPatchName path:[[NSBundle mainBundle] resourcePath]];
+        if (!patch) {
+            NSLog(@"Failed to open patch!");
+        }
         _patches = [NSMutableArray array];
-        for (int i = 0; i<=numberOfSplits; i++)[_patches addObject:@"1"];
+        keyboard = [NSMutableArray array];
+        scales = [NSMutableArray array];
+        for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
         NSLog(@"Patches: %i", [_patches count]);
         
         {
@@ -117,7 +126,6 @@ NSString *const kTestPatchName = @"test2.pd";
         //control of a start button
         self.startButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:1.0 brightness:0.8 alpha:1];
         [self.startButton addTarget:self action:@selector(startPressed:) forControlEvents:UIControlEventTouchUpInside];
-
     }
 
 }
@@ -144,6 +152,11 @@ NSString *const kTestPatchName = @"test2.pd";
     {
         [startButton setTitle:@"Start" forState:UIControlStateNormal];
         creationState = false;
+        
+        for(UIButton* button in keyboard){
+            button.selected = false;
+        }
+        
         [self.patches removeAllObjects];
         
         for (int i = 0; i<numberOfSplits; i++)
@@ -177,24 +190,40 @@ NSString *const kTestPatchName = @"test2.pd";
     aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
     //aButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:0.5f];
     
-    float keyWidth  = 3*screenWidth / (4*((numberOfSplits%8+1)));
+    //x values
+    float keyWidth  = 3*screenWidth / (4*(((numberOfSplits+1))));
     float keyHeight = screenHeight/(2*(numberOfSplits/8+1));
-    float divisionOfScreen = screenWidth / ((numberOfSplits%8)+1);
+    float divisionOfScreen = screenWidth / ((numberOfSplits)+1);
     float xPosition = (index%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
-    float yPosition = 100+(index/8)*(keyHeight+50);
+    float yPosition = 100+(index/8)*(keyHeight+10);
+    int n;
+   // NSLog(@"Number %i",n);
     
     if (numberOfSplits<=8) {
-
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }else if (numberOfSplits<=16){
-       
+        n = numberOfSplits/2;
+        keyWidth  = 3*screenWidth / (4*(((n+1))));
+        divisionOfScreen = screenWidth/(n+2);
+        yPosition = 100+((index-1)/8)*(keyHeight+10);
+        xPosition = ((index-1)%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }else if (numberOfSplits<=24){
+        n = numberOfSplits/3;
+        keyWidth  = 3*screenWidth / (4*(((n+2))));
+        divisionOfScreen = screenWidth / ((n)+3);
+        xPosition = (index%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }else if (numberOfSplits<=32){
+        n = numberOfSplits/4;
+        keyWidth  = 3*screenWidth / (4*(((n+3))));
+        divisionOfScreen = screenWidth / ((n)+4);
+        xPosition = (index%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }
     
+    [keyboard addObject:aButton];
+    // NSLog(@"%@", keyboard);
     [self.view addSubview:aButton];
 
 }
@@ -219,20 +248,10 @@ NSString *const kTestPatchName = @"test2.pd";
     }
     else{
         [self playNoteShort:frequencyOfNote];
-        aButton.selected =false;
+        aButton.selected = false;
     }
 }
 
-float calcFreqOfNote (int tag, int ns, float f){
-    
-    float a = powf(2, 1/((float)(ns)));
-    float n = (tag+40) - 49;
-    float frequencyOfNote = f * (powf(a,n));
-    
-    NSLog(@"frequency calculated: %f", frequencyOfNote);
-
-    return frequencyOfNote;
-}
 #pragma mark - button call back
 
 -(void)playNoteLong:(int)n at:(int)index{
@@ -255,4 +274,21 @@ float calcFreqOfNote (int tag, int ns, float f){
     [PdBase sendBangToReceiver:@"trigger"];
 }
 
+- (IBAction)rightArrowPressed:(id)sender {
+    if (frequency<=600) frequency =2*frequency;
+}
+
+- (IBAction)leftArrowPressed:(id)sender {
+    if (frequency>100) frequency=frequency/2;
+
+}
+
+- (IBAction)saveScale:(id)sender {
+
+    [scale saveFrequency:frequency];
+    [scale saveSplits:numberOfSplits];
+    [scales addObject:scale];
+    NSLog(@"%@",scales);
+    
+}
 @end

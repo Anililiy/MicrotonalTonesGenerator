@@ -44,6 +44,7 @@
 		954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B141C19C4FCB6008FE21B /* MTGViewController.m */; };
 		954B142F19C59977008FE21B /* MTGSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B142E19C59977008FE21B /* MTGSettingsViewController.m */; };
 		954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */; };
+		955A0B6419F33B3700842D32 /* MTGSavedScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A0B6319F33B3700842D32 /* MTGSavedScale.m */; };
 		956C6FA719CECF250065F3CE /* MTGFirstLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */; };
 		956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */; };
 		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
@@ -152,6 +153,8 @@
 		954B142E19C59977008FE21B /* MTGSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSettingsViewController.m; sourceTree = "<group>"; };
 		954B143019C59ABE008FE21B /* MTGSidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSidebarTableViewController.h; sourceTree = "<group>"; };
 		954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSidebarTableViewController.m; sourceTree = "<group>"; };
+		955A0B6219F33B3700842D32 /* MTGSavedScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSavedScale.h; sourceTree = "<group>"; };
+		955A0B6319F33B3700842D32 /* MTGSavedScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedScale.m; sourceTree = "<group>"; };
 		956C6FA519CECF250065F3CE /* MTGFirstLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGFirstLoginViewController.h; path = ../MTGFirstLoginViewController.h; sourceTree = "<group>"; };
 		956C6FA619CECF250065F3CE /* MTGFirstLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTGFirstLoginViewController.m; path = ../MTGFirstLoginViewController.m; sourceTree = "<group>"; };
 		956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColoursViewController.h; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 				9540DEE319D6D741001C1CC1 /* MTGRootViewController.h */,
 				9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */,
 				95795F2E19D2F2F3003803C4 /* Main.storyboard */,
+				955A0B6219F33B3700842D32 /* MTGSavedScale.h */,
+				955A0B6319F33B3700842D32 /* MTGSavedScale.m */,
 				951058C019C5BDFF008F5F76 /* Main View */,
 				951058C419C5C648008F5F76 /* Note Keys Configuration */,
 				956C6FA819CED8AE0065F3CE /* Settings */,
@@ -588,6 +593,7 @@
 				951058BE19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,
+				955A0B6419F33B3700842D32 /* MTGSavedScale.m in Sources */,
 				951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

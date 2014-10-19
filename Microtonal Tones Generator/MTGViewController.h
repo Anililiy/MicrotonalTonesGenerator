@@ -10,17 +10,17 @@
 #import "PdDispatcher.h"
 #import "SWRevealViewController.h"
 #import "MTGKey.h"
+#import "MTGSavedScale.h"
 
 
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
     void *patch;
     MTGKey *key;
-    NSMutableArray *keyboard;
+    MTGSavedScale *scale;
+    NSMutableArray *keyboard, *scales;
     int numberOfSplits;
-    float hueOfKeys;
-    float saturOfKeys;
-    float brightOfKey;
+    float hueOfKeys, saturOfKeys, brightOfKey;
     BOOL creationState;
     int buttonPressedTimes;
     float frequency;
@@ -32,7 +32,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
-@property (nonatomic, strong) id numberOfSplitsRequest;
-@property (nonatomic, strong) id frquencyRequest;
+- (IBAction)rightArrowPressed:(id)sender;
+- (IBAction)leftArrowPressed:(id)sender;
+- (IBAction)saveScale:(id)sender;
 
 @end

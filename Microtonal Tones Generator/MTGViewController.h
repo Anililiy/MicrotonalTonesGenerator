@@ -11,13 +11,14 @@
 #import "SWRevealViewController.h"
 #import "MTGKey.h"
 #import "MTGSavedScale.h"
-
+#import "GameState.h"
 
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
     void *patch;
     MTGKey *key;
     MTGSavedScale *scale;
+    GameState *gameState;
     NSMutableArray *keyboard, *scales;
     int numberOfSplits;
     float hueOfKeys, saturOfKeys, brightOfKey;

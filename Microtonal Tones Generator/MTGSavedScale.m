@@ -9,13 +9,23 @@
 #import "MTGSavedScale.h"
 
 @implementation MTGSavedScale
--(void)saveSplits:(int)sp{
-    numberOfSplits = sp;
+@synthesize splitsNumber,freqInitial;
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeInteger:splitsNumber forKey:@"splitsNumber"];
+    [encoder encodeFloat:freqInitial forKey:@"frequencyInitial"];
 }
--(void)saveFrequency:(float)f{
-    initialFrequency = f;
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if((self = [super init]))
+    {
+        splitsNumber = [decoder decodeIntegerForKey:@"splitsNumber"];
+        freqInitial  = [decoder decodeFloatForKey:@"frequencyInitial"];
+
+    }
+    return self;
 }
--(void)saveColour:(UIColor*)c{
-    keyColor = c;
-}
+
 @end

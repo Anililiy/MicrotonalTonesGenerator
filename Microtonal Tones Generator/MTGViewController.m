@@ -134,6 +134,7 @@ float calcFreqOfNote (int position, int splits, float f0){
     [super viewDidUnload];
     [PdBase closeFile:patch];
     [PdBase setDelegate:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning{
@@ -285,10 +286,24 @@ float calcFreqOfNote (int position, int splits, float f0){
 
 - (IBAction)saveScale:(id)sender {
 
-    [scale saveFrequency:frequency];
-    [scale saveSplits:numberOfSplits];
-    [scales addObject:scale];
+    scale.freqInitial = frequency;
+    scale.splitsNumber = numberOfSplits;
+    [scales removeAllObjects];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:scale];
+
+    if ([defaults objectForKey:@"scales"]){
+        //scales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
+    }
+        
+    [scales addObject:encodedScale];
+    //[scales addObject:@"1"];
+
+    [defaults setObject:scales forKey:@"scales"];
+    
     NSLog(@"%@",scales);
+    
     
 }
 @end

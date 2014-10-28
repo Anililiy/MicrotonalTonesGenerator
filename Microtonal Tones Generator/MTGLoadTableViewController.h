@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
+#import "MTGSavedScale.h"
 
 
-@interface MTGLoadTableViewController : UITableViewController
+@interface MTGLoadTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
+    NSMutableArray *scales;
+    NSArray *tableData;
+}
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property(nonatomic) NSInteger indexOfFileLoading;
 
 @end

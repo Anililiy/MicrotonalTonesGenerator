@@ -7,6 +7,8 @@
 //
 
 #import "MTGLoadTableViewController.h"
+#import "MTGSaveTableViewCell.h"
+//#import "SimpleTableCell.h"
 
 @interface MTGLoadTableViewController ()
 
@@ -39,6 +41,19 @@
     
     //set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    //
+    NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"scales"]];
+    MTGSavedScale *scale;
+    scales = [NSMutableArray array];
+    for (NSData *data in archivedScales){
+        scale = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [scales addObject:scale];
+    }
+    
+    NSLog(@"Saved %@, count %lu", scales, (unsigned long)[scales count]);
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,29 +66,69 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [scales count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    MTGSavedScale *scale = [scales objectAtIndex:indexPath.row];
     
-    // Configure the cell...
+    static NSString *CellIdentifier = @"chooseScale";
+    /*
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+    cell.textLabel.text = [NSString stringWithFormat:@"%i", scale.splitsNumber];
+    return cell;
+     */
+   
+    MTGSaveTableViewCell *cell =(MTGSaveTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"chooseScale" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    cell.splitLabel.text = [NSString stringWithFormat:@"%i", scale.splitsNumber];
+    cell.freqLabel.text = [NSString stringWithFormat:@"%4.1f", scale.freqInitial];
+    cell.dateLabel.text = @"12";
     
     return cell;
 }
-*/
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"didSelectRowAtIndexPath %li", (long)indexPath.row);
+    
+    // Checked the selected row
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    _indexOfFileLoading = indexPath.row;
+    //
+    /*
+    NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
+    [savedSettings setInteger:indexPath.row forKey:@"savedCopyLoad"];
+    [savedSettings synchronize];
+     */
+}
+
+/*
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath;
+}
+*/
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,15 +167,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if([segue.identifier isEqualToString:@"loadSaved"])
+    {
+        MTGLoadTableViewController *controller = (MTGLoadTableViewController *)segue.destinationViewController;
+        controller.indexOfFileLoading = _indexOfFileLoading;
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

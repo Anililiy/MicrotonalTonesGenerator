@@ -11,6 +11,7 @@
 #import "PdBase.h"
 #import "MTGAppDelegate.h"
 #import "MTGRootViewController.h"
+#import "MTGLoadTableViewController.h"
 
 NSString *const kTestPatchName = @"test2.pd";
 NSString *const kShortPatchName =@"KeyNote.pd";
@@ -71,6 +72,7 @@ float calcFreqOfNote (int position, int splits, float f0){
         //setting of prog
         //
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
         if (![defaults integerForKey:@"numberOfSplits"]) {
             numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
             frequency = [defaults floatForKey:@"defaultFrequency"];
@@ -100,7 +102,7 @@ float calcFreqOfNote (int position, int splits, float f0){
         keyboard = [NSMutableArray array];
         scales = [NSMutableArray array];
         for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
-        NSLog(@"Patches: %i", [_patches count]);
+        NSLog(@"Patches: %lu", (unsigned long)[_patches count]);
         
         {
             //change slidebar button color
@@ -281,7 +283,6 @@ float calcFreqOfNote (int position, int splits, float f0){
 
 - (IBAction)leftArrowPressed:(id)sender {
     if (frequency>100) frequency=frequency/2;
-
 }
 
 - (IBAction)saveScale:(id)sender {
@@ -289,21 +290,24 @@ float calcFreqOfNote (int position, int splits, float f0){
     scale.freqInitial = frequency;
     scale.splitsNumber = numberOfSplits;
     [scales removeAllObjects];
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:scale];
 
     if ([defaults objectForKey:@"scales"]){
-        //scales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
+        scales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
     }
-        
-    [scales addObject:encodedScale];
-    //[scales addObject:@"1"];
-
-    [defaults setObject:scales forKey:@"scales"];
-    
-    NSLog(@"%@",scales);
-    
-    
+    for (NSData *data in scales){
+        MTGSavedScale* scaleStored = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if ((scale.freqInitial == scaleStored.freqInitial) && (scale.splitsNumber == scaleStored.splitsNumber) ) saved = YES;
+        else saved = NO;
+    }
+    if (!saved){
+        [scales addObject:encodedScale];
+        [defaults setObject:scales forKey:@"scales"];
+        NSLog(@"Saved");
+    }
+    //[defaults setObject:scales forKey:@"scales"];
 }
 @end

@@ -14,9 +14,9 @@
 @interface MTGLoadTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
     NSMutableArray *scales;
     NSArray *tableData;
+    NSInteger index;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property(nonatomic) NSInteger indexOfFileLoading;
 
 @end

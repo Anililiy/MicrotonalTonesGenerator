@@ -9,6 +9,7 @@
 #import "MTGLoadTableViewController.h"
 #import "MTGSaveTableViewCell.h"
 //#import "SimpleTableCell.h"
+#import "MTGViewController.h"
 
 @interface MTGLoadTableViewController ()
 
@@ -108,13 +109,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"didSelectRowAtIndexPath %li", (long)indexPath.row);
-    
+    index = indexPath.row;
     // Checked the selected row
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    _indexOfFileLoading = indexPath.row;
+    
     //
     /*
     NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
@@ -123,12 +124,13 @@
      */
 }
 
-/*
+
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    index = indexPath.row;
     return indexPath;
 }
-*/
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -175,11 +177,11 @@
 {
     if([segue.identifier isEqualToString:@"loadSaved"])
     {
-        MTGLoadTableViewController *controller = (MTGLoadTableViewController *)segue.destinationViewController;
-        controller.indexOfFileLoading = _indexOfFileLoading;
+        MTGViewController *detailViewController = [segue destinationViewController];
+        detailViewController.indexOfFileLoading = index;
+        detailViewController.loading = true;
     }
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
 }
 
 

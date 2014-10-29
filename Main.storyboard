@@ -778,7 +778,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCK-CO-cRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1063" y="380"/>
+            <point key="canvasLocation" x="225" y="716"/>
         </scene>
     </scenes>
     <resources>
@@ -795,6 +795,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3wi-aE-aMa"/>
+        <segue reference="Syd-wH-Orj"/>
     </inferredMetricsTieBreakers>
 </document>

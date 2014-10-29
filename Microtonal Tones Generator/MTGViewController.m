@@ -333,4 +333,6 @@ float calcFreqOfNote (int position, int splits, float f0){
     }
     //[defaults setObject:scales forKey:@"scales"];
 }
+
+
 @end

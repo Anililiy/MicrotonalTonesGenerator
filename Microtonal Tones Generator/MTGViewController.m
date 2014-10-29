@@ -27,6 +27,7 @@ NSString *const kShortPatchName =@"KeyNote.pd";
 @synthesize startButton;
 @synthesize patches = _patches;
 @synthesize dollarZero = dollarZero_;
+@synthesize loading, indexOfFileLoading;
 
 float calcFreqOfNote (int position, int splits, float f0){
     
@@ -52,6 +53,8 @@ float calcFreqOfNote (int position, int splits, float f0){
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [self customSetup];
+    
     if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -80,6 +83,15 @@ float calcFreqOfNote (int position, int splits, float f0){
             saturOfKeys = [defaults floatForKey:@"initThemeSat"];
             brightOfKey = [defaults floatForKey:@"initThemeBrg"];
         }
+        else if (loading){
+            
+            NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
+            NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
+            scaleLoading = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
+            numberOfSplits = scaleLoading.splitsNumber;
+            frequency = scaleLoading.freqInitial;
+            loading = false;
+        }
         else{
             numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
             frequency = [defaults floatForKey:@"frequency"];
@@ -101,26 +113,10 @@ float calcFreqOfNote (int position, int splits, float f0){
         _patches = [NSMutableArray array];
         keyboard = [NSMutableArray array];
         scales = [NSMutableArray array];
+        
         for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
         NSLog(@"Patches: %lu", (unsigned long)[_patches count]);
-        
-        {
-            //change slidebar button color
-            _sidebarButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
-            _savedStatesSlideButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
-            
-            //set the slide bar button action. When it is tapped, it will show up the slidebar.
-            _sidebarButton.target = self.revealViewController;
-            _sidebarButton.action = @selector(revealToggle:);
-            
-            //set the gesture
-            [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-            
-            //set the slide bar button action. When it is tapped, it will show up the slidebar.
-            _savedStatesSlideButton.target = self.revealViewController;
-            _savedStatesSlideButton.action = @selector(rightRevealToggle:);
-        }
-        //create an array of buttons
+                //create an array of buttons
         for( int i = 0; i <= numberOfSplits; i++ ) {
             [self createButton: i];
         }
@@ -131,6 +127,33 @@ float calcFreqOfNote (int position, int splits, float f0){
     }
 
 }
+
+
+- (void)customSetup
+{
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        //change slidebar button color
+        _sidebarButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+        _savedStatesSlideButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+        
+        //set the slide bar button action. When it is tapped, it will show up the slidebar.
+        _sidebarButton.target = self.revealViewController;
+        _sidebarButton.action = @selector(revealToggle:);
+        
+        
+        //set the slide bar button action. When it is tapped, it will show up the slidebar.
+        _savedStatesSlideButton.target = self.revealViewController;
+        _savedStatesSlideButton.action = @selector(rightRevealToggle:);
+        
+        //set the gesture
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+
+
+}
+
 
 - (void)viewDidUnload {
     [super viewDidUnload];

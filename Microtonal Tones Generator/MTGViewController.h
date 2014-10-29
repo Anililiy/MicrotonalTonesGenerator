@@ -16,7 +16,7 @@
     PdDispatcher *dispatcher;
     void *patch;
     MTGKey *key;
-    MTGSavedScale *scale;
+    MTGSavedScale *scale, *scaleLoading;
     NSMutableArray *keyboard, *scales;
     int numberOfSplits;
     float hueOfKeys, saturOfKeys, brightOfKey;
@@ -28,8 +28,11 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
 
+@property(nonatomic) NSInteger indexOfFileLoading;
+@property(nonatomic) BOOL loading;
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+
 
 - (IBAction)rightArrowPressed:(id)sender;
 - (IBAction)leftArrowPressed:(id)sender;

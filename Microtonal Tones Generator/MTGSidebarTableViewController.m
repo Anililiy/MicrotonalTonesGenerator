@@ -96,39 +96,11 @@
     return 0;
 }
 
-
+/*
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // configure the destination view controller:
-    if ( [sender isKindOfClass:[UITableViewCell class]] )
-    {
-        UILabel* label = [(MTGUITableViewCell *)sender label];
-        UINavigationController *navController = segue.destinationViewController;
-        //ColorViewController* cvc = [navController childViewControllers].firstObject;
-        //if ( [cvc isKindOfClass:[ColorViewController class]] )
-        {
-          //  cvc.color = c.textColor;
-            //cvc.text = c.text;
-        }
-    }
-    /*
-    //set the title of navigation bar by using the menu items
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-    destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
-    
-    if ([segue isKindOfClass: [SWRevealViewController class]]) {
-        //SWRevealViewController *swSegue = (SWRevealViewController*)segue;
-        
-        //swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc){
-            
-            UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-            //[navController setViewControllers: @[dvc] animated: NO];
-            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
-        //}
-    }
-     */
 }
+*/
 
 - (IBAction)logOutAction:(id)sender{
     

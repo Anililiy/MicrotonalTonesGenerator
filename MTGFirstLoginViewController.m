@@ -54,7 +54,7 @@
         [defaults setFloat:colourSat forKey:@"initThemeSat"];
         [defaults setFloat:colourBrg forKey:@"initThemeBrg"];
         
-        if (![defaults objectForKey:@"loggedIn"] || ![defaults boolForKey:@"loggedIn"]) [defaults setBool:YES forKey:@"loggedIn"];
+        if (![defaults objectForKey:@"firstRun"] || ![defaults boolForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
         
         [defaults synchronize];
         

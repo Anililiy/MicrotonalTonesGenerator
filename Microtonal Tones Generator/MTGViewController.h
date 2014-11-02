@@ -9,24 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "PdDispatcher.h"
 #import "SWRevealViewController.h"
-#import "MTGKey.h"
 #import "MTGSavedScale.h"
 
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
     void *patch;
-    MTGKey *key;
     MTGSavedScale *scale, *scaleLoading;
     NSMutableArray *keyboard, *scales;
     int numberOfSplits;
-    float hueOfKeys, saturOfKeys, brightOfKey;
+    float hueOfKeys, saturOfKeys, brightOfKey, frequency;
     BOOL creationState, saved;
-    int buttonPressedTimes;
-    float frequency;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveStateButon;
 
 @property(nonatomic) NSInteger indexOfFileLoading;
 @property(nonatomic) BOOL loading;
@@ -36,6 +33,7 @@
 
 - (IBAction)rightArrowPressed:(id)sender;
 - (IBAction)leftArrowPressed:(id)sender;
-- (IBAction)saveScale:(id)sender;
+- (IBAction)saveSession:(id)sender;
+- (IBAction)saveState:(id)sender;
 
 @end

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
@@ -557,7 +556,7 @@
             </objects>
             <point key="canvasLocation" x="610" y="-479"/>
         </scene>
-        <!--Scale 1-->
+        <!--Session-->
         <scene sceneID="8bb-dI-s3D">
             <objects>
                 <viewController id="ijD-Df-uuV" customClass="MTGViewController" sceneMemberID="viewController">
@@ -566,21 +565,11 @@
                         <viewControllerLayoutGuide type="bottom" id="lNr-Vu-yL3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hSa-Pi-3od">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U2-91-U2U">
-                                <rect key="frame" x="296" y="663" width="82" height="32"/>
-                                <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveScale:" destination="ijD-Df-uuV" eventType="touchUpInside" id="gQe-4N-GBd"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmM-NE-Xh2">
-                                <rect key="frame" x="16" y="624" width="218" height="124"/>
+                                <rect key="frame" x="0.0" y="536" width="218" height="124"/>
                                 <fontDescription key="fontDescription" name="TeluguSangamMN" family="Telugu Sangam MN" pointSize="24"/>
                                 <color key="tintColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Start">
@@ -588,34 +577,53 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hru-o3-Lb0">
-                                <rect key="frame" x="665" y="603" width="111" height="109"/>
-                                <state key="normal" image="arrow2.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="rightArrowPressed:" destination="ijD-Df-uuV" eventType="touchUpInside" id="MWs-uK-RJV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GY-9c-43A">
-                                <rect key="frame" x="521" y="606" width="110" height="103"/>
-                                <color key="tintColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="arrow1.png">
-                                    <color key="titleShadowColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="leftArrowPressed:" destination="ijD-Df-uuV" eventType="touchUpInside" id="Afg-Bd-Re3"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
+                                <items>
+                                    <barButtonItem title="Save session" id="4Yt-df-11W">
+                                        <connections>
+                                            <action selector="saveSession:" destination="ijD-Df-uuV" id="iwf-RE-1pO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Vd-IU-yyQ"/>
+                                    <barButtonItem enabled="NO" title="Save state" id="miA-2v-dAw">
+                                        <connections>
+                                            <action selector="saveState:" destination="ijD-Df-uuV" id="u96-Pp-QEf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Scale 1" id="BtU-As-ydt">
+                    <toolbarItems>
+                        <barButtonItem enabled="NO" title="Item" id="LMa-KC-5ap"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="VJe-lz-wpM"/>
+                        <barButtonItem enabled="NO" title="Item" id="QbO-tT-tyI"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="AeL-S1-oP1"/>
+                        <barButtonItem image="arrow-big-01.png" id="C3P-KT-7DV">
+                            <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="leftArrowPressed:" destination="ijD-Df-uuV" id="eP5-Tf-baD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="kKM-Gp-Jvj"/>
+                        <barButtonItem image="arrow-big-02.png" id="wMx-1g-ajX">
+                            <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="rightArrowPressed:" destination="ijD-Df-uuV" id="vuK-xq-BH1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="yM1-vA-2rD"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Session" id="BtU-As-ydt">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="Vzn-RD-Rda"/>
                         <barButtonItem key="rightBarButtonItem" image="menu.png" id="bPv-c1-jyd"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="saveStateButon" destination="miA-2v-dAw" id="FS6-P3-eyp"/>
                         <outlet property="savedStatesSlideButton" destination="bPv-c1-jyd" id="ZWJ-Wo-m1N"/>
                         <outlet property="sidebarButton" destination="Vzn-RD-Rda" id="dYq-m7-QnJ"/>
                         <outlet property="startButton" destination="VmM-NE-Xh2" id="49f-D3-9pT"/>
@@ -623,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioh-E7-8HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1373" y="668"/>
+            <point key="canvasLocation" x="1314" y="869"/>
         </scene>
         <!--Saved States Table View Controller-->
         <scene sceneID="MS6-31-5Uh">
@@ -813,15 +821,21 @@
         <!--Navigation Controller-->
         <scene sceneID="R6A-oD-Ner">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qYl-Ea-1T4" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="qYl-Ea-1T4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="3XA-8d-Afv"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E4k-be-rwp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="E4k-be-rwp">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="Ze5-vV-D4l">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="ijD-Df-uuV" kind="relationship" relationship="rootViewController" id="LE5-5b-E9w"/>
                     </connections>
@@ -834,8 +848,8 @@
     <resources>
         <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
         <image name="X-2.png" width="20" height="20"/>
-        <image name="arrow1.png" width="256" height="256"/>
-        <image name="arrow2.png" width="256" height="256"/>
+        <image name="arrow-big-01.png" width="30" height="30"/>
+        <image name="arrow-big-02.png" width="30" height="30"/>
         <image name="letsGo.png" width="500" height="500"/>
         <image name="menu.png" width="28" height="20"/>
     </resources>
@@ -845,7 +859,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SqA-3s-bFS"/>
-        <segue reference="Mhp-Gz-yyb"/>
+        <segue reference="eiG-kh-lQ6"/>
+        <segue reference="LE5-5b-E9w"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,7 +27,7 @@ NSString *const kShortPatchName =@"KeyNote.pd";
 @synthesize startButton;
 @synthesize patches = _patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize loading, indexOfFileLoading;
+@synthesize loading, indexOfFileLoading, saveStateButon;
 
 float calcFreqOfNote (int position, int splits, float f0){
     
@@ -173,11 +173,13 @@ float calcFreqOfNote (int position, int splits, float f0){
     if (!creationState){
         [startButton setTitle:@"Stop" forState:UIControlStateNormal];
         creationState = true;
+        saveStateButon.enabled = true;
     }
     else
     {
         [startButton setTitle:@"Start" forState:UIControlStateNormal];
         creationState = false;
+        saveStateButon.enabled = false;
         
         for(UIButton* button in keyboard){
             button.selected = false;
@@ -308,7 +310,7 @@ float calcFreqOfNote (int position, int splits, float f0){
     if (frequency>100) frequency=frequency/2;
 }
 
-- (IBAction)saveScale:(id)sender {
+- (IBAction)saveSession:(id)sender {
 
     scale.freqInitial = frequency;
     scale.splitsNumber = numberOfSplits;
@@ -332,6 +334,9 @@ float calcFreqOfNote (int position, int splits, float f0){
         NSLog(@"Saved");
     }
     //[defaults setObject:scales forKey:@"scales"];
+}
+
+- (IBAction)saveState:(id)sender {
 }
 
 

@@ -24,15 +24,13 @@ NSString *const kShortPatchName =@"KeyNote.pd";
 
 @implementation MTGViewController
 
-@synthesize startButton;
 @synthesize patches = _patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize loading, indexOfFileLoading, saveStateButon;
+@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem;
 
-float calcFreqOfNote (int position, int splits, float f0){
+float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     float a = powf(2, 1/((float)(splits)));
-    //float n = (tag+40) - 49;
     float n = position;
     float frequencyOfNote = f0 * (powf(a,n));
     
@@ -84,14 +82,15 @@ float calcFreqOfNote (int position, int splits, float f0){
             brightOfKey = [defaults floatForKey:@"initThemeBrg"];
         }
         else if (loading){
-            
+
             NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
             NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
             scaleLoading = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
             numberOfSplits = scaleLoading.splitsNumber;
             frequency = scaleLoading.freqInitial;
-            loading = false;
+            //loading = false;
         }
+        
         else{
             numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
             frequency = [defaults floatForKey:@"frequency"];
@@ -100,7 +99,7 @@ float calcFreqOfNote (int position, int splits, float f0){
             brightOfKey = [defaults floatForKey:@"themeBrg"];
         }
 
-        NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
+        NSLog(@"Received %li splits, %4.1f Hz frequency",numberOfSplits, frequency);
         creationState = false;
         scale = [[MTGSavedScale alloc] init];
         // sound creation
@@ -120,10 +119,6 @@ float calcFreqOfNote (int position, int splits, float f0){
         for( int i = 0; i <= numberOfSplits; i++ ) {
             [self createButton: i];
         }
-        
-        //control of a start button
-        self.startButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:1.0 brightness:0.8 alpha:1];
-        [self.startButton addTarget:self action:@selector(startPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
 
 }
@@ -159,7 +154,6 @@ float calcFreqOfNote (int position, int splits, float f0){
     [super viewDidUnload];
     [PdBase closeFile:patch];
     [PdBase setDelegate:nil];
-    
 }
 
 - (void)didReceiveMemoryWarning{
@@ -167,17 +161,17 @@ float calcFreqOfNote (int position, int splits, float f0){
 }
 
 #pragma mark - buttons regulation
-
--(void)startPressed:(UIButton*)button{
+- (IBAction)polifoniaStart:(id)sender {
     
     if (!creationState){
-        [startButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [startButtonItem setTitle:@"Stop"];
         creationState = true;
         saveStateButon.enabled = true;
     }
     else
     {
-        [startButton setTitle:@"Start" forState:UIControlStateNormal];
+        [startButtonItem setTitle:@"Start"];
+        
         creationState = false;
         saveStateButon.enabled = false;
         
@@ -191,9 +185,10 @@ float calcFreqOfNote (int position, int splits, float f0){
         {
             [_patches addObject:@"1"];
         }
-        NSLog(@"Patches: %i", [_patches count]);
+        NSLog(@"Patches: %lu", [_patches count]);
     }
     
+
 }
 
 -(void)createButton:(int)index{
@@ -219,34 +214,42 @@ float calcFreqOfNote (int position, int splits, float f0){
     //aButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:0.5f];
     
     //x values
+    NSInteger maxNumberOfKeysInRow = 8;
+
     float keyWidth  = 3*screenWidth / (4*(((numberOfSplits+1))));
     float keyHeight = screenHeight/(2*(numberOfSplits/8+1));
     float divisionOfScreen = screenWidth / ((numberOfSplits)+1);
-    float xPosition = (index%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
-    float yPosition = 100+(index/8)*(keyHeight+10);
-    int n;
-   // NSLog(@"Number %i",n);
-    
-    if (numberOfSplits<=8) {
+    float xPosition = (index%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
+    float yPosition = 150+(index/maxNumberOfKeysInRow)*(keyHeight+10);
+    NSInteger n;
+       // NSLog(@"Number %i",n);
+
+    if (numberOfSplits<=maxNumberOfKeysInRow) {
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
-    }else if (numberOfSplits<=16){
+    }else if (numberOfSplits<=2*maxNumberOfKeysInRow){
         n = numberOfSplits/2;
         keyWidth  = 3*screenWidth / (4*(((n+1))));
-        divisionOfScreen = screenWidth/(n+2);
-        yPosition = 100+((index-1)/8)*(keyHeight+10);
-        xPosition = ((index-1)%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
+        
+        divisionOfScreen = screenWidth/(n+1);
+        
+        yPosition = 100+((index-1)/maxNumberOfKeysInRow)*(keyHeight+10);
+        xPosition = ((index-1)%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
-    }else if (numberOfSplits<=24){
+    }else if (numberOfSplits<=3*maxNumberOfKeysInRow){
         n = numberOfSplits/3;
         keyWidth  = 3*screenWidth / (4*(((n+2))));
-        divisionOfScreen = screenWidth / ((n)+3);
-        xPosition = (index%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
+        
+        divisionOfScreen = screenWidth / (n+1);
+        
+        xPosition = (index%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
-    }else if (numberOfSplits<=32){
+    }else if (numberOfSplits<=4*maxNumberOfKeysInRow){
         n = numberOfSplits/4;
         keyWidth  = 3*screenWidth / (4*(((n+3))));
-        divisionOfScreen = screenWidth / ((n)+4);
-        xPosition = (index%8)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
+        
+        divisionOfScreen = screenWidth / (n+1);
+        
+        xPosition = (index%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
         aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
     }
     
@@ -258,7 +261,7 @@ float calcFreqOfNote (int position, int splits, float f0){
 
 - (void)buttonClicked:(UIButton*)aButton{
     
-    NSLog(@"Button %i clicked.",[aButton tag]);
+    NSLog(@"Button %li clicked.",[aButton tag]);
     
     float frequencyOfNote = calcFreqOfNote([aButton tag], numberOfSplits, frequency);
     
@@ -268,7 +271,7 @@ float calcFreqOfNote (int position, int splits, float f0){
             [self playNoteLong:frequencyOfNote at:[aButton tag]];
         }
         else{
-            NSLog(@"Patch removed with %i", [aButton tag]);
+            NSLog(@"Patch removed with %li", [aButton tag]);
             [self.patches removeObjectAtIndex:[aButton tag]];
             [self.patches insertObject:@"1" atIndex:[aButton tag]];
             aButton.selected =!aButton.selected;
@@ -287,7 +290,7 @@ float calcFreqOfNote (int position, int splits, float f0){
     PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
     if (patchOfKey) {
         NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
-        NSLog(@"Patches: %i", [_patches count]);
+        NSLog(@"Patches: %li", [_patches count]);
 
         [_patches insertObject:patchOfKey atIndex:index];
     }

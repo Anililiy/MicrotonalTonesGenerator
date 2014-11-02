@@ -16,7 +16,7 @@
     void *patch;
     MTGSavedScale *scale, *scaleLoading;
     NSMutableArray *keyboard, *scales;
-    int numberOfSplits;
+    NSInteger numberOfSplits;
     float hueOfKeys, saturOfKeys, brightOfKey, frequency;
     BOOL creationState, saved;
 }
@@ -28,12 +28,15 @@
 @property(nonatomic) NSInteger indexOfFileLoading;
 @property(nonatomic) BOOL loading;
 
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *startButtonItem;
 
 
 - (IBAction)rightArrowPressed:(id)sender;
 - (IBAction)leftArrowPressed:(id)sender;
 - (IBAction)saveSession:(id)sender;
 - (IBAction)saveState:(id)sender;
+
+- (IBAction)polifoniaStart:(id)sender;
+
 
 @end

@@ -8,7 +8,6 @@
 
 #import "MTGLoadTableViewController.h"
 #import "MTGSaveTableViewCell.h"
-//#import "SimpleTableCell.h"
 #import "MTGViewController.h"
 
 @interface MTGLoadTableViewController ()
@@ -30,11 +29,7 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //set the slide bar button action. When it is tapped, it will show up the slidebar.
     _sidebarButton.target = self.revealViewController;
@@ -73,7 +68,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [scales count];
 }
@@ -84,12 +78,6 @@
     MTGSavedScale *scale = [scales objectAtIndex:indexPath.row];
     
     static NSString *CellIdentifier = @"chooseScale";
-    /*
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-    cell.textLabel.text = [NSString stringWithFormat:@"%i", scale.splitsNumber];
-    return cell;
-     */
    
     MTGSaveTableViewCell *cell =(MTGSaveTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -99,9 +87,9 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.splitLabel.text = [NSString stringWithFormat:@"%i", scale.splitsNumber];
+    cell.splitLabel.text = [NSString stringWithFormat:@"%li", scale.splitsNumber];
     cell.freqLabel.text = [NSString stringWithFormat:@"%4.1f", scale.freqInitial];
-    cell.dateLabel.text = @"12";
+    //cell.dateLabel = NSDateFormatterShortStyle;
     
     return cell;
 }
@@ -110,18 +98,8 @@
 {
     NSLog(@"didSelectRowAtIndexPath %li", (long)indexPath.row);
     index = indexPath.row;
-    // Checked the selected row
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    //
-    /*
-    NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
-    [savedSettings setInteger:indexPath.row forKey:@"savedCopyLoad"];
-    [savedSettings synchronize];
-     */
 }
 
 
@@ -131,44 +109,24 @@
     return indexPath;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [scales removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 
@@ -181,6 +139,16 @@
         detailViewController.indexOfFileLoading = index;
         detailViewController.loading = true;
     }
+
+    NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *archivedScales = [NSMutableArray array];
+    
+    MTGSavedScale *scale;
+    for (NSData *data in scales){
+        scale = [NSKeyedArchiver archivedDataWithRootObject:data];
+        [archivedScales addObject:scale];
+    }
+    [savedSettings setObject:archivedScales forKey:@"scales"];
 
 }
 

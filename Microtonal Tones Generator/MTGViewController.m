@@ -24,9 +24,9 @@ NSString *const kShortPatchName =@"KeyNote.pd";
 
 @implementation MTGViewController
 
-@synthesize patches = _patches;
+@synthesize patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem;
+@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton;
 
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
@@ -72,36 +72,13 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
          */
         //setting of prog
         //
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        if (![defaults integerForKey:@"numberOfSplits"]) {
-            numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
-            frequency = [defaults floatForKey:@"defaultFrequency"];
-            hueOfKeys = [defaults floatForKey:@"initThemeHue"];
-            saturOfKeys = [defaults floatForKey:@"initThemeSat"];
-            brightOfKey = [defaults floatForKey:@"initThemeBrg"];
-        }
-        else if (loading){
+        [self initialiseValues];
 
-            NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
-            NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
-            scaleLoading = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
-            numberOfSplits = scaleLoading.splitsNumber;
-            frequency = scaleLoading.freqInitial;
-            //loading = false;
-        }
-        
-        else{
-            numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
-            frequency = [defaults floatForKey:@"frequency"];
-            hueOfKeys = [defaults floatForKey:@"themeHue"];
-            saturOfKeys = [defaults floatForKey:@"themeSat"];
-            brightOfKey = [defaults floatForKey:@"themeBrg"];
-        }
-
-        NSLog(@"Received %li splits, %4.1f Hz frequency",numberOfSplits, frequency);
         creationState = false;
-        scale = [[MTGSavedScale alloc] init];
+        
+        if (sessionIsSaved) saveSessionButton.enabled=false;
+        else saveSessionButton.enabled=true;
+        
         // sound creation
         dispatcher = [[PdDispatcher alloc]init];
         [PdBase setDelegate:dispatcher];
@@ -109,16 +86,19 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         if (!patch) {
             NSLog(@"Failed to open patch!");
         }
-        _patches = [NSMutableArray array];
-        keyboard = [NSMutableArray array];
-        scales = [NSMutableArray array];
+        patches = [NSMutableArray array];
         
-        for (int i = 0; i<numberOfSplits; i++)[_patches addObject:@"1"];
-        NSLog(@"Patches: %lu", (unsigned long)[_patches count]);
-                //create an array of buttons
-        for( int i = 0; i <= numberOfSplits; i++ ) {
-            [self createButton: i];
+        //
+        
+        keyboard = [NSMutableArray array];
+        pressedKeys = [NSMutableArray array];
+        savedStates =[NSMutableArray array];
+        
+        for (int i = 0; i<=numberOfSplits; i++){
+            [patches addObject:@"1"];
+             [self createButton: i];
         }
+        NSLog(@"Patches: %lu", (unsigned long)[patches count]);
     }
 
 }
@@ -145,8 +125,49 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         //set the gesture
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+}
 
-
+-(void) initialiseValues{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![defaults integerForKey:@"numberOfSplits"]) {
+        numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
+        frequency = [defaults floatForKey:@"defaultFrequency"];
+        hueOfKeys = [defaults floatForKey:@"initThemeHue"];
+        saturOfKeys = [defaults floatForKey:@"initThemeSat"];
+        brightOfKey = [defaults floatForKey:@"initThemeBrg"];
+    }
+    else if (loading){
+        
+        NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
+        NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
+        MTGSavedScale *scaleLoading;
+        scaleLoading = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
+        numberOfSplits = scaleLoading.splitsNumber;
+        frequency = scaleLoading.freqInitial;
+        hueOfKeys = scaleLoading.hue;
+        saturOfKeys = scaleLoading.saturarion;
+        brightOfKey = scaleLoading.brightness;
+        loading = false;
+        sessionIsSaved = true;
+        
+        [defaults setInteger:numberOfSplits forKey:@"numberOfSplits"];
+        [defaults setFloat:frequency forKey:@"frequency"];
+        [defaults setFloat:hueOfKeys forKey:@"themeHue"];
+        [defaults setFloat:saturOfKeys forKey:@"themeSat"];
+        [defaults setFloat:brightOfKey forKey:@"themeBrg"];
+        [defaults setBool:sessionIsSaved forKey:@"saved"];
+        [defaults synchronize];
+    }
+    else{
+        numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
+        frequency = [defaults floatForKey:@"frequency"];
+        hueOfKeys = [defaults floatForKey:@"themeHue"];
+        saturOfKeys = [defaults floatForKey:@"themeSat"];
+        brightOfKey = [defaults floatForKey:@"themeBrg"];
+        sessionIsSaved = [defaults boolForKey:@"saved"];
+    }
+    NSLog(@"Received %li splits, %4.1f Hz frequency",numberOfSplits, frequency);
 }
 
 
@@ -179,16 +200,15 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             button.selected = false;
         }
         
-        [self.patches removeAllObjects];
+        [patches removeAllObjects];
+        [pressedKeys removeAllObjects];
         
-        for (int i = 0; i<numberOfSplits; i++)
+        for (int i = 0; i<=numberOfSplits; i++)
         {
-            [_patches addObject:@"1"];
+            [patches addObject:@"1"];
         }
-        NSLog(@"Patches: %lu", [_patches count]);
+        NSLog(@"Patches: %lu", [patches count]);
     }
-    
-
 }
 
 -(void)createButton:(int)index{
@@ -211,52 +231,24 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     float brightnesOfKey = brightOfKey;
     if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
     aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
-    //aButton.tintColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:0.5f];
-    
+
     //x values
     NSInteger maxNumberOfKeysInRow = 8;
-
-    float keyWidth  = 3*screenWidth / (4*(((numberOfSplits+1))));
-    float keyHeight = screenHeight/(2*(numberOfSplits/8+1));
-    float divisionOfScreen = screenWidth / ((numberOfSplits)+1);
-    float xPosition = (index%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
-    float yPosition = 150+(index/maxNumberOfKeysInRow)*(keyHeight+10);
+    float keyWidth, keyHeight, divisionOfScreen, xPosition, yPosition;
     NSInteger n;
-       // NSLog(@"Number %i",n);
-
-    if (numberOfSplits<=maxNumberOfKeysInRow) {
-        aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
-    }else if (numberOfSplits<=2*maxNumberOfKeysInRow){
-        n = numberOfSplits/2;
-        keyWidth  = 3*screenWidth / (4*(((n+1))));
-        
-        divisionOfScreen = screenWidth/(n+1);
-        
-        yPosition = 100+((index-1)/maxNumberOfKeysInRow)*(keyHeight+10);
-        xPosition = ((index-1)%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
-        aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
-    }else if (numberOfSplits<=3*maxNumberOfKeysInRow){
-        n = numberOfSplits/3;
-        keyWidth  = 3*screenWidth / (4*(((n+2))));
-        
-        divisionOfScreen = screenWidth / (n+1);
-        
-        xPosition = (index%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
-        aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
-    }else if (numberOfSplits<=4*maxNumberOfKeysInRow){
-        n = numberOfSplits/4;
-        keyWidth  = 3*screenWidth / (4*(((n+3))));
-        
-        divisionOfScreen = screenWidth / (n+1);
-        
-        xPosition = (index%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
-        aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
+    keyHeight = screenHeight/(2*(numberOfSplits/8+1));
+    for (int rows=1; rows<6;rows++){
+        if (numberOfSplits>(rows-1)*maxNumberOfKeysInRow){
+            n = numberOfSplits/rows;
+            keyWidth  = 3*screenWidth /(4*(n+3));
+            divisionOfScreen = screenWidth/(n+3);
+            yPosition = 150+(index/maxNumberOfKeysInRow)*(keyHeight+10);
+            xPosition = (index%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
+            aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
+        }
     }
-    
     [keyboard addObject:aButton];
-    // NSLog(@"%@", keyboard);
     [self.view addSubview:aButton];
-
 }
 
 - (void)buttonClicked:(UIButton*)aButton{
@@ -272,8 +264,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         }
         else{
             NSLog(@"Patch removed with %li", [aButton tag]);
-            [self.patches removeObjectAtIndex:[aButton tag]];
-            [self.patches insertObject:@"1" atIndex:[aButton tag]];
+            [patches removeObjectAtIndex:[aButton tag]];
+            [pressedKeys removeObject:[NSNumber numberWithInt:[aButton tag]]];
+            [patches insertObject:@"1" atIndex:[aButton tag]];
             aButton.selected =!aButton.selected;
         }
     }
@@ -290,9 +283,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
     if (patchOfKey) {
         NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
-        NSLog(@"Patches: %li", [_patches count]);
-
-        [_patches insertObject:patchOfKey atIndex:index];
+        NSLog(@"Patches: %li", [patches count]);
+        [patches removeObjectAtIndex:index];
+        [patches insertObject:patchOfKey atIndex:index];
+        [pressedKeys addObject:[NSNumber numberWithInt:index]];
     }
     else {
         NSLog(@"error: couldn't open patch");
@@ -314,32 +308,50 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (IBAction)saveSession:(id)sender {
-
+    NSMutableArray* archScales;
+    MTGSavedScale* scale = [[MTGSavedScale alloc] init];
     scale.freqInitial = frequency;
     scale.splitsNumber = numberOfSplits;
-    [scales removeAllObjects];
+    scale.hue = hueOfKeys;
+    scale.brightness = brightOfKey;
+    scale.saturarion = saturOfKeys;
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:scale];
 
     if ([defaults objectForKey:@"scales"]){
-        scales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
+       archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
     }
-    for (NSData *data in scales){
+    for (NSData *data in archScales){
         MTGSavedScale* scaleStored = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if ((scale.freqInitial == scaleStored.freqInitial) && (scale.splitsNumber == scaleStored.splitsNumber) ) saved = YES;
-        else saved = NO;
+        if ((scale.freqInitial == scaleStored.freqInitial) && (scale.splitsNumber == scaleStored.splitsNumber) ) sessionIsSaved = YES;
+        else sessionIsSaved = NO;
     }
-    if (!saved){
-        [scales addObject:encodedScale];
-        [defaults setObject:scales forKey:@"scales"];
+    if (!sessionIsSaved){
+        [archScales addObject:encodedScale];
+        [defaults setObject:archScales forKey:@"scales"];
+        sessionIsSaved = YES;
+        saveSessionButton.enabled = false;
         NSLog(@"Saved");
     }
-    //[defaults setObject:scales forKey:@"scales"];
+    [defaults setBool:sessionIsSaved forKey:@"saved"];
+
 }
 
 - (IBAction)saveState:(id)sender {
+    sessionIsSaved = false;
+    saveSessionButton.enabled = true;
+    NSLog(@"%@", pressedKeys);
+ 
+    
+    [savedStates addObject:pressedKeys];
+    NSLog(@"States saved %@", savedStates);
+    
+    //wrong >
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:savedStates forKey:@"savedStates"];
+    [defaults synchronize];
 }
 
 

@@ -9,12 +9,15 @@
 #import "MTGSavedScale.h"
 
 @implementation MTGSavedScale
-@synthesize splitsNumber,freqInitial;
+@synthesize splitsNumber,freqInitial, hue, saturarion, brightness;
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeInteger:splitsNumber forKey:@"splitsNumber"];
     [encoder encodeFloat:freqInitial forKey:@"frequencyInitial"];
+    [encoder encodeFloat:hue forKey:@"hue"];
+    [encoder encodeFloat:saturarion forKey:@"saturation"];
+    [encoder encodeFloat:brightness forKey:@"brightness"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -23,7 +26,9 @@
     {
         splitsNumber = [decoder decodeIntegerForKey:@"splitsNumber"];
         freqInitial  = [decoder decodeFloatForKey:@"frequencyInitial"];
-
+        hue          = [decoder decodeFloatForKey:@"hue"];
+        saturarion   = [decoder decodeFloatForKey:@"saturation"];
+        brightness   = [decoder decodeFloatForKey:@"brightness"];
     }
     return self;
 }

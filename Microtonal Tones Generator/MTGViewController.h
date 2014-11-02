@@ -14,16 +14,16 @@
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
     void *patch;
-    MTGSavedScale *scale, *scaleLoading;
-    NSMutableArray *keyboard, *scales;
+    NSMutableArray *keyboard, *scales, *pressedKeys, *savedStates;
     NSInteger numberOfSplits;
     float hueOfKeys, saturOfKeys, brightOfKey, frequency;
-    BOOL creationState, saved;
+    BOOL creationState, sessionIsSaved;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveStateButon;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveSessionButton;
 
 @property(nonatomic) NSInteger indexOfFileLoading;
 @property(nonatomic) BOOL loading;

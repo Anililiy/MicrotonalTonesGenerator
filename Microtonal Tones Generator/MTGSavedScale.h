@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface MTGSavedScale : NSObject <NSCoding>{
-    int splitsNumber;
-    float freqInitial;
+    NSInteger splitsNumber;
+    float freqInitial, hue, saturarion, brightness;
     UIColor *keyColor;
 }
 
-@property int splitsNumber;
-@property float freqInitial;
+@property NSInteger splitsNumber;
+@property float freqInitial, hue, saturarion, brightness;
 
-//+ (MTGSavedScale *) sharedGameState;
 @end

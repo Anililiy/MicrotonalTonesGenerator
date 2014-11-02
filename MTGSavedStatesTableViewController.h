@@ -10,5 +10,5 @@
 #import "SWRevealViewController.h"
 
 @interface MTGSavedStatesTableViewController : UITableViewController
-
+@property NSMutableArray *savedStates;
 @end

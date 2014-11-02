@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
-/*
-@interface MTGUITableViewCell : UITableViewCell
-@property (nonatomic) IBOutlet UILabel *label;
-@end
-*/
 
 @interface MTGSidebarTableViewController : UITableViewController
 

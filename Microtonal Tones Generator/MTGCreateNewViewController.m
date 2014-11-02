@@ -58,6 +58,7 @@
     [defaults setFloat:colourHue forKey:@"themeHue"];
     [defaults setFloat:colourSat forKey:@"themeSat"];
     [defaults setFloat:colourBrg forKey:@"themeBrg"];
+    [defaults setBool:false forKey:@"saved"];
     
     [defaults synchronize];
     

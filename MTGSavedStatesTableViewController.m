@@ -10,11 +10,10 @@
 
 @interface MTGSavedStatesTableViewController ()
 
-@property (nonatomic, strong) NSArray *savedItems;
-
 @end
 
 @implementation MTGSavedStatesTableViewController
+@synthesize savedStates;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,12 +32,17 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
     
-    self.savedItems =@[@"title",@"state1", @"state2", @"state3", @"state4"];
+    
+    //savedStates= [NSMutableArray array];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    savedStates = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedStates"]];
+    
+   
+    //[savedStates addObjectsFromArray:@[@"12",@"14"]];
+    NSLog(@"We are given: %@", savedStates);
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,34 +56,64 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.savedItems count];
+    switch(section) {
+        case 0: return 1;
+            break;
+        case 1: return [savedStates count];
+            break;
+    }
+    return 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = [self.savedItems objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    return cell;
+    switch(indexPath.section){
+        case 0:{
+            NSString *CellIdentifier0 = @"title";
+            UITableViewCell *cell0 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier0 forIndexPath:indexPath];
+            return cell0;
+        }break;
+        case 1:{
+            NSString *CellIdentifier = @"state";
+            NSMutableArray *arrayOfIndexes = [[NSMutableArray alloc] initWithArray:savedStates[indexPath.row]];
+        
+            NSString *label=@"";
+            for (NSNumber *number in arrayOfIndexes){
+                label = [NSString stringWithFormat:@"%@ - %@",label, number];
+            }
+            UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            cell1.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell1.textLabel.text = label;
+            return cell1;
+        }break;
+            
+    }
+    return 0;
+
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
+    switch(indexPath.section) {
+        case 0: return NO;
+            break;
+        case 1: return YES;
+            break;
+    }
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -90,23 +124,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

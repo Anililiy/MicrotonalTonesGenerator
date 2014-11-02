@@ -501,7 +501,7 @@
                                     <outlet property="freqLabel" destination="OOe-D9-iUo" id="IEE-Wp-rek"/>
                                     <outlet property="nameOfScale" destination="YYp-P2-ArG" id="AAd-lZ-Zbd"/>
                                     <outlet property="splitLabel" destination="yhT-7Q-6h2" id="45w-w2-5P7"/>
-                                    <segue destination="ijD-Df-uuV" kind="push" id="SqA-3s-bFS"/>
+                                    <segue destination="ijD-Df-uuV" kind="push" identifier="loadSaved" id="SqA-3s-bFS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -569,24 +569,6 @@
                         <rect key="frame" x="0.0" y="64" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
-                                <items>
-                                    <barButtonItem title="Save session" id="4Yt-df-11W">
-                                        <connections>
-                                            <action selector="saveSession:" destination="ijD-Df-uuV" id="iwf-RE-1pO"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Vd-IU-yyQ"/>
-                                    <barButtonItem image="star-7.png" id="Mej-Kq-vV7"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kDo-7b-doy"/>
-                                    <barButtonItem enabled="NO" title="Save state" id="miA-2v-dAw">
-                                        <connections>
-                                            <action selector="saveState:" destination="ijD-Df-uuV" id="u96-Pp-QEf"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kO5-nc-2DZ">
                                 <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
                                 <items>
@@ -623,6 +605,28 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LR0-YM-gqb"/>
                                 </items>
                             </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
+                                <items>
+                                    <barButtonItem title="Save session" id="4Yt-df-11W">
+                                        <connections>
+                                            <action selector="saveSession:" destination="ijD-Df-uuV" id="iwf-RE-1pO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Vd-IU-yyQ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qSV-he-8iZ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hoi-4E-uaP"/>
+                                    <barButtonItem enabled="NO" systemItem="rewind" id="fJF-NT-mKb"/>
+                                    <barButtonItem enabled="NO" systemItem="play" id="Mej-Kq-vV7"/>
+                                    <barButtonItem enabled="NO" systemItem="fastForward" id="I8l-WL-E3d"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kDo-7b-doy"/>
+                                    <barButtonItem enabled="NO" title="Save state" id="miA-2v-dAw">
+                                        <connections>
+                                            <action selector="saveState:" destination="ijD-Df-uuV" id="u96-Pp-QEf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -633,6 +637,7 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>
                         <outlet property="saveStateButon" destination="miA-2v-dAw" id="FS6-P3-eyp"/>
                         <outlet property="savedStatesSlideButton" destination="bPv-c1-jyd" id="ZWJ-Wo-m1N"/>
                         <outlet property="sidebarButton" destination="Vzn-RD-Rda" id="dYq-m7-QnJ"/>
@@ -647,10 +652,11 @@
         <scene sceneID="MS6-31-5Uh">
             <objects>
                 <tableViewController id="IEz-Bb-6rm" customClass="MTGSavedStatesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LT6-9e-s56">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="LT6-9e-s56">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="title" id="hv8-Q1-5yO">
                                 <rect key="frame" x="0.0" y="22" width="768" height="44"/>
@@ -659,9 +665,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved states" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUd-1H-HqK">
-                                            <rect key="frame" x="95" y="11" width="100" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved states" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUd-1H-HqK">
+                                            <rect key="frame" x="8" y="14" width="293" height="21"/>
+                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -671,92 +677,24 @@
                                     <segue destination="qYl-Ea-1T4" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XvZ-mc-WuE"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="state1" id="KfO-M8-xN6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="state" textLabel="AFx-2d-xOb" style="IBUITableViewCellStyleDefault" id="KfO-M8-xN6">
                                 <rect key="frame" x="0.0" y="66" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KfO-M8-xN6" id="uta-Dy-cat">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1-2-5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arS-8g-Nbc">
-                                            <rect key="frame" x="108" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AFx-2d-xOb">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXT-Ff-8nU">
-                                            <rect key="frame" x="232" y="13" width="20" height="22"/>
-                                            <state key="normal" image="X-2.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="qYl-Ea-1T4" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="eiG-kh-lQ6"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="state2" id="RRb-A2-Ugk">
-                                <rect key="frame" x="0.0" y="110" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RRb-A2-Ugk" id="kqX-EZ-qfP">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4-6-12-17" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCD-5j-UBO">
-                                            <rect key="frame" x="100" y="11" width="78" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13l-Rf-ko0">
-                                            <rect key="frame" x="232" y="11" width="20" height="22"/>
-                                            <state key="normal" image="X-2.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="state3" id="Q46-kC-Wm3">
-                                <rect key="frame" x="0.0" y="154" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q46-kC-Wm3" id="mh7-A0-Ykp">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3-4-5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg1-uN-rYi">
-                                            <rect key="frame" x="118" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-ou-8K4">
-                                            <rect key="frame" x="232" y="11" width="20" height="22"/>
-                                            <state key="normal" image="X-2.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="state4" id="Jmc-WU-Ln3">
-                                <rect key="frame" x="0.0" y="198" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmc-WU-Ln3" id="Ddb-1y-j8F">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1-3-4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcJ-t9-VxY">
-                                            <rect key="frame" x="114" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-ah-1Yt">
-                                            <rect key="frame" x="232" y="7" width="20" height="22"/>
-                                            <state key="normal" image="X-2.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -769,7 +707,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QG-Sf-MDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2499" y="1442"/>
+            <point key="canvasLocation" x="-2499" y="1439"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kIt-I3-LeW">
@@ -857,12 +795,10 @@
     </scenes>
     <resources>
         <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
-        <image name="X-2.png" width="20" height="20"/>
         <image name="arrow-big-01.png" width="30" height="30"/>
         <image name="arrow-big-02.png" width="30" height="30"/>
         <image name="letsGo.png" width="500" height="500"/>
         <image name="menu.png" width="28" height="20"/>
-        <image name="star-7.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -870,7 +806,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="SqA-3s-bFS"/>
         <segue reference="eiG-kh-lQ6"/>
-        <segue reference="LE5-5b-E9w"/>
     </inferredMetricsTieBreakers>
 </document>

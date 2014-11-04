@@ -33,7 +33,7 @@
     
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     
-    menuItems = @[@"load", @"settings", @"new"];
+    menuItems = @[ @"new", @"load"]; //@"settings"
     section2 =  @[@"logout"];
 }
 

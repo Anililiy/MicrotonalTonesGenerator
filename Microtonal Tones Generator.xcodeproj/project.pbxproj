@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9500192D1A06BBD200834493 /* MTGSavedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9500192C1A06BBD200834493 /* MTGSavedState.m */; };
+		950019341A07F9DE00834493 /* arrow-big-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 950019321A07F9DE00834493 /* arrow-big-03.png */; };
+		950019351A07F9DE00834493 /* arrow-big-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 950019331A07F9DE00834493 /* arrow-big-04.png */; };
 		951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */; };
 		951058BE19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951058BD19C5AA93008F5F76 /* MTGSavedStatesTableViewController.m */; };
 		95112EA419EB11F90015E3F8 /* MTGColourButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95112EA319EB11F90015E3F8 /* MTGColourButton.m */; };
@@ -105,6 +107,9 @@
 /* Begin PBXFileReference section */
 		9500192B1A06BBD200834493 /* MTGSavedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSavedState.h; sourceTree = "<group>"; };
 		9500192C1A06BBD200834493 /* MTGSavedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedState.m; sourceTree = "<group>"; };
+		9500192F1A06DF0900834493 /* Microtonal Tones Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Microtonal Tones Generator.entitlements"; sourceTree = "<group>"; };
+		950019321A07F9DE00834493 /* arrow-big-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-big-03.png"; path = "../../arrow-big-03.png"; sourceTree = "<group>"; };
+		950019331A07F9DE00834493 /* arrow-big-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-big-04.png"; path = "../../arrow-big-04.png"; sourceTree = "<group>"; };
 		9510589E19C59BA7008F5F76 /* MTGLoadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGLoadTableViewController.h; sourceTree = "<group>"; };
 		9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGLoadTableViewController.m; sourceTree = "<group>"; };
 		951058BC19C5AA93008F5F76 /* MTGSavedStatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGSavedStatesTableViewController.h; path = ../MTGSavedStatesTableViewController.h; sourceTree = "<group>"; };
@@ -236,6 +241,8 @@
 			children = (
 				9552A23D1A0678D600A8B694 /* arrow-big-01.png */,
 				9552A23E1A0678D600A8B694 /* arrow-big-02.png */,
+				950019321A07F9DE00834493 /* arrow-big-03.png */,
+				950019331A07F9DE00834493 /* arrow-big-04.png */,
 				95AAB6EB19F018AA002A53F7 /* Simply_Beautiful_Button.png */,
 				95AAB6ED19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png */,
 				95AAB6EF19F018B5002A53F7 /* Simply_Beautiful_Swirly_Button.png */,
@@ -302,6 +309,7 @@
 		954B13E219C4F912008FE21B /* Microtonal Tones Generator */ = {
 			isa = PBXGroup;
 			children = (
+				9500192F1A06DF0900834493 /* Microtonal Tones Generator.entitlements */,
 				954B13EB19C4F912008FE21B /* MTGAppDelegate.h */,
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
 				9540DEE319D6D741001C1CC1 /* MTGRootViewController.h */,
@@ -487,6 +495,11 @@
 				TargetAttributes = {
 					954B13D819C4F912008FE21B = {
 						DevelopmentTeam = A9L477E68M;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					954B13F319C4F912008FE21B = {
 						TestTargetID = 954B13D819C4F912008FE21B;
@@ -548,6 +561,7 @@
 				95AAB6EC19F018AA002A53F7 /* Simply_Beautiful_Button.png in Resources */,
 				9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */,
 				95AAB6D019EB4733002A53F7 /* greyButton3.png in Resources */,
+				950019341A07F9DE00834493 /* arrow-big-03.png in Resources */,
 				95AAB6F019F018B5002A53F7 /* Simply_Beautiful_Swirly_Button.png in Resources */,
 				95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */,
 				95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */,
@@ -569,6 +583,7 @@
 				9552A23F1A0678D600A8B694 /* arrow-big-01.png in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
 				9552A2401A0678D600A8B694 /* arrow-big-02.png in Resources */,
+				950019351A07F9DE00834493 /* arrow-big-04.png in Resources */,
 				9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */,
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
 				95AAB6E719EE8C88002A53F7 /* goldenrectangle.jpg in Resources */,
@@ -686,7 +701,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -719,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -731,6 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Microtonal Tones Generator/Microtonal Tones Generator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -748,6 +764,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Microtonal Tones Generator/Microtonal Tones Generator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

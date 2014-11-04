@@ -34,13 +34,12 @@
     //set the slide bar button action. When it is tapped, it will show up the slidebar.
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
-    
-    //set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
+    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+
     //
     NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"scales"]];
+
+    NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
     MTGSavedScale *scale;
     scales = [NSMutableArray array];
     for (NSData *data in archivedScales){
@@ -148,7 +147,7 @@
         scale = [NSKeyedArchiver archivedDataWithRootObject:data];
         [archivedScales addObject:scale];
     }
-    [savedSettings setObject:archivedScales forKey:@"scales"];
+    [savedSettings setObject:archivedScales forKey:@"savedSessions"];
 
 }
 

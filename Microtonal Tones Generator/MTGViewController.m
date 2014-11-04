@@ -104,8 +104,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 
-- (void)customSetup
-{
+- (void)customSetup{
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
@@ -117,13 +116,11 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         _sidebarButton.target = self.revealViewController;
         _sidebarButton.action = @selector(revealToggle:);
         
-        
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+
         //set the slide bar button action. When it is tapped, it will show up the slidebar.
         _savedStatesSlideButton.target = self.revealViewController;
         _savedStatesSlideButton.action = @selector(rightRevealToggle:);
-        
-        //set the gesture
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
 }
 
@@ -139,7 +136,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     }
     else if (loading){
         
-        NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
+        NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
         NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
         MTGSavedScale *scaleLoading;
         scaleLoading = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
@@ -170,8 +167,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     NSLog(@"Received %li splits, %4.1f Hz frequency",numberOfSplits, frequency);
 }
 
-
-- (void)viewDidUnload {
+- (void)viewDidUnload{
     [super viewDidUnload];
     [PdBase closeFile:patch];
     [PdBase setDelegate:nil];
@@ -185,13 +181,13 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (IBAction)polifoniaStart:(id)sender {
     
     if (!creationState){
-        [startButtonItem setTitle:@"Stop"];
+        [startButtonItem setTitle:@"Stop polyphony"];
         creationState = true;
         saveStateButon.enabled = true;
     }
     else
     {
-        [startButtonItem setTitle:@"Start"];
+        [startButtonItem setTitle:@"Polyphony"];
         
         creationState = false;
         saveStateButon.enabled = false;
@@ -221,7 +217,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     //action of button
     [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [aButton addGestureRecognizer:self];
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
     //UIImage *btnImage = [UIImage imageNamed:@"transparent.png"];
@@ -308,7 +304,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (IBAction)saveSession:(id)sender {
-    NSMutableArray* archScales;
+    
+    NSMutableArray* archScales = [NSMutableArray array];
     MTGSavedScale* scale = [[MTGSavedScale alloc] init];
     scale.freqInitial = frequency;
     scale.splitsNumber = numberOfSplits;
@@ -320,8 +317,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:scale];
 
-    if ([defaults objectForKey:@"scales"]){
-       archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"scales"]];
+    if ([defaults objectForKey:@"savedSessions"]){
+       archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
     }
     for (NSData *data in archScales){
         MTGSavedScale* scaleStored = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -330,7 +327,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     }
     if (!sessionIsSaved){
         [archScales addObject:encodedScale];
-        [defaults setObject:archScales forKey:@"scales"];
+        [defaults setObject:archScales forKey:@"savedSessions"];
         sessionIsSaved = YES;
         saveSessionButton.enabled = false;
         NSLog(@"Saved");

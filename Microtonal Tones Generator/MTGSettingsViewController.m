@@ -32,10 +32,8 @@
     //set the slide bar button action. When it is tapped, it will show up the slidebar.
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
-    
-    //set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
+    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+
 }
 
 - (void)didReceiveMemoryWarning

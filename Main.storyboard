@@ -416,19 +416,26 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="440" minValue="100" maxValue="600" translatesAutoresizingMaskIntoConstraints="NO" id="EOU-Wn-XCo">
                                 <rect key="frame" x="441" y="405" width="481" height="31"/>
+                                <color key="minimumTrackTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="frequencyInputChanged:" destination="5SG-oa-Q8B" eventType="valueChanged" id="0Nr-LG-3Fx"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-wS-NQW">
-                                <rect key="frame" x="189" y="491" width="47" height="30"/>
-                                <state key="normal" title="Theme">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <button contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-wS-NQW">
+                                <rect key="frame" x="157" y="500" width="100" height="50"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Colour">
+                                    <color key="titleColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="showColourPopup:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="JhX-KV-Hvq"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Swirl_Funky_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Low-eV-gcy">
+                                <rect key="frame" x="0.0" y="52" width="336" height="800"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -451,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07h-Kl-wZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3064" y="-2039"/>
+            <point key="canvasLocation" x="2994" y="-2039"/>
         </scene>
         <!--Title-->
         <scene sceneID="bLh-Ua-feL">
@@ -793,6 +800,7 @@
     </scenes>
     <resources>
         <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
+        <image name="Swirl_Funky_2.png" width="336" height="800"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
         <image name="letsGo.png" width="500" height="500"/>
@@ -804,7 +812,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Mhp-Gz-yyb"/>
+        <segue reference="eiG-kh-lQ6"/>
         <segue reference="BnV-kE-afT"/>
     </inferredMetricsTieBreakers>
 </document>

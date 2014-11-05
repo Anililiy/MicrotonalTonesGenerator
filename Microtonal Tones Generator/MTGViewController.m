@@ -217,7 +217,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     //action of button
     [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [aButton addGestureRecognizer:self];
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
     //UIImage *btnImage = [UIImage imageNamed:@"transparent.png"];

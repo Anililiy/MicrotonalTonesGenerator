@@ -21,11 +21,11 @@
     IBOutlet UIButton *chooseTheme;
    
     NSString* chosenFrequency;
-    float frequency;
-    int   split;
-    float colourHue;
-    float colourSat;
-    float colourBrg;
+    CGFloat frequency;
+    NSInteger split;
+    CGFloat colourHue;
+    CGFloat colourSat;
+    CGFloat colourBrg;
 }
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;

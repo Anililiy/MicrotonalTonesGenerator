@@ -8,13 +8,17 @@
 
 #import "MTGCreateNewViewController.h"
 #import "SWRevealViewController.h"
+#import "MTGColourButton.h"
 
 @interface MTGCreateNewViewController ()
+
+@property NSArray *colorCollection;
+@property (nonatomic, strong) NSArray* colorButtons;
 
 @end
 
 @implementation MTGCreateNewViewController
-@synthesize popoverController;
+@synthesize popoverController, colorCollection;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,10 +28,20 @@
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
 
     // init
-    frequency = 440.0;
-    split = 12;
-    splitLabel.text = [NSString stringWithFormat:@"%i", split];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    split = [defaults integerForKey:@"deaultNumberOfSplits"];
+    frequency = [defaults floatForKey:@"defaultFrequency"];
+    colourHue = [defaults floatForKey:@"initThemeHue"];
+    colourSat = [defaults floatForKey:@"initThemeSat"];
+    colourBrg = [defaults floatForKey:@"initThemeBrg"];
+    
+    splitLabel.text = [NSString stringWithFormat:@"%li", split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    chooseTheme.backgroundColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
+    //chooseTheme.tintColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
+    [self createColorsArray];
+    [self setupColorButtons];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +87,7 @@
     popoverController.popoverContentSize = CGSizeMake(225.0, 100.0);
     [popoverController presentPopoverFromRect:[(UIButton *)sender frame]
                                        inView:self.view
-                     permittedArrowDirections:UIPopoverArrowDirectionRight
+                     permittedArrowDirections:UIPopoverArrowDirectionAny
                                      animated:YES];
 
 }
@@ -110,6 +124,67 @@
     
 }
 
+-(void)setupColorButtons{
+    int maxNCol = 10;
+    
+    if (nil == self.colorButtons)
+    {
+        NSMutableArray* newColorButtons = [NSMutableArray arrayWithCapacity:maxNCol];
+        int colorNumber = 0;
+        for (int i=0;i<maxNCol;i++){
+            
+            MTGColourButton *colorButton = [MTGColourButton buttonWithType:UIButtonTypeCustom];
+            colorButton.frame = CGRectMake(310+i*60, 500, 50, 50);
+            
+            [colorButton addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [colorButton setSelected:NO];
+            [colorButton setNeedsDisplay];
+            [colorButton setBackgroundColor:[self.colorCollection objectAtIndex:colorNumber]];
+            [colorButton setColour:[self.colorCollection objectAtIndex:colorNumber]];
+            colorButton.tag = colorNumber;
+            
+            colorNumber ++;
+            [newColorButtons addObject:colorButton];
+            [self.view addSubview:colorButton];
+        }
+        self.colorButtons = [newColorButtons copy];
+        
+    }
+    else{
+        for (UIButton* colorButton in self.colorButtons)
+        {
+            NSInteger colorNumber = colorButton.tag;
+            
+            NSInteger i = colorNumber;
+            colorButton.frame = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
+        }
+    }
+}
+-(void) buttonPushed:(UIButton *)button{
+    chooseTheme.backgroundColor = button.backgroundColor;
+
+    //MTGColourButton *btn = (MTGColourButton *)sender;
+    
+    //[delegate colorPopoverControllerDidSelectColor:btn.colourOfScale];
+}
+
+
+-(void) createColorsArray{
+    colorCollection = [NSArray arrayWithObjects:
+                            [UIColor redColor],
+                            [UIColor orangeColor],
+                            [UIColor yellowColor],
+                            [UIColor greenColor],
+                            [UIColor cyanColor],
+                            [UIColor blueColor],
+                            [UIColor purpleColor],
+                            [UIColor magentaColor],
+                            [UIColor blackColor],
+                            [UIColor brownColor],
+                                nil];
+}
+
 - (IBAction)frequencyInputChanged:(UISlider *)slider {
     frequency = slider.value;
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
@@ -118,6 +193,6 @@
 
 - (IBAction)splitInputChanged:(UISlider *)slider{
     split = slider.value;
-    splitLabel.text = [NSString stringWithFormat:@"%i", split];
+    splitLabel.text = [NSString stringWithFormat:@"%li", split];
 }
 @end

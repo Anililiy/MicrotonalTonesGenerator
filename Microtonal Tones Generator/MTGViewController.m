@@ -260,7 +260,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         else{
             NSLog(@"Patch removed with %li", [aButton tag]);
             [patches removeObjectAtIndex:[aButton tag]];
-            [pressedKeys removeObject:[NSNumber numberWithInt:[aButton tag]]];
+            [pressedKeys removeObject:[NSNumber numberWithInteger:[aButton tag]]];
             [patches insertObject:@"1" atIndex:[aButton tag]];
             aButton.selected =!aButton.selected;
         }
@@ -273,7 +273,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 #pragma mark - button call back
 
--(void)playNoteLong:(int)n at:(int)index{
+-(void)playNoteLong:(float)f at:(NSInteger)index{
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
     if (patchOfKey) {
@@ -281,16 +281,16 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         NSLog(@"Patches: %li", [patches count]);
         [patches removeObjectAtIndex:index];
         [patches insertObject:patchOfKey atIndex:index];
-        [pressedKeys addObject:[NSNumber numberWithInt:index]];
+        [pressedKeys addObject:[NSNumber numberWithInteger:index]];
     }
     else {
         NSLog(@"error: couldn't open patch");
     }
-    [PdBase sendFloat:n toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
+    [PdBase sendFloat:f toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
 }
 
--(void)playNoteShort:(int)n{
-    [PdBase sendFloat:n toReceiver:@"midinote"];
+-(void)playNoteShort:(float)freqValue{
+    [PdBase sendFloat:freqValue toReceiver:@"midinote"];
     [PdBase sendBangToReceiver:@"trigger"];
 }
 
@@ -349,6 +349,20 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [defaults setObject:savedStates forKey:@"savedStates"];
     [defaults synchronize];
 }
-
+/*
+- (void) keysPressed:(NSSet *)keys {
+    NSLog(@"keysPressed=%lu", [keys count]);
+    
+    
+    for (NSNumber* keyIndex in keys) {
+        //if ([audio count] > [keyIndex intValue]) {
+          //  SystemSoundID soundID = [audio[[keyIndex intValue]] unsignedLongValue];
+            // Should probably use "AudioServicesAddSystemSoundCompletion" to make
+            // sure we are never playing too many sounds at any one time.
+            //AudioServicesPlaySystemSound(soundID);
+        //}
+    }
+}
+*/
 
 @end

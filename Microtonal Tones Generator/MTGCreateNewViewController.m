@@ -36,7 +36,7 @@
     colourSat = [defaults floatForKey:@"initThemeSat"];
     colourBrg = [defaults floatForKey:@"initThemeBrg"];
     
-    splitLabel.text = [NSString stringWithFormat:@"%li", split];
+    splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
     chooseTheme.backgroundColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
     //chooseTheme.tintColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
@@ -46,31 +46,19 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 - (IBAction)createIt:(id)sender {
 
     // Store the data
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setInteger:split   forKey:@"numberOfSplits"];
-    [defaults setFloat:frequency forKey:@"frequency"];
-    [defaults setFloat:colourHue forKey:@"themeHue"];
-    [defaults setFloat:colourSat forKey:@"themeSat"];
-    [defaults setFloat:colourBrg forKey:@"themeBrg"];
-    [defaults setBool:false forKey:@"saved"];
+    [defaults setInteger:   split       forKey:@"numberOfSplits"   ];
+    [defaults setFloat:     frequency   forKey:@"frequency"        ];
+    [defaults setFloat:     colourHue   forKey:@"themeHue"         ];
+    [defaults setFloat:     colourSat   forKey:@"themeSat"         ];
+    [defaults setFloat:     colourBrg   forKey:@"themeBrg"         ];
+    [defaults setBool:      false       forKey:@"saved"            ];
     
     [defaults synchronize];
     
@@ -98,15 +86,8 @@
     [self.view setNeedsDisplay];
     [popoverController dismissPopoverAnimated:YES];
     popoverController = nil;
-    CGFloat hue;
-    CGFloat saturation;
-    CGFloat brightness;
-    CGFloat alpha;
-    BOOL success = [colour getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
-    NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
-    colourHue = hue;
-    colourSat = saturation;
-    colourBrg = brightness;
+    [self setColor:colour];
+
 }
 
 - (IBAction)chooseFreq:(UIButton*)aButton {
@@ -121,7 +102,6 @@
         NSLog(@"Frequency selected: %@", chosenFrequency);
         frequency = [chosenFrequency floatValue];
     }
-    
 }
 
 -(void)setupColorButtons{
@@ -161,28 +141,10 @@
         }
     }
 }
+
 -(void) buttonPushed:(UIButton *)button{
     chooseTheme.backgroundColor = button.backgroundColor;
-
-    //MTGColourButton *btn = (MTGColourButton *)sender;
-    
-    //[delegate colorPopoverControllerDidSelectColor:btn.colourOfScale];
-}
-
-
--(void) createColorsArray{
-    colorCollection = [NSArray arrayWithObjects:
-                            [UIColor redColor],
-                            [UIColor orangeColor],
-                            [UIColor yellowColor],
-                            [UIColor greenColor],
-                            [UIColor cyanColor],
-                            [UIColor blueColor],
-                            [UIColor purpleColor],
-                            [UIColor magentaColor],
-                            [UIColor blackColor],
-                            [UIColor brownColor],
-                                nil];
+    [self setColor:button.backgroundColor];
 }
 
 - (IBAction)frequencyInputChanged:(UISlider *)slider {
@@ -195,4 +157,31 @@
     split = slider.value;
     splitLabel.text = [NSString stringWithFormat:@"%li", split];
 }
+
+-(void)setColor:(UIColor*)color{
+    CGFloat hue;
+    CGFloat saturation;
+    CGFloat brightness;
+    CGFloat alpha;
+    BOOL success = [color getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
+    NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
+    colourHue = hue;
+    colourSat = saturation;
+    colourBrg = brightness;
+}
+-(void) createColorsArray{
+    colorCollection = [NSArray arrayWithObjects:
+                       [UIColor redColor],
+                       [UIColor orangeColor],
+                       [UIColor yellowColor],
+                       [UIColor greenColor],
+                       [UIColor cyanColor],
+                       [UIColor blueColor],
+                       [UIColor purpleColor],
+                       [UIColor magentaColor],
+                       [UIColor blackColor],
+                       [UIColor brownColor],
+                       nil];
+}
+
 @end

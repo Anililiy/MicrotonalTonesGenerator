@@ -54,6 +54,7 @@
 		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
 		957E295E1A0A63F500D494E7 /* MTGFirstLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E295A1A0A63F500D494E7 /* MTGFirstLoginViewController.m */; };
 		957E295F1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */; };
+		9599B8EC1A0CD89F007BA3D1 /* MTGKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9599B8EB1A0CD89F007BA3D1 /* MTGKeyView.m */; };
 		95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */; };
 		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
 		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
@@ -169,6 +170,8 @@
 		957E295A1A0A63F500D494E7 /* MTGFirstLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGFirstLoginViewController.m; sourceTree = "<group>"; };
 		957E295B1A0A63F500D494E7 /* MTGSavedStatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSavedStatesTableViewController.h; sourceTree = "<group>"; };
 		957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedStatesTableViewController.m; sourceTree = "<group>"; };
+		9599B8EA1A0CD89F007BA3D1 /* MTGKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGKeyView.h; sourceTree = "<group>"; };
+		9599B8EB1A0CD89F007BA3D1 /* MTGKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKeyView.m; sourceTree = "<group>"; };
 		95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteCircButton.png; sourceTree = "<group>"; };
 		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
 		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 				953943401A0A652200588979 /* Main.storyboard */,
 				954B141B19C4FCB6008FE21B /* MTGViewController.h */,
 				954B141C19C4FCB6008FE21B /* MTGViewController.m */,
+				9599B8EA1A0CD89F007BA3D1 /* MTGKeyView.h */,
+				9599B8EB1A0CD89F007BA3D1 /* MTGKeyView.m */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -615,6 +620,7 @@
 				951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */,
 				955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,
+				9599B8EC1A0CD89F007BA3D1 /* MTGKeyView.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,
 				957E295E1A0A63F500D494E7 /* MTGFirstLoginViewController.m in Sources */,
 				955A0B6419F33B3700842D32 /* MTGSavedScale.m in Sources */,

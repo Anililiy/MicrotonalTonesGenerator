@@ -10,6 +10,13 @@
 #import "PdDispatcher.h"
 #import "SWRevealViewController.h"
 #import "MTGSavedScale.h"
+#import "MTGKeyObject.h"
+
+@class MTGViewController;
+
+@protocol MTGViewControlerPassInfo <NSObject>
+- (void)addItemViewController:(MTGViewController *)controller didFinishEnteringItem:(NSString *)item;
+@end
 
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
@@ -18,8 +25,12 @@
     NSInteger numberOfSplits;
     float hueOfKeys, saturOfKeys, brightOfKey, frequency;
     BOOL creationState, sessionIsSaved;
+    MTGKeyObject* key;
+    MTGSavedScale* currentScale;
 }
+@property (nonatomic, weak) id <MTGViewControlerPassInfo> pass;
 
+@property (strong, nonatomic) IBOutlet UINavigationItem *scaleNavigationItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveStateButon;

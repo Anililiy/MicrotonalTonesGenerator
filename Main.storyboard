@@ -645,13 +645,14 @@
                         <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>
                         <outlet property="saveStateButon" destination="miA-2v-dAw" id="FS6-P3-eyp"/>
                         <outlet property="savedStatesSlideButton" destination="bPv-c1-jyd" id="ZWJ-Wo-m1N"/>
+                        <outlet property="scaleNavigationItem" destination="BtU-As-ydt" id="Inf-47-OoK"/>
                         <outlet property="sidebarButton" destination="Vzn-RD-Rda" id="dYq-m7-QnJ"/>
                         <outlet property="startButtonItem" destination="4gs-Yq-Jui" id="spQ-4R-lpt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioh-E7-8HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="787"/>
+            <point key="canvasLocation" x="1980" y="783"/>
         </scene>
         <!--Saved States Table View Controller-->
         <scene sceneID="MS6-31-5Uh">
@@ -795,7 +796,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQI-gE-rhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-700" y="512"/>
+            <point key="canvasLocation" x="-884" y="736"/>
         </scene>
     </scenes>
     <resources>
@@ -812,7 +813,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eiG-kh-lQ6"/>
-        <segue reference="BnV-kE-afT"/>
+        <segue reference="QK2-H1-fqF"/>
+        <segue reference="LE5-5b-E9w"/>
     </inferredMetricsTieBreakers>
 </document>

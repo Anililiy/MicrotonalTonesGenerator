@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTGSavedState.h"
 
 @interface MTGSavedScale : NSObject <NSCoding>{
     NSInteger splitsNumber;
     float freqInitial, hue, saturarion, brightness;
-    UIColor *keyColor;
 }
 
-@property NSInteger splitsNumber;
+@property NSInteger splitsNumber, scaleNumber;
+@property NSMutableArray* savedStates;
 @property float freqInitial, hue, saturarion, brightness;
 
 @end

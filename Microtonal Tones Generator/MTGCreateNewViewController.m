@@ -155,7 +155,7 @@
 
 - (IBAction)splitInputChanged:(UISlider *)slider{
     split = slider.value;
-    splitLabel.text = [NSString stringWithFormat:@"%li", split];
+    splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
 }
 
 -(void)setColor:(UIColor*)color{

@@ -10,4 +10,6 @@
 
 @implementation MTGSavedState
 
+@synthesize indexes, frequencies;
+
 @end

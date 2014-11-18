@@ -87,9 +87,9 @@
     else{
         for (UIButton* colorButton in self.colorButtons)
         {
-            int colorNumber = colorButton.tag;
+            NSInteger colorNumber = colorButton.tag;
             
-            int i = colorNumber;
+            NSInteger i = colorNumber;
             colorButton.frame = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
         }
     }

@@ -10,4 +10,7 @@
 
 @interface MTGSavedState : NSObject
 
+@property NSMutableArray* indexes;
+@property NSMutableArray* frequencies;
+
 @end

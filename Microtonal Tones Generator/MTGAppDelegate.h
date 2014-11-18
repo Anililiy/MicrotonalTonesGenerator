@@ -10,12 +10,21 @@
 #import "PdAudioController.h"
 #import "PdBase.h"
 #import "MTGFirstLoginViewController.h"
+#import <CoreData/CoreData.h>
 
 
 @interface MTGAppDelegate : UIResponder <UIApplicationDelegate, PdReceiverDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
 @property (strong,nonatomic,readonly) PdAudioController *audioController;
 @property (nonatomic) BOOL authenticated;
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 
 @end

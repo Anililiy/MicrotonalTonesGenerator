@@ -13,7 +13,7 @@
 @end
 
 @implementation MTGSavedStatesTableViewController
-@synthesize savedStates;
+@synthesize savedStates,str;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    NSLog(@"Input %@", str);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -35,7 +35,7 @@
      //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     
-    
+    /*
     //savedStates= [NSMutableArray array];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     savedStates = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedStates"]];
@@ -43,6 +43,7 @@
    
     //[savedStates addObjectsFromArray:@[@"12",@"14"]];
     NSLog(@"We are given: %@", savedStates);
+     */
 }
 
 - (void)didReceiveMemoryWarning

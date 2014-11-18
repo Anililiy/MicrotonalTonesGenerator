@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="InitialSettings" syncable="YES">
+        <attribute name="brightness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="f0" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="hue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="numberOfSplits" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="saturation" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Key" representedClassName="MTGKeyObject" syncable="YES">
+        <attribute name="frequency" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Scale" representedClassName="MTGSavedScale" syncable="YES">
+        <attribute name="brightness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="f0" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="hue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="numberOfSplits" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="saturation" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="relationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" syncable="YES"/>
+        <relationship name="relationship2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Key" syncable="YES"/>
+    </entity>
+    <entity name="State" representedClassName="MTGSavedState" syncable="YES">
+        <attribute name="frequency" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Scale" positionX="124" positionY="-58" width="128" height="148"/>
+        <element name="State" positionX="88" positionY="162" width="128" height="73"/>
+        <element name="Key" positionX="295" positionY="161" width="128" height="73"/>
+        <element name="InitialSettings" positionX="-72" positionY="-55" width="128" height="118"/>
+    </elements>
+</model>

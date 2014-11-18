@@ -516,48 +516,6 @@ static CGFloat scaledValue( CGFloat v1, CGFloat min2, CGFloat max2, CGFloat min1
 @end
 
 
-#pragma mark - SWRevealViewControllerPanGestureRecognizer
-
-#import <UIKit/UIGestureRecognizerSubclass.h>
-
-@interface SWRevealViewControllerPanGestureRecognizer : UIPanGestureRecognizer
-@end
-
-@implementation SWRevealViewControllerPanGestureRecognizer
-{
-    BOOL _dragging;
-    CGPoint _beginPoint;
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [super touchesBegan:touches withEvent:event];
-   
-    UITouch *touch = [touches anyObject];
-    _beginPoint = [touch locationInView:self.view];
-    _dragging = NO;
-}
-
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [super touchesMoved:touches withEvent:event];
-    
-    if ( _dragging || self.state == UIGestureRecognizerStateFailed)
-        return;
-    
-    const int kDirectionPanThreshold = 5;
-    
-    UITouch *touch = [touches anyObject];
-    CGPoint nowPoint = [touch locationInView:self.view];
-    
-    if (abs(nowPoint.x - _beginPoint.x) > kDirectionPanThreshold) _dragging = YES;
-    else if (abs(nowPoint.y - _beginPoint.y) > kDirectionPanThreshold) self.state = UIGestureRecognizerStateFailed;
-}
-
-@end
-
-
 #pragma mark - SWRevealViewController Class
 
 @interface SWRevealViewController()<UIGestureRecognizerDelegate>
@@ -881,18 +839,6 @@ const int FrontViewPositionNone = 0xff;
 {
     _frontViewShadowColor = frontViewShadowColor;
     [_contentView reloadShadow];
-}
-
-
-- (UIPanGestureRecognizer*)panGestureRecognizer
-{
-    if ( _panGestureRecognizer == nil )
-    {
-        _panGestureRecognizer = [[SWRevealViewControllerPanGestureRecognizer alloc] initWithTarget:self action:@selector(_handleRevealGesture:)];
-        _panGestureRecognizer.delegate = self;
-        [_contentView.frontView addGestureRecognizer:_panGestureRecognizer];
-    }
-    return _panGestureRecognizer;
 }
 
 
@@ -1838,57 +1784,5 @@ NSString * const SWSegueRightIdentifier = @"sw_right";
 }
 
 @end
-
-
-//#pragma mark - SWRevealViewControllerSegue Class
-//
-//@implementation SWRevealViewControllerSegue  // DEPRECATED
-//
-//- (void)perform
-//{
-//    if ( _performBlock )
-//        _performBlock( self, self.sourceViewController, self.destinationViewController );
-//}
-//
-//@end
-//
-//
-//#pragma mark Storyboard support
-//
-//@implementation SWRevealViewController(deprecated)
-//
-//- (void)prepareForSegue:(SWRevealViewControllerSegue *)segue sender:(id)sender   // TO REMOVE: DEPRECATED IMPLEMENTATION
-//{
-//    // This method is required for compatibility with SWRevealViewControllerSegue, now deprecated.
-//    // It can be simply removed when using SWRevealViewControllerSegueSetController and SWRevealViewControlerSeguePushController
-//    
-//    NSString *identifier = segue.identifier;
-//    if ( [segue isKindOfClass:[SWRevealViewControllerSegue class]] && sender == nil )
-//    {
-//        if ( [identifier isEqualToString:SWSegueRearIdentifier] )
-//        {
-//            segue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc)
-//            {
-//                [self _setRearViewController:dvc animated:NO];
-//            };
-//        }
-//        else if ( [identifier isEqualToString:SWSegueFrontIdentifier] )
-//        {
-//            segue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc)
-//            {
-//                [self _setFrontViewController:dvc animated:NO];
-//            };
-//        }
-//        else if ( [identifier isEqualToString:SWSegueRightIdentifier] )
-//        {
-//            segue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc)
-//            {
-//                [self _setRightViewController:dvc animated:NO];
-//            };
-//        }
-//    }
-//}
-//
-//@end
 
 

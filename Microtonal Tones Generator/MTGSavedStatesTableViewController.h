@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
+#import "MTGViewController.h"
 
 @interface MTGSavedStatesTableViewController : UITableViewController
 @property NSMutableArray *savedStates;
+@property NSString *str;
 @end

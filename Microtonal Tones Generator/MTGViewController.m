@@ -169,6 +169,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [defaults setFloat:saturOfKeys forKey:@"themeSat"];
         [defaults setFloat:brightOfKey forKey:@"themeBrg"];
         [defaults setBool:sessionIsSaved forKey:@"saved"];
+        [defaults setInteger:scaleIndex forKey:@"currentScale"];
         [defaults setInteger:indexOfFileLoading forKey:@"currentScaleIndex"];
         NSLog(@"Index passed %i",indexOfFileLoading);
         [defaults synchronize];
@@ -181,9 +182,14 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         brightOfKey = [defaults floatForKey:@"themeBrg"];
         sessionIsSaved = [defaults boolForKey:@"saved"];
         scaleIndex = [defaults integerForKey:@"currentScale"];
-        int scalePositionInArray = [archivedScales count]-1;
-        [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
-        NSLog(@"Index passed %i",scalePositionInArray);
+        
+        if (!sessionIsSaved){
+            int scalePositionInArray = [archivedScales count]-1;
+            [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
+            NSLog(@"Index passed %i",scalePositionInArray);
+            [savedStates removeAllObjects];
+        }
+        
 
         [defaults synchronize];
     }

@@ -13,4 +13,6 @@
 @interface MTGSavedStatesTableViewController : UITableViewController
 @property NSMutableArray *savedStates;
 @property NSString *str;
+
+-(void)dataFill;
 @end

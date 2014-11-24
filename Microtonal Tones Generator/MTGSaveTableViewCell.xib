@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chooseScale" rowHeight="44" id="KGk-i7-Jjw" customClass="MTGSaveTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chooseScale" rowHeight="104" id="KGk-i7-Jjw" customClass="MTGSaveTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -19,12 +18,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="n" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzc-cn-bXC">
-                        <rect key="frame" x="538" y="17" width="35" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="154" y="8" width="218" height="26"/>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnU-Zu-6CD">
                         <rect key="frame" x="648" y="15" width="36" height="21"/>
@@ -37,8 +33,36 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
+                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="154" y="42" width="76" height="21"/>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8DG-Wd-oY3">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="n" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzc-cn-bXC">
+                        <rect key="frame" x="538" y="17" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="154" y="66" width="35" height="21"/>
+                        </variation>
                     </label>
                 </subviews>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="8DG-Wd-oY3"/>
+                    </mask>
+                </variation>
+                <variation key="heightClass=compact-widthClass=compact">
+                    <mask key="subviews">
+                        <include reference="8DG-Wd-oY3"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="dnU-Zu-6CD" id="wdi-Ip-i83"/>
@@ -46,7 +70,7 @@
                 <outlet property="nameOfScale" destination="587-Pd-3nA" id="z38-Gn-0Ie"/>
                 <outlet property="splitLabel" destination="xzc-cn-bXC" id="BeS-62-2qc"/>
             </connections>
-            <point key="canvasLocation" x="211" y="251"/>
+            <point key="canvasLocation" x="211" y="228"/>
         </tableViewCell>
     </objects>
 </document>

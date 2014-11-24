@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -464,12 +464,12 @@
         <scene sceneID="bLh-Ua-feL">
             <objects>
                 <tableViewController id="pgH-QK-fhb" customClass="MTGLoadTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BMe-Gx-WGK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="BMe-Gx-WGK">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="chooseScale" rowHeight="44" id="rPX-ah-pgL" customClass="MTGSaveTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="chooseScale" rowHeight="92" id="rPX-ah-pgL" customClass="MTGSaveTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rPX-ah-pgL" id="v3O-7h-dSE">
@@ -477,13 +477,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYp-P2-ArG">
-                                            <rect key="frame" x="52" y="11" width="46" height="21"/>
+                                            <rect key="frame" x="133" y="9" width="236" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="n" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-7Q-6h2">
-                                            <rect key="frame" x="538" y="17" width="35" height="21"/>
+                                            <rect key="frame" x="454" y="41" width="35" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -495,11 +495,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="f0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOe-D9-iUo">
-                                            <rect key="frame" x="438" y="17" width="76" height="21"/>
+                                            <rect key="frame" x="454" y="12" width="76" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Simply_Beautiful_Button.png" translatesAutoresizingMaskIntoConstraints="NO" id="gLb-Xn-z4v">
+                                            <rect key="frame" x="20" y="4" width="82" height="81"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -529,7 +532,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bho-hL-15n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="-1472"/>
+            <point key="canvasLocation" x="1215" y="-1477"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ScT-5d-Vwk">
@@ -644,6 +647,7 @@
                     <connections>
                         <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>
                         <outlet property="saveStateButon" destination="miA-2v-dAw" id="FS6-P3-eyp"/>
+                        <outlet property="saveStateButton" destination="67t-FB-cdE" id="zda-pP-HXf"/>
                         <outlet property="savedStatesSlideButton" destination="bPv-c1-jyd" id="ZWJ-Wo-m1N"/>
                         <outlet property="scaleNavigationItem" destination="BtU-As-ydt" id="Inf-47-OoK"/>
                         <outlet property="sidebarButton" destination="Vzn-RD-Rda" id="dYq-m7-QnJ"/>
@@ -801,6 +805,7 @@
     </scenes>
     <resources>
         <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
+        <image name="Simply_Beautiful_Button.png" width="800" height="796"/>
         <image name="Swirl_Funky_2.png" width="336" height="800"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
@@ -814,6 +819,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="QK2-H1-fqF"/>
-        <segue reference="LE5-5b-E9w"/>
+        <segue reference="SqA-3s-bFS"/>
     </inferredMetricsTieBreakers>
 </document>

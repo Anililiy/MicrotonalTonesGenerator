@@ -86,8 +86,9 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.splitLabel.text = [NSString stringWithFormat:@"%li", scale.splitsNumber];
+    cell.splitLabel.text = [NSString stringWithFormat:@"%li", (long)scale.splitsNumber];
     cell.freqLabel.text = [NSString stringWithFormat:@"%4.1f", scale.freqInitial];
+    cell.nameOfScale.text = [NSString stringWithFormat:@"Session № %i", scale.scaleNumber];
     //cell.dateLabel = NSDateFormatterShortStyle;
     
     return cell;
@@ -125,6 +126,18 @@
         [scales removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+    
+    
+    NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *archivedScales = [NSMutableArray array];
+    
+    MTGSavedScale *scale;
+    for (NSData *data in scales){
+        scale = [NSKeyedArchiver archivedDataWithRootObject:data];
+        [archivedScales addObject:scale];
+    }
+    [savedSettings setObject:archivedScales forKey:@"savedSessions"];
+    
 }
 
 #pragma mark - Navigation
@@ -137,18 +150,8 @@
         MTGViewController *detailViewController = [segue destinationViewController];
         detailViewController.indexOfFileLoading = index;
         detailViewController.loading = true;
+        detailViewController.numberOfSavedScales = [scales count];
     }
-
-    NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *archivedScales = [NSMutableArray array];
-    
-    MTGSavedScale *scale;
-    for (NSData *data in scales){
-        scale = [NSKeyedArchiver archivedDataWithRootObject:data];
-        [archivedScales addObject:scale];
-    }
-    [savedSettings setObject:archivedScales forKey:@"savedSessions"];
-
 }
 
 

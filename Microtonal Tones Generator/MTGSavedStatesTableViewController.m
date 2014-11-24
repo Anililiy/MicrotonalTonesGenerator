@@ -23,6 +23,9 @@
     }
     return self;
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [self dataFill];
+}
 
 - (void)viewDidLoad
 {
@@ -34,16 +37,29 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
      //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    [self dataFill];
+}
+
+-(void)dataFill{
+    savedStates = [NSMutableArray array];
     
-    /*
-    //savedStates= [NSMutableArray array];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    savedStates = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedStates"]];
+    NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
     
-   
+    NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
+    MTGSavedScale *scale;
+    NSMutableArray *scales;
+    scales = [NSMutableArray array];
+    for (NSData *data in archivedScales){
+        scale = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [scales addObject:scale];
+    }
+    int indexOfScale = [savedSettings integerForKey:@"currentScaleIndex"];
+    scale = [scales objectAtIndex:indexOfScale];
+    savedStates = scale.savedStates;
+    
     //[savedStates addObjectsFromArray:@[@"12",@"14"]];
     NSLog(@"We are given: %@", savedStates);
-     */
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,11 +98,13 @@
         }break;
         case 1:{
             NSString *CellIdentifier = @"state";
-            NSMutableArray *arrayOfIndexes = [[NSMutableArray alloc] initWithArray:savedStates[indexPath.row]];
+            NSMutableArray *keysPressed = [[NSMutableArray alloc] initWithArray:savedStates[indexPath.row]];
         
             NSString *label=@"";
-            for (NSNumber *number in arrayOfIndexes){
-                label = [NSString stringWithFormat:@"%@ - %@",label, number];
+            MTGKeyObject *key;
+            for (int i=0; i<[keysPressed count];i++){
+                key = keysPressed[i];
+                label = [NSString stringWithFormat:@"%@ - %ld",label, (long)key.index];
             }
             UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
             cell1.textLabel.textAlignment = NSTextAlignmentCenter;

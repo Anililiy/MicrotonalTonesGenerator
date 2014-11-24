@@ -27,6 +27,7 @@
     BOOL creationState, sessionIsSaved;
     MTGKeyObject* key;
     MTGSavedScale* currentScale;
+    NSInteger scaleIndex;
 }
 @property (nonatomic, weak) id <MTGViewControlerPassInfo> pass;
 
@@ -35,8 +36,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveStateButon;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveSessionButton;
+@property (strong, nonatomic) IBOutlet UIToolbar *saveStateButton;
 
-@property(nonatomic) NSInteger indexOfFileLoading;
+@property(nonatomic) NSInteger indexOfFileLoading, numberOfSavedScales;
 @property(nonatomic) BOOL loading;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *startButtonItem;

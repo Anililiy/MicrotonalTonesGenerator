@@ -11,4 +11,22 @@
 @implementation MTGKeyObject
 
 @synthesize index, keyFrequency;
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeInteger:index  forKey:@"indexOfKey"];
+    [encoder encodeFloat:keyFrequency     forKey:@"freqOfKey"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if((self = [super init]))
+    {
+        index = [decoder decodeIntegerForKey:@"indexOfKey"];
+        keyFrequency  = [decoder decodeFloatForKey:@"freqOfKey"];
+
+    }
+    return self;
+}
+
 @end

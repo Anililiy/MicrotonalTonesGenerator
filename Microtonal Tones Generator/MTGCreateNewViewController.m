@@ -59,6 +59,9 @@
     [defaults setFloat:     colourSat   forKey:@"themeSat"         ];
     [defaults setFloat:     colourBrg   forKey:@"themeBrg"         ];
     [defaults setBool:      false       forKey:@"saved"            ];
+    int numberOfSession = [defaults integerForKey:@"currentScale"];
+    numberOfSession+=1;
+    [defaults setInteger:numberOfSession forKey:@"currentScale"];
     
     [defaults synchronize];
     

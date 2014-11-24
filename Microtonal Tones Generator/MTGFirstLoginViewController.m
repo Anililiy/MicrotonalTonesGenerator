@@ -53,6 +53,8 @@
         [defaults setFloat:colourHue forKey:@"initThemeHue"];
         [defaults setFloat:colourSat forKey:@"initThemeSat"];
         [defaults setFloat:colourBrg forKey:@"initThemeBrg"];
+        [defaults setInteger:0 forKey:@"currentScale"];
+        [defaults setInteger:0 forKey:@"currentScaleIndex"];
         
         if (![defaults objectForKey:@"firstRun"] || ![defaults boolForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
         

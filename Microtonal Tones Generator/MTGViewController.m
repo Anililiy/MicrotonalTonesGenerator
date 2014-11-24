@@ -27,7 +27,7 @@ NSString *const kShortPatchName = @"KeyNote.pd";
 
 @synthesize patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton;
+@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton, numberOfSavedScales;
 
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
@@ -53,6 +53,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self customSetup];
+    
+    scaleIndex = 0;
+    NSLog(@"saed scales number: %i", numberOfSavedScales);
+
     
     if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
         
@@ -94,15 +98,19 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         pressedKeys = [NSMutableArray array];
         savedStates =[NSMutableArray array];
         key = [[MTGKeyObject alloc] init];
-        
+        currentScale.savedStates = [NSMutableArray array];
+        /*
         NSString *itemToPassBack = @"Pass this value back to ViewControllerA";
         [self.pass addItemViewController:self didFinishEnteringItem:itemToPassBack];
+        */
         
         for (int i = 0; i<=numberOfSplits; i++){
             [patches addObject:@"1"];
              [self createButton: i];
         }
         NSLog(@"Patches: %lu", (unsigned long)[patches count]);
+        
+        _scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleIndex];
     }
 }
 
@@ -130,19 +138,21 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 -(void) initialiseValues{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     currentScale = [[MTGSavedScale alloc]init];
-    
+    NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
+
     if (![defaults integerForKey:@"numberOfSplits"]) {
         numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
         frequency = [defaults floatForKey:@"defaultFrequency"];
         hueOfKeys = [defaults floatForKey:@"initThemeHue"];
         saturOfKeys = [defaults floatForKey:@"initThemeSat"];
         brightOfKey = [defaults floatForKey:@"initThemeBrg"];
+        scaleIndex = 0;
     }
     else if (loading){
         
-        NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
         NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
         currentScale = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
+        
         savedStates = [NSMutableArray arrayWithArray:currentScale.savedStates];
         numberOfSplits = currentScale.splitsNumber;
         frequency = currentScale.freqInitial;
@@ -151,6 +161,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         brightOfKey = currentScale.brightness;
         loading = false;
         sessionIsSaved = true;
+        scaleIndex = currentScale.scaleNumber;
         
         [defaults setInteger:numberOfSplits forKey:@"numberOfSplits"];
         [defaults setFloat:frequency forKey:@"frequency"];
@@ -158,6 +169,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [defaults setFloat:saturOfKeys forKey:@"themeSat"];
         [defaults setFloat:brightOfKey forKey:@"themeBrg"];
         [defaults setBool:sessionIsSaved forKey:@"saved"];
+        [defaults setInteger:indexOfFileLoading forKey:@"currentScaleIndex"];
+        NSLog(@"Index passed %i",indexOfFileLoading);
         [defaults synchronize];
     }
     else{
@@ -167,6 +180,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         saturOfKeys = [defaults floatForKey:@"themeSat"];
         brightOfKey = [defaults floatForKey:@"themeBrg"];
         sessionIsSaved = [defaults boolForKey:@"saved"];
+        scaleIndex = [defaults integerForKey:@"currentScale"];
+        int scalePositionInArray = [archivedScales count]-1;
+        [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
+        NSLog(@"Index passed %i",scalePositionInArray);
+
+        [defaults synchronize];
     }
     NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
 }
@@ -255,18 +274,31 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     NSLog(@"Button %li clicked.",(long)[aButton tag]);
     
     float frequencyOfNote = calcFreqOfNote([aButton tag], numberOfSplits, frequency);
-    
+   
+    MTGKeyObject *keyPressed = [[MTGKeyObject alloc]init];
+
     if (creationState){
         if(!aButton.selected) {
             aButton.selected = true;
             [self playNoteLong:frequencyOfNote at:[aButton tag]];
+            
+            keyPressed.index = [aButton tag];
+            keyPressed.keyFrequency = frequencyOfNote;
+            saveStateButon.enabled = true;
+            NSLog(@"Index %i, freq %f",keyPressed.index, keyPressed.keyFrequency);
+            [pressedKeys addObject:keyPressed];
         }
         else{
             NSLog(@"Patch removed with %li", (long)[aButton tag]);
             [patches removeObjectAtIndex:[aButton tag]];
-            
+            saveStateButon.enabled = true;
+
             [pressedKeys removeObject:[NSNumber numberWithInteger:[aButton tag]]];
             [patches insertObject:@"1" atIndex:[aButton tag]];
+            for (int i=0; i<[pressedKeys count];i++){
+                keyPressed = pressedKeys[i];
+                if (keyPressed.index == [aButton tag]) [pressedKeys removeObjectAtIndex:i];
+            }
             aButton.selected =!aButton.selected;
         }
     }
@@ -286,12 +318,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         NSLog(@"Patches: %li", (unsigned long)[patches count]);
         [patches removeObjectAtIndex:index];
         [patches insertObject:patchOfKey atIndex:index];
-        
-        MTGKeyObject *keyPressed = [[MTGKeyObject alloc]init];
-        keyPressed.index = index;
-        keyPressed.keyFrequency = f;
-        NSLog(@"Index %i, freq %f",keyPressed.index, keyPressed.keyFrequency);
-        [pressedKeys addObject:keyPressed];
     }
     else {
         NSLog(@"error: couldn't open patch");
@@ -320,6 +346,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     currentScale.hue = hueOfKeys;
     currentScale.brightness = brightOfKey;
     currentScale.saturarion = saturOfKeys;
+    currentScale.scaleNumber = scaleIndex;
     currentScale.savedStates = savedStates;
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -342,25 +369,48 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         NSLog(@"Saved");
     }
     [defaults setBool:sessionIsSaved forKey:@"saved"];
-
 }
 
 - (IBAction)saveState:(id)sender {
     sessionIsSaved = false;
     saveSessionButton.enabled = true;
+    saveStateButon.enabled = false;
+    
+    
     for (MTGKeyObject* keys in pressedKeys){
         NSLog(@"In pressed keys : Index %i, freq %f",keys.index, keys.keyFrequency);
-    } 
+    }
     
-    [savedStates addObject:pressedKeys];
+    NSMutableArray *keys =[NSMutableArray array];
+    [keys addObjectsFromArray:pressedKeys];
+    [savedStates addObject:keys];
     NSLog(@"States saved %@", savedStates);
     
     //wrong >
-    /*
+    
+    [currentScale.savedStates addObject:keys];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:savedStates forKey:@"savedStates"];
+    NSMutableArray* archScales = [NSMutableArray array];
+
+    currentScale.freqInitial = frequency;
+    currentScale.splitsNumber = numberOfSplits;
+    currentScale.hue = hueOfKeys;
+    currentScale.brightness = brightOfKey;
+    currentScale.saturarion = saturOfKeys;
+    currentScale.scaleNumber = scaleIndex;
+    
+    NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
+
+    archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
+    int indexOfScaleInTheArray = [defaults integerForKey:@"currentScaleIndex"];
+    [archScales replaceObjectAtIndex:indexOfScaleInTheArray withObject:encodedScale];
+    
+    [defaults setObject:archScales forKey:@"savedSessions"];
+    
+    NSLog(@"Saved state");
     [defaults synchronize];
-     */
+    
 }
 /*
 - (void) keysPressed:(NSSet *)keys {

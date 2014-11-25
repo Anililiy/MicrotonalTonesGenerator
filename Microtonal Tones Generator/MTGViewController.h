@@ -12,12 +12,6 @@
 #import "MTGSavedScale.h"
 #import "MTGKeyObject.h"
 
-@class MTGViewController;
-
-@protocol MTGViewControlerPassInfo <NSObject>
-- (void)addItemViewController:(MTGViewController *)controller didFinishEnteringItem:(NSString *)item;
-@end
-
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
     void *patch;
@@ -25,11 +19,9 @@
     NSInteger numberOfSplits;
     float hueOfKeys, saturOfKeys, brightOfKey, frequency;
     BOOL creationState, sessionIsSaved;
-    MTGKeyObject* key;
     MTGSavedScale* currentScale;
     NSInteger scaleIndex;
 }
-@property (nonatomic, weak) id <MTGViewControlerPassInfo> pass;
 
 @property (strong, nonatomic) IBOutlet UINavigationItem *scaleNavigationItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
@@ -38,8 +30,8 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveSessionButton;
 @property (strong, nonatomic) IBOutlet UIToolbar *saveStateButton;
 
-@property(nonatomic) NSInteger indexOfFileLoading, numberOfSavedScales;
-@property(nonatomic) BOOL loading;
+@property(nonatomic) NSInteger indexOfFileLoading, numberOfSavedScales, indexOfStateChosen;
+@property(nonatomic) BOOL loading, stateSelected;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *startButtonItem;
 

@@ -13,7 +13,7 @@
 @end
 
 @implementation MTGSavedStatesTableViewController
-@synthesize savedStates,str;
+@synthesize savedStates,str, indexOfScaleSelected, scales, indexOfScale, scaleUsed;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,29 +37,28 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
      //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+
     [self dataFill];
 }
 
 -(void)dataFill{
+    scales = [NSMutableArray array];
     savedStates = [NSMutableArray array];
-    
     NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
     
     NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
-    MTGSavedScale *scale;
-    NSMutableArray *scales;
-    scales = [NSMutableArray array];
+    //MTGSavedScale *scaleUsed;
     for (NSData *data in archivedScales){
-        scale = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        [scales addObject:scale];
+        scaleUsed = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [scales addObject:scaleUsed];
     }
-    int indexOfScale = [savedSettings integerForKey:@"currentScaleIndex"];
-    scale = [scales objectAtIndex:indexOfScale];
-    savedStates = scale.savedStates;
+    indexOfScale = [savedSettings integerForKey:@"currentScaleIndex"];
+    scaleUsed = [scales objectAtIndex:indexOfScale];
+    savedStates = scaleUsed.savedStates;
     
     //[savedStates addObjectsFromArray:@[@"12",@"14"]];
     NSLog(@"We are given: %@", savedStates);
-    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,11 +103,12 @@
             MTGKeyObject *key;
             for (int i=0; i<[keysPressed count];i++){
                 key = keysPressed[i];
-                label = [NSString stringWithFormat:@"%@ - %ld",label, (long)key.index];
+                label = [NSString stringWithFormat:@"%@-%ld",label, (long)key.index];
             }
             UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
             cell1.textLabel.textAlignment = NSTextAlignmentCenter;
             cell1.textLabel.text = label;
+            
             return cell1;
         }break;
             
@@ -117,6 +117,19 @@
 
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"didSelectRowAtIndexPath %li", (long)indexPath.row);
+    indexOfScaleSelected = indexPath.row;
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    indexOfScaleSelected = indexPath.row;
+    return indexPath;
+}
 
 
 // Override to support conditional editing of the table view.
@@ -131,29 +144,45 @@
     return YES;
 }
 
-
-
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+       
+        [savedStates removeObjectAtIndex:[indexPath row]];
+        
+        scaleUsed.savedStates = savedStates;
+        NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
+        
+        NSData * archivedScale = [NSKeyedArchiver archivedDataWithRootObject:scaleUsed];
+        [archivedScales replaceObjectAtIndex:indexOfScale withObject:archivedScale];
+        
+        [savedSettings setObject:archivedScales forKey:@"savedSessions"];
+        [savedSettings synchronize];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+       // [self.tableView reloadData];
+
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
 
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"openState"])
+    {
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        MTGViewController *detailViewController = (MTGViewController *)navController.topViewController;
+        detailViewController.indexOfStateChosen = indexOfScaleSelected;
+        detailViewController.stateSelected = true;
+    }
 }
-*/
+
 
 @end

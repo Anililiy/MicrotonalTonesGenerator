@@ -687,7 +687,7 @@
                                     <segue destination="qYl-Ea-1T4" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XvZ-mc-WuE"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="state" textLabel="AFx-2d-xOb" style="IBUITableViewCellStyleDefault" id="KfO-M8-xN6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="state" textLabel="AFx-2d-xOb" style="IBUITableViewCellStyleDefault" id="KfO-M8-xN6">
                                 <rect key="frame" x="0.0" y="66" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KfO-M8-xN6" id="uta-Dy-cat">
@@ -703,7 +703,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qYl-Ea-1T4" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="eiG-kh-lQ6"/>
+                                    <segue destination="qYl-Ea-1T4" kind="custom" identifier="openState" customClass="SWRevealViewControllerSeguePushController" id="eiG-kh-lQ6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -712,6 +712,8 @@
                             <outlet property="delegate" destination="IEz-Bb-6rm" id="qqB-5h-VIf"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
@@ -818,7 +820,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eiG-kh-lQ6"/>
         <segue reference="SqA-3s-bFS"/>
+        <segue reference="eiG-kh-lQ6"/>
     </inferredMetricsTieBreakers>
 </document>

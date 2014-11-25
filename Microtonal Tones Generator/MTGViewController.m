@@ -27,7 +27,7 @@ NSString *const kShortPatchName = @"KeyNote.pd";
 
 @synthesize patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton, numberOfSavedScales;
+@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton, numberOfSavedScales, stateSelected, indexOfStateChosen;
 
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
@@ -51,12 +51,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (void)viewDidLoad{
-    [super viewDidLoad];
-    [self customSetup];
     
-    scaleIndex = 0;
-    NSLog(@"saed scales number: %i", numberOfSavedScales);
-
+    [super viewDidLoad];
     
     if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
         
@@ -67,16 +63,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [self presentViewController:initView animated:NO completion:nil];
         
     } else{
-        /*
-         UIGraphicsBeginImageContext(self.view.frame.size);
-         [[UIImage imageNamed:@"textures_1.jpg"] drawInRect:self.view.bounds];
-         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-         UIGraphicsEndImageContext();
-         
-         self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-         */
+
         //setting of prog
         //
+        [self customSetup];
         [self initialiseValues];
 
         creationState = false;
@@ -96,13 +86,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         
         keyboard = [NSMutableArray array];
         pressedKeys = [NSMutableArray array];
-        savedStates =[NSMutableArray array];
-        key = [[MTGKeyObject alloc] init];
-        currentScale.savedStates = [NSMutableArray array];
-        /*
-        NSString *itemToPassBack = @"Pass this value back to ViewControllerA";
-        [self.pass addItemViewController:self didFinishEnteringItem:itemToPassBack];
-        */
         
         for (int i = 0; i<=numberOfSplits; i++){
             [patches addObject:@"1"];
@@ -111,6 +94,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         NSLog(@"Patches: %lu", (unsigned long)[patches count]);
         
         _scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleIndex];
+        
+        [self representStateSeleted];
+
     }
 }
 
@@ -139,6 +125,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     currentScale = [[MTGSavedScale alloc]init];
     NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
+    sessionIsSaved = [defaults boolForKey:@"saved"];
 
     if (![defaults integerForKey:@"numberOfSplits"]) {
         numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
@@ -146,7 +133,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         hueOfKeys = [defaults floatForKey:@"initThemeHue"];
         saturOfKeys = [defaults floatForKey:@"initThemeSat"];
         brightOfKey = [defaults floatForKey:@"initThemeBrg"];
-        scaleIndex = 0;
+        savedStates = [NSMutableArray array];
+        //scaleIndex = 0;
     }
     else if (loading){
         
@@ -173,6 +161,19 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [defaults setInteger:indexOfFileLoading forKey:@"currentScaleIndex"];
         NSLog(@"Index passed %i",indexOfFileLoading);
         [defaults synchronize];
+         
+    }
+    else if (sessionIsSaved){
+        int currentScaleIndex = [defaults integerForKey:@"currentScaleIndex"];
+        currentScale = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[currentScaleIndex]];
+        savedStates = [NSMutableArray arrayWithArray:currentScale.savedStates];
+        numberOfSplits = currentScale.splitsNumber;
+        frequency = currentScale.freqInitial;
+        hueOfKeys = currentScale.hue;
+        saturOfKeys = currentScale.saturarion;
+        brightOfKey = currentScale.brightness;
+        scaleIndex = currentScale.scaleNumber;
+        
     }
     else{
         numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
@@ -180,20 +181,39 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         hueOfKeys = [defaults floatForKey:@"themeHue"];
         saturOfKeys = [defaults floatForKey:@"themeSat"];
         brightOfKey = [defaults floatForKey:@"themeBrg"];
-        sessionIsSaved = [defaults boolForKey:@"saved"];
         scaleIndex = [defaults integerForKey:@"currentScale"];
         
-        if (!sessionIsSaved){
             int scalePositionInArray = [archivedScales count]-1;
             [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
             NSLog(@"Index passed %i",scalePositionInArray);
             [savedStates removeAllObjects];
-        }
-        
-
         [defaults synchronize];
+        
     }
     NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
+    currentScale.freqInitial = frequency;
+    currentScale.splitsNumber = numberOfSplits;
+    currentScale.hue = hueOfKeys;
+    currentScale.brightness = brightOfKey;
+    currentScale.saturarion = saturOfKeys;
+    currentScale.scaleNumber = scaleIndex;
+    currentScale.savedStates = savedStates;
+    
+}
+
+-(void)representStateSeleted{
+    if (stateSelected){
+       NSMutableArray *keysSelected = savedStates[indexOfStateChosen];
+        for (MTGKeyObject *key in keysSelected){
+            for(UIButton* button in keyboard){
+                if (button.tag == key.index) button.selected = true;
+            }
+            [self playNoteLong:key.keyFrequency at:key.index];
+            [startButtonItem setTitle:@"Stop polyphony"];
+            creationState = true;
+
+        }
+    }
 }
 
 - (void)viewDidUnload{
@@ -379,22 +399,14 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 - (IBAction)saveState:(id)sender {
     sessionIsSaved = false;
-    saveSessionButton.enabled = true;
     saveStateButon.enabled = false;
-    
-    
-    for (MTGKeyObject* keys in pressedKeys){
-        NSLog(@"In pressed keys : Index %i, freq %f",keys.index, keys.keyFrequency);
-    }
-    
+
     NSMutableArray *keys =[NSMutableArray array];
     [keys addObjectsFromArray:pressedKeys];
+    
     [savedStates addObject:keys];
+    
     NSLog(@"States saved %@", savedStates);
-    
-    //wrong >
-    
-    [currentScale.savedStates addObject:keys];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray* archScales = [NSMutableArray array];
@@ -405,7 +417,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     currentScale.brightness = brightOfKey;
     currentScale.saturarion = saturOfKeys;
     currentScale.scaleNumber = scaleIndex;
-    
+    currentScale.savedStates = savedStates;
+
     NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
 
     archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
@@ -418,20 +431,5 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [defaults synchronize];
     
 }
-/*
-- (void) keysPressed:(NSSet *)keys {
-    NSLog(@"keysPressed=%lu", [keys count]);
-    
-    
-    for (NSNumber* keyIndex in keys) {
-        //if ([audio count] > [keyIndex intValue]) {
-          //  SystemSoundID soundID = [audio[[keyIndex intValue]] unsignedLongValue];
-            // Should probably use "AudioServicesAddSystemSoundCompletion" to make
-            // sure we are never playing too many sounds at any one time.
-            //AudioServicesPlaySystemSound(soundID);
-        //}
-    }
-}
-*/
 
 @end

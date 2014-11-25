@@ -125,19 +125,21 @@
         // Delete the row from the data source
         [scales removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *archivedScales = [NSMutableArray array];
+        
+        MTGSavedScale *scale;
+        for (NSData *data in scales){
+            scale = [NSKeyedArchiver archivedDataWithRootObject:data];
+            [archivedScales addObject:scale];
+        }
+        [savedSettings setObject:archivedScales forKey:@"savedSessions"];
+        int currentIndex = [savedSettings integerForKey:@"currentScaleIndex"];
+        if (currentIndex>=1) currentIndex-=1;
+        [savedSettings setInteger:currentIndex forKey:@"currentScaleIndex"];
+        [savedSettings synchronize];
     }
-    
-    
-    NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *archivedScales = [NSMutableArray array];
-    
-    MTGSavedScale *scale;
-    for (NSData *data in scales){
-        scale = [NSKeyedArchiver archivedDataWithRootObject:data];
-        [archivedScales addObject:scale];
-    }
-    [savedSettings setObject:archivedScales forKey:@"savedSessions"];
-    
 }
 
 #pragma mark - Navigation

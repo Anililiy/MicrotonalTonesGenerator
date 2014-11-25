@@ -12,4 +12,20 @@
 
 @synthesize indexes, frequencies;
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:indexes forKey:@"indexesOfKey"];
+   // [encoder encodeFloat:keyFrequency     forKey:@"freqOfKey"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if((self = [super init]))
+    {
+        indexes = [decoder decodeObjectForKey:@"indexOfKey"];
+        //keyFrequency  = [decoder decodeFloatForKey:@"freqOfKey"];
+        
+    }
+    return self;
+}
 @end

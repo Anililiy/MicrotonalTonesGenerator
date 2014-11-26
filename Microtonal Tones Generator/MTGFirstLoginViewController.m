@@ -17,13 +17,15 @@
 
 @implementation MTGFirstLoginViewController
 
-@synthesize popoverController;
+@synthesize popoverController, nameOfUser, defaultSplitsInp;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     errorSplit.text = nil;
     splitInput = false;
     freqInput = false;
+    [nameOfUser setDelegate:self];
+    [defaultSplitsInp setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +85,20 @@
 
     
 }
-
+-(BOOL)textFieldShouldReturn:(UITextField*)textField;
+{
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
+}
 - (IBAction)validateInput:(id)sender {
     BOOL numberInputOnly = true;
     char y = [defaultSplitsInp.text characterAtIndex:(defaultSplitsInp.text.length-1)];
@@ -92,10 +107,10 @@
         numberInputOnly = false;
     }
 
-    if (defaultSplitsInp.text.integerValue < 1 || defaultSplitsInp.text.integerValue> 64 || !numberInputOnly){
+    if (defaultSplitsInp.text.integerValue < 1 || defaultSplitsInp.text.integerValue> 32 || !numberInputOnly){
         defaultSplitsInp.backgroundColor = [UIColor redColor];
         splitInput = false;
-        errorSplit.text = @"No! Split is between 1 and 64";
+        errorSplit.text = @"No! Split is between 1 and 32";
     }
     else{
         defaultSplitsInp.backgroundColor = nil;
@@ -114,6 +129,11 @@
                                        inView:self.view
                      permittedArrowDirections:UIPopoverArrowDirectionRight
                                      animated:YES];
+}
+
+- (IBAction)goToNext:(UITextField *)sender {
+   // [self textFieldShouldReturn:sender];
+    [sender resignFirstResponder];
 }
 
 - (IBAction)chooseFreq:(UIButton*)aButton {
@@ -147,6 +167,7 @@
     colourSat = saturation;
     colourBrg = brightness;
 }
+
 
 /*
 #pragma mark - Navigation

@@ -28,7 +28,7 @@ NSString *const kShortPatchName = @"KeyNote.pd";
 @synthesize patches;
 @synthesize dollarZero = dollarZero_;
 @synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton, numberOfSavedScales, stateSelected, indexOfStateChosen;
-@synthesize playNextStateButton, playPreviousStateButton, playState;
+@synthesize playNextStateButton, playPreviousStateButton;
 
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
@@ -444,6 +444,29 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     NSLog(@"Saved state");
     [defaults synchronize];
     
+}
+
+//[sourcecode language="csharp"] /* Action taken when the "Save" button (saveAsImageButton) is pressed in the app */
+- (IBAction)saveScreenshot {
+    //Define the dimensions of the screenshot you want to take (the entire screen in this case)
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    // Create the screenshot
+    UIGraphicsBeginImageContext(size);
+    // Put everything in the current view into the screenshot
+    [[self.view layer] renderInContext:UIGraphicsGetCurrentContext()];
+    // Save the current image context info into a UIImage
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    // Save the screenshot to the device's photo album
+    UIImageWriteToSavedPhotosAlbum(newImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+// callback for UIImageWriteToSavedPhotosAlbum
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (error) {
+        // Handle if the image could not be saved to the photo album
+    } else {
+        // The save was successful and all is well
+    }
 }
 
 @end

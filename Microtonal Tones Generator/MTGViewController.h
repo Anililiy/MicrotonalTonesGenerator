@@ -28,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveStateButon;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveSessionButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *playNextStateButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *playPreviousStateButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *playState;
 @property (strong, nonatomic) IBOutlet UIToolbar *saveStateButton;
 
 @property(nonatomic) NSInteger indexOfFileLoading, numberOfSavedScales, indexOfStateChosen;
@@ -42,6 +45,8 @@
 - (IBAction)saveState:(id)sender;
 
 - (IBAction)polifoniaStart:(id)sender;
+- (IBAction)playNextStateAction:(id)sender;
+- (IBAction)playPreviousStateAction:(id)sender;
 
 
 @end

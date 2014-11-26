@@ -28,6 +28,7 @@ NSString *const kShortPatchName = @"KeyNote.pd";
 @synthesize patches;
 @synthesize dollarZero = dollarZero_;
 @synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton, numberOfSavedScales, stateSelected, indexOfStateChosen;
+@synthesize playNextStateButton, playPreviousStateButton, playState;
 
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
@@ -211,7 +212,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             [self playNoteLong:key.keyFrequency at:key.index];
             [startButtonItem setTitle:@"Stop polyphony"];
             creationState = true;
-
+            if (indexOfStateChosen<([savedStates count]-1)) playNextStateButton.enabled = true;
+            if (indexOfStateChosen>=([savedStates count]-1)) playNextStateButton.enabled = false;
+            if (indexOfStateChosen>0) playPreviousStateButton.enabled = true;
+            if (indexOfStateChosen==0) playPreviousStateButton.enabled = false;
         }
     }
 }
@@ -225,7 +229,15 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
-
+- (void)clearUp{
+    for(UIButton* button in keyboard)button.selected = false;
+    
+    [patches removeAllObjects];
+    [pressedKeys removeAllObjects];
+    
+    for (int i = 0; i<=numberOfSplits; i++) [patches addObject:@"1"];
+    
+}
 #pragma mark - buttons regulation
 - (IBAction)polifoniaStart:(id)sender {
     
@@ -240,20 +252,22 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         
         creationState = false;
         saveStateButon.enabled = false;
-        
-        for(UIButton* button in keyboard){
-            button.selected = false;
-        }
-        
-        [patches removeAllObjects];
-        [pressedKeys removeAllObjects];
-        
-        for (int i = 0; i<=numberOfSplits; i++)
-        {
-            [patches addObject:@"1"];
-        }
-        NSLog(@"Patches: %i",[patches count]);
+        playPreviousStateButton.enabled = false;
+        playNextStateButton.enabled = false;
+        [self clearUp];
     }
+}
+
+- (IBAction)playNextStateAction:(id)sender {
+    indexOfStateChosen +=1;
+    [self clearUp];
+    [self representStateSeleted];
+}
+
+- (IBAction)playPreviousStateAction:(id)sender {
+    indexOfStateChosen -=1;
+    [self clearUp];
+    [self representStateSeleted];
 }
 
 -(void)createButton:(int)index{

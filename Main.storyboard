@@ -624,9 +624,16 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8Vd-IU-yyQ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qSV-he-8iZ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hoi-4E-uaP"/>
-                                    <barButtonItem enabled="NO" systemItem="rewind" id="fJF-NT-mKb"/>
-                                    <barButtonItem enabled="NO" systemItem="play" id="Mej-Kq-vV7"/>
-                                    <barButtonItem enabled="NO" systemItem="fastForward" id="I8l-WL-E3d"/>
+                                    <barButtonItem enabled="NO" systemItem="rewind" id="fJF-NT-mKb">
+                                        <connections>
+                                            <action selector="playPreviousStateAction:" destination="ijD-Df-uuV" id="whf-gb-UkJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem enabled="NO" systemItem="fastForward" id="I8l-WL-E3d">
+                                        <connections>
+                                            <action selector="playNextStateAction:" destination="ijD-Df-uuV" id="2hz-iZ-pwV"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kDo-7b-doy"/>
                                     <barButtonItem enabled="NO" title="Save state" id="miA-2v-dAw">
                                         <connections>
@@ -645,6 +652,8 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="playNextStateButton" destination="I8l-WL-E3d" id="TwH-gF-il0"/>
+                        <outlet property="playPreviousStateButton" destination="fJF-NT-mKb" id="X3k-up-Jm3"/>
                         <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>
                         <outlet property="saveStateButon" destination="miA-2v-dAw" id="FS6-P3-eyp"/>
                         <outlet property="saveStateButton" destination="67t-FB-cdE" id="zda-pP-HXf"/>

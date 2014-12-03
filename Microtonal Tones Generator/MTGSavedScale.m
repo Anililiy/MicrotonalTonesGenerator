@@ -9,7 +9,8 @@
 #import "MTGSavedScale.h"
 
 @implementation MTGSavedScale
-@synthesize splitsNumber, scaleNumber, freqInitial, hue, saturarion, brightness,savedStates;
+@synthesize splitsNumber, scaleNumber, freqInitial, hue, saturarion, brightness,savedStates, imageOfScale;
+@synthesize dateCreated, dateLastUpdated;
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
@@ -20,6 +21,10 @@
     [encoder encodeFloat:hue            forKey:@"hue"];
     [encoder encodeFloat:saturarion     forKey:@"saturation"];
     [encoder encodeFloat:brightness     forKey:@"brightness"];
+    [encoder encodeObject:imageOfScale  forKey:@"image"];
+    [encoder encodeObject:dateCreated   forKey:@"dateCreated"];
+    [encoder encodeObject:dateLastUpdated   forKey:@"dateLastUpdated"];
+
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -33,6 +38,9 @@
         saturarion   = [decoder decodeFloatForKey:@"saturation"];
         brightness   = [decoder decodeFloatForKey:@"brightness"];
         savedStates  = [decoder decodeObjectForKey:@"states"];
+        imageOfScale = [decoder decodeObjectForKey:@"image"];
+        dateCreated  = [decoder decodeObjectForKey:@"dateCreated"];
+        dateLastUpdated = [decoder decodeObjectForKey:@"dateLastUpdated"];
     }
     return self;
 }

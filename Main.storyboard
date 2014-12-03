@@ -300,7 +300,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0P-hB-g25">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0P-hB-g25">
                                             <rect key="frame" x="32" y="-1" width="280" height="46"/>
                                             <state key="normal" title="Log out">
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -464,7 +464,7 @@
             </objects>
             <point key="canvasLocation" x="2994" y="-2039"/>
         </scene>
-        <!--Title-->
+        <!--Saved scales-->
         <scene sceneID="bLh-Ua-feL">
             <objects>
                 <tableViewController id="pgH-QK-fhb" customClass="MTGLoadTableViewController" sceneMemberID="viewController">
@@ -480,38 +480,46 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYp-P2-ArG">
-                                            <rect key="frame" x="133" y="9" width="236" height="27"/>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYp-P2-ArG">
+                                            <rect key="frame" x="165" y="57" width="236" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="n" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-7Q-6h2">
-                                            <rect key="frame" x="454" y="41" width="35" height="21"/>
+                                            <rect key="frame" x="376" y="12" width="166" height="37"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-aG-j7t">
-                                            <rect key="frame" x="648" y="15" width="36" height="21"/>
+                                            <rect key="frame" x="575" y="12" width="294" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="f0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOe-D9-iUo">
-                                            <rect key="frame" x="454" y="12" width="76" height="21"/>
+                                            <rect key="frame" x="151" y="12" width="170" height="37"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Simply_Beautiful_Button.png" translatesAutoresizingMaskIntoConstraints="NO" id="gLb-Xn-z4v">
-                                            <rect key="frame" x="20" y="4" width="82" height="81"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DateLastUpdate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lc8-eq-D4n">
+                                            <rect key="frame" x="575" y="41" width="294" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLb-Xn-z4v">
+                                            <rect key="frame" x="29" y="11" width="90" height="73"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="KYd-aG-j7t" id="zLT-7V-zRO"/>
                                     <outlet property="freqLabel" destination="OOe-D9-iUo" id="IEE-Wp-rek"/>
+                                    <outlet property="imageView" destination="gLb-Xn-z4v" id="K6K-Y1-urG"/>
+                                    <outlet property="lastUpdateLabel" destination="Lc8-eq-D4n" id="k60-JB-WTr"/>
                                     <outlet property="nameOfScale" destination="YYp-P2-ArG" id="AAd-lZ-Zbd"/>
                                     <outlet property="splitLabel" destination="yhT-7Q-6h2" id="45w-w2-5P7"/>
                                     <segue destination="ijD-Df-uuV" kind="push" identifier="loadSaved" id="SqA-3s-bFS"/>
@@ -525,9 +533,10 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="TN5-bN-pEU">
+                    <navigationItem key="navigationItem" title="Saved scales" id="TN5-bN-pEU">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="N9V-rs-SSJ"/>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -536,7 +545,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bho-hL-15n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="-1477"/>
+            <point key="canvasLocation" x="1236" y="-1470"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ScT-5d-Vwk">
@@ -579,10 +588,10 @@
                         <viewControllerLayoutGuide type="bottom" id="lNr-Vu-yL3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hSa-Pi-3od">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kO5-nc-2DZ">
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kO5-nc-2DZ">
                                 <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
                                 <items>
                                     <barButtonItem enabled="NO" title="Item" id="LMa-KC-5ap"/>
@@ -614,7 +623,6 @@
                                             <action selector="rightArrowPressed:" destination="ijD-Df-uuV" id="vuK-xq-BH1"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LR0-YM-gqb"/>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
@@ -646,6 +654,10 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P16-YL-jkV">
+                                <rect key="frame" x="101" y="593" width="68" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.43529412150382996" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -655,7 +667,10 @@
                         <barButtonItem key="rightBarButtonItem" image="menu.png" id="bPv-c1-jyd"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="ViewCover" destination="P16-YL-jkV" id="APn-f1-Av6"/>
                         <outlet property="playNextStateButton" destination="I8l-WL-E3d" id="TwH-gF-il0"/>
                         <outlet property="playPreviousStateButton" destination="fJF-NT-mKb" id="X3k-up-Jm3"/>
                         <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>
@@ -758,6 +773,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLj-6T-1fI" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dpn-K2-CzK">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -820,7 +837,6 @@
     </scenes>
     <resources>
         <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
-        <image name="Simply_Beautiful_Button.png" width="800" height="796"/>
         <image name="Swirl_Funky_2.png" width="336" height="800"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
@@ -833,7 +849,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Mhp-Gz-yyb"/>
         <segue reference="SqA-3s-bFS"/>
-        <segue reference="eiG-kh-lQ6"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,22 +20,24 @@
     float hueOfKeys, saturOfKeys, brightOfKey, frequency;
     BOOL creationState, sessionIsSaved;
     MTGSavedScale* currentScale;
-    NSInteger scaleIndex;
+    NSInteger scaleNumber;
 }
 
-@property (strong, nonatomic) IBOutlet UINavigationItem *scaleNavigationItem;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *savedStatesSlideButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveStateButon;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveSessionButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *playNextStateButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *playPreviousStateButton;
-@property (strong, nonatomic) IBOutlet UIToolbar *saveStateButton;
+@property (strong, nonatomic)   IBOutlet UINavigationItem *scaleNavigationItem;
+@property (weak, nonatomic)     IBOutlet UIBarButtonItem *sidebarButton;
+@property (weak, nonatomic)     IBOutlet UIBarButtonItem *savedStatesSlideButton;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem *saveStateButon;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem *saveSessionButton;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem *playNextStateButton;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem *playPreviousStateButton;
+@property (strong, nonatomic)   IBOutlet UIToolbar       *saveStateButton;
 
 @property(nonatomic) NSInteger indexOfFileLoading, numberOfSavedScales, indexOfStateChosen;
 @property(nonatomic) BOOL loading, stateSelected;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *startButtonItem;
+
+@property (strong, nonatomic) IBOutlet UIView *ViewCover;
 
 
 - (IBAction)rightArrowPressed:(id)sender;

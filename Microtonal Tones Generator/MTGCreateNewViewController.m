@@ -30,16 +30,16 @@
     // init
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    split = [defaults integerForKey:@"deaultNumberOfSplits"];
-    frequency = [defaults floatForKey:@"defaultFrequency"];
-    colourHue = [defaults floatForKey:@"initThemeHue"];
-    colourSat = [defaults floatForKey:@"initThemeSat"];
-    colourBrg = [defaults floatForKey:@"initThemeBrg"];
+    split       = [defaults integerForKey:@"deaultNumberOfSplits"];
+    frequency   = [defaults floatForKey:@"defaultFrequency"];
+    colourHue   = [defaults floatForKey:@"initThemeHue"];
+    colourSat   = [defaults floatForKey:@"initThemeSat"];
+    colourBrg   = [defaults floatForKey:@"initThemeBrg"];
     
     splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
     chooseTheme.backgroundColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
-    //chooseTheme.tintColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
+
     [self createColorsArray];
     [self setupColorButtons];
 }
@@ -59,10 +59,12 @@
     [defaults setFloat:     colourSat   forKey:@"themeSat"         ];
     [defaults setFloat:     colourBrg   forKey:@"themeBrg"         ];
     [defaults setBool:      false       forKey:@"saved"            ];
-    int numberOfSession = [defaults integerForKey:@"currentScale"];
+    
+    int numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
     numberOfSession+=1;
     [defaults setInteger:numberOfSession forKey:@"currentScale"];
-    
+    [defaults setInteger:numberOfSession forKey:@"noOfScalesCreated"];
+
     [defaults synchronize];
     
     NSLog(@"Data saved");
@@ -144,23 +146,19 @@
         }
     }
 }
-
 -(void) buttonPushed:(UIButton *)button{
     chooseTheme.backgroundColor = button.backgroundColor;
     [self setColor:button.backgroundColor];
 }
-
-- (IBAction)frequencyInputChanged:(UISlider *)slider {
+-(IBAction)frequencyInputChanged:(UISlider *)slider {
     frequency = slider.value;
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
     for (UIButton* button in freqButtons)button.selected = false;
 }
-
-- (IBAction)splitInputChanged:(UISlider *)slider{
+-(IBAction)splitInputChanged:(UISlider *)slider{
     split = slider.value;
     splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
 }
-
 -(void)setColor:(UIColor*)color{
     CGFloat hue;
     CGFloat saturation;

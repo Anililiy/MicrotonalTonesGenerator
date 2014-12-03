@@ -86,10 +86,13 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.splitLabel.text = [NSString stringWithFormat:@"%li", (long)scale.splitsNumber];
-    cell.freqLabel.text = [NSString stringWithFormat:@"%4.1f", scale.freqInitial];
+    cell.splitLabel.text = [NSString stringWithFormat:@"Number of splits %li", (long)scale.splitsNumber];
+    cell.freqLabel.text = [NSString stringWithFormat:@"f0 = %4.1f Hz", scale.freqInitial];
     cell.nameOfScale.text = [NSString stringWithFormat:@"Session № %i", scale.scaleNumber];
-    //cell.dateLabel = NSDateFormatterShortStyle;
+    cell.dateLabel.text = [NSString stringWithFormat:@"%@", scale.dateCreated];
+    cell.lastUpdateLabel.text = [NSString stringWithFormat:@"%@", scale.dateLastUpdated];
+    cell.imageView.frame = CGRectMake(100, 50, 100, 100);
+    cell.imageView.image = scale.imageOfScale;
     
     return cell;
 }

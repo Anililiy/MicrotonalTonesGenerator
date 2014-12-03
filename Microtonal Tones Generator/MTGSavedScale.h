@@ -17,5 +17,8 @@
 @property NSInteger splitsNumber, scaleNumber;
 @property NSMutableArray* savedStates;
 @property float freqInitial, hue, saturarion, brightness;
+@property UIImage* imageOfScale;
+@property NSDate *dateCreated;
+@property NSDate *dateLastUpdated;
 
 @end

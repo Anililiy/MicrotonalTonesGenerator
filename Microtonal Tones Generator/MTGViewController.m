@@ -27,8 +27,9 @@ NSString *const kShortPatchName = @"KeyNote.pd";
 
 @synthesize patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton, numberOfSavedScales, stateSelected, indexOfStateChosen;
-@synthesize playNextStateButton, playPreviousStateButton;
+@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton;
+@synthesize numberOfSavedScales, stateSelected, indexOfStateChosen;
+@synthesize playNextStateButton, playPreviousStateButton, ViewCover;
 
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
@@ -94,16 +95,17 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         }
         NSLog(@"Patches: %lu", (unsigned long)[patches count]);
         
-        _scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleIndex];
+        _scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleNumber];
         
         [self representStateSeleted];
-
+        
     }
 }
 
 
 - (void)customSetup{
     SWRevealViewController *revealViewController = self.revealViewController;
+    
     if ( revealViewController )
     {
         //change slidebar button color
@@ -115,33 +117,37 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         _sidebarButton.action = @selector(revealToggle:);
         
         [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-
+        
         //set the slide bar button action. When it is tapped, it will show up the slidebar.
         _savedStatesSlideButton.target = self.revealViewController;
         _savedStatesSlideButton.action = @selector(rightRevealToggle:);
+        //if () {
+            
+            [ViewCover setHidden:true];
+        //}
     }
 }
 
 -(void) initialiseValues{
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     currentScale = [[MTGSavedScale alloc]init];
     NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
     sessionIsSaved = [defaults boolForKey:@"saved"];
 
     if (![defaults integerForKey:@"numberOfSplits"]) {
-        numberOfSplits = [defaults integerForKey:@"deaultNumberOfSplits"];
-        frequency = [defaults floatForKey:@"defaultFrequency"];
-        hueOfKeys = [defaults floatForKey:@"initThemeHue"];
-        saturOfKeys = [defaults floatForKey:@"initThemeSat"];
-        brightOfKey = [defaults floatForKey:@"initThemeBrg"];
-        savedStates = [NSMutableArray array];
-        //scaleIndex = 0;
+        numberOfSplits  = [defaults integerForKey:@"deaultNumberOfSplits"];
+        frequency       = [defaults floatForKey:@"defaultFrequency"];
+        hueOfKeys       = [defaults floatForKey:@"initThemeHue"];
+        saturOfKeys     = [defaults floatForKey:@"initThemeSat"];
+        brightOfKey     = [defaults floatForKey:@"initThemeBrg"];
+        savedStates     = [NSMutableArray array];
     }
     else if (loading){
         
         NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
         currentScale = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
-        
+    
         savedStates = [NSMutableArray arrayWithArray:currentScale.savedStates];
         numberOfSplits = currentScale.splitsNumber;
         frequency = currentScale.freqInitial;
@@ -150,56 +156,58 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         brightOfKey = currentScale.brightness;
         loading = false;
         sessionIsSaved = true;
-        scaleIndex = currentScale.scaleNumber;
+        scaleNumber= currentScale.scaleNumber;
         
         [defaults setInteger:numberOfSplits forKey:@"numberOfSplits"];
-        [defaults setFloat:frequency forKey:@"frequency"];
-        [defaults setFloat:hueOfKeys forKey:@"themeHue"];
-        [defaults setFloat:saturOfKeys forKey:@"themeSat"];
-        [defaults setFloat:brightOfKey forKey:@"themeBrg"];
-        [defaults setBool:sessionIsSaved forKey:@"saved"];
-        [defaults setInteger:scaleIndex forKey:@"currentScale"];
+        [defaults setFloat:frequency        forKey:@"frequency"];
+        [defaults setFloat:hueOfKeys        forKey:@"themeHue"];
+        [defaults setFloat:saturOfKeys      forKey:@"themeSat"];
+        [defaults setFloat:brightOfKey      forKey:@"themeBrg"];
+        [defaults setBool:sessionIsSaved    forKey:@"saved"];
+        [defaults setInteger:scaleNumber    forKey:@"currentScale"];
         [defaults setInteger:indexOfFileLoading forKey:@"currentScaleIndex"];
-        NSLog(@"Index passed %i",indexOfFileLoading);
         [defaults synchronize];
          
     }
     else if (sessionIsSaved){
+        
         int currentScaleIndex = [defaults integerForKey:@"currentScaleIndex"];
-        currentScale = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[currentScaleIndex]];
-        savedStates = [NSMutableArray arrayWithArray:currentScale.savedStates];
-        numberOfSplits = currentScale.splitsNumber;
-        frequency = currentScale.freqInitial;
-        hueOfKeys = currentScale.hue;
-        saturOfKeys = currentScale.saturarion;
-        brightOfKey = currentScale.brightness;
-        scaleIndex = currentScale.scaleNumber;
+        currentScale    = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[currentScaleIndex]];
+        savedStates     = [NSMutableArray arrayWithArray:currentScale.savedStates];
+        numberOfSplits  = currentScale.splitsNumber;
+        frequency       = currentScale.freqInitial;
+        hueOfKeys       = currentScale.hue;
+        saturOfKeys     = currentScale.saturarion;
+        brightOfKey     = currentScale.brightness;
+        scaleNumber     = currentScale.scaleNumber;
         
     }
     else{
-        numberOfSplits = [defaults integerForKey:@"numberOfSplits"];
-        frequency = [defaults floatForKey:@"frequency"];
-        hueOfKeys = [defaults floatForKey:@"themeHue"];
-        saturOfKeys = [defaults floatForKey:@"themeSat"];
-        brightOfKey = [defaults floatForKey:@"themeBrg"];
-        scaleIndex = [defaults integerForKey:@"currentScale"];
+        numberOfSplits  =  [defaults integerForKey:@"numberOfSplits"];
+        frequency       =  [defaults floatForKey:@"frequency"];
+        hueOfKeys       =  [defaults floatForKey:@"themeHue"];
+        saturOfKeys     =  [defaults floatForKey:@"themeSat"];
+        brightOfKey     =  [defaults floatForKey:@"themeBrg"];
+        scaleNumber     =  [defaults integerForKey:@"currentScale"];
         
-            int scalePositionInArray = [archivedScales count]-1;
-            [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
-            NSLog(@"Index passed %i",scalePositionInArray);
-            [savedStates removeAllObjects];
+        int scalePositionInArray = [archivedScales count];
+        [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
+        NSLog(@"Index passed %i",scalePositionInArray);
+        
         [defaults synchronize];
-        
+
+        [savedStates removeAllObjects];
+        savedStates     = [NSMutableArray array];
     }
+    
     NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
     currentScale.freqInitial = frequency;
     currentScale.splitsNumber = numberOfSplits;
     currentScale.hue = hueOfKeys;
     currentScale.brightness = brightOfKey;
     currentScale.saturarion = saturOfKeys;
-    currentScale.scaleNumber = scaleIndex;
+    currentScale.scaleNumber = scaleNumber;
     currentScale.savedStates = savedStates;
-    
 }
 
 -(void)representStateSeleted{
@@ -221,6 +229,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (void)viewDidUnload{
+    [self clearUp];
     [super viewDidUnload];
     [PdBase closeFile:patch];
     [PdBase setDelegate:nil];
@@ -244,7 +253,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if (!creationState){
         [startButtonItem setTitle:@"Stop polyphony"];
         creationState = true;
-        saveStateButon.enabled = true;
+        if (sessionIsSaved) saveStateButon.enabled = true;
+ 
     }
     else
     {
@@ -324,15 +334,13 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             
             keyPressed.index = [aButton tag];
             keyPressed.keyFrequency = frequencyOfNote;
-            saveStateButon.enabled = true;
+            
             NSLog(@"Index %i, freq %f",keyPressed.index, keyPressed.keyFrequency);
             [pressedKeys addObject:keyPressed];
         }
         else{
             NSLog(@"Patch removed with %li", (long)[aButton tag]);
             [patches removeObjectAtIndex:[aButton tag]];
-            saveStateButon.enabled = true;
-
             [pressedKeys removeObject:[NSNumber numberWithInteger:[aButton tag]]];
             [patches insertObject:@"1" atIndex:[aButton tag]];
             for (int i=0; i<[pressedKeys count];i++){
@@ -341,6 +349,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             }
             aButton.selected =!aButton.selected;
         }
+        if (sessionIsSaved) saveStateButon.enabled = true;
     }
     else{
         [self playNoteShort:frequencyOfNote];
@@ -380,27 +389,23 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 - (IBAction)saveSession:(id)sender {
     
-    NSMutableArray* archScales = [NSMutableArray array];
-    currentScale.freqInitial = frequency;
-    currentScale.splitsNumber = numberOfSplits;
-    currentScale.hue = hueOfKeys;
-    currentScale.brightness = brightOfKey;
-    currentScale.saturarion = saturOfKeys;
-    currentScale.scaleNumber = scaleIndex;
-    currentScale.savedStates = savedStates;
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self takeScreenshot];
+    currentScale.dateCreated = [NSDate date];
+    NSMutableArray* archScales  = [NSMutableArray array];
+    NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
+    NSData *encodedScale        = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
     
-    NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
-
+    
     if ([defaults objectForKey:@"savedSessions"]){
        archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
     }
+    /*
     for (NSData *data in archScales){
         MTGSavedScale* scaleStored = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         if ((currentScale.freqInitial == scaleStored.freqInitial) && (currentScale.splitsNumber == scaleStored.splitsNumber) ) sessionIsSaved = YES;
         else sessionIsSaved = NO;
     }
+     */
     if (!sessionIsSaved){
         [archScales addObject:encodedScale];
         [defaults setObject:archScales forKey:@"savedSessions"];
@@ -412,27 +417,22 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (IBAction)saveState:(id)sender {
-    sessionIsSaved = false;
-    saveStateButon.enabled = false;
 
+    saveStateButon.enabled = false;
+    currentScale.dateLastUpdated = [NSDate date];
+    
     NSMutableArray *keys =[NSMutableArray array];
     [keys addObjectsFromArray:pressedKeys];
     
     [savedStates addObject:keys];
     
     NSLog(@"States saved %@", savedStates);
+
+    currentScale.scaleNumber = scaleNumber;
+    currentScale.savedStates = savedStates;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray* archScales = [NSMutableArray array];
-
-    currentScale.freqInitial = frequency;
-    currentScale.splitsNumber = numberOfSplits;
-    currentScale.hue = hueOfKeys;
-    currentScale.brightness = brightOfKey;
-    currentScale.saturarion = saturOfKeys;
-    currentScale.scaleNumber = scaleIndex;
-    currentScale.savedStates = savedStates;
-
     NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
 
     archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
@@ -447,9 +447,13 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 //[sourcecode language="csharp"] /* Action taken when the "Save" button (saveAsImageButton) is pressed in the app */
-- (IBAction)saveScreenshot {
+- (void)takeScreenshot {
     //Define the dimensions of the screenshot you want to take (the entire screen in this case)
-    CGSize size = [[UIScreen mainScreen] bounds].size;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    CGSize size =  CGRectMake(10, 10, screenWidth , 3*screenHeight/4).size;
     // Create the screenshot
     UIGraphicsBeginImageContext(size);
     // Put everything in the current view into the screenshot
@@ -457,16 +461,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     // Save the current image context info into a UIImage
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    // Save the screenshot to the device's photo album
-    UIImageWriteToSavedPhotosAlbum(newImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    
+    currentScale.imageOfScale = newImage;
 }
-// callback for UIImageWriteToSavedPhotosAlbum
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    if (error) {
-        // Handle if the image could not be saved to the photo album
-    } else {
-        // The save was successful and all is well
-    }
-}
-
 @end

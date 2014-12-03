@@ -14,5 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *splitLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameOfScale;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *lastUpdateLabel;
+
 
 @end

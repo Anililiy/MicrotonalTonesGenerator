@@ -898,51 +898,6 @@ const int FrontViewPositionNone = 0xff;
 }
 
 
-#pragma mark - PanGesture progress notification
-
-- (void)_notifyPanGestureBegan
-{
-    if ( [_delegate respondsToSelector:@selector(revealControllerPanGestureBegan:)] )
-        [_delegate revealControllerPanGestureBegan:self];
-    
-    CGFloat xLocation, dragProgress, overProgress;
-    [self _getDragLocation:&xLocation progress:&dragProgress overdrawProgress:&overProgress];
-    
-    if ( [_delegate respondsToSelector:@selector(revealController:panGestureBeganFromLocation:progress:overProgress:)] )
-        [_delegate revealController:self panGestureBeganFromLocation:xLocation progress:dragProgress overProgress:overProgress];
-    
-    else if ( [_delegate respondsToSelector:@selector(revealController:panGestureBeganFromLocation:progress:)] )
-        [_delegate revealController:self panGestureBeganFromLocation:xLocation progress:dragProgress];
-}
-
-- (void)_notifyPanGestureMoved
-{
-    CGFloat xLocation, dragProgress, overProgress;
-    [self _getDragLocation:&xLocation progress:&dragProgress overdrawProgress:&overProgress];
-    
-    if ( [_delegate respondsToSelector:@selector(revealController:panGestureMovedToLocation:progress:overProgress:)] )
-        [_delegate revealController:self panGestureMovedToLocation:xLocation progress:dragProgress overProgress:overProgress];
-    
-    else if ( [_delegate respondsToSelector:@selector(revealController:panGestureMovedToLocation:progress:)] )
-        [_delegate revealController:self panGestureMovedToLocation:xLocation progress:dragProgress];
-}
-
-- (void)_notifyPanGestureEnded
-{
-    CGFloat xLocation, dragProgress, overProgress;
-    [self _getDragLocation:&xLocation progress:&dragProgress overdrawProgress:&overProgress];
-    
-    if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:overProgress:)] )
-        [_delegate revealController:self panGestureEndedToLocation:xLocation progress:dragProgress overProgress:overProgress];
-    
-    else if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:)] )
-        [_delegate revealController:self panGestureEndedToLocation:xLocation progress:dragProgress];
-    
-    if ( [_delegate respondsToSelector:@selector(revealControllerPanGestureEnded:)] )
-        [_delegate revealControllerPanGestureEnded:self];
-}
-
-
 #pragma mark - Symetry
 
 - (void)_getRevealWidth:(CGFloat*)pRevealWidth revealOverDraw:(CGFloat*)pRevealOverdraw forSymetry:(int)symetry
@@ -1159,7 +1114,6 @@ const int FrontViewPositionNone = 0xff;
     // we disable user interactions on the views, however programatic accions will still be
     // enqueued to be performed after the gesture completes
     [self _disableUserInteraction];
-    [self _notifyPanGestureBegan];
 }
 
 
@@ -1185,7 +1139,6 @@ const int FrontViewPositionNone = 0xff;
     }
     
     [_contentView dragFrontViewToXLocation:xLocation];
-    [self _notifyPanGestureMoved];
 }
 
 
@@ -1261,7 +1214,6 @@ const int FrontViewPositionNone = 0xff;
     
     // restore user interaction and animate to the final position
     [self _restoreUserInteraction];
-    [self _notifyPanGestureEnded];
     [self _setFrontViewPosition:frontViewPosition withDuration:duration];
 }
 
@@ -1269,7 +1221,6 @@ const int FrontViewPositionNone = 0xff;
 - (void)_handleRevealGestureStateCancelledWithRecognizer:(UIPanGestureRecognizer *)recognizer
 {    
     [self _restoreUserInteraction];
-    [self _notifyPanGestureEnded];
     [self _dequeue];
 }
 

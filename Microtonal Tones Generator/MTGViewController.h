@@ -18,9 +18,10 @@
     NSMutableArray *keyboard, *scales, *pressedKeys, *savedStates;
     NSInteger numberOfSplits;
     float hueOfKeys, saturOfKeys, brightOfKey, frequency;
-    BOOL creationState, sessionIsSaved;
+    BOOL creationState, sessionIsSaved, menuCalled;
     MTGSavedScale* currentScale;
-    NSInteger scaleNumber;
+    NSInteger scaleNumber, octaveNumber;
+    
 }
 
 @property (strong, nonatomic)   IBOutlet UINavigationItem *scaleNavigationItem;
@@ -38,6 +39,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *startButtonItem;
 
 @property (strong, nonatomic) IBOutlet UIView *ViewCover;
+@property (strong, nonatomic) IBOutlet UIView *ViewCover2;
 
 
 - (IBAction)rightArrowPressed:(id)sender;

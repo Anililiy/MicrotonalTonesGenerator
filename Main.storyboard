@@ -591,6 +591,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view hidden="YES" alpha="0.59999999999999964" contentMode="bottomLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P16-YL-jkV">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view hidden="YES" alpha="0.5" contentMode="bottomLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APK-g6-w3e">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                            </view>
                             <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kO5-nc-2DZ">
                                 <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
                                 <items>
@@ -605,18 +615,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j67-kr-jcD">
                                 <rect key="frame" x="0.0" y="680" width="1024" height="44"/>
                                 <items>
-                                    <barButtonItem title="Polyphony" id="4gs-Yq-Jui">
-                                        <connections>
-                                            <action selector="polifoniaStart:" destination="ijD-Df-uuV" id="NhW-nn-PTS"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bo0-Xi-wX6"/>
                                     <barButtonItem image="arrow-big-04.png" id="C3P-KT-7DV">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="leftArrowPressed:" destination="ijD-Df-uuV" id="eP5-Tf-baD"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="e1M-g3-yZS"/>
                                     <barButtonItem image="arrow-big-03.png" id="wMx-1g-ajX">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -633,9 +638,7 @@
                                             <action selector="saveSession:" destination="ijD-Df-uuV" id="iwf-RE-1pO"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Vd-IU-yyQ"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qSV-he-8iZ"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hoi-4E-uaP"/>
+                                    <barButtonItem width="220" style="plain" systemItem="fixedSpace" id="3OH-2P-OZH"/>
                                     <barButtonItem enabled="NO" systemItem="rewind" id="fJF-NT-mKb">
                                         <connections>
                                             <action selector="playPreviousStateAction:" destination="ijD-Df-uuV" id="whf-gb-UkJ"/>
@@ -646,6 +649,12 @@
                                             <action selector="playNextStateAction:" destination="ijD-Df-uuV" id="2hz-iZ-pwV"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xuA-Ff-DF9"/>
+                                    <barButtonItem title="Polyphony" id="4gs-Yq-Jui">
+                                        <connections>
+                                            <action selector="polifoniaStart:" destination="ijD-Df-uuV" id="NhW-nn-PTS"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kDo-7b-doy"/>
                                     <barButtonItem enabled="NO" title="Save state" id="miA-2v-dAw">
                                         <connections>
@@ -654,23 +663,20 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P16-YL-jkV">
-                                <rect key="frame" x="101" y="593" width="68" height="56"/>
-                                <color key="backgroundColor" red="1" green="0.43529412150382996" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Session" id="BtU-As-ydt">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="Vzn-RD-Rda"/>
-                        <barButtonItem key="rightBarButtonItem" image="menu.png" id="bPv-c1-jyd"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="menu.png" id="bPv-c1-jyd"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="ViewCover" destination="P16-YL-jkV" id="APn-f1-Av6"/>
+                        <outlet property="ViewCover2" destination="APK-g6-w3e" id="ri5-yC-ZFG"/>
                         <outlet property="playNextStateButton" destination="I8l-WL-E3d" id="TwH-gF-il0"/>
                         <outlet property="playPreviousStateButton" destination="fJF-NT-mKb" id="X3k-up-Jm3"/>
                         <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>
@@ -849,7 +855,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Mhp-Gz-yyb"/>
+        <segue reference="QK2-H1-fqF"/>
         <segue reference="SqA-3s-bFS"/>
     </inferredMetricsTieBreakers>
 </document>

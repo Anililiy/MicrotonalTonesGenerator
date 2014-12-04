@@ -29,7 +29,7 @@ NSString *const kShortPatchName = @"KeyNote.pd";
 @synthesize dollarZero = dollarZero_;
 @synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton;
 @synthesize numberOfSavedScales, stateSelected, indexOfStateChosen;
-@synthesize playNextStateButton, playPreviousStateButton, ViewCover;
+@synthesize playNextStateButton, playPreviousStateButton, ViewCover, ViewCover2;
 
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
@@ -48,6 +48,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         
         // Custom initialization
         
+        
     }
     return self;
 }
@@ -55,8 +56,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (void)viewDidLoad{
     
     [super viewDidLoad];
-    
-    if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
+       if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
@@ -65,6 +65,20 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [self presentViewController:initView animated:NO completion:nil];
         
     } else{
+        [self changeSize];
+        
+        [ViewCover setHidden:true];
+        [ViewCover2 setHidden:true];
+        //The setup code (in viewDidLoad in your view controller)
+        UITapGestureRecognizer *singleFingerTap =
+        [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(openLeftMenu)];
+        [ViewCover addGestureRecognizer:singleFingerTap];
+        
+        UITapGestureRecognizer *singleFingerTap2 =
+        [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(openRightMenu)];
+        [ViewCover2 addGestureRecognizer:singleFingerTap2];
 
         //setting of prog
         //
@@ -72,10 +86,17 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [self initialiseValues];
 
         creationState = false;
+        menuCalled = false;
+        octaveNumber = 0;
         
-        if (sessionIsSaved) saveSessionButton.enabled=false;
-        else saveSessionButton.enabled=true;
-        
+        if (sessionIsSaved){
+            saveSessionButton.enabled = false;
+            self.navigationItem.rightBarButtonItem.enabled = true;
+        }
+        else {
+            saveSessionButton.enabled = true;
+            self.navigationItem.rightBarButtonItem.enabled = false;
+        }
         // sound creation
         dispatcher = [[PdDispatcher alloc]init];
         [PdBase setDelegate:dispatcher];
@@ -95,37 +116,77 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         }
         NSLog(@"Patches: %lu", (unsigned long)[patches count]);
         
-        _scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleNumber];
+        //_scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleNumber];
         
         [self representStateSeleted];
         
     }
 }
 
-
 - (void)customSetup{
     SWRevealViewController *revealViewController = self.revealViewController;
     
     if ( revealViewController )
     {
-        //change slidebar button color
-        _sidebarButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
-        _savedStatesSlideButton.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+        UIBarButtonItem *barBtnMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openLeftMenu)];
+        barBtnMenu.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+
+        self.navigationItem.leftBarButtonItem = barBtnMenu;
         
-        //set the slide bar button action. When it is tapped, it will show up the slidebar.
-        _sidebarButton.target = self.revealViewController;
-        _sidebarButton.action = @selector(revealToggle:);
+        UIBarButtonItem *barBtnStates = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openRightMenu)];
+        barBtnStates.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+        
+        self.navigationItem.rightBarButtonItem = barBtnStates;
         
         [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-        
-        //set the slide bar button action. When it is tapped, it will show up the slidebar.
-        _savedStatesSlideButton.target = self.revealViewController;
-        _savedStatesSlideButton.action = @selector(rightRevealToggle:);
-        //if () {
-            
-            [ViewCover setHidden:true];
-        //}
     }
+}
+
+-(void)changeSize{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    CGRect frame = ViewCover.frame;
+    frame.size.height = screenRect.size.height;
+    frame.size.width  = screenRect.size.width;
+    frame.origin = CGPointMake (0, 0);
+    ViewCover.frame = frame;
+    
+    //ViewCover.backgroundColor = [UIColor colorWithRed:0.3 green:0.6 blue:0.3 alpha:0.3];
+    [self.view bringSubviewToFront:ViewCover];
+}
+
+-(void)openLeftMenu{
+    [self clearUp];
+    menuCalled = !menuCalled;
+    //[self changeSize];
+    [self.view bringSubviewToFront:ViewCover];
+
+    if (menuCalled)[ViewCover setHidden:false];
+    else [ViewCover setHidden:true];
+    
+    SWRevealViewController *reveal = self.revealViewController;
+    [reveal revealToggleAnimated:YES];
+}
+
+-(void)openRightMenu{
+    
+    menuCalled = !menuCalled;
+    //[self changeSize];
+    [self.view bringSubviewToFront:ViewCover2];
+
+    if (menuCalled)[ViewCover2 setHidden:false];
+    else [ViewCover2 setHidden:true];
+
+    [startButtonItem setTitle:@"Polyphony"];
+    
+    creationState = false;
+    saveStateButon.enabled = false;
+    playPreviousStateButton.enabled = false;
+    playNextStateButton.enabled = false;
+    [self clearUp];
+    
+    SWRevealViewController *reveal = self.revealViewController;
+    [reveal rightRevealToggleAnimated:YES];
 }
 
 -(void) initialiseValues{
@@ -380,11 +441,25 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (IBAction)rightArrowPressed:(id)sender {
-    if (frequency<=600) frequency =2*frequency;
+    if (frequency<=600){
+        frequency =2*frequency;
+        octaveNumber+=1;
+        for (UIButton* button in keyboard){
+            NSString *string =[NSString stringWithFormat:@"%i", ([button tag]+numberOfSplits*octaveNumber)];
+            [button setTitle:string forState:UIControlStateNormal];
+        }
+    }
 }
 
 - (IBAction)leftArrowPressed:(id)sender {
-    if (frequency>100) frequency=frequency/2;
+    if (frequency>200){
+        frequency=frequency/2;
+        octaveNumber-=1;
+        for (UIButton* button in keyboard){
+            NSString *string =[NSString stringWithFormat:@"%i", ([button tag]+numberOfSplits*octaveNumber)];
+            [button setTitle:string forState:UIControlStateNormal];
+        }
+    }
 }
 
 - (IBAction)saveSession:(id)sender {
@@ -443,10 +518,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     NSLog(@"Saved state");
     [defaults synchronize];
+    if([savedStates count]>0)self.navigationItem.rightBarButtonItem.enabled = true;
+    else self.navigationItem.rightBarButtonItem.enabled = false;
+    [self clearUp];
     
 }
 
-//[sourcecode language="csharp"] /* Action taken when the "Save" button (saveAsImageButton) is pressed in the app */
 - (void)takeScreenshot {
     //Define the dimensions of the screenshot you want to take (the entire screen in this case)
     CGRect screenRect = [[UIScreen mainScreen] bounds];

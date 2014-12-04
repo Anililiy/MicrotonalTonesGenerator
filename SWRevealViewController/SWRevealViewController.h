@@ -373,11 +373,6 @@ typedef enum
 // to calls to 'setXXViewController' methods
 - (id<UIViewControllerAnimatedTransitioning>)revealController:(SWRevealViewController *)revealController
     animationControllerForOperation:(SWRevealControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC;
-
-// DEPRECATED - The following delegate methods will be removed some time in the future
-- (void)revealController:(SWRevealViewController *)revealController panGestureBeganFromLocation:(CGFloat)location progress:(CGFloat)progress; // (DEPRECATED)
-- (void)revealController:(SWRevealViewController *)revealController panGestureMovedToLocation:(CGFloat)location progress:(CGFloat)progress; // (DEPRECATED)
-- (void)revealController:(SWRevealViewController *)revealController panGestureEndedToLocation:(CGFloat)location progress:(CGFloat)progress; // (DEPRECATED)
 @end
 
 

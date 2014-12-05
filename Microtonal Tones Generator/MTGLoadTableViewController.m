@@ -88,9 +88,14 @@
     
     cell.splitLabel.text = [NSString stringWithFormat:@"Number of splits %li", (long)scale.splitsNumber];
     cell.freqLabel.text = [NSString stringWithFormat:@"f0 = %4.1f Hz", scale.freqInitial];
+   
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd 'at' HH:mm"];
+    
     cell.nameOfScale.text = [NSString stringWithFormat:@"Session № %i", scale.scaleNumber];
-    cell.dateLabel.text = [NSString stringWithFormat:@"%@", scale.dateCreated];
-    cell.lastUpdateLabel.text = [NSString stringWithFormat:@"%@", scale.dateLastUpdated];
+    cell.dateLabel.text = [dateFormatter stringFromDate:scale.dateCreated];
+    //[NSString stringWithFormat:@"%@", scale.dateCreated];
+    cell.lastUpdateLabel.text = [dateFormatter stringFromDate:scale.dateLastUpdated];
     cell.imageView.frame = CGRectMake(100, 50, 100, 100);
     cell.imageView.image = scale.imageOfScale;
     

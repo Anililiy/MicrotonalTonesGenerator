@@ -17,7 +17,7 @@
     void *patch;
     NSMutableArray *keyboard, *scales, *pressedKeys, *savedStates;
     NSInteger numberOfSplits;
-    float hueOfKeys, saturOfKeys, brightOfKey, frequency;
+    float hueOfKeys, saturOfKeys, brightOfKey, frequency, freqInitial;
     BOOL creationState, sessionIsSaved, menuCalled;
     MTGSavedScale* currentScale;
     NSInteger scaleNumber, octaveNumber;
@@ -32,14 +32,18 @@
 @property (strong, nonatomic)   IBOutlet UIBarButtonItem *playNextStateButton;
 @property (strong, nonatomic)   IBOutlet UIBarButtonItem *playPreviousStateButton;
 @property (strong, nonatomic)   IBOutlet UIToolbar       *saveStateButton;
+@property (strong, nonatomic) IBOutlet UILabel *frequencyLabel;
 
 @property(nonatomic) NSInteger indexOfFileLoading, numberOfSavedScales, indexOfStateChosen;
 @property(nonatomic) BOOL loading, stateSelected;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *startButtonItem;
+@property (strong, nonatomic) IBOutlet UIToolbar *changeOctave;
 
 @property (strong, nonatomic) IBOutlet UIView *ViewCover;
 @property (strong, nonatomic) IBOutlet UIView *ViewCover2;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *downTheOctave;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *upTheOctave;
 
 
 - (IBAction)rightArrowPressed:(id)sender;

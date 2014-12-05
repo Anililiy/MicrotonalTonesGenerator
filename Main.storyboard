@@ -592,12 +592,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view hidden="YES" alpha="0.59999999999999964" contentMode="bottomLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P16-YL-jkV">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </view>
                             <view hidden="YES" alpha="0.5" contentMode="bottomLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APK-g6-w3e">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </view>
@@ -663,6 +661,12 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7E1-N3-sRk">
+                                <rect key="frame" x="457" y="691" width="161" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -677,6 +681,9 @@
                     <connections>
                         <outlet property="ViewCover" destination="P16-YL-jkV" id="APn-f1-Av6"/>
                         <outlet property="ViewCover2" destination="APK-g6-w3e" id="ri5-yC-ZFG"/>
+                        <outlet property="changeOctave" destination="j67-kr-jcD" id="Xnl-3M-rno"/>
+                        <outlet property="downTheOctave" destination="C3P-KT-7DV" id="Goe-Kx-Fq2"/>
+                        <outlet property="frequencyLabel" destination="7E1-N3-sRk" id="2Qz-hQ-B5Z"/>
                         <outlet property="playNextStateButton" destination="I8l-WL-E3d" id="TwH-gF-il0"/>
                         <outlet property="playPreviousStateButton" destination="fJF-NT-mKb" id="X3k-up-Jm3"/>
                         <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>
@@ -686,6 +693,7 @@
                         <outlet property="scaleNavigationItem" destination="BtU-As-ydt" id="Inf-47-OoK"/>
                         <outlet property="sidebarButton" destination="Vzn-RD-Rda" id="dYq-m7-QnJ"/>
                         <outlet property="startButtonItem" destination="4gs-Yq-Jui" id="spQ-4R-lpt"/>
+                        <outlet property="upTheOctave" destination="wMx-1g-ajX" id="2C9-hA-Soo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioh-E7-8HC" userLabel="First Responder" sceneMemberID="firstResponder"/>

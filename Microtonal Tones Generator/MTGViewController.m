@@ -28,8 +28,9 @@ NSString *const kShortPatchName = @"KeyNote.pd";
 @synthesize patches;
 @synthesize dollarZero = dollarZero_;
 @synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton;
-@synthesize numberOfSavedScales, stateSelected, indexOfStateChosen;
+@synthesize numberOfSavedScales, stateSelected, indexOfStateChosen, frequencyLabel;
 @synthesize playNextStateButton, playPreviousStateButton, ViewCover, ViewCover2;
+@synthesize upTheOctave, downTheOctave, changeOctave;
 
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
@@ -119,7 +120,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         //_scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleNumber];
         
         [self representStateSeleted];
-        
+        frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
+        freqInitial = frequency;
+        [self takeScreenshot];
     }
 }
 
@@ -269,14 +272,24 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     currentScale.saturarion = saturOfKeys;
     currentScale.scaleNumber = scaleNumber;
     currentScale.savedStates = savedStates;
+    if (sessionIsSaved) {
+        [changeOctave setHidden:true];
+        [frequencyLabel setHidden:true];
+    }
+
 }
 
 -(void)representStateSeleted{
     if (stateSelected){
-       NSMutableArray *keysSelected = savedStates[indexOfStateChosen];
+        NSMutableArray *keysSelected = savedStates[indexOfStateChosen];
+
         for (MTGKeyObject *key in keysSelected){
             for(UIButton* button in keyboard){
-                if (button.tag == key.index) button.selected = true;
+                if (button.tag == key.index){
+                    button.selected = true;
+                    [pressedKeys addObject:key];
+                }
+
             }
             [self playNoteLong:key.keyFrequency at:key.index];
             [startButtonItem setTitle:@"Stop polyphony"];
@@ -299,6 +312,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
+
 - (void)clearUp{
     for(UIButton* button in keyboard)button.selected = false;
     
@@ -308,6 +322,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     for (int i = 0; i<=numberOfSplits; i++) [patches addObject:@"1"];
     
 }
+
 #pragma mark - buttons regulation
 - (IBAction)polifoniaStart:(id)sender {
     
@@ -443,28 +458,32 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (IBAction)rightArrowPressed:(id)sender {
     if (frequency<=600){
         frequency =2*frequency;
-        octaveNumber+=1;
+        //frequency +=freqInitial;
+        /*octaveNumber+=1;
         for (UIButton* button in keyboard){
             NSString *string =[NSString stringWithFormat:@"%i", ([button tag]+numberOfSplits*octaveNumber)];
             [button setTitle:string forState:UIControlStateNormal];
         }
+         */
+        frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
+        downTheOctave.enabled = true;
     }
+    else upTheOctave.enabled= false;
 }
 
-- (IBAction)leftArrowPressed:(id)sender {
+- (IBAction)leftArrowPressed:(UIButton*)sender {
     if (frequency>200){
+        upTheOctave.enabled = true;
         frequency=frequency/2;
-        octaveNumber-=1;
-        for (UIButton* button in keyboard){
-            NSString *string =[NSString stringWithFormat:@"%i", ([button tag]+numberOfSplits*octaveNumber)];
-            [button setTitle:string forState:UIControlStateNormal];
-        }
+        frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
     }
+    else downTheOctave.enabled = false;
 }
 
 - (IBAction)saveSession:(id)sender {
     
-    [self takeScreenshot];
+    //[self takeScreenshot];
+    currentScale.freqInitial = frequency;
     currentScale.dateCreated = [NSDate date];
     NSMutableArray* archScales  = [NSMutableArray array];
     NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
@@ -489,6 +508,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         NSLog(@"Saved");
     }
     [defaults setBool:sessionIsSaved forKey:@"saved"];
+    [changeOctave setHidden:true];
+    [frequencyLabel setHidden:true];
+    saveStateButon.enabled = true;
+
 }
 
 - (IBAction)saveState:(id)sender {

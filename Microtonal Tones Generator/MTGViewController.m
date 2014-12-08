@@ -510,7 +510,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [defaults setBool:sessionIsSaved forKey:@"saved"];
     [changeOctave setHidden:true];
     [frequencyLabel setHidden:true];
-    saveStateButon.enabled = true;
+   if (creationState) saveStateButon.enabled = true;
 
 }
 

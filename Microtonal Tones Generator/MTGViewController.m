@@ -13,6 +13,7 @@
 #import "MTGRootViewController.h"
 #import "MTGLoadTableViewController.h"
 #import "MTGSavedStatesTableViewController.h"
+#import "MTGKeyButton.h"
 
 NSString *const kTestPatchName  = @"test2.pd";
 NSString *const kShortPatchName = @"KeyNote.pd";
@@ -123,6 +124,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
         freqInitial = frequency;
         [self takeScreenshot];
+        
     }
 }
 
@@ -366,6 +368,11 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     //action of button
     [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    //[aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDragExit];
+   // [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDragEnter];
+    //[aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventAllTouchEvents];
+
+
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
     //UIImage *btnImage = [UIImage imageNamed:@"transparent.png"];
@@ -374,23 +381,34 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     float saturation = saturOfKeys*(index+1)/((float)numberOfSplits+1);
     float brightnesOfKey = brightOfKey;
     if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
-    aButton.backgroundColor = [UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
-
-    //x values
-    NSInteger maxNumberOfKeysInRow = 8;
-    float keyWidth, keyHeight, divisionOfScreen, xPosition, yPosition;
-    NSInteger n;
-    keyHeight = screenHeight/(2*(numberOfSplits/8+1));
-    for (int rows=1; rows<6;rows++){
-        if (numberOfSplits>(rows-1)*maxNumberOfKeysInRow){
-            n = numberOfSplits/rows;
-            keyWidth  = 3*screenWidth /(4*(n+3));
-            divisionOfScreen = screenWidth/(n+3);
-            yPosition = 150+(index/maxNumberOfKeysInRow)*(keyHeight+10);
-            xPosition = (index%maxNumberOfKeysInRow)*divisionOfScreen+(divisionOfScreen-keyWidth)/2;
-            aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
-        }
+    UIColor *colorOfButton =[UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
+    aButton.backgroundColor = colorOfButton;
+    // oldColor is the UIColor to invert
+    const CGFloat *componentColors = CGColorGetComponents(colorOfButton.CGColor);
+    
+    UIColor *borderColor = [[UIColor alloc] initWithRed:(1.0 - componentColors[0])
+                                               green:(1.0 - componentColors[1])
+                                                blue:(1.0 - componentColors[2])
+                                               alpha:componentColors[3]];
+    //aButton.exclusiveTouch = YES;
+    float keyWidth, keyHeight, xPosition, yPosition;
+    float difference = 0.5;
+    int maxNoKeys = 9;
+    int nRows = (numberOfSplits+1)/maxNoKeys+1;
+    keyHeight = 3*(screenHeight/nRows)/4;
+    //keyWidth  = (screenWidth-difference*((numberOfSplits+1)*2))/(numberOfSplits+1);
+    if (numberOfSplits<maxNoKeys){
+        keyWidth  = (screenWidth-difference*((numberOfSplits+1)*2))/(numberOfSplits+1);
     }
+    else keyWidth  = (screenWidth-difference*((maxNoKeys)*2))/(maxNoKeys);
+
+    yPosition = 110+(index/maxNoKeys)*(keyHeight+difference);
+    xPosition = difference+(index%maxNoKeys)*(keyWidth+2*difference);
+    aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
+    [[aButton layer] setBorderWidth:1.0f];
+    [[aButton layer] setBorderColor:borderColor.CGColor];
+
+
     [keyboard addObject:aButton];
     [self.view addSubview:aButton];
 }
@@ -553,7 +571,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
     
-    CGSize size =  CGRectMake(10, 10, screenWidth , 3*screenHeight/4).size;
+    CGSize size =  CGRectMake(10, 110, screenWidth , 7*screenHeight/8).size;
     // Create the screenshot
     UIGraphicsBeginImageContext(size);
     // Put everything in the current view into the screenshot
@@ -564,4 +582,60 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     currentScale.imageOfScale = newImage;
 }
+
+/*
+ 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self touchesMoved:touches withEvent:event];
+    
+}
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSSet* allTouches = [touches setByAddingObjectsFromSet:[event touchesForView:self]];
+    
+    NSMutableSet* pressedKeys = [NSMutableSet setWithCapacity:0];
+    
+    for (int keyIndex = 0; keyIndex < [keyboard count]; keyIndex++) {
+        UIButton* key = keyboard[keyIndex];
+        BOOL keyIsPressed = NO;
+        for (UITouch* touch in allTouches) {
+            CGPoint location = [touch locationInView:self];
+            if(CGRectContainsPoint(key.frame, location))
+            {
+                BOOL ignore = NO;
+                
+                    if (keyIndex > 0) {
+                        UIButton* previousKey = keyboard[keyIndex-1];
+                    }
+                    
+                    if (keyIndex < [keyboard count]-1)
+                    {
+                        UIButton* nextKey = keyboard[keyIndex+1];
+                    }
+                
+                if (ignore == NO) {
+                    keyIsPressed = YES;
+                    if (!key.isHighlighted){
+                        [key setHighlighted:YES];
+                        
+                        if (delegate != nil) {
+                           // [pressedKeys addObject:[keyboard keyId]];
+                        }
+                    }
+                }
+            }
+        }
+        
+        if (keyIsPressed == NO && key.isHighlighted == YES) {
+            [key setHighlighted:NO];
+        }
+    }
+    
+    if (delegate != nil && [pressedKeys count] > 0) {
+        [delegate keysPressed:pressedKeys];
+    }
+}
+
+
+
+*/
 @end

@@ -12,6 +12,10 @@
 #import "MTGSavedScale.h"
 #import "MTGKeyObject.h"
 
+@protocol KeyboardViewDelegate
+- (void) keysPressed:(NSSet*) keys;
+@end
+
 @interface MTGViewController : UIViewController{
     PdDispatcher *dispatcher;
     void *patch;
@@ -21,8 +25,10 @@
     BOOL creationState, sessionIsSaved, menuCalled;
     MTGSavedScale* currentScale;
     NSInteger scaleNumber, octaveNumber;
-    
+    id <KeyboardViewDelegate> delegate;
+
 }
+@property (nonatomic, strong) id <KeyboardViewDelegate> delegate;
 
 @property (strong, nonatomic)   IBOutlet UINavigationItem *scaleNavigationItem;
 @property (weak, nonatomic)     IBOutlet UIBarButtonItem  *sidebarButton;

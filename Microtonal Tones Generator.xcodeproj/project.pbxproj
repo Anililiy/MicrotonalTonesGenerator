@@ -73,6 +73,7 @@
 		95AAB6F219F018BD002A53F7 /* Swirl_Funky_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6F119F018BD002A53F7 /* Swirl_Funky_2.png */; };
 		95AAB6F419F018C4002A53F7 /* Swirl_Funky_1_Earthy.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6F319F018C4002A53F7 /* Swirl_Funky_1_Earthy.png */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
+		95DD9B3F1A37415A007C6473 /* MTGKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +194,8 @@
 		95AAB6F119F018BD002A53F7 /* Swirl_Funky_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swirl_Funky_2.png; sourceTree = "<group>"; };
 		95AAB6F319F018C4002A53F7 /* Swirl_Funky_1_Earthy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swirl_Funky_1_Earthy.png; sourceTree = "<group>"; };
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
+		95DD9B3D1A37415A007C6473 /* MTGKeyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGKeyButton.h; sourceTree = "<group>"; };
+		95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKeyButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +241,8 @@
 				953943401A0A652200588979 /* Main.storyboard */,
 				954B141B19C4FCB6008FE21B /* MTGViewController.h */,
 				954B141C19C4FCB6008FE21B /* MTGViewController.m */,
+				95DD9B3D1A37415A007C6473 /* MTGKeyButton.h */,
+				95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				9500192D1A06BBD200834493 /* MTGSavedState.m in Sources */,
 				95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */,
 				957E295F1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m in Sources */,
+				95DD9B3F1A37415A007C6473 /* MTGKeyButton.m in Sources */,
 				956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */,
 				951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */,
 				955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */,

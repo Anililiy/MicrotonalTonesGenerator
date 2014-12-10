@@ -13,7 +13,6 @@
 #import "MTGRootViewController.h"
 #import "MTGLoadTableViewController.h"
 #import "MTGSavedStatesTableViewController.h"
-#import "MTGKeyButton.h"
 
 NSString *const kTestPatchName  = @"test2.pd";
 NSString *const kShortPatchName = @"KeyNote.pd";
@@ -124,7 +123,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
         freqInitial = frequency;
         [self takeScreenshot];
-        
+        [self.mainToolbar setBarTintColor:[UIColor colorWithHue:hueOfKeys saturation:(saturOfKeys/4) brightness:brightOfKey alpha:0.1]];
+
     }
 }
 
@@ -363,7 +363,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
     
-    UIButton* aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    float saturation = saturOfKeys*(index+1)/((float)numberOfSplits+1);
+    float brightnesOfKey = brightOfKey;
+    if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
+
+    //UIButton* aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    MTGKeyButton* aButton =[[MTGKeyButton alloc]init];
     [aButton setTag:index];
     
     //action of button
@@ -375,39 +380,35 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
+    [aButton setTitleColor:[UIColor colorWithHue:hueOfKeys saturation:saturation brightness:(1-brightnesOfKey) alpha:1.0] forState:UIControlStateNormal];
+    aButton.titleLabel.font =[UIFont fontWithName: @"Courier" size:18 ];
+    aButton.titleLabel.textColor = [UIColor blackColor];
+    
+    //[aButton setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
     //UIImage *btnImage = [UIImage imageNamed:@"transparent.png"];
     //[aButton setImage:btnImage forState:UIControlStateNormal];
-    [aButton setTintColor:[UIColor blackColor]];
-    float saturation = saturOfKeys*(index+1)/((float)numberOfSplits+1);
-    float brightnesOfKey = brightOfKey;
-    if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
-    UIColor *colorOfButton =[UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
-    aButton.backgroundColor = colorOfButton;
-    // oldColor is the UIColor to invert
-    const CGFloat *componentColors = CGColorGetComponents(colorOfButton.CGColor);
+    //[aButton setTintColor:[UIColor blackColor]];
     
-    UIColor *borderColor = [[UIColor alloc] initWithRed:(1.0 - componentColors[0])
-                                               green:(1.0 - componentColors[1])
-                                                blue:(1.0 - componentColors[2])
-                                               alpha:componentColors[3]];
-    //aButton.exclusiveTouch = YES;
+    //UIColor *colorOfButton =[UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
+    //aButton.backgroundColor = colorOfButton;
+    aButton.hue = hueOfKeys;
+    aButton.saturation = saturation;
+    aButton.brightness = brightnesOfKey;
+    
     float keyWidth, keyHeight, xPosition, yPosition;
     float difference = 0.5;
     int maxNoKeys = 9;
-    int nRows = (numberOfSplits+1)/maxNoKeys+1;
+    long nRows = (numberOfSplits+1)/maxNoKeys+1;
     keyHeight = 3*(screenHeight/nRows)/4;
-    //keyWidth  = (screenWidth-difference*((numberOfSplits+1)*2))/(numberOfSplits+1);
+
     if (numberOfSplits<maxNoKeys){
         keyWidth  = (screenWidth-difference*((numberOfSplits+1)*2))/(numberOfSplits+1);
     }
     else keyWidth  = (screenWidth-difference*((maxNoKeys)*2))/(maxNoKeys);
 
-    yPosition = 110+(index/maxNoKeys)*(keyHeight+difference);
+    yPosition = 120+(index/maxNoKeys)*(keyHeight+difference);
     xPosition = difference+(index%maxNoKeys)*(keyWidth+2*difference);
     aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
-    [[aButton layer] setBorderWidth:1.0f];
-    [[aButton layer] setBorderColor:borderColor.CGColor];
-
 
     [keyboard addObject:aButton];
     [self.view addSubview:aButton];

@@ -74,6 +74,7 @@
 		95AAB6F419F018C4002A53F7 /* Swirl_Funky_1_Earthy.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6F319F018C4002A53F7 /* Swirl_Funky_1_Earthy.png */; };
 		95B581B819C61009007E9510 /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95B581B719C61009007E9510 /* KeyNote.pd */; };
 		95DD9B3F1A37415A007C6473 /* MTGKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */; };
+		95DD9B431A374712007C6473 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD9B421A374712007C6473 /* Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +197,8 @@
 		95B581B719C61009007E9510 /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote.pd; sourceTree = "<group>"; };
 		95DD9B3D1A37415A007C6473 /* MTGKeyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGKeyButton.h; sourceTree = "<group>"; };
 		95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKeyButton.m; sourceTree = "<group>"; };
+		95DD9B411A374712007C6473 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		95DD9B421A374712007C6473 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +246,7 @@
 				954B141C19C4FCB6008FE21B /* MTGViewController.m */,
 				95DD9B3D1A37415A007C6473 /* MTGKeyButton.h */,
 				95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */,
+				95DD9B401A374712007C6473 /* Common */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -466,6 +470,15 @@
 			name = ColourPopup;
 			sourceTree = "<group>";
 		};
+		95DD9B401A374712007C6473 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				95DD9B411A374712007C6473 /* Common.h */,
+				95DD9B421A374712007C6473 /* Common.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -640,6 +653,7 @@
 				95DD9B3F1A37415A007C6473 /* MTGKeyButton.m in Sources */,
 				956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */,
 				951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */,
+				95DD9B431A374712007C6473 /* Common.m in Sources */,
 				955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,

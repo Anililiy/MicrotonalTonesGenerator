@@ -630,38 +630,44 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
                                 <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
                                 <items>
                                     <barButtonItem title="Save session" id="4Yt-df-11W">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="saveSession:" destination="ijD-Df-uuV" id="iwf-RE-1pO"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="220" style="plain" systemItem="fixedSpace" id="3OH-2P-OZH"/>
                                     <barButtonItem enabled="NO" systemItem="rewind" id="fJF-NT-mKb">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="playPreviousStateAction:" destination="ijD-Df-uuV" id="whf-gb-UkJ"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem enabled="NO" systemItem="fastForward" id="I8l-WL-E3d">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="playNextStateAction:" destination="ijD-Df-uuV" id="2hz-iZ-pwV"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xuA-Ff-DF9"/>
                                     <barButtonItem title="Polyphony" id="4gs-Yq-Jui">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="polifoniaStart:" destination="ijD-Df-uuV" id="NhW-nn-PTS"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kDo-7b-doy"/>
                                     <barButtonItem enabled="NO" title="Save state" id="miA-2v-dAw">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="saveState:" destination="ijD-Df-uuV" id="u96-Pp-QEf"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.81335121393203735" green="1" blue="0.86069893836975098" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7E1-N3-sRk">
                                 <rect key="frame" x="457" y="730" width="161" height="21"/>
@@ -686,6 +692,7 @@
                         <outlet property="changeOctave" destination="j67-kr-jcD" id="Xnl-3M-rno"/>
                         <outlet property="downTheOctave" destination="C3P-KT-7DV" id="Goe-Kx-Fq2"/>
                         <outlet property="frequencyLabel" destination="7E1-N3-sRk" id="2Qz-hQ-B5Z"/>
+                        <outlet property="mainToolbar" destination="67t-FB-cdE" id="cJy-sr-1wY"/>
                         <outlet property="playNextStateButton" destination="I8l-WL-E3d" id="TwH-gF-il0"/>
                         <outlet property="playPreviousStateButton" destination="fJF-NT-mKb" id="X3k-up-Jm3"/>
                         <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>

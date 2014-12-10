@@ -11,6 +11,7 @@
 #import "SWRevealViewController.h"
 #import "MTGSavedScale.h"
 #import "MTGKeyObject.h"
+#import "MTGKeyButton.h"
 
 @protocol KeyboardViewDelegate
 - (void) keysPressed:(NSSet*) keys;
@@ -50,6 +51,7 @@
 @property (strong, nonatomic) IBOutlet UIView *ViewCover2;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *downTheOctave;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *upTheOctave;
+@property (strong, nonatomic) IBOutlet UIToolbar *mainToolbar;
 
 
 - (IBAction)rightArrowPressed:(id)sender;

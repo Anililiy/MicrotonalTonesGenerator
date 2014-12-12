@@ -24,7 +24,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginBtnPressed:" destination="6KW-6f-o6H" eventType="touchUpInside" id="Q0H-x9-BLE"/>
-                                    <segue destination="sTD-DT-Rpo" kind="modal" id="kB2-03-aOe"/>
+                                    <segue destination="sTD-DT-Rpo" kind="modal" id="h3L-5D-9hU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jCQ-4Y-r2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5076" y="428"/>
+            <point key="canvasLocation" x="-5588" y="116"/>
         </scene>
         <!--First Login-->
         <scene sceneID="8Qy-PX-dPe">
@@ -66,26 +66,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello! What is your name?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlb-rn-Anq">
-                                <rect key="frame" x="440" y="142" width="201" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iCloud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYo-jW-eeu">
-                                <rect key="frame" x="459" y="367" width="50" height="21"/>
+                                <rect key="frame" x="459" y="449" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YMd-nz-rR0">
-                                <rect key="frame" x="690" y="138" width="225" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="goToNext:" destination="sTD-DT-Rpo" eventType="valueChanged" id="y22-3U-vt1"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTv-yw-lh5">
                                 <rect key="frame" x="732" y="308" width="117" height="39"/>
                                 <color key="backgroundColor" red="0.74465747187256082" green="1" blue="0.81619750947376934" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,15 +89,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Initial setup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5h-OS-MNv">
-                                <rect key="frame" x="343" y="35" width="166" height="83"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-dy-jcp">
                                 <rect key="frame" x="557" y="497" width="228" height="196"/>
-                                <state key="normal" title="Lets go!" image="letsGo.png">
+                                <state key="normal" title="Start">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -119,9 +99,6 @@
                                     <action selector="save:" destination="sTD-DT-Rpo" eventType="touchUpInside" id="BVX-k3-SDW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AlternateWaveforms1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="SI7-5U-pJE">
-                                <rect key="frame" x="33" y="0.0" width="316" height="774"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-i0-Gin">
                                 <rect key="frame" x="707" y="265" width="30" height="30"/>
                                 <state key="normal" title="256">
@@ -168,8 +145,11 @@
                                 </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jL2-dD-La8">
-                                <rect key="frame" x="762" y="357" width="51" height="31"/>
+                                <rect key="frame" x="762" y="439" width="51" height="31"/>
                             </switch>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Swirl_Funky_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="HpG-xp-yy6">
+                                <rect key="frame" x="43" y="118" width="336" height="800"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -179,7 +159,6 @@
                         <outlet property="colorSelector" destination="WTv-yw-lh5" id="ipx-UK-Xod"/>
                         <outlet property="defaultSplitsInp" destination="vPE-qC-v54" id="vUa-IJ-gkd"/>
                         <outlet property="errorSplit" destination="3Yj-xk-6wI" id="Lsb-kR-MEq"/>
-                        <outlet property="nameOfUser" destination="YMd-nz-rR0" id="gTE-gs-Kem"/>
                         <outletCollection property="defFreqInp" destination="r9Y-L8-exl" id="ukw-yP-CPX"/>
                         <outletCollection property="defFreqInp" destination="afk-bc-ycA" id="AOm-fz-Y1d"/>
                         <outletCollection property="defFreqInp" destination="Pze-i0-Gin" id="j6o-gY-bO7"/>
@@ -325,7 +304,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzW-T5-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2071" y="-576"/>
+            <point key="canvasLocation" x="-3551" y="-608"/>
         </scene>
         <!--Create new scale-->
         <scene sceneID="Kx1-uc-KIX">
@@ -431,9 +410,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-hM-glq">
-                                <rect key="frame" x="752" y="559" width="256" height="233"/>
-                                <state key="normal" title="Go" image="letsGo.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="559" y="612" width="150" height="46"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="createIt:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="UOu-vu-JQ4"/>
@@ -462,9 +441,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07h-Kl-wZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2994" y="-2039"/>
+            <point key="canvasLocation" x="-3840" y="-1603"/>
         </scene>
-        <!--Saved scales-->
+        <!--Saved sessions-->
         <scene sceneID="bLh-Ua-feL">
             <objects>
                 <tableViewController id="pgH-QK-fhb" customClass="MTGLoadTableViewController" sceneMemberID="viewController">
@@ -533,7 +512,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Saved scales" id="TN5-bN-pEU">
+                    <navigationItem key="navigationItem" title="Saved sessions" id="TN5-bN-pEU">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="N9V-rs-SSJ"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -770,7 +749,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QG-Sf-MDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2499" y="1439"/>
+            <point key="canvasLocation" x="-2507" y="1631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kIt-I3-LeW">
@@ -789,7 +768,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="378-7T-zGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-32" y="-2379"/>
+            <point key="canvasLocation" x="-2680" y="-2179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zJH-Qn-ieo">
@@ -859,11 +838,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
         <image name="Swirl_Funky_2.png" width="336" height="800"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
-        <image name="letsGo.png" width="500" height="500"/>
         <image name="menu.png" width="28" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -872,7 +849,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QK2-H1-fqF"/>
-        <segue reference="SqA-3s-bFS"/>
+        <segue reference="Mhp-Gz-yyb"/>
+        <segue reference="BnV-kE-afT"/>
     </inferredMetricsTieBreakers>
 </document>

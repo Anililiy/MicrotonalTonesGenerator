@@ -446,12 +446,6 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
                                 <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
                                 <items>
-                                    <barButtonItem title="Save session" id="4Yt-df-11W">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="saveSession:" destination="ijD-Df-uuV" id="iwf-RE-1pO"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem width="220" style="plain" systemItem="fixedSpace" id="3OH-2P-OZH"/>
                                     <barButtonItem enabled="NO" systemItem="rewind" id="fJF-NT-mKb">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -508,9 +502,7 @@
                         <outlet property="mainToolbar" destination="67t-FB-cdE" id="cJy-sr-1wY"/>
                         <outlet property="playNextStateButton" destination="I8l-WL-E3d" id="TwH-gF-il0"/>
                         <outlet property="playPreviousStateButton" destination="fJF-NT-mKb" id="X3k-up-Jm3"/>
-                        <outlet property="saveSessionButton" destination="4Yt-df-11W" id="xiW-T0-8kj"/>
                         <outlet property="saveStateButon" destination="miA-2v-dAw" id="FS6-P3-eyp"/>
-                        <outlet property="saveStateButton" destination="67t-FB-cdE" id="zda-pP-HXf"/>
                         <outlet property="savedStatesSlideButton" destination="bPv-c1-jyd" id="ZWJ-Wo-m1N"/>
                         <outlet property="scaleNavigationItem" destination="BtU-As-ydt" id="Inf-47-OoK"/>
                         <outlet property="sidebarButton" destination="Vzn-RD-Rda" id="dYq-m7-QnJ"/>

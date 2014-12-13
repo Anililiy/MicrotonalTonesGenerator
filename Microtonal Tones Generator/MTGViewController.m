@@ -27,7 +27,7 @@ NSString *const kShortPatchName = @"KeyNote.pd";
 
 @synthesize patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem, saveSessionButton;
+@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem;
 @synthesize numberOfSavedScales, stateSelected, indexOfStateChosen, frequencyLabel;
 @synthesize playNextStateButton, playPreviousStateButton, ViewCover, ViewCover2;
 @synthesize upTheOctave, downTheOctave, changeOctave;
@@ -91,11 +91,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         octaveNumber = 0;
         
         if (sessionIsSaved){
-            saveSessionButton.enabled = false;
             self.navigationItem.rightBarButtonItem.enabled = true;
         }
         else {
-            saveSessionButton.enabled = true;
             self.navigationItem.rightBarButtonItem.enabled = false;
         }
         // sound creation
@@ -331,7 +329,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if (!creationState){
         [startButtonItem setTitle:@"Stop polyphony"];
         creationState = true;
-        if (sessionIsSaved) saveStateButon.enabled = true;
+        saveStateButon.enabled = true;
  
     }
     else
@@ -430,7 +428,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             keyPressed.index = [aButton tag];
             keyPressed.keyFrequency = frequencyOfNote;
             
-            NSLog(@"Index %i, freq %f",keyPressed.index, keyPressed.keyFrequency);
+            NSLog(@"Index %li, freq %f",(long)keyPressed.index, keyPressed.keyFrequency);
             [pressedKeys addObject:keyPressed];
         }
         else{
@@ -444,7 +442,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             }
             aButton.selected =!aButton.selected;
         }
-        if (sessionIsSaved) saveStateButon.enabled = true;
+        saveStateButon.enabled = true;
     }
     else{
         [self playNoteShort:frequencyOfNote];
@@ -499,42 +497,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     else downTheOctave.enabled = false;
 }
 
-- (IBAction)saveSession:(id)sender {
-    
-    //[self takeScreenshot];
-    currentScale.freqInitial = frequency;
-    currentScale.dateCreated = [NSDate date];
-    NSMutableArray* archScales  = [NSMutableArray array];
-    NSUserDefaults *defaults    = [NSUserDefaults standardUserDefaults];
-    NSData *encodedScale        = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
-    
-    
-    if ([defaults objectForKey:@"savedSessions"]){
-       archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
-    }
-    /*
-    for (NSData *data in archScales){
-        MTGSavedScale* scaleStored = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if ((currentScale.freqInitial == scaleStored.freqInitial) && (currentScale.splitsNumber == scaleStored.splitsNumber) ) sessionIsSaved = YES;
-        else sessionIsSaved = NO;
-    }
-     */
-    if (!sessionIsSaved){
-        [archScales addObject:encodedScale];
-        [defaults setObject:archScales forKey:@"savedSessions"];
-        sessionIsSaved = YES;
-        saveSessionButton.enabled = false;
-        NSLog(@"Saved");
-    }
-    [defaults setBool:sessionIsSaved forKey:@"saved"];
-    [changeOctave setHidden:true];
-    [frequencyLabel setHidden:true];
-   if (creationState) saveStateButon.enabled = true;
-
-}
-
 - (IBAction)saveState:(id)sender {
-
+    
     saveStateButon.enabled = false;
     currentScale.dateLastUpdated = [NSDate date];
     
@@ -553,13 +517,29 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
 
     archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
-    int indexOfScaleInTheArray = [defaults integerForKey:@"currentScaleIndex"];
-    [archScales replaceObjectAtIndex:indexOfScaleInTheArray withObject:encodedScale];
     
+    if  (!sessionIsSaved){
+        currentScale.freqInitial = frequency;
+        currentScale.dateCreated = [NSDate date];
+        sessionIsSaved = YES;
+        [defaults setBool:sessionIsSaved forKey:@"saved"];
+        [changeOctave setHidden:true];
+        [frequencyLabel setHidden:true];
+        
+        [archScales addObject:encodedScale];
+        [defaults setObject:archScales forKey:@"savedSessions"];
+        sessionIsSaved = YES;
+        NSLog(@"Saved");
+    }
+    else {
+        int indexOfScaleInTheArray = [defaults integerForKey:@"currentScaleIndex"];
+        [archScales replaceObjectAtIndex:indexOfScaleInTheArray withObject:encodedScale];
+    }
     [defaults setObject:archScales forKey:@"savedSessions"];
     
     NSLog(@"Saved state");
     [defaults synchronize];
+    
     if([savedStates count]>0)self.navigationItem.rightBarButtonItem.enabled = true;
     else self.navigationItem.rightBarButtonItem.enabled = false;
     [self clearUp];

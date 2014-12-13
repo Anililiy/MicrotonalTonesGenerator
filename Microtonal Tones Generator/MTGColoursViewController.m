@@ -64,8 +64,8 @@
     [_brightnessSlider addTarget:self action:@selector(changeBrightness:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_brightnessSlider];
     
-    _wellView = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                         0,
+    _wellView = [[UIView alloc] initWithFrame:CGRectMake(10,
+                                                         10,
                                                          size.width * .2,
                                                          size.height * .1)];
     

@@ -77,11 +77,13 @@
     
     newViewController.delegate = self;
     popoverController = [[UIPopoverController alloc] initWithContentViewController:newViewController];
-    popoverController.popoverContentSize = CGSizeMake(225.0, 100.0);
+    popoverController.popoverContentSize = CGSizeMake(250.0, 250.0);
     [popoverController presentPopoverFromRect:[(UIButton *)sender frame]
                                        inView:self.view
                      permittedArrowDirections:UIPopoverArrowDirectionAny
                                      animated:YES];
+    
+   // chooseTheme.backgroundColor = newViewController.wellView.backgroundColor;
 
 }
 

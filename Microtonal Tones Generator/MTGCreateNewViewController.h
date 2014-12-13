@@ -30,6 +30,7 @@
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic,retain) UIPopoverController *popoverController;
+@property (strong, nonatomic) IBOutlet UIButton *colourButton;
 
 - (IBAction)createIt:(id)sender;
 - (IBAction)showColourPopup:(id)sender;

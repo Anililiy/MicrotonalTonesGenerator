@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MTGColourButton.h"
+#import "ISColorWheel.h"
 
 @class MTGColoursViewController;
 
@@ -17,10 +17,17 @@
 
 @end
 
-@interface MTGColoursViewController : UIViewController
+@interface MTGColoursViewController : UIViewController <ISColorWheelDelegate>
+{
+    ISColorWheel* _colorWheel;
+    UISlider* _brightnessSlider;
+    UIView* _wellView;
+}
+
 
 @property NSMutableArray *colours;
 @property (nonatomic, strong) NSArray *colorCollection;
+@property UIView* wellView;
 
 @property (nonatomic, weak) id <MTGColoursViewControllerDelegate> delegate;
 

@@ -40,6 +40,7 @@
     [defaults setInteger:0 forKey:@"currentScale"];
     [defaults setInteger:0 forKey:@"currentScaleIndex"];
     [defaults setInteger:0 forKey:@"noOfScalesCreated"];
+    [defaults setBool:YES forKey:@"firstRun"];
     
     [defaults synchronize];
     

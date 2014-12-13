@@ -275,8 +275,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-hM-glq">
-                                <rect key="frame" x="559" y="612" width="150" height="46"/>
-                                <state key="normal" title="Start">
+                                <rect key="frame" x="496" y="566" width="241" height="223"/>
+                                <state key="normal" title="Start" image="letsGo.png">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
@@ -294,6 +294,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="chooseTheme" destination="Nng-wS-NQW" id="W3E-Sb-vRd"/>
+                        <outlet property="colourButton" destination="Nng-wS-NQW" id="zQY-pq-iUn"/>
                         <outlet property="freqInputSlider" destination="EOU-Wn-XCo" id="zqm-F9-0NW"/>
                         <outlet property="frequencyLabel" destination="NXi-6C-dZL" id="qVQ-JI-EFG"/>
                         <outlet property="sidebarButton" destination="bnR-o1-7Bs" id="lnO-8N-6mb"/>
@@ -754,9 +755,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCr-0t-XBe">
-                                <rect key="frame" x="520" y="572" width="257" height="105"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Start">
+                                <rect key="frame" x="479" y="548" width="264" height="239"/>
+                                <state key="normal" title="Start" image="letsGo.png">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
@@ -792,6 +792,7 @@
         <image name="Swirl_Funky_2.png" width="336" height="800"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
+        <image name="letsGo.png" width="500" height="500"/>
         <image name="menu.png" width="28" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

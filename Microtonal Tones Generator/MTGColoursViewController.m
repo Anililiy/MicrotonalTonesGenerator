@@ -7,6 +7,7 @@
 //
 
 #import "MTGColoursViewController.h"
+#import "MTGCreateNewViewController.h"
 
 @interface MTGColoursViewController ()
 @property (nonatomic, strong) NSArray* colorButtons;
@@ -15,7 +16,7 @@
 
 @implementation MTGColoursViewController
 
-@synthesize colours;
+@synthesize colours, wellView;
 @synthesize colourChosen;
 @synthesize delegate;
 
@@ -28,81 +29,76 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self createColorsArray];
-    [self setupColorButtons];
-}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void) createColorsArray{
-    self.colorCollection = [NSArray arrayWithObjects:
-                            [UIColor redColor],
-                            [UIColor orangeColor],
-                            [UIColor yellowColor],
-                            [UIColor purpleColor],
-                            [UIColor greenColor],
-                            [UIColor blueColor],
-                            [UIColor blackColor],
-                            [UIColor brownColor],
-                            [UIColor cyanColor],
-                            [UIColor magentaColor],
-                            [UIColor redColor],
-                            [UIColor redColor],nil];
-}
 
-
--(void)setupColorButtons{
-    int maxNCol = 12;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    if (nil == self.colorButtons)
-    {
-        NSMutableArray* newColorButtons = [NSMutableArray arrayWithCapacity:maxNCol];
-        int colorNumber = 0;
-        for (int i=0;i<maxNCol;i++){
+    CGSize size = self.view.bounds.size;
+    
+    CGSize wheelSize = CGSizeMake(size.width * .9, size.width * .9);
+    
+    _colorWheel = [[ISColorWheel alloc] initWithFrame:CGRectMake(size.width / 2 - wheelSize.width / 2,
+                                                                 size.height * .01,
+                                                                 wheelSize.width,
+                                                                 wheelSize.height*0.9)];
+    _colorWheel.delegate = self;
+    _colorWheel.continuous = true;
+    [self.view addSubview:_colorWheel];
+    
+    _brightnessSlider = [[UISlider alloc] initWithFrame:CGRectMake(0.1,
+                                                                   size.height * .9,
+                                                                   size.width,
+                                                                   size.height * .1)];
+    _brightnessSlider.minimumValue = 0.0;
+    _brightnessSlider.maximumValue = 1.0;
+    _brightnessSlider.value = 1.0;
 
-            MTGColourButton *colorButton = [MTGColourButton buttonWithType:UIButtonTypeCustom];
-            colorButton.frame = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
-            
-            [colorButton addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
-            
-            [colorButton setSelected:NO];
-            [colorButton setNeedsDisplay];
-            [colorButton setBackgroundColor:[self.colorCollection objectAtIndex:colorNumber]];
-            [colorButton setColour:[self.colorCollection objectAtIndex:colorNumber]];
-            colorButton.tag = colorNumber;
+    [_brightnessSlider addTarget:self action:@selector(changeBrightness:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_brightnessSlider];
+    
+    _wellView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                         0,
+                                                         size.width * .2,
+                                                         size.height * .1)];
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                        action:@selector(handleSingleTap:)];
+    [_wellView addGestureRecognizer:singleFingerTap];
 
-            colorNumber ++;
-            [newColorButtons addObject:colorButton];
-            [self.view addSubview:colorButton];
-        }
-        self.colorButtons = [newColorButtons copy];
-
-    }
-    else{
-        for (UIButton* colorButton in self.colorButtons)
-        {
-            NSInteger colorNumber = colorButton.tag;
-            
-            NSInteger i = colorNumber;
-            colorButton.frame = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
-        }
-    }
+    _wellView.layer.borderColor = [UIColor blackColor].CGColor;
+    _wellView.layer.borderWidth = 0.5;
+    [self.view addSubview:_wellView];
 }
 
+//The event handling method
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+     [delegate colorPopoverControllerDidSelectColor:_colorWheel.currentColor];
 
-
--(void) buttonPushed:(id)sender{
-   
-    MTGColourButton *btn = (MTGColourButton *)sender;
-    [delegate colorPopoverControllerDidSelectColor:btn.colourOfScale];
+    //Do stuff here...
 }
 
+- (void)changeBrightness:(UISlider*)sender
+{
+    [_colorWheel setBrightness:_brightnessSlider.value];
+    [_colorWheel updateImage];
+    [_wellView setBackgroundColor:_colorWheel.currentColor];
+}
+
+- (void)colorWheelDidChangeColor:(ISColorWheel *)colorWheel
+{
+    MTGCreateNewViewController* newView = [[MTGCreateNewViewController alloc] init];
+    newView.colourButton.backgroundColor = _colorWheel.currentColor;
+    [_wellView setBackgroundColor:_colorWheel.currentColor];
+}
 /*
 #pragma mark - Navigation
 

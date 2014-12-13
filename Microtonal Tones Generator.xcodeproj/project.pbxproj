@@ -10,7 +10,6 @@
 		9500192D1A06BBD200834493 /* MTGSavedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9500192C1A06BBD200834493 /* MTGSavedState.m */; };
 		9502E47C1A0F84BC0007EEF3 /* MTGKeyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502E47B1A0F84BC0007EEF3 /* MTGKeyObject.m */; };
 		951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */; };
-		95112EA419EB11F90015E3F8 /* MTGColourButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95112EA319EB11F90015E3F8 /* MTGColourButton.m */; };
 		95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */; };
 		951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 951942C419F6EFD100F510FE /* MTGSaveTableViewCell.m */; };
 		951942C719F6EFD100F510FE /* MTGSaveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951942C519F6EFD100F510FE /* MTGSaveTableViewCell.xib */; };
@@ -50,6 +49,8 @@
 		9552A23F1A0678D600A8B694 /* arrow-big-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 9552A23D1A0678D600A8B694 /* arrow-big-01.png */; };
 		9552A2401A0678D600A8B694 /* arrow-big-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 9552A23E1A0678D600A8B694 /* arrow-big-02.png */; };
 		955A0B6419F33B3700842D32 /* MTGSavedScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A0B6319F33B3700842D32 /* MTGSavedScale.m */; };
+		955D69581A3C78B1003AB6EF /* ISColorWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 955D69521A3C78B1003AB6EF /* ISColorWheel.m */; };
+		955D695F1A3C8566003AB6EF /* MTGColourButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 955D695E1A3C8566003AB6EF /* MTGColourButton.m */; };
 		955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955F98C71A01A54100007D9E /* SWRevealViewController.m */; };
 		956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */; };
 		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
@@ -116,8 +117,6 @@
 		9502E47B1A0F84BC0007EEF3 /* MTGKeyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKeyObject.m; sourceTree = "<group>"; };
 		9510589E19C59BA7008F5F76 /* MTGLoadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGLoadTableViewController.h; sourceTree = "<group>"; };
 		9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGLoadTableViewController.m; sourceTree = "<group>"; };
-		95112EA219EB11F90015E3F8 /* MTGColourButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColourButton.h; sourceTree = "<group>"; };
-		95112EA319EB11F90015E3F8 /* MTGColourButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGColourButton.m; sourceTree = "<group>"; };
 		95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote2.pd; sourceTree = "<group>"; };
 		951942C319F6EFD100F510FE /* MTGSaveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSaveTableViewCell.h; sourceTree = "<group>"; };
 		951942C419F6EFD100F510FE /* MTGSaveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSaveTableViewCell.m; sourceTree = "<group>"; };
@@ -167,6 +166,10 @@
 		9552A23E1A0678D600A8B694 /* arrow-big-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-big-02.png"; sourceTree = "<group>"; };
 		955A0B6219F33B3700842D32 /* MTGSavedScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSavedScale.h; sourceTree = "<group>"; };
 		955A0B6319F33B3700842D32 /* MTGSavedScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedScale.m; sourceTree = "<group>"; };
+		955D69511A3C78B1003AB6EF /* ISColorWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISColorWheel.h; sourceTree = "<group>"; };
+		955D69521A3C78B1003AB6EF /* ISColorWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISColorWheel.m; sourceTree = "<group>"; };
+		955D695D1A3C8566003AB6EF /* MTGColourButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColourButton.h; sourceTree = "<group>"; };
+		955D695E1A3C8566003AB6EF /* MTGColourButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGColourButton.m; sourceTree = "<group>"; };
 		955F98C61A01A54100007D9E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		955F98C71A01A54100007D9E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColoursViewController.h; sourceTree = "<group>"; };
@@ -404,6 +407,16 @@
 			name = "New Session";
 			sourceTree = "<group>";
 		};
+		955D69501A3C78B1003AB6EF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				955D69511A3C78B1003AB6EF /* ISColorWheel.h */,
+				955D69521A3C78B1003AB6EF /* ISColorWheel.m */,
+			);
+			name = Source;
+			path = "ios-color-wheel-release-1.0/ios-color-wheel/Source";
+			sourceTree = "<group>";
+		};
 		955F98C51A01A54100007D9E /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,9 +476,10 @@
 			children = (
 				956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */,
 				956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */,
-				95112EA219EB11F90015E3F8 /* MTGColourButton.h */,
-				95112EA319EB11F90015E3F8 /* MTGColourButton.m */,
 				956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */,
+				955D695D1A3C8566003AB6EF /* MTGColourButton.h */,
+				955D695E1A3C8566003AB6EF /* MTGColourButton.m */,
+				955D69501A3C78B1003AB6EF /* Source */,
 			);
 			name = ColourPopup;
 			sourceTree = "<group>";
@@ -642,9 +656,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				954B142F19C59977008FE21B /* MTGSettingsViewController.m in Sources */,
+				955D69581A3C78B1003AB6EF /* ISColorWheel.m in Sources */,
 				954B13E919C4F912008FE21B /* main.m in Sources */,
 				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
-				95112EA419EB11F90015E3F8 /* MTGColourButton.m in Sources */,
 				9540DEE519D6D741001C1CC1 /* MTGRootViewController.m in Sources */,
 				9502E47C1A0F84BC0007EEF3 /* MTGKeyObject.m in Sources */,
 				9500192D1A06BBD200834493 /* MTGSavedState.m in Sources */,
@@ -654,6 +668,7 @@
 				956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */,
 				951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */,
 				95DD9B431A374712007C6473 /* Common.m in Sources */,
+				955D695F1A3C8566003AB6EF /* MTGColourButton.m in Sources */,
 				955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,

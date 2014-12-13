@@ -9,25 +9,32 @@
 #import <UIKit/UIKit.h>
 #import "MTGColoursViewController.h"
 
-@interface MTGFirstLoginViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate, UITextFieldDelegate>{
-
-    IBOutlet UIButton *colorSelector;
-    IBOutletCollection(UIButton) NSArray *defFreqInp;
-    IBOutlet UILabel *errorSplit;
-    BOOL freqInput;
-    BOOL splitInput;
+@interface MTGFirstLoginViewController :UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>{
+    
+    IBOutletCollection(UIButton) NSArray *freqButtons;
+    IBOutlet UILabel *frequencyLabel;
+    IBOutlet UISlider *freqInputSlider;
+    
+    IBOutlet UILabel *splitLabel;
+    IBOutlet UISlider *splitSlider;
+    
+    IBOutlet UIButton *chooseTheme;
+    
     NSString* chosenFrequency;
-    float colourHue;
-    float colourSat;
-    float colourBrg;
+    CGFloat frequency;
+    NSInteger split;
+    CGFloat colourHue;
+    CGFloat colourSat;
+    CGFloat colourBrg;
 }
 
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic,retain) UIPopoverController *popoverController;
-@property IBOutlet UITextField *nameOfUser;
-@property IBOutlet UITextField *defaultSplitsInp;
-- (IBAction)save:(id)sender;
-- (IBAction)validateInput:(id)sender;
-- (IBAction)colorSelection:(id)sender;
-- (IBAction)goToNext:(UITextField *)sender;
+
+- (IBAction)createIt:(id)sender;
+- (IBAction)showColourPopup:(id)sender;
+- (IBAction)splitInputChanged:(UISlider *)slider;
+- (IBAction)frequencyInputChanged:(UISlider *)slider;
 
 @end

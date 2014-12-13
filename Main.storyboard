@@ -24,7 +24,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginBtnPressed:" destination="6KW-6f-o6H" eventType="touchUpInside" id="Q0H-x9-BLE"/>
-                                    <segue destination="sTD-DT-Rpo" kind="modal" id="h3L-5D-9hU"/>
+                                    <segue destination="xU7-XE-uFA" kind="modal" id="F51-F0-9lS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,138 +35,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jCQ-4Y-r2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5588" y="116"/>
-        </scene>
-        <!--First Login-->
-        <scene sceneID="8Qy-PX-dPe">
-            <objects>
-                <viewController title="First Login" id="sTD-DT-Rpo" customClass="MTGFirstLoginViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Dvk-EG-9Ka"/>
-                        <viewControllerLayoutGuide type="bottom" id="j3c-PM-eId"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="muf-AI-bRF">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Defaul number of splits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qi-4h-HTn">
-                                <rect key="frame" x="442" y="197" width="178" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default fixed node frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNV-1D-8EU">
-                                <rect key="frame" x="442" y="265" width="221" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Colour theme" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73t-KX-t3p">
-                                <rect key="frame" x="442" y="317" width="104" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iCloud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYo-jW-eeu">
-                                <rect key="frame" x="459" y="449" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTv-yw-lh5">
-                                <rect key="frame" x="732" y="308" width="117" height="39"/>
-                                <color key="backgroundColor" red="0.74465747187256082" green="1" blue="0.81619750947376934" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="C">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="colorSelection:" destination="sTD-DT-Rpo" eventType="touchUpInside" id="3UG-AX-Qso"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wya-Gm-1cu">
-                                <rect key="frame" x="865" y="269" width="21" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-dy-jcp">
-                                <rect key="frame" x="557" y="497" width="228" height="196"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="save:" destination="sTD-DT-Rpo" eventType="touchUpInside" id="BVX-k3-SDW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-i0-Gin">
-                                <rect key="frame" x="707" y="265" width="30" height="30"/>
-                                <state key="normal" title="256">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseFreq:" destination="sTD-DT-Rpo" eventType="touchUpInside" id="0Mc-jF-lmj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9Y-L8-exl">
-                                <rect key="frame" x="813" y="265" width="30" height="30"/>
-                                <state key="normal" title="440">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseFreq:" destination="sTD-DT-Rpo" eventType="touchUpInside" id="9v4-Kv-B2g"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afk-bc-ycA">
-                                <rect key="frame" x="762" y="265" width="30" height="30"/>
-                                <state key="normal" title="415">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseFreq:" destination="sTD-DT-Rpo" eventType="touchUpInside" id="Gqf-Ki-5hn"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3Yj-xk-6wI">
-                                <rect key="frame" x="816" y="202" width="132" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPE-qC-v54">
-                                <rect key="frame" x="695" y="197" width="103" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="goToNext:" destination="sTD-DT-Rpo" eventType="editingDidEnd" id="bOO-ED-7PE"/>
-                                    <action selector="validateInput:" destination="sTD-DT-Rpo" eventType="editingChanged" id="NTL-CJ-p5V"/>
-                                </connections>
-                            </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jL2-dD-La8">
-                                <rect key="frame" x="762" y="439" width="51" height="31"/>
-                            </switch>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Swirl_Funky_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="HpG-xp-yy6">
-                                <rect key="frame" x="43" y="118" width="336" height="800"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="colorSelector" destination="WTv-yw-lh5" id="ipx-UK-Xod"/>
-                        <outlet property="defaultSplitsInp" destination="vPE-qC-v54" id="vUa-IJ-gkd"/>
-                        <outlet property="errorSplit" destination="3Yj-xk-6wI" id="Lsb-kR-MEq"/>
-                        <outletCollection property="defFreqInp" destination="r9Y-L8-exl" id="ukw-yP-CPX"/>
-                        <outletCollection property="defFreqInp" destination="afk-bc-ycA" id="AOm-fz-Y1d"/>
-                        <outletCollection property="defFreqInp" destination="Pze-i0-Gin" id="j6o-gY-bO7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RuI-cx-4e6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3942" y="408"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="thG-iw-bWJ">
@@ -250,9 +118,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="UfM-kL-eHp" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="4TP-Bz-Xgg"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="new" id="LbJ-fT-x9I">
                                 <rect key="frame" x="0.0" y="154" width="768" height="44"/>
@@ -304,7 +169,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzW-T5-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3551" y="-608"/>
+            <point key="canvasLocation" x="-1567" y="-1176"/>
         </scene>
         <!--Create new scale-->
         <scene sceneID="Kx1-uc-KIX">
@@ -441,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07h-Kl-wZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3840" y="-1603"/>
+            <point key="canvasLocation" x="940" y="-2643"/>
         </scene>
         <!--Saved sessions-->
         <scene sceneID="bLh-Ua-feL">
@@ -525,38 +390,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bho-hL-15n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1236" y="-1470"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="ScT-5d-Vwk">
-            <objects>
-                <viewController title="Settings" id="OD0-Hv-wZ2" customClass="MTGSettingsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Oui-eh-9rx"/>
-                        <viewControllerLayoutGuide type="bottom" id="5eb-q4-M9E"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="T8s-5J-XXL">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Settings" id="EJd-TX-YBv">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="aqE-bG-1ag"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="miT-YN-xOv">
-                            <connections>
-                                <action selector="sendInformation:" destination="OD0-Hv-wZ2" id="pMn-9J-RUf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="sidebarButton" destination="aqE-bG-1ag" id="los-FN-2fr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fo5-iY-xTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="610" y="-479"/>
         </scene>
         <!--Session-->
         <scene sceneID="8bb-dI-s3D">
@@ -768,7 +601,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="378-7T-zGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2680" y="-2179"/>
+            <point key="canvasLocation" x="-1288" y="-2627"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zJH-Qn-ieo">
@@ -790,25 +623,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7T-to-k00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-19" y="-1472"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="PwK-ft-xwq">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UfM-kL-eHp" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5sK-Om-82s">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="OD0-Hv-wZ2" kind="relationship" relationship="rootViewController" id="Mpi-Df-dJO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lFv-c6-oo9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-848" y="-537"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R6A-oD-Ner">
@@ -836,6 +650,143 @@
             </objects>
             <point key="canvasLocation" x="-884" y="736"/>
         </scene>
+        <!--FirstAppearance-->
+        <scene sceneID="tOp-An-964">
+            <objects>
+                <viewController title="FirstAppearance" id="xU7-XE-uFA" customClass="MTGFirstLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iWT-Kx-MgX"/>
+                        <viewControllerLayoutGuide type="bottom" id="vSQ-D7-8bh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ABj-SH-uoe">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="1" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="3So-7y-5tX">
+                                <rect key="frame" x="585" y="194" width="337" height="31"/>
+                                <connections>
+                                    <action selector="splitInputChanged:" destination="xU7-XE-uFA" eventType="valueChanged" id="9U5-WI-dOx"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf3-Nj-s77">
+                                <rect key="frame" x="491" y="269" width="30" height="30"/>
+                                <state key="normal" title="256">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseFreq:" destination="xU7-XE-uFA" eventType="touchUpInside" id="hVb-He-wLk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-BW-ZJ6">
+                                <rect key="frame" x="574" y="269" width="30" height="30"/>
+                                <state key="normal" title="415">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseFreq:" destination="xU7-XE-uFA" eventType="touchUpInside" id="eHi-s1-KaY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eK5-H4-tK2">
+                                <rect key="frame" x="647" y="269" width="30" height="30"/>
+                                <state key="normal" title="440">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseFreq:" destination="xU7-XE-uFA" eventType="touchUpInside" id="QfA-Q9-I9K"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Initial frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lg-gh-9bU">
+                                <rect key="frame" x="281" y="269" width="138" height="21"/>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or add custom..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcf-mg-lEb">
+                                <rect key="frame" x="548" y="320" width="127" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldZ-z1-LEy">
+                                <rect key="frame" x="491" y="201" width="62" height="21"/>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PU-uy-a1I">
+                                <rect key="frame" x="743" y="273" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="440 Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Saa-Vr-fZQ">
+                                <rect key="frame" x="542" y="358" width="297" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="440" minValue="100" maxValue="600" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-lp-OvB">
+                                <rect key="frame" x="450" y="404" width="481" height="31"/>
+                                <color key="minimumTrackTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="frequencyInputChanged:" destination="xU7-XE-uFA" eventType="valueChanged" id="xwh-5s-A04"/>
+                                </connections>
+                            </slider>
+                            <button contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="l3t-ID-DaI">
+                                <rect key="frame" x="267" y="440" width="100" height="50"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Colour">
+                                    <color key="titleColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showColourPopup:" destination="xU7-XE-uFA" eventType="touchUpInside" id="PEK-Yj-Bc1"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Swirl_Funky_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Ha-jN-AKk">
+                                <rect key="frame" x="0.0" y="52" width="336" height="800"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New number of splits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-gQ-sPd">
+                                <rect key="frame" x="281" y="198" width="181" height="27"/>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCr-0t-XBe">
+                                <rect key="frame" x="520" y="572" width="257" height="105"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createIt:" destination="xU7-XE-uFA" eventType="touchUpInside" id="gKD-JJ-b7B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create new scale" id="1fl-W2-G9i">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="OkT-gD-vn6"/>
+                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="chooseTheme" destination="l3t-ID-DaI" id="V3r-KM-XE8"/>
+                        <outlet property="freqInputSlider" destination="dLg-lp-OvB" id="lRv-JN-33r"/>
+                        <outlet property="frequencyLabel" destination="Saa-Vr-fZQ" id="F6d-38-PrR"/>
+                        <outlet property="sidebarButton" destination="OkT-gD-vn6" id="D99-tM-rtb"/>
+                        <outlet property="splitLabel" destination="ldZ-z1-LEy" id="KeD-L5-TAM"/>
+                        <outlet property="splitSlider" destination="3So-7y-5tX" id="1Ii-Sg-don"/>
+                        <outletCollection property="freqButtons" destination="Tf3-Nj-s77" id="YhK-kV-OUN"/>
+                        <outletCollection property="freqButtons" destination="VFh-BW-ZJ6" id="4ew-9t-qD6"/>
+                        <outletCollection property="freqButtons" destination="eK5-H4-tK2" id="RoG-fX-gpv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgv-Ig-5kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4352" y="109"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Swirl_Funky_2.png" width="336" height="800"/>
@@ -849,7 +800,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Mhp-Gz-yyb"/>
+        <segue reference="eiG-kh-lQ6"/>
         <segue reference="BnV-kE-afT"/>
     </inferredMetricsTieBreakers>
 </document>

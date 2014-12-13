@@ -10,118 +10,77 @@
 
 #import "MTGAppDelegate.h"
 #import "MTGRootViewController.h"
+#import "MTGColourButton.h"
 
 @interface MTGFirstLoginViewController ()
+
+@property NSArray *colorCollection;
+@property (nonatomic, strong) NSArray* colorButtons;
 
 @end
 
 @implementation MTGFirstLoginViewController
 
-@synthesize popoverController, nameOfUser, defaultSplitsInp;
+@synthesize popoverController, colorCollection;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    errorSplit.text = nil;
-    splitInput = false;
-    freqInput = false;
-    [nameOfUser setDelegate:self];
-    [defaultSplitsInp setDelegate:self];
+    // init
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    split       = [defaults integerForKey:@"deaultNumberOfSplits"];
+    frequency   = [defaults floatForKey:@"defaultFrequency"];
+    colourHue   = [defaults floatForKey:@"initThemeHue"];
+    colourSat   = [defaults floatForKey:@"initThemeSat"];
+    colourBrg   = [defaults floatForKey:@"initThemeBrg"];
+    
+    splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    chooseTheme.backgroundColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
+    
+    [self createColorsArray];
+    [self setupColorButtons];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)save:(id)sender{
-
-    if (freqInput && splitInput){
-        // Hide the keyboard
-        [nameOfUser resignFirstResponder];
-        [defaultSplitsInp resignFirstResponder];
-        
-        // Create strings and integer to store the text info
-        NSString *userName = [nameOfUser text];
-        int defNumberOfSplits = [[defaultSplitsInp text] integerValue];
-
-        float defFrequency = [chosenFrequency floatValue];
-        
-        // Store the data
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        [defaults setObject:userName forKey:@"userName"];
-        [defaults setInteger:defNumberOfSplits forKey:@"deaultNumberOfSplits"];
-        [defaults setFloat:defFrequency forKey:@"defaultFrequency"];
-        [defaults setFloat:colourHue forKey:@"initThemeHue"];
-        [defaults setFloat:colourSat forKey:@"initThemeSat"];
-        [defaults setFloat:colourBrg forKey:@"initThemeBrg"];
-        [defaults setInteger:0 forKey:@"currentScale"];
-        [defaults setInteger:0 forKey:@"currentScaleIndex"];
-        [defaults setInteger:0 forKey:@"noOfScalesCreated"];
-  
-        
-        if (![defaults objectForKey:@"firstRun"] || ![defaults boolForKey:@"firstRun"]) [defaults setBool:YES forKey:@"firstRun"];
-        
-        [defaults synchronize];
-        
-        NSLog(@"Data saved");
-
-        //create translation between screens
-        MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
-        authObj.authenticated = YES;
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"profileView"];
-        [initView setModalPresentationStyle:UIModalPresentationFullScreen];
-        [self presentViewController:initView animated:NO completion:nil];
-    }
-    else {
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                          message:@"Some data is not inputed"
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
-    }
-
+- (IBAction)createIt:(id)sender {
+    
+    // Store the data
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setInteger:   split       forKey:@"numberOfSplits"   ];
+    [defaults setFloat:     frequency   forKey:@"frequency"        ];
+    [defaults setFloat:     colourHue   forKey:@"themeHue"         ];
+    [defaults setFloat:     colourSat   forKey:@"themeSat"         ];
+    [defaults setFloat:     colourBrg   forKey:@"themeBrg"         ];
+    [defaults setBool:      false       forKey:@"saved"            ];
+    
+    int numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
+    numberOfSession+=1;
+    [defaults setInteger:numberOfSession forKey:@"currentScale"];
+    [defaults setInteger:numberOfSession forKey:@"noOfScalesCreated"];
+    
+    [defaults synchronize];
+    
+    NSLog(@"Data saved");
+    
+    //create translation between screens
+    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
+    authObj.authenticated = YES;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+    [initView setModalPresentationStyle:UIModalPresentationFullScreen];
+    [self presentViewController:initView animated:NO completion:nil];
     
 }
--(BOOL)textFieldShouldReturn:(UITextField*)textField;
-{
-    NSInteger nextTag = textField.tag + 1;
-    // Try to find next responder
-    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
-    if (nextResponder) {
-        // Found next responder, so set it.
-        [nextResponder becomeFirstResponder];
-    } else {
-        // Not found, so remove keyboard.
-        [textField resignFirstResponder];
-    }
-    return NO; // We do not want UITextField to insert line-breaks.
-}
-- (IBAction)validateInput:(id)sender {
-    BOOL numberInputOnly = true;
-    char y = [defaultSplitsInp.text characterAtIndex:(defaultSplitsInp.text.length-1)];
-    if (y < '0' || y > '9'){
-        NSLog(@"wrong input");
-        numberInputOnly = false;
-    }
 
-    if (defaultSplitsInp.text.integerValue < 1 || defaultSplitsInp.text.integerValue> 32 || !numberInputOnly){
-        defaultSplitsInp.backgroundColor = [UIColor redColor];
-        splitInput = false;
-        errorSplit.text = @"No! Split is between 1 and 32";
-    }
-    else{
-        defaultSplitsInp.backgroundColor = nil;
-        splitInput = true;
-        errorSplit.text = nil;
-    }
-}
-
-- (IBAction)colorSelection:(id)sender {
+- (IBAction)showColourPopup:(id)sender {
+    
     MTGColoursViewController *newViewController = [[MTGColoursViewController alloc] initWithNibName:@"MTGColoursViewController" bundle:nil];
     
     newViewController.delegate = self;
@@ -129,56 +88,110 @@
     popoverController.popoverContentSize = CGSizeMake(225.0, 100.0);
     [popoverController presentPopoverFromRect:[(UIButton *)sender frame]
                                        inView:self.view
-                     permittedArrowDirections:UIPopoverArrowDirectionRight
+                     permittedArrowDirections:UIPopoverArrowDirectionAny
                                      animated:YES];
-}
-
-- (IBAction)goToNext:(UITextField *)sender {
-   // [self textFieldShouldReturn:sender];
-    [sender resignFirstResponder];
-}
-
-- (IBAction)chooseFreq:(UIButton*)aButton {
-    NSString *buttonName = [aButton titleForState:UIControlStateNormal];
-
-    for (UIButton* button in defFreqInp){
-        if (button == aButton) button.selected = true;
-        else button.selected = false;
-    }
-    if (chosenFrequency != buttonName) {
-        chosenFrequency = buttonName;
-        freqInput = true;
-        NSLog(@"Frequency selected: %@", chosenFrequency);
-    }
     
 }
 
 -(void)colorPopoverControllerDidSelectColor:(UIColor*) colour{
     
-    colorSelector.backgroundColor = colour;
+    chooseTheme.backgroundColor = colour;
     [self.view setNeedsDisplay];
-    [popoverController dismissPopoverAnimated:NO];
+    [popoverController dismissPopoverAnimated:YES];
     popoverController = nil;
+    [self setColor:colour];
+    
+}
+
+- (IBAction)chooseFreq:(UIButton*)aButton {
+    NSString *buttonName = [aButton titleForState:UIControlStateNormal];
+    
+    for (UIButton* button in freqButtons){
+        if (button == aButton) button.selected = true;
+        else button.selected = false;
+    }
+    if (chosenFrequency != buttonName) {
+        chosenFrequency = buttonName;
+        NSLog(@"Frequency selected: %@", chosenFrequency);
+        frequency = [chosenFrequency floatValue];
+    }
+}
+
+-(void)setupColorButtons{
+    int maxNCol = 10;
+    
+    if (nil == self.colorButtons)
+    {
+        NSMutableArray* newColorButtons = [NSMutableArray arrayWithCapacity:maxNCol];
+        int colorNumber = 0;
+        for (int i=0;i<maxNCol;i++){
+            
+            MTGColourButton *colorButton = [MTGColourButton buttonWithType:UIButtonTypeCustom];
+            colorButton.frame = CGRectMake(310+i*60, 500, 50, 50);
+            
+            [colorButton addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [colorButton setSelected:NO];
+            [colorButton setNeedsDisplay];
+            [colorButton setBackgroundColor:[self.colorCollection objectAtIndex:colorNumber]];
+            [colorButton setColour:[self.colorCollection objectAtIndex:colorNumber]];
+            colorButton.tag = colorNumber;
+            
+            colorNumber ++;
+            [newColorButtons addObject:colorButton];
+            [self.view addSubview:colorButton];
+        }
+        self.colorButtons = [newColorButtons copy];
+        
+    }
+    else{
+        for (UIButton* colorButton in self.colorButtons)
+        {
+            NSInteger colorNumber = colorButton.tag;
+            
+            NSInteger i = colorNumber;
+            colorButton.frame = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
+        }
+    }
+}
+-(void) buttonPushed:(UIButton *)button{
+    chooseTheme.backgroundColor = button.backgroundColor;
+    [self setColor:button.backgroundColor];
+}
+-(IBAction)frequencyInputChanged:(UISlider *)slider {
+    frequency = slider.value;
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    for (UIButton* button in freqButtons)button.selected = false;
+}
+-(IBAction)splitInputChanged:(UISlider *)slider{
+    split = slider.value;
+    splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
+}
+-(void)setColor:(UIColor*)color{
     CGFloat hue;
     CGFloat saturation;
     CGFloat brightness;
     CGFloat alpha;
-    BOOL success = [colour getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
+    BOOL success = [color getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
     NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
     colourHue = hue;
     colourSat = saturation;
     colourBrg = brightness;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) createColorsArray{
+    colorCollection = [NSArray arrayWithObjects:
+                       [UIColor redColor],
+                       [UIColor orangeColor],
+                       [UIColor yellowColor],
+                       [UIColor greenColor],
+                       [UIColor cyanColor],
+                       [UIColor blueColor],
+                       [UIColor purpleColor],
+                       [UIColor magentaColor],
+                       [UIColor blackColor],
+                       [UIColor brownColor],
+                       nil];
 }
-*/
 
 @end
+

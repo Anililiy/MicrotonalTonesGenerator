@@ -370,10 +370,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [aButton setTag:index];
     
     //action of button
-    [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+   // [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     //[aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDragExit];
    // [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDragEnter];
-    //[aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventAllTouchEvents];
+    [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
 
 
     NSString* title =[NSString stringWithFormat:@"%d", index];;
@@ -382,13 +382,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     aButton.titleLabel.font =[UIFont fontWithName: @"Courier" size:18 ];
     aButton.titleLabel.textColor = [UIColor blackColor];
     
-    //[aButton setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
-    //UIImage *btnImage = [UIImage imageNamed:@"transparent.png"];
-    //[aButton setImage:btnImage forState:UIControlStateNormal];
-    //[aButton setTintColor:[UIColor blackColor]];
-    
-    //UIColor *colorOfButton =[UIColor colorWithHue:hueOfKeys saturation:saturation brightness:brightnesOfKey alpha:1.0];
-    //aButton.backgroundColor = colorOfButton;
     aButton.hue = hueOfKeys;
     aButton.saturation = saturation;
     aButton.brightness = brightnesOfKey;
@@ -447,6 +440,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     else{
         [self playNoteShort:frequencyOfNote];
         aButton.selected = false;
+        
     }
 }
 
@@ -564,59 +558,4 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     currentScale.imageOfScale = newImage;
 }
 
-/*
- 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self touchesMoved:touches withEvent:event];
-    
-}
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSSet* allTouches = [touches setByAddingObjectsFromSet:[event touchesForView:self]];
-    
-    NSMutableSet* pressedKeys = [NSMutableSet setWithCapacity:0];
-    
-    for (int keyIndex = 0; keyIndex < [keyboard count]; keyIndex++) {
-        UIButton* key = keyboard[keyIndex];
-        BOOL keyIsPressed = NO;
-        for (UITouch* touch in allTouches) {
-            CGPoint location = [touch locationInView:self];
-            if(CGRectContainsPoint(key.frame, location))
-            {
-                BOOL ignore = NO;
-                
-                    if (keyIndex > 0) {
-                        UIButton* previousKey = keyboard[keyIndex-1];
-                    }
-                    
-                    if (keyIndex < [keyboard count]-1)
-                    {
-                        UIButton* nextKey = keyboard[keyIndex+1];
-                    }
-                
-                if (ignore == NO) {
-                    keyIsPressed = YES;
-                    if (!key.isHighlighted){
-                        [key setHighlighted:YES];
-                        
-                        if (delegate != nil) {
-                           // [pressedKeys addObject:[keyboard keyId]];
-                        }
-                    }
-                }
-            }
-        }
-        
-        if (keyIsPressed == NO && key.isHighlighted == YES) {
-            [key setHighlighted:NO];
-        }
-    }
-    
-    if (delegate != nil && [pressedKeys count] > 0) {
-        [delegate keysPressed:pressedKeys];
-    }
-}
-
-
-
-*/
 @end

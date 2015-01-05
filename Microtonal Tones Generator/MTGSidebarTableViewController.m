@@ -8,7 +8,6 @@
 
 #import "MTGSidebarTableViewController.h"
 #import "MTGAppDelegate.h"
-#import "MTGRootViewController.h"
 
 @interface MTGSidebarTableViewController (){
     NSArray* menuItems;
@@ -30,11 +29,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    
+
+    self.navigationItem.title = @"MENU";
+    //self
     menuItems = @[ @"new", @"load"]; //@"settings"
-    section2 =  @[@"logout"];
+    section2 =  @[@"information"];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,42 +95,4 @@
     return 0;
 }
 
-
-- (IBAction)logOutAction:(id)sender{
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:false forKey:@"firstRun"];
-    
-    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
-    authObj.authenticated = YES;
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"initialView"];
-    [initView setModalPresentationStyle:UIModalPresentationFullScreen];
-    [self presentViewController:initView animated:NO completion:nil];
-}
-
-#pragma mark state preservation / restoration
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    // TODO save what you need here
-    
-    [super encodeRestorableStateWithCoder:coder];
-}
-
-- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    // TODO restore what you need here
-    
-    [super decodeRestorableStateWithCoder:coder];
-}
-
-- (void)applicationFinishedRestoringState {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    // TODO call whatever function you need to visually restore
-}
 @end

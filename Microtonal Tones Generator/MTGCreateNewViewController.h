@@ -9,24 +9,25 @@
 #import <UIKit/UIKit.h>
 #import "MTGColoursViewController.h"
 
-@interface MTGCreateNewViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>{
+@interface MTGCreateNewViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>
 
-    IBOutletCollection(UIButton) NSArray *freqButtons;
-    IBOutlet UILabel *frequencyLabel;
-    IBOutlet UISlider *freqInputSlider;
+@property    IBOutletCollection(UIButton) NSArray *freqButtons;
+@property   IBOutlet UILabel *frequencyLabel;
+@property    IBOutlet UISlider *freqInputSlider;
     
-    IBOutlet UILabel *splitLabel;
-    IBOutlet UISlider *splitSlider;
+@property   IBOutlet UILabel *splitLabel;
+@property  IBOutlet UISlider *splitSlider;
     
-    IBOutlet UIButton *chooseTheme;
+@property  IBOutlet UIButton *chooseTheme;
    
-    NSString* chosenFrequency;
-    CGFloat frequency;
-    NSInteger split;
-    CGFloat colourHue;
-    CGFloat colourSat;
-    CGFloat colourBrg;
-}
+@property   NSString* chosenFrequency;
+@property   CGFloat frequency;
+@property  NSInteger split;
+@property  CGFloat colourHue;
+@property  CGFloat colourSat;
+@property CGFloat colourBrg;
+
+@property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic,retain) UIPopoverController *popoverController;

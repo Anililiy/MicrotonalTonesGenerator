@@ -10,9 +10,9 @@
 #import "PdFile.h"
 #import "PdBase.h"
 #import "MTGAppDelegate.h"
-#import "MTGRootViewController.h"
 #import "MTGLoadTableViewController.h"
 #import "MTGSavedStatesTableViewController.h"
+#import "MTGCreateNewViewController.h"
 
 NSString *const kTestPatchName  = @"test2.pd";
 NSString *const kShortPatchName = @"KeyNote.pd";
@@ -46,10 +46,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        // Custom initialization
-        
-        
+    
     }
     return self;
 }
@@ -58,14 +55,13 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     [super viewDidLoad];
        if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        MTGRootViewController *initView =  (MTGRootViewController*)[storyboard instantiateViewControllerWithIdentifier:@"initialView"];
-        [initView setModalPresentationStyle:UIModalPresentationFullScreen];
-        [self presentViewController:initView animated:NO completion:nil];
-        
-    } else{
+           SWRevealViewController *revealViewController = self.revealViewController;
+           UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+           MTGCreateNewViewController *frontViewController = [sb instantiateViewControllerWithIdentifier:@"myViewController"];
+           UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+           [revealViewController setFrontViewController:frontNavigationController animated:YES];
+    }
+ else{
         [self changeSize];
         
         [ViewCover setHidden:true];
@@ -199,15 +195,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
     sessionIsSaved = [defaults boolForKey:@"saved"];
 
-    if (![defaults integerForKey:@"numberOfSplits"]) {
-        numberOfSplits  = [defaults integerForKey:@"deaultNumberOfSplits"];
-        frequency       = [defaults floatForKey:@"defaultFrequency"];
-        hueOfKeys       = [defaults floatForKey:@"initThemeHue"];
-        saturOfKeys     = [defaults floatForKey:@"initThemeSat"];
-        brightOfKey     = [defaults floatForKey:@"initThemeBrg"];
-        savedStates     = [NSMutableArray array];
-    }
-    else if (loading){
+    if (loading){
         
         NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
         currentScale = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
@@ -520,6 +508,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [changeOctave setHidden:true];
         [frequencyLabel setHidden:true];
         
+        NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
+
         [archScales addObject:encodedScale];
         [defaults setObject:archScales forKey:@"savedSessions"];
         sessionIsSaved = YES;

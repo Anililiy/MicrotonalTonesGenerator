@@ -1,41 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ja2-cR-yTs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
-        <scene sceneID="gee-Tg-Ppn">
-            <objects>
-                <viewController storyboardIdentifier="initialView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6KW-6f-o6H" customClass="MTGRootViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wQo-M6-R1Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="Oga-8h-jB4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Aeu-4W-qPl">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHt-qm-WSi">
-                                <rect key="frame" x="16" y="20" width="992" height="728"/>
-                                <state key="normal" title="Press anywhere on the screen">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginBtnPressed:" destination="6KW-6f-o6H" eventType="touchUpInside" id="Q0H-x9-BLE"/>
-                                    <segue destination="xU7-XE-uFA" kind="modal" id="F51-F0-9lS"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jCQ-4Y-r2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-5588" y="116"/>
-        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="thG-iw-bWJ">
             <objects>
@@ -44,36 +12,40 @@
                     <keyCommands>
                         <keyCommand/>
                     </keyCommands>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <segue destination="qYl-Ea-1T4" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="QK2-H1-fqF"/>
                         <segue destination="k8k-uI-Tfn" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="CAD-vI-ghq"/>
                         <segue destination="IEz-Bb-6rm" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="Vbk-ac-cUJ"/>
+                        <segue destination="3Oc-T4-Er8" kind="custom" identifier="toSettings" customClass="SWRevealViewControllerSeguePushController" id="ghe-CW-ClF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWB-M4-mEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2517" y="456"/>
+            <point key="canvasLocation" x="-2916.40625" y="-1668.75"/>
         </scene>
-        <!--Sidebar Table View Controller-->
+        <!--Menu-->
         <scene sceneID="p9x-iX-174">
             <objects>
-                <tableViewController id="k8k-uI-Tfn" customClass="MTGSidebarTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="1" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ouV-1u-St7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                <tableViewController title="Menu" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="pageSheet" id="k8k-uI-Tfn" customClass="MTGSidebarTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="1" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ouV-1u-St7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.78858404130000004" green="1" blue="0.39419200269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="title" id="v7M-xO-2k8">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="title" id="v7M-xO-2k8">
                                 <rect key="frame" x="0.0" y="22" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="v7M-xO-2k8" id="OME-Py-8vq">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Microtonal Menu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Z-jT-sWK">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Z-jT-sWK">
                                             <rect key="frame" x="26" y="8" width="317" height="27"/>
                                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,9 +54,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <segue destination="qYl-Ea-1T4" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Mhp-Gz-yyb"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="load" id="ySJ-46-RRa">
                                 <rect key="frame" x="0.0" y="66" width="768" height="44"/>
@@ -137,54 +106,61 @@
                                     <segue destination="3Oc-T4-Er8" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Rde-gQ-pRX"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logout" id="fxQ-Uz-h9L">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="information" id="fxQ-Uz-h9L">
                                 <rect key="frame" x="0.0" y="154" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxQ-Uz-h9L" id="fcb-aH-iBb">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0P-hB-g25">
-                                            <rect key="frame" x="32" y="-1" width="280" height="46"/>
-                                            <state key="normal" title="Log out">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="logOutAction:" destination="k8k-uI-Tfn" eventType="touchUpInside" id="QGW-zG-tDc"/>
-                                            </connections>
-                                        </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSg-aN-cYA">
+                                            <rect key="frame" x="25" y="11" width="88" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="k8k-uI-Tfn" id="fTX-EA-0oq"/>
-                            <outlet property="delegate" destination="k8k-uI-Tfn" id="nCM-Oo-mjd"/>
-                        </connections>
                     </tableView>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Menu" id="Mbl-Qt-BCI"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzW-T5-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1567" y="-1176"/>
+            <point key="canvasLocation" x="-1753.5" y="-1577.25"/>
         </scene>
         <!--Create new scale-->
         <scene sceneID="Kx1-uc-KIX">
             <objects>
-                <viewController title="Create new scale" id="5SG-oa-Q8B" customClass="MTGCreateNewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myViewController" title="Create new scale" id="5SG-oa-Q8B" customClass="MTGCreateNewViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MMw-xI-Y2z"/>
-                        <viewControllerLayoutGuide type="bottom" id="0mR-5N-dyu"/>
+                        <viewControllerLayoutGuide type="top" id="Eqz-RG-JS9"/>
+                        <viewControllerLayoutGuide type="bottom" id="7xN-XZ-OUi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3Ex-o6-Y0M">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="3Ex-o6-Y0M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="AlternateWaveforms1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Low-eV-gcy">
+                                <rect key="frame" x="-11" y="50" width="479" height="718"/>
+                                <color key="tintColor" red="0.78858404132113935" green="1" blue="0.39419200266196852" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="1" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="q3U-FA-6GU">
-                                <rect key="frame" x="585" y="194" width="337" height="31"/>
+                                <rect key="frame" x="585" y="148" width="337" height="31"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="585" y="148" width="338" height="31"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="585" y="148" width="338" height="31"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="585" y="148" width="338" height="31"/>
+                                </variation>
                                 <connections>
                                     <action selector="splitInputChanged:" destination="5SG-oa-Q8B" eventType="valueChanged" id="JKn-k5-cXl"/>
                                 </connections>
@@ -217,32 +193,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Initial frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E93-ly-UCh">
-                                <rect key="frame" x="281" y="269" width="138" height="21"/>
-                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="18"/>
+                                <rect key="frame" x="482" y="191" width="275" height="79"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or add custom..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PT-yV-yaL">
-                                <rect key="frame" x="548" y="320" width="127" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="520" y="302" width="236" height="64"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsC-Fh-Mub">
-                                <rect key="frame" x="491" y="201" width="62" height="21"/>
-                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="17"/>
+                                <rect key="frame" x="463" y="137" width="86" height="51"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdj-h9-2uo">
-                                <rect key="frame" x="743" y="273" width="21" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="707" y="258" width="79" height="57"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="440 Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-6C-dZL">
-                                <rect key="frame" x="542" y="358" width="297" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="542" y="360" width="297" height="48"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -250,6 +226,15 @@
                                 <rect key="frame" x="450" y="404" width="481" height="31"/>
                                 <color key="minimumTrackTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="450" y="404" width="482" height="31"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="450" y="404" width="482" height="31"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="450" y="404" width="482" height="31"/>
+                                </variation>
                                 <connections>
                                     <action selector="frequencyInputChanged:" destination="5SG-oa-Q8B" eventType="valueChanged" id="0Nr-LG-3Fx"/>
                                 </connections>
@@ -265,23 +250,20 @@
                                     <action selector="showColourPopup:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="JhX-KV-Hvq"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Swirl_Funky_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Low-eV-gcy">
-                                <rect key="frame" x="0.0" y="52" width="336" height="800"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New number of splits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sM-gi-f8w">
-                                <rect key="frame" x="281" y="198" width="181" height="27"/>
-                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="18"/>
+                                <rect key="frame" x="482" y="64" width="357" height="80"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-hM-glq">
-                                <rect key="frame" x="496" y="566" width="241" height="223"/>
-                                <state key="normal" title="Start" image="letsGo.png">
+                                <rect key="frame" x="574" y="550" width="241" height="223"/>
+                                <state key="normal" image="11-Nov-Blog-Hop-NEXT-Button.gif">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="createIt:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="UOu-vu-JQ4"/>
-                                    <segue destination="ijD-Df-uuV" kind="push" id="BnV-kE-afT"/>
+                                    <segue destination="ijD-Df-uuV" kind="show" id="BnV-kE-afT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -307,14 +289,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07h-Kl-wZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="-2643"/>
+            <point key="canvasLocation" x="729.6875" y="-1514.6484375"/>
         </scene>
         <!--Saved sessions-->
         <scene sceneID="bLh-Ua-feL">
             <objects>
                 <tableViewController id="pgH-QK-fhb" customClass="MTGLoadTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="BMe-Gx-WGK">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -367,7 +349,7 @@
                                     <outlet property="lastUpdateLabel" destination="Lc8-eq-D4n" id="k60-JB-WTr"/>
                                     <outlet property="nameOfScale" destination="YYp-P2-ArG" id="AAd-lZ-Zbd"/>
                                     <outlet property="splitLabel" destination="yhT-7Q-6h2" id="45w-w2-5P7"/>
-                                    <segue destination="ijD-Df-uuV" kind="push" identifier="loadSaved" id="SqA-3s-bFS"/>
+                                    <segue destination="ijD-Df-uuV" kind="show" identifier="loadSaved" id="SqA-3s-bFS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -390,18 +372,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bho-hL-15n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1236" y="-1470"/>
+            <point key="canvasLocation" x="409.375" y="-617.578125"/>
         </scene>
         <!--Session-->
         <scene sceneID="8bb-dI-s3D">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="ijD-Df-uuV" customClass="MTGViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="frontViewController" extendedLayoutIncludesOpaqueBars="YES" id="ijD-Df-uuV" customClass="MTGViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FMG-iP-TKi"/>
-                        <viewControllerLayoutGuide type="bottom" id="lNr-Vu-yL3"/>
+                        <viewControllerLayoutGuide type="top" id="hwm-L1-tnF"/>
+                        <viewControllerLayoutGuide type="bottom" id="A9k-ju-Ipm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hSa-Pi-3od">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view hidden="YES" alpha="0.59999999999999964" contentMode="bottomLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P16-YL-jkV">
@@ -461,7 +443,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xuA-Ff-DF9"/>
                                     <barButtonItem title="Polyphony" id="4gs-Yq-Jui">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
                                             <action selector="polifoniaStart:" destination="ijD-Df-uuV" id="NhW-nn-PTS"/>
                                         </connections>
@@ -512,14 +494,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioh-E7-8HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="783"/>
+            <point key="canvasLocation" x="1546.875" y="458.7890625"/>
         </scene>
         <!--Saved States Table View Controller-->
         <scene sceneID="MS6-31-5Uh">
             <objects>
                 <tableViewController id="IEz-Bb-6rm" customClass="MTGSavedStatesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="LT6-9e-s56">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -575,12 +557,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QG-Sf-MDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2507" y="1631"/>
+            <point key="canvasLocation" x="-2321.09375" y="-122.4609375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kIt-I3-LeW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Oc-T4-Er8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="initialView" automaticallyAdjustsScrollViewInsets="NO" id="3Oc-T4-Er8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mut-MH-pgW">
@@ -594,7 +576,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="378-7T-zGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1288" y="-2627"/>
+            <point key="canvasLocation" x="-537.5" y="-1562.6953125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zJH-Qn-ieo">
@@ -615,7 +597,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7T-to-k00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-19" y="-1472"/>
+            <point key="canvasLocation" x="-627.34375" y="-861.328125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R6A-oD-Ner">
@@ -641,159 +623,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQI-gE-rhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-884" y="736"/>
-        </scene>
-        <!--FirstAppearance-->
-        <scene sceneID="tOp-An-964">
-            <objects>
-                <viewController title="FirstAppearance" id="xU7-XE-uFA" customClass="MTGFirstLoginViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iWT-Kx-MgX"/>
-                        <viewControllerLayoutGuide type="bottom" id="vSQ-D7-8bh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ABj-SH-uoe">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="1" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="3So-7y-5tX">
-                                <rect key="frame" x="585" y="194" width="337" height="31"/>
-                                <connections>
-                                    <action selector="splitInputChanged:" destination="xU7-XE-uFA" eventType="valueChanged" id="9U5-WI-dOx"/>
-                                </connections>
-                            </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf3-Nj-s77">
-                                <rect key="frame" x="491" y="269" width="30" height="30"/>
-                                <state key="normal" title="256">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseFreq:" destination="xU7-XE-uFA" eventType="touchUpInside" id="hVb-He-wLk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-BW-ZJ6">
-                                <rect key="frame" x="574" y="269" width="30" height="30"/>
-                                <state key="normal" title="415">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseFreq:" destination="xU7-XE-uFA" eventType="touchUpInside" id="eHi-s1-KaY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eK5-H4-tK2">
-                                <rect key="frame" x="647" y="269" width="30" height="30"/>
-                                <state key="normal" title="440">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseFreq:" destination="xU7-XE-uFA" eventType="touchUpInside" id="QfA-Q9-I9K"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Initial frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lg-gh-9bU">
-                                <rect key="frame" x="281" y="269" width="138" height="21"/>
-                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or add custom..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcf-mg-lEb">
-                                <rect key="frame" x="548" y="320" width="127" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldZ-z1-LEy">
-                                <rect key="frame" x="491" y="201" width="62" height="21"/>
-                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PU-uy-a1I">
-                                <rect key="frame" x="743" y="273" width="21" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="440 Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Saa-Vr-fZQ">
-                                <rect key="frame" x="542" y="358" width="297" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="440" minValue="100" maxValue="600" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-lp-OvB">
-                                <rect key="frame" x="450" y="404" width="481" height="31"/>
-                                <color key="minimumTrackTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="frequencyInputChanged:" destination="xU7-XE-uFA" eventType="valueChanged" id="xwh-5s-A04"/>
-                                </connections>
-                            </slider>
-                            <button contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="l3t-ID-DaI">
-                                <rect key="frame" x="267" y="440" width="100" height="50"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Colour">
-                                    <color key="titleColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="showColourPopup:" destination="xU7-XE-uFA" eventType="touchUpInside" id="PEK-Yj-Bc1"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Swirl_Funky_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Ha-jN-AKk">
-                                <rect key="frame" x="0.0" y="52" width="336" height="800"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New number of splits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-gQ-sPd">
-                                <rect key="frame" x="281" y="198" width="181" height="27"/>
-                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCr-0t-XBe">
-                                <rect key="frame" x="479" y="548" width="264" height="239"/>
-                                <state key="normal" title="Start" image="letsGo.png">
-                                    <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="createIt:" destination="xU7-XE-uFA" eventType="touchUpInside" id="gKD-JJ-b7B"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Create new scale" id="1fl-W2-G9i">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="OkT-gD-vn6"/>
-                    </navigationItem>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="chooseTheme" destination="l3t-ID-DaI" id="V3r-KM-XE8"/>
-                        <outlet property="freqInputSlider" destination="dLg-lp-OvB" id="lRv-JN-33r"/>
-                        <outlet property="frequencyLabel" destination="Saa-Vr-fZQ" id="F6d-38-PrR"/>
-                        <outlet property="sidebarButton" destination="OkT-gD-vn6" id="D99-tM-rtb"/>
-                        <outlet property="splitLabel" destination="ldZ-z1-LEy" id="KeD-L5-TAM"/>
-                        <outlet property="splitSlider" destination="3So-7y-5tX" id="1Ii-Sg-don"/>
-                        <outletCollection property="freqButtons" destination="Tf3-Nj-s77" id="YhK-kV-OUN"/>
-                        <outletCollection property="freqButtons" destination="VFh-BW-ZJ6" id="4ew-9t-qD6"/>
-                        <outletCollection property="freqButtons" destination="eK5-H4-tK2" id="RoG-fX-gpv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vgv-Ig-5kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4352" y="109"/>
+            <point key="canvasLocation" x="-715.625" y="-135.9375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Swirl_Funky_2.png" width="336" height="800"/>
+        <image name="11-Nov-Blog-Hop-NEXT-Button.gif" width="272" height="131"/>
+        <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
-        <image name="letsGo.png" width="500" height="500"/>
         <image name="menu.png" width="28" height="20"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eiG-kh-lQ6"/>
-        <segue reference="BnV-kE-afT"/>
+        <segue reference="QK2-H1-fqF"/>
+        <segue reference="Rde-gQ-pRX"/>
+        <segue reference="SqA-3s-bFS"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
 
-@interface MTGSidebarTableViewController : UITableViewController
-
-- (IBAction)logOutAction:(id)sender;
+@interface MTGSidebarTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

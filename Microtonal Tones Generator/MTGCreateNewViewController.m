@@ -9,6 +9,7 @@
 #import "MTGCreateNewViewController.h"
 #import "SWRevealViewController.h"
 #import "MTGColourButton.h"
+#import "MTGAppDelegate.h"
 
 @interface MTGCreateNewViewController ()
 
@@ -19,6 +20,7 @@
 
 @implementation MTGCreateNewViewController
 @synthesize popoverController, colorCollection;
+@synthesize freqButtons,frequencyLabel,freqInputSlider,splitLabel,splitSlider,chooseTheme,chosenFrequency,frequency,split,colourHue,colourSat, colourBrg;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,7 +31,7 @@
 
     // init
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+   
     split       = [defaults integerForKey:@"deaultNumberOfSplits"];
     frequency   = [defaults floatForKey:@"defaultFrequency"];
     colourHue   = [defaults floatForKey:@"initThemeHue"];
@@ -52,7 +54,8 @@
 
     // Store the data
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+    [defaults setBool:YES forKey:@"firstRun"];
+
     [defaults setInteger:   split       forKey:@"numberOfSplits"   ];
     [defaults setFloat:     frequency   forKey:@"frequency"        ];
     [defaults setFloat:     colourHue   forKey:@"themeHue"         ];
@@ -68,7 +71,20 @@
     [defaults synchronize];
     
     NSLog(@"Data saved");
+    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
+    if (authObj.authenticated == NO)
+    {
+        authObj.authenticated = YES;
+        
+        SWRevealViewController *revealViewController = self.revealViewController;
 
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MTGCreateNewViewController *frontViewController = [sb instantiateViewControllerWithIdentifier:@"frontViewController"];
+        
+        UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+        [revealViewController setFrontViewController:frontNavigationController animated:YES];
+    }
+    
 }
 
 - (IBAction)showColourPopup:(id)sender {

@@ -16,7 +16,6 @@
 		953943411A0A652200588979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953943401A0A652200588979 /* Main.storyboard */; };
 		953943441A0A659100588979 /* arrow-big-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 953943421A0A659100588979 /* arrow-big-03.png */; };
 		953943451A0A659100588979 /* arrow-big-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 953943431A0A659100588979 /* arrow-big-04.png */; };
-		9540DEE519D6D741001C1CC1 /* MTGRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */; };
 		9540DF0E19DB0C22001C1CC1 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0219DB0C22001C1CC1 /* facebook.png */; };
 		9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0319DB0C22001C1CC1 /* menu.png */; };
 		9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0419DB0C22001C1CC1 /* menu@2x.png */; };
@@ -54,10 +53,10 @@
 		955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955F98C71A01A54100007D9E /* SWRevealViewController.m */; };
 		956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */; };
 		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
-		957347551A125DA80014CDBA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 957347531A125DA80014CDBA /* Model.xcdatamodeld */; };
 		957347581A125DD70014CDBA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 957347571A125DD70014CDBA /* CoreData.framework */; };
-		957E295E1A0A63F500D494E7 /* MTGFirstLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E295A1A0A63F500D494E7 /* MTGFirstLoginViewController.m */; };
 		957E295F1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */; };
+		959BBB481A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */; };
+		959BBB491A5B355B00C43616 /* continue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB471A5B355B00C43616 /* continue_button.png */; };
 		95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */; };
 		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
 		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
@@ -124,8 +123,6 @@
 		953943401A0A652200588979 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		953943421A0A659100588979 /* arrow-big-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-big-03.png"; sourceTree = "<group>"; };
 		953943431A0A659100588979 /* arrow-big-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-big-04.png"; sourceTree = "<group>"; };
-		9540DEE319D6D741001C1CC1 /* MTGRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGRootViewController.h; sourceTree = "<group>"; };
-		9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGRootViewController.m; sourceTree = "<group>"; };
 		9540DF0219DB0C22001C1CC1 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		9540DF0319DB0C22001C1CC1 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		9540DF0419DB0C22001C1CC1 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
@@ -137,7 +134,7 @@
 		9540DF0C19DB0C22001C1CC1 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AlternateWaveforms1.jpg; sourceTree = "<group>"; };
 		9540DF1B19DB0D67001C1CC1 /* letsGo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letsGo.png; sourceTree = "<group>"; };
-		954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Microtonal Tones Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		954B13D919C4F912008FE21B /* Microtonal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Microtonal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		954B13DC19C4F912008FE21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		954B13DE19C4F912008FE21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		954B13E019C4F912008FE21B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -175,12 +172,13 @@
 		956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColoursViewController.h; sourceTree = "<group>"; };
 		956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGColoursViewController.m; sourceTree = "<group>"; };
 		956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTGColoursViewController.xib; sourceTree = "<group>"; };
-		957347541A125DA80014CDBA /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		957347571A125DD70014CDBA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		957E29591A0A63F500D494E7 /* MTGFirstLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGFirstLoginViewController.h; sourceTree = "<group>"; };
-		957E295A1A0A63F500D494E7 /* MTGFirstLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGFirstLoginViewController.m; sourceTree = "<group>"; };
 		957E295B1A0A63F500D494E7 /* MTGSavedStatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSavedStatesTableViewController.h; sourceTree = "<group>"; };
 		957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedStatesTableViewController.m; sourceTree = "<group>"; };
+		959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "11-Nov-Blog-Hop-NEXT-Button.gif"; path = "Supporting Files/11-Nov-Blog-Hop-NEXT-Button.gif"; sourceTree = "<group>"; };
+		959BBB471A5B355B00C43616 /* continue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = continue_button.png; path = "Supporting Files/continue_button.png"; sourceTree = "<group>"; };
+		959BBB4A1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		959BBB4B1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteCircButton.png; sourceTree = "<group>"; };
 		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
 		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
@@ -304,7 +302,7 @@
 		954B13DA19C4F912008FE21B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */,
+				954B13D919C4F912008FE21B /* Microtonal.app */,
 				954B13F419C4F912008FE21B /* Microtonal Tones GeneratorTests.xctest */,
 			);
 			name = Products;
@@ -330,14 +328,13 @@
 				9500192F1A06DF0900834493 /* Microtonal Tones Generator.entitlements */,
 				954B13EB19C4F912008FE21B /* MTGAppDelegate.h */,
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
-				9540DEE319D6D741001C1CC1 /* MTGRootViewController.h */,
-				9540DEE419D6D741001C1CC1 /* MTGRootViewController.m */,
 				957347941A1B880B0014CDBA /* Model and Model Classes */,
 				951058C019C5BDFF008F5F76 /* Main View */,
 				9552A2421A067D6B00A8B694 /* New Session */,
 				956C6FA819CED8AE0065F3CE /* Settings */,
 				9552A2411A067D1200A8B694 /* Saved scales */,
 				951058BF19C5BBC8008F5F76 /* Slidebars */,
+				955F98C51A01A54100007D9E /* SWRevealViewController */,
 				954B13E319C4F912008FE21B /* Supporting Files */,
 			);
 			path = "Microtonal Tones Generator";
@@ -346,7 +343,8 @@
 		954B13E319C4F912008FE21B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				955F98C51A01A54100007D9E /* SWRevealViewController */,
+				959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */,
+				959BBB471A5B355B00C43616 /* continue_button.png */,
 				9540DF0019DB0C22001C1CC1 /* Supporting Files */,
 				95B581B719C61009007E9510 /* KeyNote.pd */,
 				95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */,
@@ -430,8 +428,6 @@
 		956C6FA819CED8AE0065F3CE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				957E29591A0A63F500D494E7 /* MTGFirstLoginViewController.h */,
-				957E295A1A0A63F500D494E7 /* MTGFirstLoginViewController.m */,
 				954B142D19C59977008FE21B /* MTGSettingsViewController.h */,
 				954B142E19C59977008FE21B /* MTGSettingsViewController.m */,
 				95AAB6E819EEA655002A53F7 /* ColourPopup */,
@@ -442,7 +438,6 @@
 		957347941A1B880B0014CDBA /* Model and Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				957347531A125DA80014CDBA /* Model.xcdatamodeld */,
 				9502E47A1A0F84BC0007EEF3 /* MTGKeyObject.h */,
 				9502E47B1A0F84BC0007EEF3 /* MTGKeyObject.m */,
 				9500192B1A06BBD200834493 /* MTGSavedState.h */,
@@ -511,7 +506,7 @@
 			);
 			name = "Microtonal Tones Generator";
 			productName = "Microtonal Tones Generator";
-			productReference = 954B13D919C4F912008FE21B /* Microtonal Tones Generator.app */;
+			productReference = 954B13D919C4F912008FE21B /* Microtonal.app */;
 			productType = "com.apple.product-type.application";
 		};
 		954B13F319C4F912008FE21B /* Microtonal Tones GeneratorTests */ = {
@@ -561,6 +556,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 			);
 			mainGroup = 954B13D019C4F912008FE21B;
 			productRefGroup = 954B13DA19C4F912008FE21B /* Products */;
@@ -605,6 +601,7 @@
 				95AAB6F419F018C4002A53F7 /* Swirl_Funky_1_Earthy.png in Resources */,
 				9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */,
 				95AAB6D219EB4923002A53F7 /* transparent.png in Resources */,
+				959BBB491A5B355B00C43616 /* continue_button.png in Resources */,
 				9540DF1C19DB0D67001C1CC1 /* letsGo.png in Resources */,
 				953943411A0A652200588979 /* Main.storyboard in Resources */,
 				95AAB6EC19F018AA002A53F7 /* Simply_Beautiful_Button.png in Resources */,
@@ -628,6 +625,7 @@
 				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
 				95AAB6EE19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png in Resources */,
 				95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */,
+				959BBB481A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif in Resources */,
 				9552A23F1A0678D600A8B694 /* arrow-big-01.png in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
 				9552A2401A0678D600A8B694 /* arrow-big-02.png in Resources */,
@@ -659,7 +657,6 @@
 				955D69581A3C78B1003AB6EF /* ISColorWheel.m in Sources */,
 				954B13E919C4F912008FE21B /* main.m in Sources */,
 				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
-				9540DEE519D6D741001C1CC1 /* MTGRootViewController.m in Sources */,
 				9502E47C1A0F84BC0007EEF3 /* MTGKeyObject.m in Sources */,
 				9500192D1A06BBD200834493 /* MTGSavedState.m in Sources */,
 				95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */,
@@ -672,9 +669,7 @@
 				955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,
-				957E295E1A0A63F500D494E7 /* MTGFirstLoginViewController.m in Sources */,
 				955A0B6419F33B3700842D32 /* MTGSavedScale.m in Sources */,
-				957347551A125DA80014CDBA /* Model.xcdatamodeld in Sources */,
 				951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -707,6 +702,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				954B13E619C4F912008FE21B /* en */,
+				959BBB4A1A5B42B600C43616 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -715,6 +711,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				954B13FF19C4F913008FE21B /* en */,
+				959BBB4B1A5B42B600C43616 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -805,7 +802,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Microtonal Tones Generator/Microtonal Tones Generator-Prefix.pch";
 				INFOPLIST_FILE = "Microtonal Tones Generator/Microtonal Tones Generator-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Microtonal;
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../libpd/**";
 				WRAPPER_EXTENSION = app;
@@ -823,7 +820,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Microtonal Tones Generator/Microtonal Tones Generator-Prefix.pch";
 				INFOPLIST_FILE = "Microtonal Tones Generator/Microtonal Tones Generator-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Microtonal;
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../libpd/**";
 				WRAPPER_EXTENSION = app;
@@ -901,19 +898,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		957347531A125DA80014CDBA /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				957347541A125DA80014CDBA /* Model.xcdatamodel */,
-			);
-			currentVersion = 957347541A125DA80014CDBA /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 954B13D119C4F912008FE21B /* Project object */;
 }

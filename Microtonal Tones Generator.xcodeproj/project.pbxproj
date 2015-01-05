@@ -57,6 +57,7 @@
 		957E295F1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */; };
 		959BBB481A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */; };
 		959BBB491A5B355B00C43616 /* continue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB471A5B355B00C43616 /* continue_button.png */; };
+		959BBB4E1A5B47D600C43616 /* KeyNote3.pd in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB4D1A5B47D500C43616 /* KeyNote3.pd */; };
 		95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */; };
 		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
 		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
@@ -179,6 +180,7 @@
 		959BBB471A5B355B00C43616 /* continue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = continue_button.png; path = "Supporting Files/continue_button.png"; sourceTree = "<group>"; };
 		959BBB4A1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		959BBB4B1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		959BBB4D1A5B47D500C43616 /* KeyNote3.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote3.pd; sourceTree = "<group>"; };
 		95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteCircButton.png; sourceTree = "<group>"; };
 		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
 		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		954B13E319C4F912008FE21B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				959BBB4D1A5B47D500C43616 /* KeyNote3.pd */,
 				959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */,
 				959BBB471A5B355B00C43616 /* continue_button.png */,
 				9540DF0019DB0C22001C1CC1 /* Supporting Files */,
@@ -607,6 +610,7 @@
 				95AAB6EC19F018AA002A53F7 /* Simply_Beautiful_Button.png in Resources */,
 				9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */,
 				95AAB6D019EB4733002A53F7 /* greyButton3.png in Resources */,
+				959BBB4E1A5B47D600C43616 /* KeyNote3.pd in Resources */,
 				95AAB6F019F018B5002A53F7 /* Simply_Beautiful_Swirly_Button.png in Resources */,
 				95142BDC19C87D1D00CFCD8E /* KeyNote2.pd in Resources */,
 				95AAB6D619EB4B23002A53F7 /* textures_1.jpg in Resources */,

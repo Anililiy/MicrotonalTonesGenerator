@@ -16,16 +16,17 @@
 
 NSString *const kTestPatchName  = @"test2.pd";
 NSString *const kShortPatchName = @"KeyNote.pd";
+NSString *const kShortPatchName2 = @"KeyNote3.pd";
 
 @interface MTGViewController ()
 
-@property (nonatomic, retain) NSMutableArray *patches;
+@property (nonatomic, retain) NSMutableArray *patches, *patches2;
 @property (nonatomic, assign) int dollarZero;
 @end
 
 @implementation MTGViewController
 
-@synthesize patches;
+@synthesize patches, patches2;
 @synthesize dollarZero = dollarZero_;
 @synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem;
 @synthesize numberOfSavedScales, stateSelected, indexOfStateChosen, frequencyLabel;
@@ -100,6 +101,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             NSLog(@"Failed to open patch!");
         }
         patches = [NSMutableArray array];
+        patches2 = [NSMutableArray array];
         //
         
         keyboard = [NSMutableArray array];
@@ -107,6 +109,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         
         for (int i = 0; i<=numberOfSplits; i++){
             [patches addObject:@"1"];
+            [patches2 addObject:@"1"];
              [self createButton: i];
         }
         NSLog(@"Patches: %lu", (unsigned long)[patches count]);
@@ -357,10 +360,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     MTGKeyButton* aButton =[[MTGKeyButton alloc]init];
     [aButton setTag:index];
     
-    //action of button
-   // [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    //[aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDragExit];
-   // [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDragEnter];
     [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
 
 
@@ -404,6 +403,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if (creationState){
         if(!aButton.selected) {
             aButton.selected = true;
+            [keyboard[[aButton tag]] isSelected];
             [self playNoteLong:frequencyOfNote at:[aButton tag]];
             
             keyPressed.index = [aButton tag];
@@ -435,21 +435,22 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 #pragma mark - button call back
 
 -(void)playNoteLong:(float)f at:(NSInteger)index{
-    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
-    PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
-    if (patchOfKey) {
-        NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
-        NSLog(@"Patches: %li", (unsigned long)[patches count]);
-        [patches removeObjectAtIndex:index];
-        [patches insertObject:patchOfKey atIndex:index];
-    }
-    else {
-        NSLog(@"error: couldn't open patch");
-    }
-    [PdBase sendFloat:f toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
+        NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+        PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
+        if (patchOfKey) {
+            NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
+            NSLog(@"Patches: %li", (unsigned long)[patches count]);
+            [patches removeObjectAtIndex:index];
+            [patches insertObject:patchOfKey atIndex:index];
+        }
+        else {
+            NSLog(@"error: couldn't open patch");
+        }
+        [PdBase sendFloat:f toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
 }
 
 -(void)playNoteShort:(float)freqValue{
+    
     [PdBase sendFloat:freqValue toReceiver:@"midinote"];
     [PdBase sendBangToReceiver:@"trigger"];
 }

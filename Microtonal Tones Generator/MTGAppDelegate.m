@@ -22,6 +22,11 @@
     [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setFont:[UIFont fontWithName:@"Frangelica" size:14.0]];
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Frangelica" size:20.0f]}];
     
+    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName : [UIFont fontWithName:@"Frangelica" size:15.0]};
+
+    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
+
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // Store the data
     [defaults setInteger:12 forKey:@"deaultNumberOfSplits"];

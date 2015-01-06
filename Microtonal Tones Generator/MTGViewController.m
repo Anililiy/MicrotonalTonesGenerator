@@ -172,6 +172,15 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 -(void)openRightMenu{
     
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:20.0];
+    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    label.textAlignment = UITextAlignmentCenter;
+    label.textColor =[UIColor whiteColor];
+    label.text=self.title;
+    self.navigationItem.titleView = label;
+    
     menuCalled = !menuCalled;
     //[self changeSize];
     [self.view bringSubviewToFront:ViewCover2];
@@ -180,7 +189,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     else [ViewCover2 setHidden:true];
 
     [startButtonItem setTitle:@"Polyphony"];
-    
+    //[startButtonItem titleTextAttributesForState:<#(UIControlState)#>]
     creationState = false;
     saveStateButon.enabled = false;
     playPreviousStateButton.enabled = false;
@@ -284,6 +293,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             }
             [self playNoteLong:key.keyFrequency at:key.index];
             [startButtonItem setTitle:@"Stop polyphony"];
+            
             creationState = true;
             if (indexOfStateChosen<([savedStates count]-1)) playNextStateButton.enabled = true;
             if (indexOfStateChosen>=([savedStates count]-1)) playNextStateButton.enabled = false;

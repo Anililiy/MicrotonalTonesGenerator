@@ -59,6 +59,9 @@
 		959BBB491A5B355B00C43616 /* continue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB471A5B355B00C43616 /* continue_button.png */; };
 		959BBB4E1A5B47D600C43616 /* KeyNote3.pd in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB4D1A5B47D500C43616 /* KeyNote3.pd */; };
 		959BBB571A5C2BD500C43616 /* Frangelica.otf in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB561A5C2A8500C43616 /* Frangelica.otf */; };
+		959BBB591A5C395700C43616 /* Save.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB581A5C395700C43616 /* Save.png */; };
+		959BBB5B1A5C3B3200C43616 /* download168.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB5A1A5C3B3200C43616 /* download168.png */; };
+		959BBB5D1A5C3B8D00C43616 /* download168-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB5C1A5C3B8D00C43616 /* download168-5.png */; };
 		95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */; };
 		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
 		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
@@ -183,6 +186,9 @@
 		959BBB4B1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		959BBB4D1A5B47D500C43616 /* KeyNote3.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote3.pd; sourceTree = "<group>"; };
 		959BBB561A5C2A8500C43616 /* Frangelica.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Frangelica.otf; path = "Supporting Files/Frangelica.otf"; sourceTree = "<group>"; };
+		959BBB581A5C395700C43616 /* Save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Save.png; sourceTree = "<group>"; };
+		959BBB5A1A5C3B3200C43616 /* download168.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download168.png; sourceTree = "<group>"; };
+		959BBB5C1A5C3B8D00C43616 /* download168-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download168-5.png"; sourceTree = "<group>"; };
 		95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteCircButton.png; sourceTree = "<group>"; };
 		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
 		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
@@ -350,7 +356,10 @@
 				959BBB561A5C2A8500C43616 /* Frangelica.otf */,
 				959BBB4D1A5B47D500C43616 /* KeyNote3.pd */,
 				959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */,
+				959BBB581A5C395700C43616 /* Save.png */,
 				959BBB471A5B355B00C43616 /* continue_button.png */,
+				959BBB5A1A5C3B3200C43616 /* download168.png */,
+				959BBB5C1A5C3B8D00C43616 /* download168-5.png */,
 				9540DF0019DB0C22001C1CC1 /* Supporting Files */,
 				95B581B719C61009007E9510 /* KeyNote.pd */,
 				95142BDB19C87D1D00CFCD8E /* KeyNote2.pd */,
@@ -632,8 +641,10 @@
 				95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */,
 				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
 				95AAB6EE19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png in Resources */,
+				959BBB5B1A5C3B3200C43616 /* download168.png in Resources */,
 				95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */,
 				959BBB481A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif in Resources */,
+				959BBB591A5C395700C43616 /* Save.png in Resources */,
 				9552A23F1A0678D600A8B694 /* arrow-big-01.png in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
 				9552A2401A0678D600A8B694 /* arrow-big-02.png in Resources */,
@@ -642,6 +653,7 @@
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
 				95AAB6E719EE8C88002A53F7 /* goldenrectangle.jpg in Resources */,
 				9540DF0E19DB0C22001C1CC1 /* facebook.png in Resources */,
+				959BBB5D1A5C3B8D00C43616 /* download168-5.png in Resources */,
 				954B13EF19C4F912008FE21B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

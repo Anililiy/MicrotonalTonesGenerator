@@ -488,8 +488,8 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="156" style="plain" systemItem="fixedSpace" id="JiG-Zv-yhr"/>
-                                    <barButtonItem enabled="NO" style="done" systemItem="save" id="miA-2v-dAw">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem enabled="NO" style="plain" systemItem="save" id="miA-2v-dAw">
+                                        <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
                                             <action selector="saveState:" destination="ijD-Df-uuV" id="u96-Pp-QEf"/>
                                         </connections>

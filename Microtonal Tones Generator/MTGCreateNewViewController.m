@@ -24,11 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
-    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-     */
     //
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -138,9 +133,6 @@
                                        inView:self.view
                      permittedArrowDirections:UIPopoverArrowDirectionAny
                                      animated:YES];
-    
-   // chooseTheme.backgroundColor = newViewController.wellView.backgroundColor;
-
 }
 
 -(void)colorPopoverControllerDidSelectColor:(UIColor*) colour{

@@ -13,15 +13,19 @@
 
 @property    IBOutletCollection(UIButton) NSArray *freqButtons;
 @property   IBOutlet UILabel *frequencyLabel;
-@property    IBOutlet UISlider *freqInputSlider;
-    
+@property   IBOutlet UISlider *freqInputSlider;
+@property   NSString* chosenFrequency;
+@property   CGFloat frequency;
+@property (strong, nonatomic) IBOutlet UITextField *freqTextField;
+
+@property BOOL menuCalled;
+
 @property   IBOutlet UILabel *splitLabel;
 @property  IBOutlet UISlider *splitSlider;
     
 @property  IBOutlet UIButton *chooseTheme;
    
-@property   NSString* chosenFrequency;
-@property   CGFloat frequency;
+
 @property  NSInteger split;
 @property  CGFloat colourHue;
 @property  CGFloat colourSat;
@@ -32,10 +36,14 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic,retain) UIPopoverController *popoverController;
 @property (strong, nonatomic) IBOutlet UIButton *colourButton;
+@property (strong, nonatomic) IBOutlet UIView *ViewCover;
 
 - (IBAction)createIt:(id)sender;
 - (IBAction)showColourPopup:(id)sender;
 - (IBAction)splitInputChanged:(UISlider *)slider;
 - (IBAction)frequencyInputChanged:(UISlider *)slider;
+- (IBAction)frequencyInputTxtField:(id)sender;
+- (IBAction)validateFreq:(id)sender;
+- (IBAction)releaseFreqBts:(id)sender;
 
 @end

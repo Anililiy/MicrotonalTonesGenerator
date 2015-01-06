@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ja2-cR-yTs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Frangelica.otf">
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+            <string>Frangelica</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Reveal View Controller-->
         <scene sceneID="thG-iw-bWJ">
@@ -23,14 +47,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWB-M4-mEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2916.40625" y="-1668.75"/>
+            <point key="canvasLocation" x="-3733" y="-2848"/>
         </scene>
         <!--Menu-->
         <scene sceneID="p9x-iX-174">
             <objects>
                 <tableViewController title="Menu" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="pageSheet" id="k8k-uI-Tfn" customClass="MTGSidebarTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="1" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ouV-1u-St7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,7 +71,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Z-jT-sWK">
                                             <rect key="frame" x="26" y="8" width="317" height="27"/>
-                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="0.43529412150382996" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
@@ -63,8 +87,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Load session" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0C-8B-tpa">
-                                            <rect key="frame" x="25" y="11" width="102" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="25" y="12" width="140" height="21"/>
+                                            <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -82,7 +106,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozs-G1-Ehh">
                                             <rect key="frame" x="25" y="12" width="146" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -96,8 +120,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8t-cZ-FNh">
-                                            <rect key="frame" x="25" y="11" width="35" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="25" y="12" width="80" height="21"/>
+                                            <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -114,8 +138,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSg-aN-cYA">
-                                            <rect key="frame" x="25" y="11" width="88" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="25" y="12" width="140" height="21"/>
+                                            <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -132,7 +156,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzW-T5-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1753.5" y="-1577.25"/>
+            <point key="canvasLocation" x="-2245" y="-2695"/>
         </scene>
         <!--Create new scale-->
         <scene sceneID="Kx1-uc-KIX">
@@ -143,31 +167,29 @@
                         <viewControllerLayoutGuide type="bottom" id="7xN-XZ-OUi"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="3Ex-o6-Y0M">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.5" contentMode="bottomLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ulx-RT-m9b">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="AlternateWaveforms1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Low-eV-gcy">
                                 <rect key="frame" x="-11" y="50" width="479" height="718"/>
                                 <color key="tintColor" red="0.78858404132113935" green="1" blue="0.39419200266196852" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="1" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="q3U-FA-6GU">
-                                <rect key="frame" x="585" y="148" width="337" height="31"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="585" y="148" width="338" height="31"/>
-                                </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="585" y="148" width="338" height="31"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="585" y="148" width="338" height="31"/>
-                                </variation>
+                                <rect key="frame" x="585" y="148" width="338" height="31"/>
                                 <connections>
                                     <action selector="splitInputChanged:" destination="5SG-oa-Q8B" eventType="valueChanged" id="JKn-k5-cXl"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-hC-Uxi">
-                                <rect key="frame" x="491" y="269" width="30" height="30"/>
+                                <rect key="frame" x="491" y="269" width="39" height="30"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <state key="normal" title="256">
+                                    <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -176,7 +198,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEf-oM-Qv6">
                                 <rect key="frame" x="574" y="269" width="30" height="30"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <state key="normal" title="415">
+                                    <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -184,8 +208,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlp-jk-zaY">
-                                <rect key="frame" x="647" y="269" width="30" height="30"/>
+                                <rect key="frame" x="635" y="269" width="42" height="30"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <state key="normal" title="440">
+                                    <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -194,57 +220,49 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Initial frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E93-ly-UCh">
                                 <rect key="frame" x="482" y="191" width="275" height="79"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or add custom..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PT-yV-yaL">
                                 <rect key="frame" x="520" y="302" width="236" height="64"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsC-Fh-Mub">
                                 <rect key="frame" x="463" y="137" width="86" height="51"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdj-h9-2uo">
                                 <rect key="frame" x="707" y="258" width="79" height="57"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="440 Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-6C-dZL">
-                                <rect key="frame" x="542" y="360" width="297" height="48"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
+                                <rect key="frame" x="542" y="360" width="95" height="48"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="440" minValue="100" maxValue="600" translatesAutoresizingMaskIntoConstraints="NO" id="EOU-Wn-XCo">
-                                <rect key="frame" x="450" y="404" width="481" height="31"/>
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="440" minValue="100" maxValue="600" translatesAutoresizingMaskIntoConstraints="NO" id="EOU-Wn-XCo">
+                                <rect key="frame" x="441" y="426" width="481" height="31"/>
                                 <color key="minimumTrackTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="450" y="404" width="482" height="31"/>
-                                </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="450" y="404" width="482" height="31"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="450" y="404" width="482" height="31"/>
-                                </variation>
                                 <connections>
                                     <action selector="frequencyInputChanged:" destination="5SG-oa-Q8B" eventType="valueChanged" id="0Nr-LG-3Fx"/>
                                 </connections>
                             </slider>
                             <button contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-wS-NQW">
-                                <rect key="frame" x="267" y="440" width="100" height="50"/>
+                                <rect key="frame" x="585" y="424" width="100" height="50"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="20"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Colour">
-                                    <color key="titleColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" red="0.49844315465057148" green="0.72807126322751325" blue="0.4105581623960341" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="showColourPopup:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="JhX-KV-Hvq"/>
@@ -252,7 +270,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New number of splits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sM-gi-f8w">
                                 <rect key="frame" x="482" y="64" width="357" height="80"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -263,9 +281,25 @@
                                 </state>
                                 <connections>
                                     <action selector="createIt:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="UOu-vu-JQ4"/>
-                                    <segue destination="ijD-Df-uuV" kind="show" id="BnV-kE-afT"/>
+                                    <segue destination="ijD-Df-uuV" kind="push" id="BnV-kE-afT"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="frequency" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-xL-dVY">
+                                <rect key="frame" x="686" y="302" width="251" height="64"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="frequencyInputTxtField:" destination="5SG-oa-Q8B" eventType="editingDidEndOnExit" id="tCU-LH-vN3"/>
+                                    <action selector="releaseFreqBts:" destination="5SG-oa-Q8B" eventType="editingDidBegin" id="bYy-uc-ODc"/>
+                                    <action selector="validateFreq:" destination="5SG-oa-Q8B" eventType="valueChanged" id="pde-VQ-2P1"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-np-wNc">
+                                <rect key="frame" x="805" y="310" width="34" height="48"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -274,10 +308,13 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="ViewCover" destination="Ulx-RT-m9b" id="0za-5u-nIX"/>
                         <outlet property="chooseTheme" destination="Nng-wS-NQW" id="W3E-Sb-vRd"/>
                         <outlet property="colourButton" destination="Nng-wS-NQW" id="zQY-pq-iUn"/>
                         <outlet property="freqInputSlider" destination="EOU-Wn-XCo" id="zqm-F9-0NW"/>
+                        <outlet property="freqTextField" destination="NK2-xL-dVY" id="bSL-KO-xga"/>
                         <outlet property="frequencyLabel" destination="NXi-6C-dZL" id="qVQ-JI-EFG"/>
                         <outlet property="sidebarButton" destination="bnR-o1-7Bs" id="lnO-8N-6mb"/>
                         <outlet property="splitLabel" destination="jsC-Fh-Mub" id="W90-zm-KiW"/>
@@ -289,14 +326,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07h-Kl-wZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729.6875" y="-1514.6484375"/>
+            <point key="canvasLocation" x="933" y="-2586"/>
         </scene>
         <!--Saved sessions-->
         <scene sceneID="bLh-Ua-feL">
             <objects>
                 <tableViewController id="pgH-QK-fhb" customClass="MTGLoadTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="BMe-Gx-WGK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -314,7 +351,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="n" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-7Q-6h2">
-                                            <rect key="frame" x="376" y="12" width="166" height="37"/>
+                                            <rect key="frame" x="303" y="13" width="239" height="37"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -349,7 +386,7 @@
                                     <outlet property="lastUpdateLabel" destination="Lc8-eq-D4n" id="k60-JB-WTr"/>
                                     <outlet property="nameOfScale" destination="YYp-P2-ArG" id="AAd-lZ-Zbd"/>
                                     <outlet property="splitLabel" destination="yhT-7Q-6h2" id="45w-w2-5P7"/>
-                                    <segue destination="ijD-Df-uuV" kind="show" identifier="loadSaved" id="SqA-3s-bFS"/>
+                                    <segue destination="ijD-Df-uuV" kind="push" identifier="loadSaved" id="SqA-3s-bFS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -366,13 +403,15 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="sidebarButton" destination="N9V-rs-SSJ" id="O66-R5-Gs6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bho-hL-15n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409.375" y="-617.578125"/>
+            <point key="canvasLocation" x="2757" y="-1189"/>
         </scene>
         <!--Session-->
         <scene sceneID="8bb-dI-s3D">
@@ -383,7 +422,7 @@
                         <viewControllerLayoutGuide type="bottom" id="A9k-ju-Ipm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hSa-Pi-3od">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view hidden="YES" alpha="0.59999999999999964" contentMode="bottomLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P16-YL-jkV">
@@ -442,14 +481,14 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xuA-Ff-DF9"/>
-                                    <barButtonItem title="Polyphony" id="4gs-Yq-Jui">
+                                    <barButtonItem title="Polyphony" width="183" style="plain" id="4gs-Yq-Jui">
                                         <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
                                             <action selector="polifoniaStart:" destination="ijD-Df-uuV" id="NhW-nn-PTS"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kDo-7b-doy"/>
-                                    <barButtonItem enabled="NO" title="Save state" id="miA-2v-dAw">
+                                    <barButtonItem width="156" style="plain" systemItem="fixedSpace" id="JiG-Zv-yhr"/>
+                                    <barButtonItem enabled="NO" style="done" systemItem="save" id="miA-2v-dAw">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="saveState:" destination="ijD-Df-uuV" id="u96-Pp-QEf"/>
@@ -460,7 +499,7 @@
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7E1-N3-sRk">
                                 <rect key="frame" x="457" y="730" width="161" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -494,14 +533,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioh-E7-8HC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546.875" y="458.7890625"/>
+            <point key="canvasLocation" x="1980" y="783"/>
         </scene>
         <!--Saved States Table View Controller-->
         <scene sceneID="MS6-31-5Uh">
             <objects>
                 <tableViewController id="IEz-Bb-6rm" customClass="MTGSavedStatesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="LT6-9e-s56">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -515,7 +554,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved states" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUd-1H-HqK">
                                             <rect key="frame" x="8" y="14" width="293" height="21"/>
-                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -534,7 +573,7 @@
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AFx-2d-xOb">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -557,7 +596,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QG-Sf-MDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2321.09375" y="-122.4609375"/>
+            <point key="canvasLocation" x="-2971" y="-209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kIt-I3-LeW">
@@ -576,7 +615,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="378-7T-zGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-537.5" y="-1562.6953125"/>
+            <point key="canvasLocation" x="-688" y="-2667"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zJH-Qn-ieo">
@@ -597,7 +636,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7T-to-k00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-627.34375" y="-861.328125"/>
+            <point key="canvasLocation" x="-803" y="-1470"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R6A-oD-Ner">
@@ -623,7 +662,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQI-gE-rhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-715.625" y="-135.9375"/>
+            <point key="canvasLocation" x="-916" y="-232.00000000000003"/>
         </scene>
     </scenes>
     <resources>
@@ -633,9 +672,14 @@
         <image name="arrow-big-04.png" width="30" height="30"/>
         <image name="menu.png" width="28" height="20"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QK2-H1-fqF"/>
         <segue reference="Rde-gQ-pRX"/>
-        <segue reference="SqA-3s-bFS"/>
+        <segue reference="BnV-kE-afT"/>
+        <segue reference="eiG-kh-lQ6"/>
     </inferredMetricsTieBreakers>
 </document>

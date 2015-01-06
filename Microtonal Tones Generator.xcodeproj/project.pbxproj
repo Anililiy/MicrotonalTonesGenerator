@@ -58,6 +58,7 @@
 		959BBB481A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */; };
 		959BBB491A5B355B00C43616 /* continue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB471A5B355B00C43616 /* continue_button.png */; };
 		959BBB4E1A5B47D600C43616 /* KeyNote3.pd in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB4D1A5B47D500C43616 /* KeyNote3.pd */; };
+		959BBB571A5C2BD500C43616 /* Frangelica.otf in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB561A5C2A8500C43616 /* Frangelica.otf */; };
 		95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */; };
 		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
 		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
@@ -181,6 +182,7 @@
 		959BBB4A1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		959BBB4B1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		959BBB4D1A5B47D500C43616 /* KeyNote3.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyNote3.pd; sourceTree = "<group>"; };
+		959BBB561A5C2A8500C43616 /* Frangelica.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Frangelica.otf; path = "Supporting Files/Frangelica.otf"; sourceTree = "<group>"; };
 		95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteCircButton.png; sourceTree = "<group>"; };
 		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
 		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		954B13E319C4F912008FE21B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				959BBB561A5C2A8500C43616 /* Frangelica.otf */,
 				959BBB4D1A5B47D500C43616 /* KeyNote3.pd */,
 				959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */,
 				959BBB471A5B355B00C43616 /* continue_button.png */,
@@ -544,7 +547,7 @@
 						DevelopmentTeam = A9L477E68M;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -600,6 +603,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				959BBB571A5C2BD500C43616 /* Frangelica.otf in Resources */,
 				95AAB6CA19EB431F002A53F7 /* button2.png in Resources */,
 				95AAB6F419F018C4002A53F7 /* Swirl_Funky_1_Earthy.png in Resources */,
 				9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */,
@@ -800,7 +804,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "Microtonal Tones Generator/Microtonal Tones Generator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -818,7 +821,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "Microtonal Tones Generator/Microtonal Tones Generator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

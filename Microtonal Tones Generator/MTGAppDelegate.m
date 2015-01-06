@@ -8,7 +8,6 @@
 
 #import "MTGAppDelegate.h"
 #import "MTGViewController.h"
-//#import "SWRevealViewController.h"
 
 @implementation MTGAppDelegate
 
@@ -18,6 +17,10 @@
 {
     [PdBase setDelegate:self];
     [self initAudio];
+    
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Frangelica" size:17.0]];
+    [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setFont:[UIFont fontWithName:@"Frangelica" size:14.0]];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Frangelica" size:20.0f]}];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // Store the data

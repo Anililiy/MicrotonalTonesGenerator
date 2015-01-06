@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "954B13D819C4F912008FE21B"
-               BuildableName = "Microtonal Tones Generator.app"
+               BuildableName = "Microtonal.app"
                BlueprintName = "Microtonal Tones Generator"
                ReferencedContainer = "container:Microtonal Tones Generator.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "954B13D819C4F912008FE21B"
-            BuildableName = "Microtonal Tones Generator.app"
+            BuildableName = "Microtonal.app"
             BlueprintName = "Microtonal Tones Generator"
             ReferencedContainer = "container:Microtonal Tones Generator.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "954B13D819C4F912008FE21B"
-            BuildableName = "Microtonal Tones Generator.app"
+            BuildableName = "Microtonal.app"
             BlueprintName = "Microtonal Tones Generator"
             ReferencedContainer = "container:Microtonal Tones Generator.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "954B13D819C4F912008FE21B"
-            BuildableName = "Microtonal Tones Generator.app"
+            BuildableName = "Microtonal.app"
             BlueprintName = "Microtonal Tones Generator"
             ReferencedContainer = "container:Microtonal Tones Generator.xcodeproj">
          </BuildableReference>

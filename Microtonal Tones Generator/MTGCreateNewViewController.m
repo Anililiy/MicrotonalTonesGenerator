@@ -20,15 +20,21 @@
 
 @implementation MTGCreateNewViewController
 @synthesize popoverController, colorCollection;
-@synthesize freqButtons,frequencyLabel,freqInputSlider,splitLabel,splitSlider,chooseTheme,chosenFrequency,frequency,split,colourHue,colourSat, colourBrg;
+@synthesize freqButtons,frequencyLabel,freqInputSlider,splitLabel,splitSlider,chooseTheme,chosenFrequency,frequency,split,colourHue,colourSat, colourBrg, freqTextField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    /*
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-
+     */
+    //
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
     // init
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
    
@@ -44,6 +50,40 @@
 
     [self createColorsArray];
     [self setupColorButtons];
+    [self customSetup];
+    
+    [_ViewCover setHidden:true];
+        //The setup code (in viewDidLoad in your view controller)
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(openLeftMenu)];
+    [_ViewCover addGestureRecognizer:singleFingerTap];
+    _menuCalled = false;
+
+}
+- (void)customSetup{
+    SWRevealViewController *revealViewController = self.revealViewController;
+    
+    if ( revealViewController )
+    {
+        UIBarButtonItem *barBtnMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openLeftMenu)];
+        barBtnMenu.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+        
+        self.navigationItem.leftBarButtonItem = barBtnMenu;
+
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
+-(void)openLeftMenu{
+    _menuCalled = !_menuCalled;
+    //[self changeSize];
+    [self.view bringSubviewToFront:_ViewCover];
+    
+    if (_menuCalled)[_ViewCover setHidden:false];
+    else [_ViewCover setHidden:true];
+    
+    SWRevealViewController *reveal = self.revealViewController;
+    [reveal revealToggleAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -125,6 +165,8 @@
         NSLog(@"Frequency selected: %@", chosenFrequency);
         frequency = [chosenFrequency floatValue];
     }
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    freqTextField.text  = [NSString stringWithFormat:@"%4.0f", frequency];
 }
 
 -(void)setupColorButtons{
@@ -164,15 +206,38 @@
         }
     }
 }
+
 -(void) buttonPushed:(UIButton *)button{
     chooseTheme.backgroundColor = button.backgroundColor;
     [self setColor:button.backgroundColor];
 }
+
 -(IBAction)frequencyInputChanged:(UISlider *)slider {
     frequency = slider.value;
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
     for (UIButton* button in freqButtons)button.selected = false;
 }
+
+- (IBAction)frequencyInputTxtField:(id)sender {
+    frequency = [[freqTextField text] integerValue];
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    [sender resignFirstResponder];
+
+}
+-(void)dismissKeyboard {
+    frequency = [[freqTextField text] integerValue];
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    [freqTextField resignFirstResponder];
+}
+
+- (IBAction)validateFreq:(id)sender {
+    
+}
+
+- (IBAction)releaseFreqBts:(id)sender {
+    for (UIButton* button in freqButtons)button.selected = false;
+}
+
 -(IBAction)splitInputChanged:(UISlider *)slider{
     split = slider.value;
     splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];

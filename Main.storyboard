@@ -242,8 +242,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="440 Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-6C-dZL">
-                                <rect key="frame" x="542" y="360" width="95" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="440 Hz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-6C-dZL">
+                                <rect key="frame" x="443" y="360" width="514" height="48"/>
                                 <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -275,8 +275,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-hM-glq">
-                                <rect key="frame" x="574" y="550" width="241" height="223"/>
-                                <state key="normal" image="11-Nov-Blog-Hop-NEXT-Button.gif">
+                                <rect key="frame" x="574" y="617" width="345" height="131"/>
+                                <state key="normal" title="Continue" image="Unti.png">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
@@ -284,22 +284,22 @@
                                     <segue destination="ijD-Df-uuV" kind="push" id="BnV-kE-afT"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="frequency" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-xL-dVY">
-                                <rect key="frame" x="686" y="302" width="251" height="64"/>
-                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="frequencyInputTxtField:" destination="5SG-oa-Q8B" eventType="editingDidEndOnExit" id="tCU-LH-vN3"/>
-                                    <action selector="releaseFreqBts:" destination="5SG-oa-Q8B" eventType="editingDidBegin" id="bYy-uc-ODc"/>
-                                    <action selector="validateFreq:" destination="5SG-oa-Q8B" eventType="valueChanged" id="pde-VQ-2P1"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-np-wNc">
                                 <rect key="frame" x="805" y="310" width="34" height="48"/>
                                 <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="frequency" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-xL-dVY">
+                                <rect key="frame" x="686" y="306" width="105" height="56"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="frequencyInputTxtField:" destination="5SG-oa-Q8B" eventType="editingDidEndOnExit" id="tCU-LH-vN3"/>
+                                    <action selector="releaseFreqBts:" destination="5SG-oa-Q8B" eventType="editingDidBegin" id="bYy-uc-ODc"/>
+                                    <action selector="validateFreq:" destination="5SG-oa-Q8B" eventType="editingChanged" id="zmd-v1-bTB"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -666,8 +666,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="11-Nov-Blog-Hop-NEXT-Button.gif" width="272" height="131"/>
         <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
+        <image name="Unti.png" width="693" height="249"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
         <image name="menu.png" width="28" height="20"/>

@@ -19,7 +19,7 @@
 @end
 
 @implementation MTGCreateNewViewController
-@synthesize popoverController, colorCollection;
+@synthesize popoverController, colorCollection, frequencyInput;
 @synthesize freqButtons,frequencyLabel,freqInputSlider,splitLabel,splitSlider,chooseTheme,chosenFrequency,frequency,split,colourHue,colourSat, colourBrg, freqTextField;
 
 - (void)viewDidLoad {
@@ -85,42 +85,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)createIt:(id)sender {
-
-    // Store the data
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"firstRun"];
-
-    [defaults setInteger:   split       forKey:@"numberOfSplits"   ];
-    [defaults setFloat:     frequency   forKey:@"frequency"        ];
-    [defaults setFloat:     colourHue   forKey:@"themeHue"         ];
-    [defaults setFloat:     colourSat   forKey:@"themeSat"         ];
-    [defaults setFloat:     colourBrg   forKey:@"themeBrg"         ];
-    [defaults setBool:      false       forKey:@"saved"            ];
-    
-    int numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
-    numberOfSession+=1;
-    [defaults setInteger:numberOfSession forKey:@"currentScale"];
-    [defaults setInteger:numberOfSession forKey:@"noOfScalesCreated"];
-
-    [defaults synchronize];
-    
-    NSLog(@"Data saved");
-    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
-    if (authObj.authenticated == NO)
-    {
-        authObj.authenticated = YES;
-        
-        SWRevealViewController *revealViewController = self.revealViewController;
-
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        MTGCreateNewViewController *frontViewController = [sb instantiateViewControllerWithIdentifier:@"frontViewController"];
-        
-        UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
-        [revealViewController setFrontViewController:frontNavigationController animated:YES];
-    }
-    
-}
 
 - (IBAction)showColourPopup:(id)sender {
     
@@ -143,22 +107,6 @@
     popoverController = nil;
     [self setColor:colour];
 
-}
-
-- (IBAction)chooseFreq:(UIButton*)aButton {
-    NSString *buttonName = [aButton titleForState:UIControlStateNormal];
-    
-    for (UIButton* button in freqButtons){
-        if (button == aButton) button.selected = true;
-        else button.selected = false;
-    }
-    if (chosenFrequency != buttonName) {
-        chosenFrequency = buttonName;
-        NSLog(@"Frequency selected: %@", chosenFrequency);
-        frequency = [chosenFrequency floatValue];
-    }
-    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-    freqTextField.text  = [NSString stringWithFormat:@"%4.0f", frequency];
 }
 
 -(void)setupColorButtons{
@@ -204,10 +152,30 @@
     [self setColor:button.backgroundColor];
 }
 
+/*
 -(IBAction)frequencyInputChanged:(UISlider *)slider {
     frequency = slider.value;
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
     for (UIButton* button in freqButtons)button.selected = false;
+}
+*/
+
+- (IBAction)chooseFreq:(UIButton*)aButton {
+    NSString *buttonName = [aButton titleForState:UIControlStateNormal];
+    
+    for (UIButton* button in freqButtons){
+        if (button == aButton) button.selected = true;
+        else button.selected = false;
+    }
+    if (chosenFrequency != buttonName) {
+        chosenFrequency = buttonName;
+        NSLog(@"Frequency selected: %@", chosenFrequency);
+        frequency = [chosenFrequency floatValue];
+        frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+        freqTextField.text  = [NSString stringWithFormat:@"%4.0f", frequency];
+        freqTextField.backgroundColor = nil;
+        [freqTextField resignFirstResponder];
+    }
 }
 
 - (IBAction)frequencyInputTxtField:(id)sender {
@@ -217,12 +185,32 @@
 
 }
 -(void)dismissKeyboard {
-    frequency = [[freqTextField text] integerValue];
-    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-    [freqTextField resignFirstResponder];
+   if ([freqTextField isFirstResponder]){
+       frequency = [[freqTextField text] integerValue];
+       frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+       [freqTextField resignFirstResponder];
+   }
 }
 
 - (IBAction)validateFreq:(id)sender {
+    BOOL numberInputOnly = true;
+    char y = [freqTextField.text characterAtIndex:(freqTextField.text.length-1)];
+    if (y < '0' || y > '9'){
+        NSLog(@"wrong input");
+        numberInputOnly = false;
+    }
+    
+    if (freqTextField.text.integerValue < 100 || freqTextField.text.integerValue> 600 || !numberInputOnly){
+        freqTextField.backgroundColor = [UIColor redColor];
+        frequencyInput = false;
+        frequencyLabel.text = @"f value should be between 100 and 600";
+    }
+    else{
+        freqTextField.backgroundColor = nil;
+        frequencyInput = true;
+        frequency = [[freqTextField text] integerValue];
+        frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    }
     
 }
 
@@ -259,5 +247,43 @@
                        [UIColor brownColor],
                        nil];
 }
+
+- (IBAction)createIt:(id)sender {
+    
+    // Store the data
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"firstRun"];
+    
+    [defaults setInteger:   split       forKey:@"numberOfSplits"   ];
+    [defaults setFloat:     frequency   forKey:@"frequency"        ];
+    [defaults setFloat:     colourHue   forKey:@"themeHue"         ];
+    [defaults setFloat:     colourSat   forKey:@"themeSat"         ];
+    [defaults setFloat:     colourBrg   forKey:@"themeBrg"         ];
+    [defaults setBool:      false       forKey:@"saved"            ];
+    
+    long numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
+    numberOfSession+=1;
+    [defaults setInteger:numberOfSession forKey:@"currentScale"];
+    [defaults setInteger:numberOfSession forKey:@"noOfScalesCreated"];
+    
+    [defaults synchronize];
+    
+    NSLog(@"Data saved");
+    MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
+    if (authObj.authenticated == NO)
+    {
+        authObj.authenticated = YES;
+        
+        SWRevealViewController *revealViewController = self.revealViewController;
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MTGCreateNewViewController *frontViewController = [sb instantiateViewControllerWithIdentifier:@"frontViewController"];
+        
+        UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+        [revealViewController setFrontViewController:frontNavigationController animated:YES];
+    }
+    
+}
+
 
 @end

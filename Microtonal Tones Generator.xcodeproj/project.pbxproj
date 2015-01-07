@@ -62,6 +62,8 @@
 		959BBB591A5C395700C43616 /* Save.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB581A5C395700C43616 /* Save.png */; };
 		959BBB5B1A5C3B3200C43616 /* download168.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB5A1A5C3B3200C43616 /* download168.png */; };
 		959BBB5D1A5C3B8D00C43616 /* download168-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB5C1A5C3B8D00C43616 /* download168-5.png */; };
+		959BBB5F1A5D5F1900C43616 /* Untitled.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB5E1A5D5F1900C43616 /* Untitled.png */; };
+		959BBB611A5D612C00C43616 /* Unti.png in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB601A5D612C00C43616 /* Unti.png */; };
 		95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */; };
 		95AAB6CA19EB431F002A53F7 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6C919EB431F002A53F7 /* button2.png */; };
 		95AAB6CC19EB445D002A53F7 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 95AAB6CB19EB445D002A53F7 /* greyButton.png */; };
@@ -189,6 +191,8 @@
 		959BBB581A5C395700C43616 /* Save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Save.png; sourceTree = "<group>"; };
 		959BBB5A1A5C3B3200C43616 /* download168.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download168.png; sourceTree = "<group>"; };
 		959BBB5C1A5C3B8D00C43616 /* download168-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download168-5.png"; sourceTree = "<group>"; };
+		959BBB5E1A5D5F1900C43616 /* Untitled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Untitled.png; sourceTree = "<group>"; };
+		959BBB601A5D612C00C43616 /* Unti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unti.png; sourceTree = "<group>"; };
 		95AAB6C619EB40DB002A53F7 /* whiteCircButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteCircButton.png; sourceTree = "<group>"; };
 		95AAB6C919EB431F002A53F7 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
 		95AAB6CB19EB445D002A53F7 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
@@ -354,6 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				959BBB561A5C2A8500C43616 /* Frangelica.otf */,
+				959BBB5E1A5D5F1900C43616 /* Untitled.png */,
+				959BBB601A5D612C00C43616 /* Unti.png */,
 				959BBB4D1A5B47D500C43616 /* KeyNote3.pd */,
 				959BBB461A5B355B00C43616 /* 11-Nov-Blog-Hop-NEXT-Button.gif */,
 				959BBB581A5C395700C43616 /* Save.png */,
@@ -616,6 +622,7 @@
 				95AAB6CA19EB431F002A53F7 /* button2.png in Resources */,
 				95AAB6F419F018C4002A53F7 /* Swirl_Funky_1_Earthy.png in Resources */,
 				9540DF1419DB0C22001C1CC1 /* star-7.png in Resources */,
+				959BBB5F1A5D5F1900C43616 /* Untitled.png in Resources */,
 				95AAB6D219EB4923002A53F7 /* transparent.png in Resources */,
 				959BBB491A5B355B00C43616 /* continue_button.png in Resources */,
 				9540DF1C19DB0D67001C1CC1 /* letsGo.png in Resources */,
@@ -638,6 +645,7 @@
 				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
 				95AAB6D419EB499D002A53F7 /* pattern.jpg in Resources */,
 				953943451A0A659100588979 /* arrow-big-04.png in Resources */,
+				959BBB611A5D612C00C43616 /* Unti.png in Resources */,
 				95AAB6C719EB40DB002A53F7 /* whiteCircButton.png in Resources */,
 				95B581B819C61009007E9510 /* KeyNote.pd in Resources */,
 				95AAB6EE19F018AF002A53F7 /* Simply_Beautiful_Flower_Button.png in Resources */,

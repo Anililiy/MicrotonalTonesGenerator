@@ -86,13 +86,14 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         creationState = false;
         menuCalled = false;
         octaveNumber = 0;
-        
-        if (sessionIsSaved){
+     
+        if (savedStates.count>0){
             self.navigationItem.rightBarButtonItem.enabled = true;
         }
         else {
             self.navigationItem.rightBarButtonItem.enabled = false;
         }
+     
         // sound creation
         dispatcher = [[PdDispatcher alloc]init];
         [PdBase setDelegate:dispatcher];
@@ -117,7 +118,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         //_scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleNumber];
         
         [self representStateSeleted];
-        frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
+        frequencyLabel.text = [NSString stringWithFormat:@"fo = %4.2f Hz", frequency];
         freqInitial = frequency;
         [self takeScreenshot];
         [self.mainToolbar setBarTintColor:[UIColor colorWithHue:hueOfKeys saturation:(saturOfKeys/4) brightness:brightOfKey alpha:0.1]];
@@ -176,7 +177,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:20.0];
     label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     label.textColor =[UIColor whiteColor];
     label.text=self.title;
     self.navigationItem.titleView = label;
@@ -189,7 +190,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     else [ViewCover2 setHidden:true];
 
     [startButtonItem setTitle:@"Polyphony"];
-    //[startButtonItem titleTextAttributesForState:<#(UIControlState)#>]
     creationState = false;
     saveStateButon.enabled = false;
     playPreviousStateButton.enabled = false;
@@ -376,7 +376,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
     [aButton setTitleColor:[UIColor colorWithHue:hueOfKeys saturation:saturation brightness:(1-brightnesOfKey) alpha:1.0] forState:UIControlStateNormal];
-    aButton.titleLabel.font =[UIFont fontWithName: @"Courier" size:18 ];
+    aButton.titleLabel.font =[UIFont fontWithName: @"Frangelica" size:30 ];
     aButton.titleLabel.textColor = [UIColor blackColor];
     
     aButton.hue = hueOfKeys;
@@ -497,8 +497,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     NSMutableArray *keys =[NSMutableArray array];
     [keys addObjectsFromArray:pressedKeys];
-    
-    [savedStates addObject:keys];
+    if (keys.count != 0 ) {
+        [savedStates addObject:keys];
+    }
     
     NSLog(@"States saved %@", savedStates);
 
@@ -524,6 +525,11 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [archScales addObject:encodedScale];
         [defaults setObject:archScales forKey:@"savedSessions"];
         sessionIsSaved = YES;
+        
+        if(keys.count>0)self.navigationItem.rightBarButtonItem.enabled = true;
+        else self.navigationItem.rightBarButtonItem.enabled = false;
+        [self clearUp];
+
         NSLog(@"Saved");
     }
     else {
@@ -535,9 +541,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     NSLog(@"Saved state");
     [defaults synchronize];
     
-    if([savedStates count]>0)self.navigationItem.rightBarButtonItem.enabled = true;
+    if(currentScale.savedStates.count>0)self.navigationItem.rightBarButtonItem.enabled = true;
     else self.navigationItem.rightBarButtonItem.enabled = false;
-    [self clearUp];
     
 }
 

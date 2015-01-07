@@ -18,7 +18,7 @@
     [PdBase setDelegate:self];
     [self initAudio];
     
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"Frangelica" size:17.0]];
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Frangelica" size:18.0]];
     [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setFont:[UIFont fontWithName:@"Frangelica" size:14.0]];
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Frangelica" size:20.0f]}];
     

@@ -9,6 +9,7 @@
 #import "MTGLoadTableViewController.h"
 #import "MTGSaveTableViewCell.h"
 #import "MTGViewController.h"
+#import "MTGAppDelegate.h"
 
 @interface MTGLoadTableViewController ()
 
@@ -147,6 +148,13 @@
         if (currentIndex>=1) currentIndex-=1;
         [savedSettings setInteger:currentIndex forKey:@"currentScaleIndex"];
         [savedSettings synchronize];
+        if ([scales count] == 0) {
+            MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
+            authObj.authenticated = NO;
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setBool:NO forKey:@"firstRun"];
+
+        }
     }
 }
 

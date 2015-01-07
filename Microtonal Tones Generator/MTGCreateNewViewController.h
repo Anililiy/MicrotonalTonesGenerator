@@ -18,7 +18,7 @@
 @property   CGFloat frequency;
 @property (strong, nonatomic) IBOutlet UITextField *freqTextField;
 
-@property BOOL menuCalled;
+@property BOOL menuCalled, frequencyInput;
 
 @property   IBOutlet UILabel *splitLabel;
 @property  IBOutlet UISlider *splitSlider;
@@ -41,7 +41,7 @@
 - (IBAction)createIt:(id)sender;
 - (IBAction)showColourPopup:(id)sender;
 - (IBAction)splitInputChanged:(UISlider *)slider;
-- (IBAction)frequencyInputChanged:(UISlider *)slider;
+//- (IBAction)frequencyInputChanged:(UISlider *)slider;
 - (IBAction)frequencyInputTxtField:(id)sender;
 - (IBAction)validateFreq:(id)sender;
 - (IBAction)releaseFreqBts:(id)sender;

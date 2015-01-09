@@ -29,14 +29,14 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // Store the data
-    [defaults setInteger:12 forKey:@"deaultNumberOfSplits"];
-    [defaults setFloat:440 forKey:@"defaultFrequency"];
-    [defaults setFloat:0.7 forKey:@"initThemeHue"];
-    [defaults setFloat:1 forKey:@"initThemeSat"];
-    [defaults setFloat:1 forKey:@"initThemeBrg"];
-    [defaults setInteger:0 forKey:@"currentScale"];
-    [defaults setInteger:0 forKey:@"currentScaleIndex"];
-    [defaults setInteger:0 forKey:@"noOfScalesCreated"];
+    [defaults setInteger:   12  forKey:@"deaultNumberOfSplits"  ];
+    [defaults setFloat:     440 forKey:@"defaultFrequency"      ];
+    [defaults setFloat:     0.7 forKey:@"initThemeHue"          ];
+    [defaults setFloat:     1   forKey:@"initThemeSat"          ];
+    [defaults setFloat:     1   forKey:@"initThemeBrg"          ];
+    [defaults setInteger:   0   forKey:@"initScale"             ];
+    [defaults setInteger:   0   forKey:@"initScaleIndex"        ];
+    [defaults setInteger:   0   forKey:@"initNoOfScalesCreated" ];
     
     [defaults synchronize];
     

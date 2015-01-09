@@ -222,14 +222,14 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         sessionIsSaved = true;
         scaleNumber= currentScale.scaleNumber;
         
-        [defaults setInteger:numberOfSplits forKey:@"numberOfSplits"];
-        [defaults setFloat:frequency        forKey:@"frequency"];
-        [defaults setFloat:hueOfKeys        forKey:@"themeHue"];
-        [defaults setFloat:saturOfKeys      forKey:@"themeSat"];
-        [defaults setFloat:brightOfKey      forKey:@"themeBrg"];
-        [defaults setBool:sessionIsSaved    forKey:@"saved"];
-        [defaults setInteger:scaleNumber    forKey:@"currentScale"];
-        [defaults setInteger:indexOfFileLoading forKey:@"currentScaleIndex"];
+        [defaults setInteger:numberOfSplits forKey:     @"numberOfSplits"   ];
+        [defaults setFloat:frequency        forKey:     @"frequency"        ];
+        [defaults setFloat:hueOfKeys        forKey:     @"themeHue"         ];
+        [defaults setFloat:saturOfKeys      forKey:     @"themeSat"         ];
+        [defaults setFloat:brightOfKey      forKey:     @"themeBrg"         ];
+        [defaults setBool:sessionIsSaved    forKey:     @"saved"            ];
+        [defaults setInteger:scaleNumber    forKey:     @"currentScale"     ];
+        [defaults setInteger:indexOfFileLoading forKey: @"currentScaleIndex"];
         [defaults synchronize];
          
     }
@@ -247,12 +247,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         
     }
     else{
-        numberOfSplits  =  [defaults integerForKey:@"numberOfSplits"];
-        frequency       =  [defaults floatForKey:@"frequency"];
-        hueOfKeys       =  [defaults floatForKey:@"themeHue"];
-        saturOfKeys     =  [defaults floatForKey:@"themeSat"];
-        brightOfKey     =  [defaults floatForKey:@"themeBrg"];
-        scaleNumber     =  [defaults integerForKey:@"currentScale"];
+        numberOfSplits  =  [defaults integerForKey: @"numberOfSplits"   ];
+        frequency       =  [defaults floatForKey:   @"frequency"        ];
+        hueOfKeys       =  [defaults floatForKey:   @"themeHue"         ];
+        saturOfKeys     =  [defaults floatForKey:   @"themeSat"         ];
+        brightOfKey     =  [defaults floatForKey:   @"themeBrg"         ];
+        scaleNumber     =  [defaults integerForKey: @"currentScale"     ];
         
         int scalePositionInArray = [archivedScales count];
         [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];

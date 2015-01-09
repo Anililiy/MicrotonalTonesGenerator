@@ -33,19 +33,19 @@
     // init
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
    
-    split       = [defaults integerForKey:@"deaultNumberOfSplits"];
-    frequency   = [defaults floatForKey:@"defaultFrequency"];
-    colourHue   = [defaults floatForKey:@"initThemeHue"];
-    colourSat   = [defaults floatForKey:@"initThemeSat"];
-    colourBrg   = [defaults floatForKey:@"initThemeBrg"];
+    split       = [defaults integerForKey:  @"deaultNumberOfSplits" ];
+    frequency   = [defaults floatForKey:    @"defaultFrequency"     ];
+    colourHue   = [defaults floatForKey:    @"initThemeHue"         ];
+    colourSat   = [defaults floatForKey:    @"initThemeSat"         ];
+    colourBrg   = [defaults floatForKey:    @"initThemeBrg"         ];
     
-    splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
+    splitLabel.text     = [NSString stringWithFormat:@"%li", (long)split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
     chooseTheme.backgroundColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
 
-    [self createColorsArray];
-    [self setupColorButtons];
-    [self customSetup];
+    [self createColorsArray ];
+    [self setupColorButtons ];
+    [self customSetup       ];
     
     [_ViewCover setHidden:true];
         //The setup code (in viewDidLoad in your view controller)
@@ -71,11 +71,10 @@
 }
 -(void)openLeftMenu{
     _menuCalled = !_menuCalled;
-    //[self changeSize];
     [self.view bringSubviewToFront:_ViewCover];
     
     if (_menuCalled)[_ViewCover setHidden:false];
-    else [_ViewCover setHidden:true];
+    else            [_ViewCover setHidden:true];
     
     SWRevealViewController *reveal = self.revealViewController;
     [reveal revealToggleAnimated:YES];
@@ -261,7 +260,10 @@
     [defaults setFloat:     colourBrg   forKey:@"themeBrg"         ];
     [defaults setBool:      false       forKey:@"saved"            ];
     
-    long numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
+    long numberOfSession = 0;
+    if (![defaults integerForKey:@"noOfScalesCreated"])
+            numberOfSession = [defaults integerForKey:@"initNoOfScalesCreated"];
+    else    numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
     numberOfSession+=1;
     [defaults setInteger:numberOfSession forKey:@"currentScale"];
     [defaults setInteger:numberOfSession forKey:@"noOfScalesCreated"];

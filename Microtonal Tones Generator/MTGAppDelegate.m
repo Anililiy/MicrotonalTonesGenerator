@@ -43,7 +43,7 @@
     NSLog(@"Data saved");
 
     self.authenticated = [defaults boolForKey:@"firstRun"];
-    NSLog(@"Logged in: %hhd", self.authenticated);
+    //NSLog(@"Logged in: %hhi", self.authenticated);
     
     [self.window makeKeyAndVisible];
    

@@ -22,6 +22,12 @@
     return self;
 }
 
+-(void)setColour:(UIColor *)colour{
+    _colourOfScale = colour;
+    CGFloat alpha;
+    BOOL success = [colour getHue:&_hue saturation:&_saturation brightness:&_brightness alpha:&alpha];
+}
+
 -(void)drawRect:(CGRect)rect {
     
     CGFloat actualBrightness = self.brightness;

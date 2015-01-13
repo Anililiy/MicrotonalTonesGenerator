@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9500192D1A06BBD200834493 /* MTGSavedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9500192C1A06BBD200834493 /* MTGSavedState.m */; };
 		9502E47C1A0F84BC0007EEF3 /* MTGKeyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502E47B1A0F84BC0007EEF3 /* MTGKeyObject.m */; };
+		950A28D31A656C11003153C6 /* MTGInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950A28D21A656C11003153C6 /* MTGInformationViewController.m */; };
+		950A28D81A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */; };
 		951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */; };
 		951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 951942C419F6EFD100F510FE /* MTGSaveTableViewCell.m */; };
 		951942C719F6EFD100F510FE /* MTGSaveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951942C519F6EFD100F510FE /* MTGSaveTableViewCell.xib */; };
@@ -35,12 +37,10 @@
 		954B141819C4FC78008FE21B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B141719C4FC78008FE21B /* AVFoundation.framework */; };
 		954B141A19C4FC7E008FE21B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B141919C4FC7E008FE21B /* AudioToolbox.framework */; };
 		954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B141C19C4FCB6008FE21B /* MTGViewController.m */; };
-		954B142F19C59977008FE21B /* MTGSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B142E19C59977008FE21B /* MTGSettingsViewController.m */; };
 		954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */; };
 		9552A23F1A0678D600A8B694 /* arrow-big-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 9552A23D1A0678D600A8B694 /* arrow-big-01.png */; };
 		9552A2401A0678D600A8B694 /* arrow-big-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 9552A23E1A0678D600A8B694 /* arrow-big-02.png */; };
 		955A0B6419F33B3700842D32 /* MTGSavedScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A0B6319F33B3700842D32 /* MTGSavedScale.m */; };
-		955D695F1A3C8566003AB6EF /* MTGColourButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 955D695E1A3C8566003AB6EF /* MTGColourButton.m */; };
 		955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955F98C71A01A54100007D9E /* SWRevealViewController.m */; };
 		956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */; };
 		956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */; };
@@ -95,6 +95,9 @@
 		9500192F1A06DF0900834493 /* Microtonal Tones Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Microtonal Tones Generator.entitlements"; sourceTree = "<group>"; };
 		9502E47A1A0F84BC0007EEF3 /* MTGKeyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGKeyObject.h; sourceTree = "<group>"; };
 		9502E47B1A0F84BC0007EEF3 /* MTGKeyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKeyObject.m; sourceTree = "<group>"; };
+		950A28D11A656C11003153C6 /* MTGInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGInformationViewController.h; sourceTree = "<group>"; };
+		950A28D21A656C11003153C6 /* MTGInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGInformationViewController.m; sourceTree = "<group>"; };
+		950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Harry_Partch_album_scan_headshot.jpg; sourceTree = "<group>"; };
 		9510589E19C59BA7008F5F76 /* MTGLoadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGLoadTableViewController.h; sourceTree = "<group>"; };
 		9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGLoadTableViewController.m; sourceTree = "<group>"; };
 		951942C319F6EFD100F510FE /* MTGSaveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSaveTableViewCell.h; sourceTree = "<group>"; };
@@ -128,16 +131,12 @@
 		954B141919C4FC7E008FE21B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		954B141B19C4FCB6008FE21B /* MTGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGViewController.h; sourceTree = "<group>"; };
 		954B141C19C4FCB6008FE21B /* MTGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGViewController.m; sourceTree = "<group>"; };
-		954B142D19C59977008FE21B /* MTGSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSettingsViewController.h; sourceTree = "<group>"; };
-		954B142E19C59977008FE21B /* MTGSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSettingsViewController.m; sourceTree = "<group>"; };
 		954B143019C59ABE008FE21B /* MTGSidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSidebarTableViewController.h; sourceTree = "<group>"; };
 		954B143119C59ABE008FE21B /* MTGSidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSidebarTableViewController.m; sourceTree = "<group>"; };
 		9552A23D1A0678D600A8B694 /* arrow-big-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-big-01.png"; path = "Supporting Files/arrow-big-01.png"; sourceTree = "<group>"; };
 		9552A23E1A0678D600A8B694 /* arrow-big-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-big-02.png"; path = "Supporting Files/arrow-big-02.png"; sourceTree = "<group>"; };
 		955A0B6219F33B3700842D32 /* MTGSavedScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSavedScale.h; sourceTree = "<group>"; };
 		955A0B6319F33B3700842D32 /* MTGSavedScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedScale.m; sourceTree = "<group>"; };
-		955D695D1A3C8566003AB6EF /* MTGColourButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColourButton.h; sourceTree = "<group>"; };
-		955D695E1A3C8566003AB6EF /* MTGColourButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGColourButton.m; sourceTree = "<group>"; };
 		955F98C61A01A54100007D9E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		955F98C71A01A54100007D9E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGColoursViewController.h; sourceTree = "<group>"; };
@@ -192,6 +191,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		950A28D41A656C1C003153C6 /* Intormation */ = {
+			isa = PBXGroup;
+			children = (
+				950A28D11A656C11003153C6 /* MTGInformationViewController.h */,
+				950A28D21A656C11003153C6 /* MTGInformationViewController.m */,
+			);
+			name = Intormation;
+			sourceTree = "<group>";
+		};
 		951058BF19C5BBC8008F5F76 /* Slidebars */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,8 +264,8 @@
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
 				957347941A1B880B0014CDBA /* Model and Model Classes */,
 				951058C019C5BDFF008F5F76 /* Main View */,
+				950A28D41A656C1C003153C6 /* Intormation */,
 				9552A2421A067D6B00A8B694 /* New Session */,
-				956C6FA819CED8AE0065F3CE /* Settings */,
 				9552A2411A067D1200A8B694 /* Saved scales */,
 				951058BF19C5BBC8008F5F76 /* Slidebars */,
 				955F98C51A01A54100007D9E /* SWRevealViewController */,
@@ -275,6 +283,7 @@
 				95A2BFAA1A64361000A02D3E /* Unti.png */,
 				9552A23D1A0678D600A8B694 /* arrow-big-01.png */,
 				9552A23E1A0678D600A8B694 /* arrow-big-02.png */,
+				950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */,
 				953943421A0A659100588979 /* arrow-big-03.png */,
 				953943431A0A659100588979 /* arrow-big-04.png */,
 				9540DF0319DB0C22001C1CC1 /* menu.png */,
@@ -323,6 +332,7 @@
 			children = (
 				95AAB6E319EE8680002A53F7 /* MTGCreateNewViewController.h */,
 				95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */,
+				95AAB6E819EEA655002A53F7 /* ColourPopup */,
 			);
 			name = "New Session";
 			sourceTree = "<group>";
@@ -345,16 +355,6 @@
 			);
 			name = SWRevealViewController;
 			path = ../SWRevealViewController;
-			sourceTree = "<group>";
-		};
-		956C6FA819CED8AE0065F3CE /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				954B142D19C59977008FE21B /* MTGSettingsViewController.h */,
-				954B142E19C59977008FE21B /* MTGSettingsViewController.m */,
-				95AAB6E819EEA655002A53F7 /* ColourPopup */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		957347941A1B880B0014CDBA /* Model and Model Classes */ = {
@@ -415,8 +415,6 @@
 				956C6FAC19CEEA690065F3CE /* MTGColoursViewController.h */,
 				956C6FAD19CEEA690065F3CE /* MTGColoursViewController.m */,
 				956C6FAE19CEEA690065F3CE /* MTGColoursViewController.xib */,
-				955D695D1A3C8566003AB6EF /* MTGColourButton.h */,
-				955D695E1A3C8566003AB6EF /* MTGColourButton.m */,
 				955D69501A3C78B1003AB6EF /* Source */,
 			);
 			name = ColourPopup;
@@ -541,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				959BBB571A5C2BD500C43616 /* Frangelica.otf in Resources */,
+				950A28D81A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg in Resources */,
 				953943411A0A652200588979 /* Main.storyboard in Resources */,
 				9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */,
 				956C6FB019CEEA690065F3CE /* MTGColoursViewController.xib in Resources */,
@@ -577,9 +576,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				954B142F19C59977008FE21B /* MTGSettingsViewController.m in Sources */,
 				954B13E919C4F912008FE21B /* main.m in Sources */,
 				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
+				950A28D31A656C11003153C6 /* MTGInformationViewController.m in Sources */,
 				9502E47C1A0F84BC0007EEF3 /* MTGKeyObject.m in Sources */,
 				9500192D1A06BBD200834493 /* MTGSavedState.m in Sources */,
 				95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */,
@@ -588,7 +587,6 @@
 				956C6FAF19CEEA690065F3CE /* MTGColoursViewController.m in Sources */,
 				951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */,
 				95DD9B431A374712007C6473 /* Common.m in Sources */,
-				955D695F1A3C8566003AB6EF /* MTGColourButton.m in Sources */,
 				955F98C81A01A54100007D9E /* SWRevealViewController.m in Sources */,
 				954B143219C59ABE008FE21B /* MTGSidebarTableViewController.m in Sources */,
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,

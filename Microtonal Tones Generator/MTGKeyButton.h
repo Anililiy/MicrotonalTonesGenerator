@@ -14,5 +14,8 @@
 @property (nonatomic, assign) CGFloat saturation;
 @property (nonatomic, assign) CGFloat brightness;
 
+@property UIColor *colourOfScale;
+
+-(void)setColour:(UIColor *)colour;
 
 @end

@@ -46,7 +46,7 @@
     CGSize wheelSize = CGSizeMake(size.width * .9, size.width * .9);
     
     _colorWheel = [[ISColorWheel alloc] initWithFrame:CGRectMake(size.width / 2 - wheelSize.width / 2,
-                                                                 size.height * .01,
+                                                                 size.height * .2,
                                                                  wheelSize.width,
                                                                  wheelSize.height*0.9)];
     _colorWheel.delegate = self;
@@ -64,10 +64,10 @@
     [_brightnessSlider addTarget:self action:@selector(changeBrightness:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_brightnessSlider];
     
-    _wellView = [[UIView alloc] initWithFrame:CGRectMake(10,
+    _wellView = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                          10,
-                                                         size.width * .2,
-                                                         size.height * .1)];
+                                                         size.width,
+                                                         size.height * .15)];
     
     UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -76,14 +76,17 @@
 
     _wellView.layer.borderColor = [UIColor blackColor].CGColor;
     _wellView.layer.borderWidth = 0.5;
+    UILabel *chooseLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 10, 300, 20)];
+    chooseLabel.text = @"Press to choose";
+    [chooseLabel setTextColor:[UIColor blackColor]];
+    [chooseLabel setFont:[UIFont fontWithName: @"Frangelica" size: 18.0f]];
+    [_wellView addSubview:chooseLabel];
     [self.view addSubview:_wellView];
 }
 
 //The event handling method
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
      [delegate colorPopoverControllerDidSelectColor:_colorWheel.currentColor];
-
-    //Do stuff here...
 }
 
 - (void)changeBrightness:(UISlider*)sender
@@ -99,14 +102,6 @@
     newView.colourButton.backgroundColor = _colorWheel.currentColor;
     [_wellView setBackgroundColor:_colorWheel.currentColor];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

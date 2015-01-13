@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MTGColoursViewController.h"
 
+#import "MTGKeyButton.h"
+
 @interface MTGCreateNewViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>
 
 @property    IBOutletCollection(UIButton) NSArray *freqButtons;
@@ -23,9 +25,8 @@
 @property   IBOutlet UILabel *splitLabel;
 @property  IBOutlet UISlider *splitSlider;
     
-@property  IBOutlet UIButton *chooseTheme;
+@property  IBOutlet MTGKeyButton *chooseTheme;
    
-
 @property  NSInteger split;
 @property  CGFloat colourHue;
 @property  CGFloat colourSat;

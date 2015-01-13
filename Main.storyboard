@@ -25,6 +25,7 @@
             <string>Frangelica</string>
             <string>Frangelica</string>
             <string>Frangelica</string>
+            <string>Frangelica</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -144,6 +145,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="fsd-HM-S87" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="50z-30-Cui"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -156,7 +160,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzW-T5-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2245" y="-2695"/>
+            <point key="canvasLocation" x="-2117" y="-2335"/>
         </scene>
         <!--Create new scale-->
         <scene sceneID="Kx1-uc-KIX">
@@ -256,7 +260,7 @@
                                     <action selector="frequencyInputChanged:" destination="5SG-oa-Q8B" eventType="valueChanged" id="0Nr-LG-3Fx"/>
                                 </connections>
                             </slider>
-                            <button contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-wS-NQW">
+                            <button contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-wS-NQW" customClass="MTGKeyButton">
                                 <rect key="frame" x="585" y="424" width="100" height="50"/>
                                 <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="20"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -326,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07h-Kl-wZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933" y="-2586"/>
+            <point key="canvasLocation" x="1629" y="-4189"/>
         </scene>
         <!--Saved sessions-->
         <scene sceneID="bLh-Ua-feL">
@@ -411,7 +415,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bho-hL-15n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2757" y="-1189"/>
+            <point key="canvasLocation" x="389" y="-469"/>
         </scene>
         <!--Session-->
         <scene sceneID="8bb-dI-s3D">
@@ -615,7 +619,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="378-7T-zGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-688" y="-2667"/>
+            <point key="canvasLocation" x="-600" y="-3931"/>
+        </scene>
+        <!--Information-->
+        <scene sceneID="u3L-pl-vME">
+            <objects>
+                <viewController id="hHS-Ev-s8w" customClass="MTGInformationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vt0-pv-WVJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gsg-4y-ewz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2lT-Ns-KJy">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Harry_Partch_album_scan_headshot.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DWh-FB-pvN">
+                                <rect key="frame" x="16" y="20" width="240" height="312"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T12-9K-SJh">
+                                <rect key="frame" x="270" y="12" width="733" height="684"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Harry Partch (June 24, 1901 – September 3, 1974) was an American composer, music theorist, and creator of musical instruments. He composed using scales of unequal intervals in just intonation, and was one of the first 20th-century composers in the West to work systematically with microtonal scales. He built custom-made instruments in these tunings on which to play his compositions, and described his theory and practice in his book Genesis of a Music (1947).
+
+Partch composed with scales dividing the octave into 43 unequal tones derived from the natural harmonic series; these scales allowed for more tones of smaller intervals than in standard Western tuning, which uses twelve equal intervals to the octave. To play his music, Partch built a large number of unique instruments, with such names as the Chromelodeon, the Quadrangularis Reversum, and the Zymo-Xyl. Partch described his music as corporeal, and distinguished it from abstract music, which he perceived as the dominant trend in Western music since the time of Bach. His earliest compositions were small-scale pieces to be intoned to instrumental backing; his later works were large-scale, integrated theater productions in which he expected each of the performers to sing, dance, speak, and play instruments. Ancient Greek theatre and Japanese Noh and kabuki heavily influenced his music theatre.
+
+Encouraged by his mother, Partch learned several instruments at a young age. By fourteen, he was composing, and in particular took to setting dramatic situations. He dropped out of the University of Southern California's School of Music in 1922 over dissatisfaction with the quality of his teachers. He took to self-study in San Francisco's libraries, where he discovered Hermann von Helmholtz's Sensations of Tone, which convinced him to devote himself to music based on scales tuned in just intonation. In 1930, he burned all his previous compositions in a rejection of the European concert tradition. Partch frequently moved around the US. Early in his career, he was a transient worker, and sometimes a hobo; later he depended on grants, university appointments, and record sales to support himself. In 1970, supporters created the Harry Partch Foundation to administer Partch's music and instruments.
+
+With the introduction of digital tablets by Apple, announced and unveiled on January 27, 2010 the opportunity has arisen to realise Partch's ambitions to experiment with microtones. Microtonal allows you to divide an octave in up to 32 well tempered microtones, experiment with polyphony, save states and sessions. We hope that you enjoy the experience.</string>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Information" id="VrG-ht-km5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYp-7x-Un1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697" y="-2667"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zJH-Qn-ieo">
@@ -664,9 +706,29 @@
             </objects>
             <point key="canvasLocation" x="-916" y="-232.00000000000003"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RPp-bA-eUP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fsd-HM-S87" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZJd-vH-Bs7">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hHS-Ev-s8w" kind="relationship" relationship="rootViewController" id="hET-rd-aiX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x7U-9C-E7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-731" y="-2647"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
+        <image name="Harry_Partch_album_scan_headshot.jpg" width="296" height="407"/>
         <image name="Unti.png" width="693" height="249"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
@@ -679,7 +741,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Rde-gQ-pRX"/>
-        <segue reference="BnV-kE-afT"/>
         <segue reference="eiG-kh-lQ6"/>
+        <segue reference="BnV-kE-afT"/>
     </inferredMetricsTieBreakers>
 </document>

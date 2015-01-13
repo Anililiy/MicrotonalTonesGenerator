@@ -8,7 +8,7 @@
 
 #import "MTGCreateNewViewController.h"
 #import "SWRevealViewController.h"
-#import "MTGColourButton.h"
+
 #import "MTGAppDelegate.h"
 
 @interface MTGCreateNewViewController ()
@@ -41,8 +41,12 @@
     
     splitLabel.text     = [NSString stringWithFormat:@"%li", (long)split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-    chooseTheme.backgroundColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
-
+   // chooseTheme.backgroundColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
+    
+    chooseTheme.hue = colourHue;
+    chooseTheme.saturation = colourSat;
+    chooseTheme.brightness = colourBrg;
+    
     [self createColorsArray ];
     [self setupColorButtons ];
     [self customSetup       ];
@@ -91,7 +95,7 @@
     
     newViewController.delegate = self;
     popoverController = [[UIPopoverController alloc] initWithContentViewController:newViewController];
-    popoverController.popoverContentSize = CGSizeMake(250.0, 250.0);
+    popoverController.popoverContentSize = CGSizeMake(250.0, 300.0);
     [popoverController presentPopoverFromRect:[(UIButton *)sender frame]
                                        inView:self.view
                      permittedArrowDirections:UIPopoverArrowDirectionAny
@@ -100,10 +104,20 @@
 
 -(void)colorPopoverControllerDidSelectColor:(UIColor*) colour{
     
-    chooseTheme.backgroundColor = colour;
+    CGFloat hue;
+    CGFloat saturation;
+    CGFloat brightness;
+    CGFloat alpha;
+    BOOL success = [colour getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
+    NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
+    
+    chooseTheme.hue = hue;
+    chooseTheme.saturation = saturation;
+    chooseTheme.brightness = brightness;
+
     [self.view setNeedsDisplay];
     [popoverController dismissPopoverAnimated:YES];
-    popoverController = nil;
+     popoverController = nil;
     [self setColor:colour];
 
 }
@@ -117,14 +131,14 @@
         int colorNumber = 0;
         for (int i=0;i<maxNCol;i++){
             
-            MTGColourButton *colorButton = [MTGColourButton buttonWithType:UIButtonTypeCustom];
+            MTGKeyButton *colorButton = [MTGKeyButton buttonWithType:UIButtonTypeCustom];
             colorButton.frame = CGRectMake(310+i*60, 500, 50, 50);
             
             [colorButton addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
             
             [colorButton setSelected:NO];
             [colorButton setNeedsDisplay];
-            [colorButton setBackgroundColor:[self.colorCollection objectAtIndex:colorNumber]];
+            
             [colorButton setColour:[self.colorCollection objectAtIndex:colorNumber]];
             colorButton.tag = colorNumber;
             
@@ -146,18 +160,13 @@
     }
 }
 
--(void) buttonPushed:(UIButton *)button{
-    chooseTheme.backgroundColor = button.backgroundColor;
-    [self setColor:button.backgroundColor];
-}
+-(void) buttonPushed:(MTGKeyButton *)button{
+    chooseTheme.hue         = button.hue;
+    chooseTheme.saturation  = button.saturation;
+    chooseTheme.brightness  = button.brightness;
 
-/*
--(IBAction)frequencyInputChanged:(UISlider *)slider {
-    frequency = slider.value;
-    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-    for (UIButton* button in freqButtons)button.selected = false;
+    [self setColor:[UIColor colorWithHue:button.hue saturation:button.saturation brightness:button.brightness alpha:1.0]];
 }
-*/
 
 - (IBAction)chooseFreq:(UIButton*)aButton {
     NSString *buttonName = [aButton titleForState:UIControlStateNormal];
@@ -228,9 +237,11 @@
     CGFloat alpha;
     BOOL success = [color getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
     NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
+    
     colourHue = hue;
     colourSat = saturation;
     colourBrg = brightness;
+    
 }
 -(void) createColorsArray{
     colorCollection = [NSArray arrayWithObjects:

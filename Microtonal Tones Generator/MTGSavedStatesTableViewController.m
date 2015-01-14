@@ -153,7 +153,7 @@
         // Delete the row from the data source
        
         [savedStates removeObjectAtIndex:[indexPath row]];
-        
+        NSLog(@"states afrer deletion %@",savedStates);
         scaleUsed.savedStates = savedStates;
         NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
         NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];

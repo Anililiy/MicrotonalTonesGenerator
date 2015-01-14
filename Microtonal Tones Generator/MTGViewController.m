@@ -52,6 +52,11 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self initialiseValues];
+    //[self setNeedsDisplay];
+}
+
 - (void)viewDidLoad{
     
     [super viewDidLoad];
@@ -187,7 +192,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [self.view bringSubviewToFront:ViewCover2];
 
     if (menuCalled)[ViewCover2 setHidden:false];
-    else [ViewCover2 setHidden:true];
+    else {
+        [ViewCover2 setHidden:true];
+        [self initialiseValues];
+    }
 
     [startButtonItem setTitle:@"Polyphony"];
     creationState = false;
@@ -329,6 +337,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     if (!creationState){
         [startButtonItem setTitle:@"Stop polyphony"];
+        //[startButtonItem setTintColor:[UIColor blueColor]];
         creationState = true;
         saveStateButon.enabled = true;
  
@@ -336,7 +345,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     else
     {
         [startButtonItem setTitle:@"Polyphony"];
-        
+        //[startButtonItem setTintColor:[UIColor blackColor]];
+
         creationState = false;
         saveStateButon.enabled = false;
         playPreviousStateButton.enabled = false;

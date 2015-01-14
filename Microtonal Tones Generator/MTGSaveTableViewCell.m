@@ -15,6 +15,7 @@
 @synthesize dateLabel=_dateLabel;
 @synthesize imageView = _imageView;
 @synthesize lastUpdateLabel=_lastUpdateLabel;
+
 - (void)awakeFromNib {
     // Initialization code
 }

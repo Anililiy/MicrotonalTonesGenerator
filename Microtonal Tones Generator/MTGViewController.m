@@ -331,12 +331,16 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if (!creationState){
         [startButtonItem setTitle:@"Stop polyphony"];
         creationState = true;
+        [changeOctave setHidden:YES];
     }
     else
     {
         [startButtonItem setTitle:@"Polyphony"];
         creationState = false;
+        
         if (sessionIsSaved) saveButton.enabled = false;
+        else [changeOctave setHidden:NO];
+
         playPreviousStateButton.enabled = false;
         playNextStateButton.enabled = false;
         [self clearUp];
@@ -432,7 +436,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
                 if (keyPressed.index == [aButton tag]) [pressedKeys removeObjectAtIndex:i];
             }
             aButton.selected =!aButton.selected;
-            if ([pressedKeys count]==0 && sessionIsSaved)saveButton.enabled = false;
+            if ([pressedKeys count]==0 && sessionIsSaved) saveButton.enabled = false;
         }
     }
     else{

@@ -7,18 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MTGSavedState.h"
 
 @interface MTGSavedScale : NSObject <NSCoding>{
     NSInteger splitsNumber;
-    float freqInitial, hue, saturarion, brightness;
+    float freqInitial, hue, saturation, brightness;
 }
 
 @property NSInteger splitsNumber, scaleNumber;
 @property NSMutableArray* savedStates;
-@property float freqInitial, hue, saturarion, brightness;
+@property float freqInitial, hue, saturation, brightness;
 @property UIImage* imageOfScale;
 @property NSDate *dateCreated;
-@property NSDate *dateLastUpdated;
+@property NSDate *dateUpdated;
 
 @end

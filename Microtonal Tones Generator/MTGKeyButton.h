@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface MTGKeyButton : UIButton
 
@@ -17,5 +18,4 @@
 @property UIColor *colourOfScale;
 
 -(void)setColour:(UIColor *)colour;
-
 @end

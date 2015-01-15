@@ -7,28 +7,29 @@
 //
 
 #import "MTGViewController.h"
+#import "MTGAppDelegate.h"
+
 #import "PdFile.h"
 #import "PdBase.h"
-#import "MTGAppDelegate.h"
-#import "MTGLoadTableViewController.h"
-#import "MTGSavedStatesTableViewController.h"
+
+//#import "MTGSavedStatesTableViewController.h"
 #import "MTGCreateNewViewController.h"
 
-NSString *const kTestPatchName  = @"test2.pd";
-NSString *const kShortPatchName = @"KeyNote.pd";
+NSString *const kTestPatchName   = @"test2.pd";
+NSString *const kShortPatchName  = @"KeyNote.pd";
 NSString *const kShortPatchName2 = @"KeyNote3.pd";
 
 @interface MTGViewController ()
 
-@property (nonatomic, retain) NSMutableArray *patches, *patches2;
+@property (nonatomic, retain) NSMutableArray *patches;
 @property (nonatomic, assign) int dollarZero;
 @end
 
 @implementation MTGViewController
 
-@synthesize patches, patches2;
+@synthesize patches;
 @synthesize dollarZero = dollarZero_;
-@synthesize loading, indexOfFileLoading, saveStateButon, startButtonItem;
+@synthesize loading, indexOfFileLoading, saveButton, startButtonItem;
 @synthesize numberOfSavedScales, stateSelected, indexOfStateChosen, frequencyLabel;
 @synthesize playNextStateButton, playPreviousStateButton, ViewCover, ViewCover2;
 @synthesize upTheOctave, downTheOctave, changeOctave;
@@ -54,7 +55,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 -(void)viewWillAppear:(BOOL)animated{
     [self initialiseValues];
-    //[self setNeedsDisplay];
 }
 
 - (void)viewDidLoad{
@@ -107,7 +107,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             NSLog(@"Failed to open patch!");
         }
         patches = [NSMutableArray array];
-        patches2 = [NSMutableArray array];
         //
         
         keyboard = [NSMutableArray array];
@@ -115,17 +114,14 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         
         for (int i = 0; i<=numberOfSplits; i++){
             [patches addObject:@"1"];
-            [patches2 addObject:@"1"];
              [self createButton: i];
         }
         NSLog(@"Patches: %lu", (unsigned long)[patches count]);
         
-        //_scaleNavigationItem.title = [NSString stringWithFormat:@"Session № %i", scaleNumber];
-        
+     
         [self representStateSeleted];
         frequencyLabel.text = [NSString stringWithFormat:@"fo = %4.2f Hz", frequency];
         freqInitial = frequency;
-        [self takeScreenshot];
         [self.mainToolbar setBarTintColor:[UIColor colorWithHue:hueOfKeys saturation:(saturOfKeys/4) brightness:brightOfKey alpha:0.1]];
 
     }
@@ -159,14 +155,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     frame.origin = CGPointMake (0, 0);
     ViewCover.frame = frame;
     
-    //ViewCover.backgroundColor = [UIColor colorWithRed:0.3 green:0.6 blue:0.3 alpha:0.3];
     [self.view bringSubviewToFront:ViewCover];
 }
 
 -(void)openLeftMenu{
     [self clearUp];
     menuCalled = !menuCalled;
-    //[self changeSize];
     [self.view bringSubviewToFront:ViewCover];
 
     if (menuCalled)[ViewCover setHidden:false];
@@ -188,7 +182,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     self.navigationItem.titleView = label;
     
     menuCalled = !menuCalled;
-    //[self changeSize];
     [self.view bringSubviewToFront:ViewCover2];
 
     if (menuCalled)[ViewCover2 setHidden:false];
@@ -199,7 +192,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
     [startButtonItem setTitle:@"Polyphony"];
     creationState = false;
-    saveStateButon.enabled = false;
+    saveButton.enabled = false;
     playPreviousStateButton.enabled = false;
     playNextStateButton.enabled = false;
     [self clearUp];
@@ -224,7 +217,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         numberOfSplits = currentScale.splitsNumber;
         frequency = currentScale.freqInitial;
         hueOfKeys = currentScale.hue;
-        saturOfKeys = currentScale.saturarion;
+        saturOfKeys = currentScale.saturation;
         brightOfKey = currentScale.brightness;
         loading = false;
         sessionIsSaved = true;
@@ -249,7 +242,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         numberOfSplits  = currentScale.splitsNumber;
         frequency       = currentScale.freqInitial;
         hueOfKeys       = currentScale.hue;
-        saturOfKeys     = currentScale.saturarion;
+        saturOfKeys     = currentScale.saturation;
         brightOfKey     = currentScale.brightness;
         scaleNumber     = currentScale.scaleNumber;
         
@@ -277,12 +270,13 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     currentScale.splitsNumber = numberOfSplits;
     currentScale.hue = hueOfKeys;
     currentScale.brightness = brightOfKey;
-    currentScale.saturarion = saturOfKeys;
+    currentScale.saturation = saturOfKeys;
     currentScale.scaleNumber = scaleNumber;
     currentScale.savedStates = savedStates;
     if (sessionIsSaved) {
         [changeOctave setHidden:true];
         [frequencyLabel setHidden:true];
+        saveButton.enabled = false;
     }
 
 }
@@ -297,7 +291,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
                     button.selected = true;
                     [pressedKeys addObject:key];
                 }
-
             }
             [self playNoteLong:key.keyFrequency at:key.index];
             [startButtonItem setTitle:@"Stop polyphony"];
@@ -323,9 +316,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (void)clearUp{
-    for(UIButton* button in keyboard)button.selected = false;
+    for (UIButton* button in keyboard) button.selected = false;
     
-    [patches removeAllObjects];
+    [patches     removeAllObjects];
     [pressedKeys removeAllObjects];
     
     for (int i = 0; i<=numberOfSplits; i++) [patches addObject:@"1"];
@@ -337,18 +330,13 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     if (!creationState){
         [startButtonItem setTitle:@"Stop polyphony"];
-        //[startButtonItem setTintColor:[UIColor blueColor]];
         creationState = true;
-        saveStateButon.enabled = true;
- 
     }
     else
     {
         [startButtonItem setTitle:@"Polyphony"];
-        //[startButtonItem setTintColor:[UIColor blackColor]];
-
         creationState = false;
-        saveStateButon.enabled = false;
+        if (sessionIsSaved) saveButton.enabled = false;
         playPreviousStateButton.enabled = false;
         playNextStateButton.enabled = false;
         [self clearUp];
@@ -376,7 +364,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     float brightnesOfKey = brightOfKey;
     if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
 
-    //UIButton* aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     MTGKeyButton* aButton =[[MTGKeyButton alloc]init];
     [aButton setTag:index];
     
@@ -421,6 +408,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     MTGKeyObject *keyPressed = [[MTGKeyObject alloc]init];
 
     if (creationState){
+        
+        saveButton.enabled = true;
+
         if(!aButton.selected) {
             aButton.selected = true;
             [keyboard[[aButton tag]] isSelected];
@@ -442,8 +432,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
                 if (keyPressed.index == [aButton tag]) [pressedKeys removeObjectAtIndex:i];
             }
             aButton.selected =!aButton.selected;
+            if ([pressedKeys count]==0 && sessionIsSaved)saveButton.enabled = false;
         }
-        saveStateButon.enabled = true;
     }
     else{
         [self playNoteShort:frequencyOfNote];
@@ -475,16 +465,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [PdBase sendBangToReceiver:@"trigger"];
 }
 
+// right arrow when pressed takes us up an octave
 - (IBAction)rightArrowPressed:(id)sender {
     if (frequency<=600){
         frequency =2*frequency;
-        //frequency +=freqInitial;
-        /*octaveNumber+=1;
-        for (UIButton* button in keyboard){
-            NSString *string =[NSString stringWithFormat:@"%i", ([button tag]+numberOfSplits*octaveNumber)];
-            [button setTitle:string forState:UIControlStateNormal];
-        }
-         */
         frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
         downTheOctave.enabled = true;
     }
@@ -502,14 +486,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 - (IBAction)saveState:(id)sender {
     
-    saveStateButon.enabled = false;
-    currentScale.dateLastUpdated = [NSDate date];
-    
+    saveButton.enabled = false;
+    currentScale.dateUpdated = [NSDate date];
+
     NSMutableArray *keys =[NSMutableArray array];
     [keys addObjectsFromArray:pressedKeys];
-    if (keys.count != 0 ) {
-        [savedStates addObject:keys];
-    }
+    if (keys.count != 0 ) [savedStates addObject:keys];
     
     NSLog(@"States saved %@", savedStates);
 
@@ -525,6 +507,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if  (!sessionIsSaved){
         currentScale.freqInitial = frequency;
         currentScale.dateCreated = [NSDate date];
+        [self takeScreenshot];
         sessionIsSaved = YES;
         [defaults setBool:sessionIsSaved forKey:@"saved"];
         [changeOctave setHidden:true];

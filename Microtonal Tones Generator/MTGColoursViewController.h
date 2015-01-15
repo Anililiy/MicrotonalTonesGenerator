@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ISColorWheel.h"
+#import "MTGColourWheel.h"
 
 @class MTGColoursViewController;
 
@@ -17,9 +17,9 @@
 
 @end
 
-@interface MTGColoursViewController : UIViewController <ISColorWheelDelegate>
+@interface MTGColoursViewController : UIViewController <MTGColourWheelDelegate>
 {
-    ISColorWheel* _colorWheel;
+    MTGColourWheel* _colorWheel;
     UISlider* _brightnessSlider;
     UIView* _wellView;
 }

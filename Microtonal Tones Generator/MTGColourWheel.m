@@ -1,6 +1,12 @@
+//
+//  MTGColourWheel.m
+//  Microtonal Tones Generator
+//
+//  Created by Anna on 15/01/2015.
+//  Copyright (c) 2015 Anna. All rights reserved.
+//
 
-#import "ISColorWheel.h"
-
+#import "MTGColourWheel.h"
 typedef struct
 {
     unsigned char r;
@@ -9,13 +15,13 @@ typedef struct
     
 } PixelRGB;
 
-float ISColorWheel_PointDistance (CGPoint p1, CGPoint p2)
+float MTGColourWheel_PointDistance (CGPoint p1, CGPoint p2)
 {
     return sqrtf((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
 }
 
 
-PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
+PixelRGB MTGColourWheel_HSBToRGB (float h, float s, float v)
 {
     h *= 6.0f;
     int i = floorf(h);
@@ -70,7 +76,7 @@ PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
     return pixel;
 }
 
-@interface ISColorWheel ()
+@interface MTGColourWheel ()
 
 - (PixelRGB)colorAtPoint:(CGPoint)point;
 
@@ -79,8 +85,8 @@ PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
 
 @end
 
+@implementation MTGColourWheel
 
-@implementation ISColorWheel
 @synthesize radius = _radius;
 @synthesize cursorRadius = _cursorRadius;
 @synthesize brightness = _brightness;
@@ -106,7 +112,7 @@ PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
     CGPoint center = CGPointMake(_radius, _radius);
     
     float angle = atan2(point.x - center.x, point.y - center.y) + M_PI;
-    float dist = ISColorWheel_PointDistance(point, CGPointMake(center.x, center.y));
+    float dist = MTGColourWheel_PointDistance(point, CGPointMake(center.x, center.y));
     
     float hue = angle / (M_PI * 2.0f);
     
@@ -118,16 +124,16 @@ PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
     sat = MIN(sat, 1.0f);
     sat = MAX(sat, 0.0f);
     
-    return ISColorWheel_HSBToRGB(hue, sat, _brightness);
+    return MTGColourWheel_HSBToRGB(hue, sat, _brightness);
 }
 
 - (CGPoint)viewToImageSpace:(CGPoint)point
-{    
+{
     int width = self.bounds.size.width;
     int height = self.bounds.size.height;
     
     point.y = height - point.y;
-        
+    
     CGPoint min = CGPointMake(width / 2 - _radius, height / 2 - _radius);
     
     point.x = point.x - min.x;
@@ -154,10 +160,10 @@ PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
     
     CGBitmapInfo bitInfo = kCGBitmapByteOrderDefault;
     
-	CGDataProviderRef ref = CGDataProviderCreateWithData(NULL, data, dataLength, NULL);
-	CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGDataProviderRef ref = CGDataProviderCreateWithData(NULL, data, dataLength, NULL);
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     
-	CGImageRef iref = CGImageCreate (width,
+    CGImageRef iref = CGImageCreate (width,
                                      height,
                                      8,
                                      24,
@@ -179,7 +185,7 @@ PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
 
 - (UIColor*)currentColor
 {
-    PixelRGB pixel = [self colorAtPoint:[self viewToImageSpace:_touchPoint]];    
+    PixelRGB pixel = [self colorAtPoint:[self viewToImageSpace:_touchPoint]];
     return [UIColor colorWithRed:pixel.r / 255.0f green:pixel.g / 255.0f blue:pixel.b / 255.0f alpha:1.0];
 }
 
@@ -208,7 +214,7 @@ PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
     CGContextAddEllipseInRect(ctx, CGRectMake(_touchPoint.x - _cursorRadius, _touchPoint.y - _cursorRadius, _cursorRadius * 2.0, _cursorRadius * 2.0));
     CGContextAddEllipseInRect(ctx, CGRectMake(center.x - _radius, center.y - _radius, _radius * 2.0, _radius * 2.0));
     CGContextStrokePath(ctx);
-
+    
     CGContextRestoreGState (ctx);
 }
 
@@ -254,7 +260,7 @@ PixelRGB ISColorWheel_HSBToRGB (float h, float s, float v)
     CGPoint center = CGPointMake(width / 2.0, height / 2.0);
     
     // Check if the touch is outside the wheel
-    if (ISColorWheel_PointDistance(center, point) < _radius)
+    if (MTGColourWheel_PointDistance(center, point) < _radius)
     {
         _touchPoint = point;
     }

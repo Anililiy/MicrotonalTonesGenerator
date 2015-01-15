@@ -108,7 +108,8 @@
                 label = [NSString stringWithFormat:@"%@-%ld",label, (long)key.index];
             }
             UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-            cell1.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell1.textLabel.textAlignment = NSTextAlignmentRight;
+            cell1.textLabel.font = [UIFont fontWithName:@"Frangelica" size:15.0];
             cell1.textLabel.text = label;
             
             return cell1;

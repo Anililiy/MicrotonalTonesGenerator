@@ -26,6 +26,7 @@
     _colourOfScale = colour;
     CGFloat alpha;
     BOOL success = [colour getHue:&_hue saturation:&_saturation brightness:&_brightness alpha:&alpha];
+    NSLog(@"COLOUR %d", success);
 }
 
 -(void)drawRect:(CGRect)rect {

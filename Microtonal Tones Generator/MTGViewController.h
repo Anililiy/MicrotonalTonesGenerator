@@ -27,7 +27,7 @@
 @property (strong, nonatomic)   IBOutlet UINavigationItem *scaleNavigationItem;
 @property (weak, nonatomic)     IBOutlet UIBarButtonItem  *sidebarButton;
 @property (weak, nonatomic)     IBOutlet UIBarButtonItem  *savedStatesSlideButton;
-@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *saveStateButon;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *saveButton;
 @property (strong, nonatomic)   IBOutlet UIBarButtonItem  *playNextStateButton;
 @property (strong, nonatomic)   IBOutlet UIBarButtonItem  *playPreviousStateButton;
 @property (strong, nonatomic)   IBOutlet UILabel          *frequencyLabel;
@@ -40,6 +40,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *ViewCover;
 @property (strong, nonatomic) IBOutlet UIView *ViewCover2;
+
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *downTheOctave;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *upTheOctave;
 @property (strong, nonatomic) IBOutlet UIToolbar *mainToolbar;

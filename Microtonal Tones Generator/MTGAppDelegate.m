@@ -15,19 +15,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //initiating Pd base
     [PdBase setDelegate:self];
     [self initAudio];
     
+    //design of application setting: sets main font to be Frangelica in every main object which contains text
+    //set for labels
     [[UILabel appearance] setFont:[UIFont fontWithName:@"Frangelica" size:18.0]];
+    //set for buttons
     [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setFont:[UIFont fontWithName:@"Frangelica" size:14.0]];
+    //set for navigation bars
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Frangelica" size:20.0f]}];
-    
-    NSDictionary *barButtonAppearanceDict  = @{NSFontAttributeName : [UIFont fontWithName:@"Frangelica" size:15.0]};
+    //set for bar buttons
+    NSDictionary *barButtonAppearanceDict  = @{NSFontAttributeName : [UIFont fontWithName:@"Frangelica" size:20.0]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
 
-    
+    // create inital settings of the app with NSUserDefaults class, which allows to save
+    // settings and properties related to application or user data.
+    // The objects will be saved in what is known as the iOS “defaults system”.
+    // The iOS defaults system is available throughout all of the code in app,
+    // and any data saved to the defaults system will persist through application sessions.
+    // This means that even if the user closes application or reboots their phone,
+    // the saved data will still be available the next time they open the app.
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    // Store the data
     [defaults setInteger:   12  forKey:@"deaultNumberOfSplits"  ];
     [defaults setFloat:     440 forKey:@"defaultFrequency"      ];
     [defaults setFloat:     0.7 forKey:@"initThemeHue"          ];
@@ -42,11 +53,21 @@
     NSLog(@"Data saved");
 
     self.authenticated = [defaults boolForKey:@"firstRun"];
-    //NSLog(@"Logged in: %hhi", self.authenticated);
     
     [self.window makeKeyAndVisible];
    
     return YES;
+}
+//initiating audio components, which allow Pure Data objects to be opened
+-(void)initAudio
+{
+    _audioController = [[PdAudioController alloc] init];
+    PdAudioStatus status = [self.audioController configurePlaybackWithSampleRate:44100 numberChannels:2 inputEnabled:YES mixingEnabled:NO];
+    if (status == PdAudioError) {
+        NSLog(@"failed to initialize audio component");
+    } else if (status == PdAudioPropertyChanged) {
+        NSLog(@"Audio properties changed.");
+    }
 }
 
 - (void)setAudioActive:(BOOL)active {
@@ -74,15 +95,5 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 
-}
--(void)initAudio
-{
-    _audioController = [[PdAudioController alloc] init];
-    PdAudioStatus status = [self.audioController configurePlaybackWithSampleRate:44100 numberChannels:2 inputEnabled:YES mixingEnabled:NO];
-    if (status == PdAudioError) {
-        NSLog(@"failed to initialize audio component");
-    } else if (status == PdAudioPropertyChanged) {
-        NSLog(@"Audio properties changed.");
-    }
 }
 @end

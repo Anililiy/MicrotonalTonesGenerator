@@ -45,7 +45,7 @@
     
     CGSize wheelSize = CGSizeMake(size.width * .9, size.width * .9);
     
-    _colorWheel = [[ISColorWheel alloc] initWithFrame:CGRectMake(size.width / 2 - wheelSize.width / 2,
+    _colorWheel = [[MTGColourWheel alloc] initWithFrame:CGRectMake(size.width / 2 - wheelSize.width / 2,
                                                                  size.height * .2,
                                                                  wheelSize.width,
                                                                  wheelSize.height*0.9)];
@@ -96,7 +96,7 @@
     [_wellView setBackgroundColor:_colorWheel.currentColor];
 }
 
-- (void)colorWheelDidChangeColor:(ISColorWheel *)colorWheel
+- (void)colorWheelDidChangeColor:(MTGColourWheel *)colorWheel
 {
     MTGCreateNewViewController* newView = [[MTGCreateNewViewController alloc] init];
     newView.colourButton.backgroundColor = _colorWheel.currentColor;

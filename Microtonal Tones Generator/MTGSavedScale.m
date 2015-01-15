@@ -9,38 +9,40 @@
 #import "MTGSavedScale.h"
 
 @implementation MTGSavedScale
-@synthesize splitsNumber, scaleNumber, freqInitial, hue, saturarion, brightness,savedStates, imageOfScale;
-@synthesize dateCreated, dateLastUpdated;
+@synthesize splitsNumber, scaleNumber, freqInitial, hue, saturation, brightness,savedStates, imageOfScale;
+@synthesize dateCreated, dateUpdated;
 
+//convert data into coded format which can be saved in NSUserDefaults
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    [encoder encodeInteger:scaleNumber  forKey:@"scaleNumber"];
-    [encoder encodeInteger:splitsNumber forKey:@"splitsNumber"];
-    [encoder encodeObject:savedStates   forKey:@"states"];
+    [encoder encodeInteger:scaleNumber  forKey:@"scaleNumber"     ];
+    [encoder encodeInteger:splitsNumber forKey:@"splitsNumber"    ];
+    [encoder encodeObject:savedStates   forKey:@"states"          ];
     [encoder encodeFloat:freqInitial    forKey:@"frequencyInitial"];
-    [encoder encodeFloat:hue            forKey:@"hue"];
-    [encoder encodeFloat:saturarion     forKey:@"saturation"];
-    [encoder encodeFloat:brightness     forKey:@"brightness"];
-    [encoder encodeObject:imageOfScale  forKey:@"image"];
-    [encoder encodeObject:dateCreated   forKey:@"dateCreated"];
-    [encoder encodeObject:dateLastUpdated   forKey:@"dateLastUpdated"];
+    [encoder encodeFloat:hue            forKey:@"hue"             ];
+    [encoder encodeFloat:saturation     forKey:@"saturation"      ];
+    [encoder encodeFloat:brightness     forKey:@"brightness"      ];
+    [encoder encodeObject:imageOfScale  forKey:@"image"           ];
+    [encoder encodeObject:dateCreated   forKey:@"dateCreated"     ];
+    [encoder encodeObject:dateUpdated   forKey:@"dateLastUpdated" ];
 
 }
 
+//convert encoded data into the format which can be used in application
 - (id)initWithCoder:(NSCoder *)decoder
 {
     if((self = [super init]))
     {
-        splitsNumber = [decoder decodeIntegerForKey:@"splitsNumber"];
-        scaleNumber  = [decoder decodeIntegerForKey:@"scaleNumber"];
-        freqInitial  = [decoder decodeFloatForKey:@"frequencyInitial"];
-        hue          = [decoder decodeFloatForKey:@"hue"];
-        saturarion   = [decoder decodeFloatForKey:@"saturation"];
-        brightness   = [decoder decodeFloatForKey:@"brightness"];
-        savedStates  = [decoder decodeObjectForKey:@"states"];
-        imageOfScale = [decoder decodeObjectForKey:@"image"];
-        dateCreated  = [decoder decodeObjectForKey:@"dateCreated"];
-        dateLastUpdated = [decoder decodeObjectForKey:@"dateLastUpdated"];
+        splitsNumber = [decoder decodeIntegerForKey:@"splitsNumber"     ];
+        scaleNumber  = [decoder decodeIntegerForKey:@"scaleNumber"      ];
+        freqInitial  = [decoder decodeFloatForKey:  @"frequencyInitial" ];
+        hue          = [decoder decodeFloatForKey:  @"hue"              ];
+        saturation   = [decoder decodeFloatForKey:  @"saturation"       ];
+        brightness   = [decoder decodeFloatForKey:  @"brightness"       ];
+        savedStates  = [decoder decodeObjectForKey: @"states"           ];
+        imageOfScale = [decoder decodeObjectForKey: @"image"            ];
+        dateCreated  = [decoder decodeObjectForKey: @"dateCreated"      ];
+        dateUpdated  = [decoder decodeObjectForKey: @"dateLastUpdated"  ];
     }
     return self;
 }

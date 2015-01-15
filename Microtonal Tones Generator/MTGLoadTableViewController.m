@@ -21,7 +21,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -93,10 +92,9 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd 'at' HH:mm"];
     
-    cell.nameOfScale.text = [NSString stringWithFormat:@"Session № %i", scale.scaleNumber];
+    cell.nameOfScale.text = [NSString stringWithFormat:@"Session № %li", (long)scale.scaleNumber];
     cell.dateLabel.text = [dateFormatter stringFromDate:scale.dateCreated];
-    //[NSString stringWithFormat:@"%@", scale.dateCreated];
-    cell.lastUpdateLabel.text = [dateFormatter stringFromDate:scale.dateLastUpdated];
+    cell.lastUpdateLabel.text = [dateFormatter stringFromDate:scale.dateUpdated];
     cell.imageView.frame = CGRectMake(100, 50, 100, 100);
     cell.imageView.image = scale.imageOfScale;
     

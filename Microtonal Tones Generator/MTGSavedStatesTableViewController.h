@@ -11,6 +11,7 @@
 #import "MTGViewController.h"
 
 @interface MTGSavedStatesTableViewController : UITableViewController
+
 @property NSMutableArray *savedStates;
 @property NSMutableArray *scales;
 @property NSString *str;
@@ -18,4 +19,5 @@
 @property MTGSavedScale *scaleUsed;
 
 -(void)dataFill;
+
 @end

@@ -9,13 +9,12 @@
 #import "MTGSavedScale.h"
 
 @implementation MTGSavedScale
-@synthesize splitsNumber, scaleNumber, freqInitial, hue, saturation, brightness,savedStates, imageOfScale;
+@synthesize splitsNumber, freqInitial, hue, saturation, brightness,savedStates, imageOfScale;
 @synthesize dateCreated, dateUpdated;
 
 //convert data into coded format which can be saved in NSUserDefaults
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    [encoder encodeInteger:scaleNumber  forKey:@"scaleNumber"     ];
     [encoder encodeInteger:splitsNumber forKey:@"splitsNumber"    ];
     [encoder encodeObject:savedStates   forKey:@"states"          ];
     [encoder encodeFloat:freqInitial    forKey:@"frequencyInitial"];
@@ -34,7 +33,6 @@
     if((self = [super init]))
     {
         splitsNumber = [decoder decodeIntegerForKey:@"splitsNumber"     ];
-        scaleNumber  = [decoder decodeIntegerForKey:@"scaleNumber"      ];
         freqInitial  = [decoder decodeFloatForKey:  @"frequencyInitial" ];
         hue          = [decoder decodeFloatForKey:  @"hue"              ];
         saturation   = [decoder decodeFloatForKey:  @"saturation"       ];

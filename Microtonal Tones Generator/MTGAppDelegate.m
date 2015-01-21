@@ -30,14 +30,15 @@
     NSDictionary *barButtonAppearanceDict  = @{NSFontAttributeName : [UIFont fontWithName:@"Frangelica" size:20.0]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
 
-    // create inital settings of the app with NSUserDefaults class, which allows to save
-    // settings and properties related to application or user data.
-    // The objects will be saved in what is known as the iOS “defaults system”.
-    // The iOS defaults system is available throughout all of the code in app,
-    // and any data saved to the defaults system will persist through application sessions.
-    // This means that even if the user closes application or reboots their phone,
-    // the saved data will still be available the next time they open the app.
-
+    /**
+     create inital settings of the app with NSUserDefaults class, which allows to save
+     settings and properties related to application or user data.
+     The objects will be saved in what is known as the iOS “defaults system”.
+     The iOS defaults system is available throughout all of the code in app,
+     and any data saved to the defaults system will persist through application sessions.
+     This means that even if the user closes application or reboots their phone,
+     the saved data will still be available the next time they open the app.
+     */
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:   12  forKey:@"deaultNumberOfSplits"  ];
     [defaults setFloat:     440 forKey:@"defaultFrequency"      ];
@@ -58,7 +59,13 @@
    
     return YES;
 }
-//initiating audio components, which allow Pure Data objects to be opened
+
+/**
+ Create and configure the audio controller on launch, and check the return value in case something
+ goes wrong. Log a warning and give up if the desired configuration is not available.The configuration
+ that we are requesting here, two output channels at CD sample rate with an ambient
+ audio session category, is common and will probably be available.
+ */
 -(void)initAudio
 {
     _audioController = [[PdAudioController alloc] init];

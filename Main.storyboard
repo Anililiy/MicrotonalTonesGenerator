@@ -308,7 +308,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create new scale" id="DtA-kt-mHT">
+                    <navigationItem key="navigationItem" title="Create new session" id="DtA-kt-mHT">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="bnR-o1-7Bs"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -491,7 +491,7 @@
                                     <barButtonItem title="Polyphony" width="183" style="plain" id="4gs-Yq-Jui">
                                         <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
-                                            <action selector="polifoniaStart:" destination="ijD-Df-uuV" id="NhW-nn-PTS"/>
+                                            <action selector="polphonyStart:" destination="ijD-Df-uuV" id="zi9-Wc-R3F"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="156" style="plain" systemItem="fixedSpace" id="JiG-Zv-yhr"/>
@@ -514,10 +514,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Session" id="BtU-As-ydt">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="Vzn-RD-Rda"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="menu.png" id="bPv-c1-jyd"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Session" id="BtU-As-ydt"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -531,9 +528,6 @@
                         <outlet property="playNextStateButton" destination="I8l-WL-E3d" id="TwH-gF-il0"/>
                         <outlet property="playPreviousStateButton" destination="fJF-NT-mKb" id="X3k-up-Jm3"/>
                         <outlet property="saveButton" destination="miA-2v-dAw" id="hDp-42-cWO"/>
-                        <outlet property="savedStatesSlideButton" destination="bPv-c1-jyd" id="ZWJ-Wo-m1N"/>
-                        <outlet property="scaleNavigationItem" destination="BtU-As-ydt" id="Inf-47-OoK"/>
-                        <outlet property="sidebarButton" destination="Vzn-RD-Rda" id="dYq-m7-QnJ"/>
                         <outlet property="startButtonItem" destination="4gs-Yq-Jui" id="spQ-4R-lpt"/>
                         <outlet property="upTheOctave" destination="wMx-1g-ajX" id="2C9-hA-Soo"/>
                     </connections>
@@ -766,8 +760,8 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Rde-gQ-pRX"/>
-        <segue reference="SqA-3s-bFS"/>
         <segue reference="eiG-kh-lQ6"/>
+        <segue reference="Rde-gQ-pRX"/>
+        <segue reference="BnV-kE-afT"/>
     </inferredMetricsTieBreakers>
 </document>

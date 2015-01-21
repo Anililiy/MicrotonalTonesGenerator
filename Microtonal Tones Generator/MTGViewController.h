@@ -7,52 +7,166 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "PdDispatcher.h"
 #import "SWRevealViewController.h"
+
 #import "MTGSavedScale.h"
 #import "MTGKeyObject.h"
 #import "MTGKeyButton.h"
 
 @interface MTGViewController : UIViewController{
-    PdDispatcher *dispatcher;
-    void *patch;
-    NSMutableArray *keyboard, *scales, *pressedKeys, *savedStates;
-    NSInteger numberOfSplits;
-    float hueOfKeys, saturOfKeys, brightOfKey, frequency, freqInitial;
-    BOOL creationState, sessionIsSaved, menuCalled;
-    MTGSavedScale* currentScale;
-    NSInteger scaleNumber, octaveNumber;
+    PdDispatcher *dispatcher /** publisher-subscriber (pub/sub) pattern for routing messages from Pd*/;
+    void *patch/** pd code inserted in iOS*/;
+    int dollarZero /** pointer to pd patch */;
+    NSMutableArray  *patches /** array of pd codes */,
+                    *keyboard  /** array containig all keys in the view */,
+                    *pressedKeys /** array of keys which were pressed */,
+                    *savedStates /** array of saved states */;
+    NSInteger numberOfSplits /** number of splits in session */;
+    
+    float  hueOfKeys /** hue of keys */,
+           saturOfKeys /** saturation of keys */,
+           brightOfKey /** brightness of keys */,
+           frequency /** initial frequency chosen by user */;
+    BOOL   creationState /** boolean value which shows if polyphony is active */,
+           sessionIsSaved /** boolean value which shows if session is saved */,
+           menuCalled /** boolean value which shows if either of menus was called */;
+    MTGSavedScale* currentScale /** current session holding values */;
 }
 
-@property (strong, nonatomic)   IBOutlet UINavigationItem *scaleNavigationItem;
-@property (weak, nonatomic)     IBOutlet UIBarButtonItem  *sidebarButton;
-@property (weak, nonatomic)     IBOutlet UIBarButtonItem  *savedStatesSlideButton;
-@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *saveButton;
-@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *playNextStateButton;
-@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *playPreviousStateButton;
-@property (strong, nonatomic)   IBOutlet UILabel          *frequencyLabel;
+@property (strong, nonatomic)   IBOutlet UIToolbar *changeOctave /** toolbar that allows to change an octave, while session is not saved */;
+@property (strong, nonatomic)   IBOutlet UIToolbar *mainToolbar /** main toolbar containing buttons */;
 
-@property(nonatomic) NSInteger indexOfFileLoading, numberOfSavedScales, indexOfStateChosen;
-@property(nonatomic) BOOL loading, stateSelected;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *saveButton /** button that saves session/state */;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *startButtonItem /** button that calls for polyphony state to be set/stopped*/;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *playNextStateButton /** button that calls for next saved state when pressed, if such state exists */;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *playPreviousStateButton /** button that calls for previous saved state when pressed, if such state exists */;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *downTheOctave /** button that moves frequency one octave down ba-dum tss */;
+@property (strong, nonatomic)   IBOutlet UIBarButtonItem  *upTheOctave /** button that moves frequency one octave up */;
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *startButtonItem;
-@property (strong, nonatomic) IBOutlet UIToolbar *changeOctave;
+@property (strong, nonatomic)   IBOutlet UILabel *frequencyLabel /** label that represents frequency */;
 
-@property (strong, nonatomic) IBOutlet UIView *ViewCover;
-@property (strong, nonatomic) IBOutlet UIView *ViewCover2;
+@property(nonatomic) NSInteger indexOfFileLoading /** index of session loading from MTGLoadTableViewController */;
+@property(nonatomic) NSInteger indexOfStateChosen /** index of state   loading from MTGSavedStatesTableViewController */;
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *downTheOctave;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *upTheOctave;
-@property (strong, nonatomic) IBOutlet UIToolbar *mainToolbar;
+@property(nonatomic) BOOL loading /** boolean set true if session is loading from MTGLoadTableViewController*/;
+@property(nonatomic) BOOL stateSelected /** boolean set true if state is loading from MTGSavedStatesTableViewController */;
+
+@property (strong, nonatomic) IBOutlet UIView *ViewCover  /** view on the top of View Controller of a size of iPad screen that, if left menu is called, covers the view */;
+@property (strong, nonatomic) IBOutlet UIView *ViewCover2 /** view on the top of View Controller of a size of iPad screen that, if left menu is called, covers the view */;
 
 
+/** Move up the octave by multiplying frequency value on 2 */
 - (IBAction)rightArrowPressed:(id)sender;
+
+/** Move down the octave by dividing frequency value by 2 */
 - (IBAction)leftArrowPressed:(id)sender;
+
+/**
+	Save state by archiving and updating NSUserDefaults
+ */
 - (IBAction)saveState:(id)sender;
 
-- (IBAction)polifoniaStart:(id)sender;
+/**
+	<#Description#>
+	@param sender <#sender description#>
+	@returns <#return value description#>
+ */
+- (IBAction)polphonyStart:(id)sender;
+
+/**
+	<#Description#>
+	@param sender <#sender description#>
+	@returns <#return value description#>
+ */
 - (IBAction)playNextStateAction:(id)sender;
+
+
+/**
+	<#Description#>
+	@param sender <#sender description#>
+	@returns <#return value description#>
+ */
 - (IBAction)playPreviousStateAction:(id)sender;
 
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+
+- (void)playNoteShort:(float)freqValue;
+/**
+	<#Description#>
+	@param f <#f description#>
+	@param index <#index description#>
+	@returns <#return value description#>
+ */
+- (void)playNoteLong:(float)f at:(NSInteger)index;
+/**
+	<#Description#>
+	@param aButton <#aButton description#>
+	@returns <#return value description#>
+ */
+- (void)buttonClicked:(UIButton*)aButton;
+/**
+	<#Description#>
+	@param index <#index description#>
+	@returns <#return value description#>
+ */
+- (void)createButton:(int)index;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+- (void)clearUp;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+- (void)representStateSeleted;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+- (void)initialiseValues;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+- (void)openRightMenu;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+- (void)openLeftMenu;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+- (void)changeSize;
+
+/**
+	Method called after the view controller has loaded its view hierarchy into memory. 
+    In this method all main initialization is performed:
+ */
+- (void)viewDidLoad;
+
+/**
+	function that calculates frequency of the note
+    [frequency of a note] = [initial frequency]*
+    2^([position in the array relative to the key with initial frequency]/[number of splits])
+
+	@param position position in the array relative to the key with initial frequency
+	@param splits number of splits on chosen session
+	@param f0 initial frequency
+	@returns frequency of the note, key
+ */
+float calcFreqOfNote (NSInteger position, NSInteger splits, float f0);
+
+/**
+    takes screenshot of the session
+ */
+- (void)takeScreenshot;
 
 @end

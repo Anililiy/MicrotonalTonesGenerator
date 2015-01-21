@@ -8,141 +8,129 @@
 
 #import "MTGViewController.h"
 #import "MTGAppDelegate.h"
+#import "MTGCreateNewViewController.h"
 
 #import "PdFile.h"
 #import "PdBase.h"
-
-//#import "MTGSavedStatesTableViewController.h"
-#import "MTGCreateNewViewController.h"
 
 NSString *const kTestPatchName   = @"test2.pd";
 NSString *const kShortPatchName  = @"KeyNote.pd";
 NSString *const kShortPatchName2 = @"KeyNote3.pd";
 
-@interface MTGViewController ()
-
-@property (nonatomic, retain) NSMutableArray *patches;
-@property (nonatomic, assign) int dollarZero;
-@end
-
 @implementation MTGViewController
 
-@synthesize patches;
-@synthesize dollarZero = dollarZero_;
 @synthesize loading, indexOfFileLoading, saveButton, startButtonItem;
-@synthesize numberOfSavedScales, stateSelected, indexOfStateChosen, frequencyLabel;
+@synthesize stateSelected, indexOfStateChosen, frequencyLabel;
 @synthesize playNextStateButton, playPreviousStateButton, ViewCover, ViewCover2;
 @synthesize upTheOctave, downTheOctave, changeOctave;
 
+
+// function that calculates frequency of the note
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
-    
-    float a = powf(2, 1/((float)(splits)));
-    float n = position;
-    float frequencyOfNote = f0 * (powf(a,n));
+
+    float frequencyOfNote = f0 * powf(2, position/((float)(splits)));
     
     NSLog(@"frequency calculated: %f", frequencyOfNote);
     
     return frequencyOfNote;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    
-    }
-    return self;
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [self initialiseValues];
-}
-
 - (void)viewDidLoad{
-    
+
     [super viewDidLoad];
-       if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
+    
+    /**
+       -  check if app loads for the first time or if there has been no saved sessions selected, nor any newly created, but not saved, and if it is true, represent MTGCreateNewViewController
+     */
+    if(![(MTGAppDelegate*)[[UIApplication sharedApplication] delegate] authenticated]) {
            SWRevealViewController *revealViewController = self.revealViewController;
            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
            MTGCreateNewViewController *frontViewController = [sb instantiateViewControllerWithIdentifier:@"myViewController"];
            UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
            [revealViewController setFrontViewController:frontNavigationController animated:YES];
     }
- else{
-        [self changeSize];
+    else{
+        //primary settings of Session View Controller
         
-        [ViewCover setHidden:true];
+        /**
+           - create two views on the top of View Controller of a size of iPad screen so that in if menus called cover appear initially set hidden because no menu called
+         */
+        [self changeSize];
+        [ViewCover  setHidden:true];
         [ViewCover2 setHidden:true];
-        //The setup code (in viewDidLoad in your view controller)
+        
+        /**
+            - add Gesture Recognizers to cover views so that if they pressed menus would be closed and if menus open then those views to be shown
+         */
         UITapGestureRecognizer *singleFingerTap =
         [[UITapGestureRecognizer alloc] initWithTarget:self
                                                 action:@selector(openLeftMenu)];
         [ViewCover addGestureRecognizer:singleFingerTap];
-        
+
         UITapGestureRecognizer *singleFingerTap2 =
         [[UITapGestureRecognizer alloc] initWithTarget:self
                                                 action:@selector(openRightMenu)];
         [ViewCover2 addGestureRecognizer:singleFingerTap2];
 
-        //setting of prog
-        //
-        [self customSetup];
+        /** - allocate Navigation Item Bar Buttons to open and show menus */
+        SWRevealViewController *revealViewController = self.revealViewController;
+        
+        if ( revealViewController )
+        {
+            UIBarButtonItem *barBtnMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openLeftMenu)];
+            barBtnMenu.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+            
+            self.navigationItem.leftBarButtonItem = barBtnMenu;
+            
+            UIBarButtonItem *barBtnStates = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openRightMenu)];
+            barBtnStates.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+            
+            self.navigationItem.rightBarButtonItem = barBtnStates;
+            
+            [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+        }
+        
+        /** - load values passed from other scenes using NSUserDefaults */
         [self initialiseValues];
 
         creationState = false;
-        menuCalled = false;
-        octaveNumber = 0;
-     
+        menuCalled    = false;
+
         if (savedStates.count>0){
             self.navigationItem.rightBarButtonItem.enabled = true;
         }
         else {
             self.navigationItem.rightBarButtonItem.enabled = false;
         }
-     
-        // sound creation
+        
+        /**
+          - register a dispatcher object with libpd. It logs status messages that Pd prints to the console. After registering the receiver, open short patch.
+         */
         dispatcher = [[PdDispatcher alloc]init];
+
         [PdBase setDelegate:dispatcher];
         patch = [PdBase openFile:kShortPatchName path:[[NSBundle mainBundle] resourcePath]];
         if (!patch) {
             NSLog(@"Failed to open patch!");
         }
-        patches = [NSMutableArray array];
-        //
         
-        keyboard = [NSMutableArray array];
+        /** - initialize arrays */
+        patches     = [NSMutableArray array];
+        keyboard    = [NSMutableArray array];
         pressedKeys = [NSMutableArray array];
         
+        /** - fill patches array */
         for (int i = 0; i<=numberOfSplits; i++){
             [patches addObject:@"1"];
              [self createButton: i];
         }
         NSLog(@"Patches: %lu", (unsigned long)[patches count]);
-        
-     
+
+        /**  - represent selected state when passing from saved states menu */
         [self representStateSeleted];
-        frequencyLabel.text = [NSString stringWithFormat:@"fo = %4.2f Hz", frequency];
-        freqInitial = frequency;
-        [self.mainToolbar setBarTintColor:[UIColor colorWithHue:hueOfKeys saturation:(saturOfKeys/4) brightness:brightOfKey alpha:0.1]];
-
-    }
-}
-
-- (void)customSetup{
-    SWRevealViewController *revealViewController = self.revealViewController;
-    
-    if ( revealViewController )
-    {
-        UIBarButtonItem *barBtnMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openLeftMenu)];
-        barBtnMenu.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
-
-        self.navigationItem.leftBarButtonItem = barBtnMenu;
         
-        UIBarButtonItem *barBtnStates = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openRightMenu)];
-        barBtnStates.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
-        
-        self.navigationItem.rightBarButtonItem = barBtnStates;
-        
-        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+        /**  - represent initial frequency on the screen */
+        frequencyLabel.text = [NSString stringWithFormat:@"fo = %4.1f Hz", frequency];
     }
 }
 
@@ -201,7 +189,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [reveal rightRevealToggleAnimated:YES];
 }
 
--(void) initialiseValues{
+- (void)initialiseValues{
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     currentScale = [[MTGSavedScale alloc]init];
@@ -221,7 +209,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         brightOfKey = currentScale.brightness;
         loading = false;
         sessionIsSaved = true;
-        scaleNumber= currentScale.scaleNumber;
         
         [defaults setInteger:numberOfSplits forKey:     @"numberOfSplits"   ];
         [defaults setFloat:frequency        forKey:     @"frequency"        ];
@@ -229,7 +216,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [defaults setFloat:saturOfKeys      forKey:     @"themeSat"         ];
         [defaults setFloat:brightOfKey      forKey:     @"themeBrg"         ];
         [defaults setBool:sessionIsSaved    forKey:     @"saved"            ];
-        [defaults setInteger:scaleNumber    forKey:     @"currentScale"     ];
         [defaults setInteger:indexOfFileLoading forKey: @"currentScaleIndex"];
         [defaults synchronize];
          
@@ -244,7 +230,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         hueOfKeys       = currentScale.hue;
         saturOfKeys     = currentScale.saturation;
         brightOfKey     = currentScale.brightness;
-        scaleNumber     = currentScale.scaleNumber;
         
     }
     else{
@@ -253,7 +238,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         hueOfKeys       =  [defaults floatForKey:   @"themeHue"         ];
         saturOfKeys     =  [defaults floatForKey:   @"themeSat"         ];
         brightOfKey     =  [defaults floatForKey:   @"themeBrg"         ];
-        scaleNumber     =  [defaults integerForKey: @"currentScale"     ];
         
         int scalePositionInArray = [archivedScales count];
         [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
@@ -271,13 +255,13 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     currentScale.hue = hueOfKeys;
     currentScale.brightness = brightOfKey;
     currentScale.saturation = saturOfKeys;
-    currentScale.scaleNumber = scaleNumber;
     currentScale.savedStates = savedStates;
     if (sessionIsSaved) {
         [changeOctave setHidden:true];
         [frequencyLabel setHidden:true];
         saveButton.enabled = false;
     }
+    [self.mainToolbar setBarTintColor:[UIColor colorWithHue:hueOfKeys saturation:(saturOfKeys/4) brightness:brightOfKey alpha:0.1]];
 
 }
 
@@ -326,7 +310,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 #pragma mark - buttons regulation
-- (IBAction)polifoniaStart:(id)sender {
+- (IBAction)polphonyStart:(id)sender {
     
     if (!creationState){
         [startButtonItem setTitle:@"Stop polyphony"];
@@ -499,7 +483,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     NSLog(@"States saved %@", savedStates);
 
-    currentScale.scaleNumber = scaleNumber;
     currentScale.savedStates = savedStates;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -544,20 +527,20 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (void)takeScreenshot {
-    //Define the dimensions of the screenshot you want to take (the entire screen in this case)
+    /** - define the dimensions of the screenshot */
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
     
     CGSize size =  CGRectMake(10, 110, screenWidth , 7*screenHeight/8).size;
-    // Create the screenshot
+    /** - create the screenshot */
     UIGraphicsBeginImageContext(size);
-    // Put everything in the current view into the screenshot
+    /** - put everything in the current view into the screenshot */
     [[self.view layer] renderInContext:UIGraphicsGetCurrentContext()];
-    // Save the current image context info into a UIImage
+    /** - save the current image context info into a UIImage */
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+    /** - set the image of the session*/
     currentScale.imageOfScale = newImage;
 }
 

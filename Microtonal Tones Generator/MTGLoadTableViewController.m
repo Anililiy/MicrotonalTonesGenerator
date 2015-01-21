@@ -92,7 +92,6 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd 'at' HH:mm"];
     
-    cell.nameOfScale.text = [NSString stringWithFormat:@"Session № %li", (long)scale.scaleNumber];
     cell.dateLabel.text = [dateFormatter stringFromDate:scale.dateCreated];
     cell.lastUpdateLabel.text = [dateFormatter stringFromDate:scale.dateUpdated];
     cell.imageView.frame = CGRectMake(100, 50, 100, 100);
@@ -166,7 +165,6 @@
         MTGViewController *detailViewController = [segue destinationViewController];
         detailViewController.indexOfFileLoading = index;
         detailViewController.loading = true;
-        detailViewController.numberOfSavedScales = [scales count];
     }
 }
 

@@ -11,7 +11,20 @@
 
 @interface MTGKeyObject : NSObject
 
-@property NSInteger index;
-@property float keyFrequency;
+@property NSInteger index /** key (button) position in the array created */;
+@property float keyFrequency /** frequency of the key */;
+
+/**
+	convert data into coded format which can be saved in NSUserDefaults
+	@param encoder Abstract class declares the interface used by concrete subclasses to transfer objects and other values between memory and some other format
+ */
+- (void)encodeWithCoder:(NSCoder *)encoder;
+
+/**
+	convert encoded data into the format which can be used in application
+	@param decoder Abstract class declares the interface used by concrete subclasses to transfer objects and other values between memory and some other format
+	@returns self
+ */
+- (id)initWithCoder:(NSCoder *)decoder;
 
 @end

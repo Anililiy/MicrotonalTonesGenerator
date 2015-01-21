@@ -8,10 +8,6 @@
 
 #import "MTGSavedStatesTableViewController.h"
 
-@interface MTGSavedStatesTableViewController ()
-
-@end
-
 @implementation MTGSavedStatesTableViewController
 @synthesize savedStates,str, indexOfScaleSelected, scales, indexOfScale, scaleUsed;
 

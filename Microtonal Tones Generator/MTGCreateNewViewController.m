@@ -11,13 +11,6 @@
 
 #import "MTGAppDelegate.h"
 
-@interface MTGCreateNewViewController ()
-
-@property NSArray *colorCollection;
-@property (nonatomic, strong) NSArray* colorButtons;
-
-@end
-
 @implementation MTGCreateNewViewController
 @synthesize popoverController, colorCollection, frequencyInput;
 @synthesize freqButtons,frequencyLabel,freqInputSlider,splitLabel,splitSlider,chooseTheme,chosenFrequency,frequency,split,colourHue,colourSat, colourBrg, freqTextField;

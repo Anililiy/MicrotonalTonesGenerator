@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
 
-@interface MTGSidebarTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface MTGSidebarTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
+    NSArray* menuItems;
+    NSArray* section2;
+}
 
 @end

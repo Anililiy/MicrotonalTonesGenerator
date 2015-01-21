@@ -9,15 +9,12 @@
 #import "MTGSaveTableViewCell.h"
 
 @implementation MTGSaveTableViewCell
+
 @synthesize freqLabel=_freqLabel;
 @synthesize splitLabel=_splitLabel;
 @synthesize nameOfScale=_nameOfScale;
-@synthesize dateLabel=_dateLabel;
+@synthesize dateLabel= _dateLabel;
 @synthesize imageView = _imageView;
 @synthesize lastUpdateLabel=_lastUpdateLabel;
-
-- (void)awakeFromNib {
-    // Initialization code
-}
 
 @end

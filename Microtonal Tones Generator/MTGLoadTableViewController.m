@@ -11,10 +11,6 @@
 #import "MTGViewController.h"
 #import "MTGAppDelegate.h"
 
-@interface MTGLoadTableViewController ()
-
-@end
-
 @implementation MTGLoadTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style

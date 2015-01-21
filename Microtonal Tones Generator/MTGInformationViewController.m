@@ -9,10 +9,6 @@
 #import "MTGInformationViewController.h"
 #import "SWRevealViewController.h"
 
-@interface MTGInformationViewController ()
-
-@end
-
 @implementation MTGInformationViewController
 
 - (void)viewDidLoad {

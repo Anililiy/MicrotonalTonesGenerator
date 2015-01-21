@@ -13,6 +13,9 @@
 
 @interface MTGCreateNewViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>
 
+@property NSArray *colorCollection;
+@property (nonatomic, strong) NSArray* colorButtons;
+
 @property    IBOutletCollection(UIButton) NSArray *freqButtons;
 @property   IBOutlet UILabel *frequencyLabel;
 @property   IBOutlet UISlider *freqInputSlider;

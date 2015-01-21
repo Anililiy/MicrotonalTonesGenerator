@@ -29,6 +29,8 @@
 @property (nonatomic, strong) NSArray *colorCollection;
 @property UIView* wellView;
 
+@property (nonatomic, strong) NSArray* colorButtons;
+
 @property (nonatomic, weak) id <MTGColoursViewControllerDelegate> delegate;
 
 @property float colourChosen;

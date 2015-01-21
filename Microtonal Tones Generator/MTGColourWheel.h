@@ -33,6 +33,7 @@
 @property(nonatomic, assign)bool continuous;
 @property(nonatomic, assign)id <MTGColourWheelDelegate> delegate;
 
+
 - (void)updateImage;
 - (UIColor*)currentColor;
 - (void)setCurrentColor:(UIColor*)color;

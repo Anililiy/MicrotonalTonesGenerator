@@ -79,7 +79,6 @@ PixelRGB MTGColourWheel_HSBToRGB (float h, float s, float v)
 @interface MTGColourWheel ()
 
 - (PixelRGB)colorAtPoint:(CGPoint)point;
-
 - (CGPoint)viewToImageSpace:(CGPoint)point;
 
 

@@ -9,11 +9,6 @@
 #import "MTGColoursViewController.h"
 #import "MTGCreateNewViewController.h"
 
-@interface MTGColoursViewController ()
-@property (nonatomic, strong) NSArray* colorButtons;
-
-@end
-
 @implementation MTGColoursViewController
 
 @synthesize colours, wellView;

@@ -9,12 +9,6 @@
 #import "MTGSidebarTableViewController.h"
 #import "MTGAppDelegate.h"
 
-@interface MTGSidebarTableViewController (){
-    NSArray* menuItems;
-    NSArray* section2;
-}
-@end
-
 @implementation MTGSidebarTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style

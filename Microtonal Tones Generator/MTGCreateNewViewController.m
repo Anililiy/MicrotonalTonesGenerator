@@ -197,15 +197,15 @@
         if (button == aButton) button.selected = true;
         else button.selected = false;
     }
-    if (chosenFrequency != buttonName) {
-        chosenFrequency = buttonName;
-        NSLog(@"Frequency selected: %@", chosenFrequency);
-        frequency = [chosenFrequency floatValue];
-    }
+    
+    chosenFrequency = buttonName;
+    NSLog(@"Frequency selected: %@", chosenFrequency);
+    frequency = [chosenFrequency floatValue];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
     freqTextField.text  = [NSString stringWithFormat:@"%4.0f", frequency];
     freqTextField.backgroundColor = nil;
     [freqTextField resignFirstResponder];
+    
     continueButton.enabled = true;
 }
 

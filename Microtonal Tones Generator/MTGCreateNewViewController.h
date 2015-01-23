@@ -18,10 +18,10 @@
 
 @property    IBOutletCollection(UIButton) NSArray *freqButtons;
 @property   IBOutlet UILabel *frequencyLabel;
-@property   IBOutlet UISlider *freqInputSlider;
 @property   NSString* chosenFrequency;
 @property   CGFloat frequency;
 @property (strong, nonatomic) IBOutlet UITextField *freqTextField;
+@property (strong, nonatomic) IBOutlet UIButton *continueButton;
 
 @property BOOL menuCalled, frequencyInput;
 
@@ -46,7 +46,6 @@
 - (IBAction)showColourPopup:(id)sender;
 - (IBAction)splitInputChanged:(UISlider *)slider;
 - (IBAction)frequencyInputTxtField:(id)sender;
-- (IBAction)validateFreq:(id)sender;
 - (IBAction)releaseFreqBts:(id)sender;
 
 @end

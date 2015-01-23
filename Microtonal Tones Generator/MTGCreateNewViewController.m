@@ -13,7 +13,7 @@
 
 @implementation MTGCreateNewViewController
 @synthesize popoverController, colorCollection, frequencyInput;
-@synthesize freqButtons,frequencyLabel,freqInputSlider,splitLabel,splitSlider,chooseTheme,chosenFrequency,frequency,split,colourHue,colourSat, colourBrg, freqTextField;
+@synthesize freqButtons,frequencyLabel,splitLabel,splitSlider,chooseTheme,chosenFrequency,frequency,split,colourHue,colourSat, colourBrg, freqTextField, continueButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,6 +43,8 @@
     [self createColorsArray ];
     [self setupColorButtons ];
     [self customSetup       ];
+
+    continueButton.enabled = true;
     
     [_ViewCover setHidden:true];
         //The setup code (in viewDidLoad in your view controller)
@@ -160,69 +162,6 @@
 
     [self setColor:[UIColor colorWithHue:button.hue saturation:button.saturation brightness:button.brightness alpha:1.0]];
 }
-
-- (IBAction)chooseFreq:(UIButton*)aButton {
-    NSString *buttonName = [aButton titleForState:UIControlStateNormal];
-    
-    for (UIButton* button in freqButtons){
-        if (button == aButton) button.selected = true;
-        else button.selected = false;
-    }
-    if (chosenFrequency != buttonName) {
-        chosenFrequency = buttonName;
-        NSLog(@"Frequency selected: %@", chosenFrequency);
-        frequency = [chosenFrequency floatValue];
-        frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-        freqTextField.text  = [NSString stringWithFormat:@"%4.0f", frequency];
-        freqTextField.backgroundColor = nil;
-        [freqTextField resignFirstResponder];
-    }
-}
-
-- (IBAction)frequencyInputTxtField:(id)sender {
-    frequency = [[freqTextField text] integerValue];
-    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-    [sender resignFirstResponder];
-
-}
--(void)dismissKeyboard {
-   if ([freqTextField isFirstResponder]){
-       frequency = [[freqTextField text] integerValue];
-       frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-       [freqTextField resignFirstResponder];
-   }
-}
-
-- (IBAction)validateFreq:(id)sender {
-    BOOL numberInputOnly = true;
-    char y = [freqTextField.text characterAtIndex:(freqTextField.text.length-1)];
-    if (y < '0' || y > '9'){
-        NSLog(@"wrong input");
-        numberInputOnly = false;
-    }
-    
-    if (freqTextField.text.integerValue < 100 || freqTextField.text.integerValue> 600 || !numberInputOnly){
-        freqTextField.backgroundColor = [UIColor redColor];
-        frequencyInput = false;
-        frequencyLabel.text = @"f value should be between 100 and 600";
-    }
-    else{
-        freqTextField.backgroundColor = nil;
-        frequencyInput = true;
-        frequency = [[freqTextField text] integerValue];
-        frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-    }
-    
-}
-
-- (IBAction)releaseFreqBts:(id)sender {
-    for (UIButton* button in freqButtons)button.selected = false;
-}
-
--(IBAction)splitInputChanged:(UISlider *)slider{
-    split = slider.value;
-    splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
-}
 -(void)setColor:(UIColor*)color{
     CGFloat hue;
     CGFloat saturation;
@@ -251,8 +190,73 @@
                        nil];
 }
 
-- (IBAction)createIt:(id)sender {
+- (IBAction)chooseFreq:(UIButton*)aButton {
+    NSString *buttonName = [aButton titleForState:UIControlStateNormal];
     
+    for (UIButton* button in freqButtons){
+        if (button == aButton) button.selected = true;
+        else button.selected = false;
+    }
+    if (chosenFrequency != buttonName) {
+        chosenFrequency = buttonName;
+        NSLog(@"Frequency selected: %@", chosenFrequency);
+        frequency = [chosenFrequency floatValue];
+    }
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    freqTextField.text  = [NSString stringWithFormat:@"%4.0f", frequency];
+    freqTextField.backgroundColor = nil;
+    [freqTextField resignFirstResponder];
+    continueButton.enabled = true;
+}
+
+- (IBAction)frequencyInputTxtField:(id)sender {
+    frequency = [[freqTextField text] integerValue];
+    frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    [sender resignFirstResponder];
+    [self validateFreq];
+}
+
+-(void)dismissKeyboard {
+   if ([freqTextField isFirstResponder]){
+       frequency = [[freqTextField text] integerValue];
+       frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+       [freqTextField resignFirstResponder];
+       [self validateFreq];
+   }
+}
+
+- (void)validateFreq{
+    BOOL numberInputOnly = true;
+    char y = [freqTextField.text characterAtIndex:(freqTextField.text.length-1)];
+    if (y < '0' || y > '9'){
+        NSLog(@"wrong input");
+        numberInputOnly = false;
+    }
+    
+    if (freqTextField.text.integerValue < 100 || freqTextField.text.integerValue> 600 || !numberInputOnly){
+        freqTextField.backgroundColor = [UIColor redColor];
+        frequencyLabel.text = @"f value should be between 100 and 600";
+        continueButton.enabled = false;
+    }
+    else{
+        freqTextField.backgroundColor = nil;
+        continueButton.enabled = true;
+        frequency = [[freqTextField text] integerValue];
+        frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
+    }
+}
+
+- (IBAction)releaseFreqBts:(id)sender {
+    for (UIButton* button in freqButtons)button.selected = false;
+}
+
+-(IBAction)splitInputChanged:(UISlider *)slider{
+    split = slider.value;
+    splitLabel.text = [NSString stringWithFormat:@"%li", (long)split];
+}
+
+- (IBAction)createIt:(id)sender {
+   
     // Store the data
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:YES forKey:@"firstRun"];
@@ -289,7 +293,6 @@
         UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
         [revealViewController setFrontViewController:frontNavigationController animated:YES];
     }
-    
 }
 
 

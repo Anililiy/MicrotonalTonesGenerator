@@ -88,10 +88,9 @@
  */
 - (void)playNoteShort:(float)freqValue;
 /**
-	<#Description#>
-	@param f <#f description#>
-	@param index <#index description#>
-	@returns <#return value description#>
+	sends a signal to PD to create sound with specified frequency
+	@param f frequency of the note
+	@param index position of key in array
  */
 - (void)playNoteLong:(float)f at:(NSInteger)index;
 /**
@@ -159,9 +158,7 @@
  */
 float calcFreqOfNote (NSInteger position, NSInteger splits, float f0);
 
-/**
-    takes screenshot of the session
- */
+/** takes screenshot of the session */
 - (void)takeScreenshot;
 
 @end

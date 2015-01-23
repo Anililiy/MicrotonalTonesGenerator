@@ -275,7 +275,6 @@
                                 <connections>
                                     <action selector="frequencyInputTxtField:" destination="5SG-oa-Q8B" eventType="editingDidEndOnExit" id="tCU-LH-vN3"/>
                                     <action selector="releaseFreqBts:" destination="5SG-oa-Q8B" eventType="editingDidBegin" id="bYy-uc-ODc"/>
-                                    <action selector="validateFreq:" destination="5SG-oa-Q8B" eventType="editingChanged" id="zmd-v1-bTB"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-np-wNc">
@@ -325,6 +324,7 @@
                         <outlet property="ViewCover" destination="Ulx-RT-m9b" id="0za-5u-nIX"/>
                         <outlet property="chooseTheme" destination="Nng-wS-NQW" id="W3E-Sb-vRd"/>
                         <outlet property="colourButton" destination="Nng-wS-NQW" id="zQY-pq-iUn"/>
+                        <outlet property="continueButton" destination="SK7-hM-glq" id="exC-9z-8e6"/>
                         <outlet property="freqTextField" destination="NK2-xL-dVY" id="bSL-KO-xga"/>
                         <outlet property="frequencyLabel" destination="NXi-6C-dZL" id="qVQ-JI-EFG"/>
                         <outlet property="sidebarButton" destination="bnR-o1-7Bs" id="lnO-8N-6mb"/>

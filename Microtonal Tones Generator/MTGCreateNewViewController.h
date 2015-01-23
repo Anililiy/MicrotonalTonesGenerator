@@ -33,7 +33,7 @@
 @property  NSInteger split;
 @property  CGFloat colourHue;
 @property  CGFloat colourSat;
-@property CGFloat colourBrg;
+@property  CGFloat colourBrg;
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -45,7 +45,6 @@
 - (IBAction)createIt:(id)sender;
 - (IBAction)showColourPopup:(id)sender;
 - (IBAction)splitInputChanged:(UISlider *)slider;
-//- (IBAction)frequencyInputChanged:(UISlider *)slider;
 - (IBAction)frequencyInputTxtField:(id)sender;
 - (IBAction)validateFreq:(id)sender;
 - (IBAction)releaseFreqBts:(id)sender;

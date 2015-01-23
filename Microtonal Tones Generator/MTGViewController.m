@@ -142,8 +142,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     frame.size.width  = screenRect.size.width;
     frame.origin = CGPointMake (0, 0);
     ViewCover.frame = frame;
+    ViewCover2.frame = frame;
     
     [self.view bringSubviewToFront:ViewCover];
+    [self.view bringSubviewToFront:ViewCover2];
 }
 
 -(void)openLeftMenu{
@@ -159,16 +161,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 -(void)openRightMenu{
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:20.0];
-    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor =[UIColor whiteColor];
-    label.text=self.title;
-    self.navigationItem.titleView = label;
-    
+    [self clearUp];
     menuCalled = !menuCalled;
     [self.view bringSubviewToFront:ViewCover2];
 
@@ -183,7 +176,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     saveButton.enabled = false;
     playPreviousStateButton.enabled = false;
     playNextStateButton.enabled = false;
-    [self clearUp];
     
     SWRevealViewController *reveal = self.revealViewController;
     [reveal rightRevealToggleAnimated:YES];
@@ -344,34 +336,27 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 -(void)createButton:(int)index{
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    
-    float saturation = saturOfKeys*(index+1)/((float)numberOfSplits+1);
-    float brightnesOfKey = brightOfKey;
-    if (brightOfKey<0.09) brightnesOfKey=1.0*(index+1)/((float)numberOfSplits+1);
 
     MTGKeyButton* aButton =[[MTGKeyButton alloc]init];
     [aButton setTag:index];
     
     [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
 
-
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
-    [aButton setTitleColor:[UIColor colorWithHue:hueOfKeys saturation:saturation brightness:(1-brightnesOfKey) alpha:1.0] forState:UIControlStateNormal];
     aButton.titleLabel.font =[UIFont fontWithName: @"Frangelica" size:30 ];
-    aButton.titleLabel.textColor = [UIColor blackColor];
     
     aButton.hue = hueOfKeys;
-    aButton.saturation = saturation;
-    aButton.brightness = brightnesOfKey;
+    aButton.saturation = 0.1+saturOfKeys*(index+1)/((float)numberOfSplits+1);;
+    aButton.brightness = brightOfKey;
     
-    float keyWidth, keyHeight, xPosition, yPosition;
-    float difference = 0.5;
-    int maxNoKeys = 9;
-    long nRows = (numberOfSplits+1)/maxNoKeys+1;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    CGFloat keyWidth, keyHeight, xPosition, yPosition;
+    CGFloat difference = 0.5;
+    NSInteger maxNoKeys = 9;
+    CGFloat nRows = (numberOfSplits+1)/maxNoKeys+1;
     keyHeight = 3*(screenHeight/nRows)/4;
 
     if (numberOfSplits<maxNoKeys){

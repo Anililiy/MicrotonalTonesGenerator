@@ -69,32 +69,23 @@
 - (IBAction)saveState:(id)sender;
 
 /**
-	<#Description#>
-	@param sender <#sender description#>
-	@returns <#return value description#>
+	perform actions that should be taken when user press startButtonItem to start polyphony state
  */
 - (IBAction)polphonyStart:(id)sender;
 
 /**
-	<#Description#>
-	@param sender <#sender description#>
-	@returns <#return value description#>
+  action of playNextStateButton which removes the current saved state and opens next one in the array of savedStates
  */
 - (IBAction)playNextStateAction:(id)sender;
 
-
 /**
-	<#Description#>
-	@param sender <#sender description#>
-	@returns <#return value description#>
+	action of playPreviousStateButton which removes the current saved state and opens previous one in the array of savedStates
  */
 - (IBAction)playPreviousStateAction:(id)sender;
 
 /**
-	<#Description#>
-	@returns <#return value description#>
+	sends a signal to PD to create sound with specified frequency
  */
-
 - (void)playNoteShort:(float)freqValue;
 /**
 	<#Description#>
@@ -125,24 +116,28 @@
 	@returns <#return value description#>
  */
 - (void)representStateSeleted;
+
 /**
-	<#Description#>
-	@returns <#return value description#>
+	when MTGViewController is loaded values have to be assigned
+ 
+	@returns nothing
  */
 - (void)initialiseValues;
 /**
-	<#Description#>
-	@returns <#return value description#>
+    calls for SWRevealViewController to open right menu - MTGSavedStatesTableViewController
+    also turns off all sound production and releasing all keys pressed
+    and makes ViewCover2 visible, so it covers all view
  */
 - (void)openRightMenu;
 /**
-	<#Description#>
-	@returns <#return value description#>
+    calls for SWRevealViewController to open left menu - MTGSidebarTableViewController
+    also turns off all sound production and releasing all keys pressed
+    makes ViewCover visible, so it covers all view
  */
 - (void)openLeftMenu;
 /**
-	<#Description#>
-	@returns <#return value description#>
+    changes size of ViewCover and ViewCover2 so that they were to cover all the screen, 
+    in case they were of the wrong size when app firstly loaded
  */
 - (void)changeSize;
 

@@ -28,6 +28,9 @@
             <string>Frangelica</string>
             <string>Frangelica</string>
         </mutableArray>
+        <mutableArray key="NeueZierSchrift.ttf">
+            <string>NeueZierSchrift</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--Reveal View Controller-->
@@ -180,18 +183,54 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="AlternateWaveforms1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Low-eV-gcy">
-                                <rect key="frame" x="-11" y="50" width="479" height="718"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="AlternateWaveforms1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Low-eV-gcy">
+                                <rect key="frame" x="-174" y="50" width="479" height="718"/>
                                 <color key="tintColor" red="0.78858404132113935" green="1" blue="0.39419200266196852" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Waveforms1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z41-1H-IGb">
+                                <rect key="frame" x="3" y="50" width="479" height="718"/>
+                                <color key="tintColor" red="0.78858404130000004" green="1" blue="0.39419200269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Waveforms2.png" translatesAutoresizingMaskIntoConstraints="NO" id="jj5-vw-zOH">
+                                <rect key="frame" x="-92" y="60" width="479" height="718"/>
+                                <color key="tintColor" red="0.78858404130000004" green="1" blue="0.39419200269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="Waveforms3.png" translatesAutoresizingMaskIntoConstraints="NO" id="OpU-Sj-imA">
+                                <rect key="frame" x="-92" y="60" width="479" height="718"/>
+                                <color key="tintColor" red="0.78858404130000004" green="1" blue="0.39419200269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New number of splits:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sM-gi-f8w">
+                                <rect key="frame" x="348" y="72" width="357" height="80"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsC-Fh-Mub">
+                                <rect key="frame" x="442" y="137" width="86" height="51"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="1" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="q3U-FA-6GU">
-                                <rect key="frame" x="585" y="148" width="338" height="31"/>
+                                <rect key="frame" x="522" y="148" width="479" height="31"/>
                                 <connections>
                                     <action selector="splitInputChanged:" destination="5SG-oa-Q8B" eventType="valueChanged" id="JKn-k5-cXl"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Initial frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E93-ly-UCh">
+                                <rect key="frame" x="348" y="191" width="275" height="79"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or add custom..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PT-yV-yaL">
+                                <rect key="frame" x="390" y="290" width="236" height="64"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-hC-Uxi">
-                                <rect key="frame" x="491" y="269" width="39" height="30"/>
+                                <rect key="frame" x="587" y="219" width="39" height="30"/>
                                 <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <state key="normal" title="256">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
@@ -202,7 +241,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEf-oM-Qv6">
-                                <rect key="frame" x="574" y="269" width="30" height="30"/>
+                                <rect key="frame" x="670" y="219" width="30" height="30"/>
                                 <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <state key="normal" title="415">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
@@ -213,7 +252,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlp-jk-zaY">
-                                <rect key="frame" x="635" y="269" width="42" height="30"/>
+                                <rect key="frame" x="731" y="219" width="42" height="30"/>
                                 <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <state key="normal" title="440">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
@@ -223,46 +262,36 @@
                                     <action selector="chooseFreq:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="2kD-Yr-gy3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Initial frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E93-ly-UCh">
-                                <rect key="frame" x="482" y="191" width="275" height="79"/>
-                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or add custom..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PT-yV-yaL">
-                                <rect key="frame" x="520" y="302" width="236" height="64"/>
-                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsC-Fh-Mub">
-                                <rect key="frame" x="463" y="137" width="86" height="51"/>
-                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdj-h9-2uo">
-                                <rect key="frame" x="707" y="258" width="79" height="57"/>
+                                <rect key="frame" x="803" y="208" width="79" height="57"/>
                                 <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="440 Hz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-6C-dZL">
-                                <rect key="frame" x="443" y="360" width="514" height="48"/>
-                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="440" minValue="100" maxValue="600" translatesAutoresizingMaskIntoConstraints="NO" id="EOU-Wn-XCo">
-                                <rect key="frame" x="441" y="426" width="481" height="31"/>
-                                <color key="minimumTrackTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="frequency" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-xL-dVY">
+                                <rect key="frame" x="668" y="294" width="105" height="56"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="frequencyInputChanged:" destination="5SG-oa-Q8B" eventType="valueChanged" id="0Nr-LG-3Fx"/>
+                                    <action selector="frequencyInputTxtField:" destination="5SG-oa-Q8B" eventType="editingDidEndOnExit" id="tCU-LH-vN3"/>
+                                    <action selector="releaseFreqBts:" destination="5SG-oa-Q8B" eventType="editingDidBegin" id="bYy-uc-ODc"/>
+                                    <action selector="validateFreq:" destination="5SG-oa-Q8B" eventType="editingChanged" id="zmd-v1-bTB"/>
                                 </connections>
-                            </slider>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-np-wNc">
+                                <rect key="frame" x="803" y="298" width="34" height="48"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="440 Hz" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-6C-dZL">
+                                <rect key="frame" x="463" y="257" width="514" height="48"/>
+                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-wS-NQW" customClass="MTGKeyButton">
-                                <rect key="frame" x="585" y="424" width="100" height="50"/>
+                                <rect key="frame" x="556" y="394" width="100" height="50"/>
                                 <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="20"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Colour">
@@ -273,12 +302,6 @@
                                     <action selector="showColourPopup:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="JhX-KV-Hvq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New number of splits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sM-gi-f8w">
-                                <rect key="frame" x="482" y="64" width="357" height="80"/>
-                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-hM-glq">
                                 <rect key="frame" x="574" y="617" width="345" height="131"/>
                                 <state key="normal" title="Continue" image="Unti.png">
@@ -289,22 +312,6 @@
                                     <segue destination="ijD-Df-uuV" kind="push" id="BnV-kE-afT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-np-wNc">
-                                <rect key="frame" x="805" y="310" width="34" height="48"/>
-                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="frequency" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-xL-dVY">
-                                <rect key="frame" x="686" y="306" width="105" height="56"/>
-                                <fontDescription key="fontDescription" name="Frangelica" family="Frangelica" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="frequencyInputTxtField:" destination="5SG-oa-Q8B" eventType="editingDidEndOnExit" id="tCU-LH-vN3"/>
-                                    <action selector="releaseFreqBts:" destination="5SG-oa-Q8B" eventType="editingDidBegin" id="bYy-uc-ODc"/>
-                                    <action selector="validateFreq:" destination="5SG-oa-Q8B" eventType="editingChanged" id="zmd-v1-bTB"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -318,7 +325,6 @@
                         <outlet property="ViewCover" destination="Ulx-RT-m9b" id="0za-5u-nIX"/>
                         <outlet property="chooseTheme" destination="Nng-wS-NQW" id="W3E-Sb-vRd"/>
                         <outlet property="colourButton" destination="Nng-wS-NQW" id="zQY-pq-iUn"/>
-                        <outlet property="freqInputSlider" destination="EOU-Wn-XCo" id="zqm-F9-0NW"/>
                         <outlet property="freqTextField" destination="NK2-xL-dVY" id="bSL-KO-xga"/>
                         <outlet property="frequencyLabel" destination="NXi-6C-dZL" id="qVQ-JI-EFG"/>
                         <outlet property="sidebarButton" destination="bnR-o1-7Bs" id="lnO-8N-6mb"/>
@@ -363,7 +369,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-aG-j7t">
                                             <rect key="frame" x="575" y="12" width="294" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="NeueZierSchrift" family="Neue Zier Schrift" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -747,9 +753,12 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
         </scene>
     </scenes>
     <resources>
-        <image name="AlternateWaveforms1.jpg" width="454" height="1320"/>
+        <image name="AlternateWaveforms1.png" width="149" height="1024"/>
         <image name="Harry_Partch_album_scan_headshot.jpg" width="296" height="407"/>
         <image name="Unti.png" width="693" height="249"/>
+        <image name="Waveforms1.png" width="80" height="768"/>
+        <image name="Waveforms2.png" width="81" height="768"/>
+        <image name="Waveforms3.png" width="155" height="768"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
         <image name="menu.png" width="28" height="20"/>

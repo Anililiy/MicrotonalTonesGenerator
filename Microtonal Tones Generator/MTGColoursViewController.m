@@ -52,7 +52,7 @@
                                                                    size.height * .9,
                                                                    size.width,
                                                                    size.height * .1)];
-    _brightnessSlider.minimumValue = 0.0;
+    _brightnessSlider.minimumValue = 0.3;
     _brightnessSlider.maximumValue = 1.0;
     _brightnessSlider.value = 1.0;
 

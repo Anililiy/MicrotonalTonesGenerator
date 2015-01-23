@@ -23,6 +23,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
     // init
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
    
@@ -34,7 +35,6 @@
     
     splitLabel.text     = [NSString stringWithFormat:@"%li", (long)split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-   // chooseTheme.backgroundColor = [UIColor colorWithHue:colourHue saturation:colourSat brightness:colourBrg alpha:1.0];
     
     chooseTheme.hue = colourHue;
     chooseTheme.saturation = colourSat;
@@ -246,8 +246,8 @@
                        [UIColor blueColor],
                        [UIColor purpleColor],
                        [UIColor magentaColor],
-                       [UIColor blackColor],
                        [UIColor brownColor],
+                       [UIColor lightGrayColor],
                        nil];
 }
 
@@ -275,6 +275,7 @@
     [defaults synchronize];
     
     NSLog(@"Data saved");
+    
     MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
     if (authObj.authenticated == NO)
     {

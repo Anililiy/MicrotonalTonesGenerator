@@ -13,6 +13,11 @@
 		950A28D81A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */; };
 		951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */; };
 		951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 951942C419F6EFD100F510FE /* MTGSaveTableViewCell.m */; };
+		951CCB9B1A71BAC20019BBB8 /* Frangelica.otf in Resources */ = {isa = PBXBuildFile; fileRef = 951CCB9A1A71BAC20019BBB8 /* Frangelica.otf */; };
+		951CCBAA1A71CB5D0019BBB8 /* AlternateWaveforms1.png in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBA91A71CB5D0019BBB8 /* AlternateWaveforms1.png */; };
+		951CCBAC1A71CCB60019BBB8 /* Waveforms1.png in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBAB1A71CCB60019BBB8 /* Waveforms1.png */; };
+		951CCBAE1A71CCBB0019BBB8 /* Waveforms2.png in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBAD1A71CCBB0019BBB8 /* Waveforms2.png */; };
+		951CCBB01A71CCC10019BBB8 /* Waveforms3.png in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBAF1A71CCC10019BBB8 /* Waveforms3.png */; };
 		953943411A0A652200588979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953943401A0A652200588979 /* Main.storyboard */; };
 		953943441A0A659100588979 /* arrow-big-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 953943421A0A659100588979 /* arrow-big-03.png */; };
 		953943451A0A659100588979 /* arrow-big-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 953943431A0A659100588979 /* arrow-big-04.png */; };
@@ -20,7 +25,6 @@
 		9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0419DB0C22001C1CC1 /* menu@2x.png */; };
 		9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0919DB0C22001C1CC1 /* test2.pd */; };
 		9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF0A19DB0C22001C1CC1 /* tuner.pd */; };
-		9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */; };
 		954B13DD19C4F912008FE21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DC19C4F912008FE21B /* Foundation.framework */; };
 		954B13DF19C4F912008FE21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13DE19C4F912008FE21B /* CoreGraphics.framework */; };
 		954B13E119C4F912008FE21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B13E019C4F912008FE21B /* UIKit.framework */; };
@@ -45,7 +49,6 @@
 		956CF1D61A6879DD0022135D /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 956CF1D51A6879DD0022135D /* Common.m */; };
 		957347581A125DD70014CDBA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 957347571A125DD70014CDBA /* CoreData.framework */; };
 		957E295F1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */; };
-		959BBB571A5C2BD500C43616 /* Frangelica.otf in Resources */ = {isa = PBXBuildFile; fileRef = 959BBB561A5C2A8500C43616 /* Frangelica.otf */; };
 		95A2BFA01A64340E00A02D3E /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A2BF9B1A6433FF00A02D3E /* libpd-ios.a */; };
 		95A2BFAB1A64361000A02D3E /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95A2BFA71A64361000A02D3E /* KeyNote.pd */; };
 		95A2BFAC1A64361000A02D3E /* KeyNote2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95A2BFA81A64361000A02D3E /* KeyNote2.pd */; };
@@ -99,6 +102,11 @@
 		9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGLoadTableViewController.m; sourceTree = "<group>"; };
 		951942C319F6EFD100F510FE /* MTGSaveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSaveTableViewCell.h; sourceTree = "<group>"; };
 		951942C419F6EFD100F510FE /* MTGSaveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSaveTableViewCell.m; sourceTree = "<group>"; };
+		951CCB9A1A71BAC20019BBB8 /* Frangelica.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Frangelica.otf; path = "Supporting Files/Frangelica.otf"; sourceTree = "<group>"; };
+		951CCBA91A71CB5D0019BBB8 /* AlternateWaveforms1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AlternateWaveforms1.png; path = "Supporting Files/AlternateWaveforms1.png"; sourceTree = "<group>"; };
+		951CCBAB1A71CCB60019BBB8 /* Waveforms1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Waveforms1.png; sourceTree = "<group>"; };
+		951CCBAD1A71CCBB0019BBB8 /* Waveforms2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Waveforms2.png; sourceTree = "<group>"; };
+		951CCBAF1A71CCC10019BBB8 /* Waveforms3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Waveforms3.png; sourceTree = "<group>"; };
 		953943401A0A652200588979 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		953943421A0A659100588979 /* arrow-big-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-big-03.png"; path = "Supporting Files/arrow-big-03.png"; sourceTree = "<group>"; };
 		953943431A0A659100588979 /* arrow-big-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-big-04.png"; path = "Supporting Files/arrow-big-04.png"; sourceTree = "<group>"; };
@@ -106,7 +114,6 @@
 		9540DF0419DB0C22001C1CC1 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu@2x.png"; path = "Supporting Files/menu@2x.png"; sourceTree = "<group>"; };
 		9540DF0919DB0C22001C1CC1 /* test2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test2.pd; path = "Supporting Files/test2.pd"; sourceTree = "<group>"; };
 		9540DF0A19DB0C22001C1CC1 /* tuner.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = tuner.pd; path = "Supporting Files/tuner.pd"; sourceTree = "<group>"; };
-		9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AlternateWaveforms1.jpg; path = "Supporting Files/AlternateWaveforms1.jpg"; sourceTree = "<group>"; };
 		954B13D919C4F912008FE21B /* Microtonal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Microtonal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		954B13DC19C4F912008FE21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		954B13DE19C4F912008FE21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,7 +151,6 @@
 		957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedStatesTableViewController.m; sourceTree = "<group>"; };
 		959BBB4A1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		959BBB4B1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		959BBB561A5C2A8500C43616 /* Frangelica.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Frangelica.otf; path = "Supporting Files/Frangelica.otf"; sourceTree = "<group>"; };
 		95A2BF951A6433FF00A02D3E /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = ../libpd/libpd.xcodeproj; sourceTree = "<group>"; };
 		95A2BFA71A64361000A02D3E /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeyNote.pd; path = "Supporting Files/KeyNote.pd"; sourceTree = "<group>"; };
 		95A2BFA81A64361000A02D3E /* KeyNote2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeyNote2.pd; path = "Supporting Files/KeyNote2.pd"; sourceTree = "<group>"; };
@@ -272,16 +278,19 @@
 			children = (
 				954B13E419C4F912008FE21B /* Microtonal Tones Generator-Info.plist */,
 				95A2BFA21A64348F00A02D3E /* pd files */,
-				959BBB561A5C2A8500C43616 /* Frangelica.otf */,
 				95A2BFAA1A64361000A02D3E /* Unti.png */,
+				951CCB9A1A71BAC20019BBB8 /* Frangelica.otf */,
+				951CCBA91A71CB5D0019BBB8 /* AlternateWaveforms1.png */,
 				9552A23D1A0678D600A8B694 /* arrow-big-01.png */,
 				9552A23E1A0678D600A8B694 /* arrow-big-02.png */,
 				950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */,
+				951CCBAB1A71CCB60019BBB8 /* Waveforms1.png */,
+				951CCBAF1A71CCC10019BBB8 /* Waveforms3.png */,
 				953943421A0A659100588979 /* arrow-big-03.png */,
 				953943431A0A659100588979 /* arrow-big-04.png */,
 				9540DF0319DB0C22001C1CC1 /* menu.png */,
+				951CCBAD1A71CCBB0019BBB8 /* Waveforms2.png */,
 				9540DF0419DB0C22001C1CC1 /* menu@2x.png */,
-				9540DF1919DB0CD2001C1CC1 /* AlternateWaveforms1.jpg */,
 				954B13E519C4F912008FE21B /* InfoPlist.strings */,
 				954B13E819C4F912008FE21B /* main.m */,
 				954B13EA19C4F912008FE21B /* Microtonal Tones Generator-Prefix.pch */,
@@ -527,21 +536,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				959BBB571A5C2BD500C43616 /* Frangelica.otf in Resources */,
 				950A28D81A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg in Resources */,
+				951CCBB01A71CCC10019BBB8 /* Waveforms3.png in Resources */,
 				953943411A0A652200588979 /* Main.storyboard in Resources */,
-				9540DF1A19DB0CD2001C1CC1 /* AlternateWaveforms1.jpg in Resources */,
 				9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */,
 				95A2BFAE1A64361000A02D3E /* Unti.png in Resources */,
 				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
+				951CCBAE1A71CCBB0019BBB8 /* Waveforms2.png in Resources */,
 				953943451A0A659100588979 /* arrow-big-04.png in Resources */,
+				951CCB9B1A71BAC20019BBB8 /* Frangelica.otf in Resources */,
 				95A2BFAC1A64361000A02D3E /* KeyNote2.pd in Resources */,
 				95A2BFAD1A64361000A02D3E /* KeyNote3.pd in Resources */,
+				951CCBAA1A71CB5D0019BBB8 /* AlternateWaveforms1.png in Resources */,
 				9552A23F1A0678D600A8B694 /* arrow-big-01.png in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
 				9552A2401A0678D600A8B694 /* arrow-big-02.png in Resources */,
 				953943441A0A659100588979 /* arrow-big-03.png in Resources */,
 				9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */,
+				951CCBAC1A71CCB60019BBB8 /* Waveforms1.png in Resources */,
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
 				954B13EF19C4F912008FE21B /* Images.xcassets in Resources */,
 				95A2BFAB1A64361000A02D3E /* KeyNote.pd in Resources */,

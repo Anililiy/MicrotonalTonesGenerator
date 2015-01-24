@@ -11,8 +11,24 @@
 
 @implementation MTGKeyButton
 
--(id) initWithCoder:(NSCoder *)aDecoder{
-    if ((self = [super initWithCoder:aDecoder])){
+@synthesize index, frequency;
+
+//convert data into coded format which can be saved in NSUserDefaults
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeInteger:index    forKey:@"indexOfKey" ];
+    [encoder encodeFloat:frequency  forKey:@"freqOfKey"  ];
+}
+
+//convert encoded data into the format which can be used in application
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if((self = [super init]))
+    {
+        index      = [decoder decodeIntegerForKey:   @"indexOfKey" ];
+        frequency  = [decoder decodeFloatForKey:     @"freqOfKey"  ];
+    }
+    if (self = [super initWithCoder:decoder]){
         self.opaque = NO;
         self.backgroundColor= [UIColor clearColor];
         _hue = 0.5;

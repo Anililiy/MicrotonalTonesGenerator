@@ -12,7 +12,6 @@
 #import "SWRevealViewController.h"
 
 #import "MTGSavedScale.h"
-#import "MTGKeyObject.h"
 #import "MTGKeyButton.h"
 
 @interface MTGViewController : UIViewController{
@@ -94,7 +93,7 @@
  */
 - (void)playNoteLong:(float)f at:(NSInteger)index;
 /**
-	calls for actions which should be performed when key is pressed
+	Action of a button which calls for other actions which should be performed when key is pressed
 	@param aButton key button
  */
 - (void)buttonClicked:(UIButton*)aButton;

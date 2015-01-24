@@ -42,7 +42,7 @@
     
     splitLabel.text     = [NSString stringWithFormat:@"%li", (long)split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-    
+
     chooseTheme.hue = colourHue;
     chooseTheme.saturation = colourSat;
     chooseTheme.brightness = colourBrg;

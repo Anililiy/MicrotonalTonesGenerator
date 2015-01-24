@@ -95,7 +95,7 @@
             NSString *CellIdentifier = @"state";
             NSMutableArray *keysPressed = [[NSMutableArray alloc] initWithArray:savedStates[indexPath.row]];
         
-            MTGKeyObject *key;
+            MTGKeyButton *key;
             key = keysPressed[0];
             NSString *label=[NSString stringWithFormat:@"%li",(long)key.index];
            

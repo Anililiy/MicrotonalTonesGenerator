@@ -38,6 +38,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (void)viewDidLoad{
 
     [super viewDidLoad];
+    
+    /**
+    	- manage a background picture
+     */
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"background1.jpg"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -161,6 +165,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if (menuCalled)[ViewCover setHidden:false];
     else [ViewCover setHidden:true];
     
+    [startButtonItem setTitle:@"Polyphony"];
+    creationState = false;
+    saveButton.enabled = false;
+    playPreviousStateButton.enabled = false;
+    playNextStateButton.enabled = false;
+
     SWRevealViewController *reveal = self.revealViewController;
     [reveal revealToggleAnimated:YES];
 }
@@ -188,15 +198,23 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 - (void)initialiseValues{
     
+    /**
+    	- load settings of the app with NSUserDefaults class, which allows to save
+     settings and properties related to application or user data.
+    */
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     currentScale = [[MTGSavedScale alloc]init];
-    NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
+    
+    /**
+    	archivedSessions is an array stored in NSUserDefaults which contains all saved sessions
+     */
+    NSMutableArray *archivedSessions = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
     sessionIsSaved = [defaults boolForKey:@"saved"];
 
     if (loading){
         
         NSLog(@"Index of file loading: %li",(long)indexOfFileLoading);
-        currentScale = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[indexOfFileLoading]];
+        currentScale = [NSKeyedUnarchiver unarchiveObjectWithData:archivedSessions[indexOfFileLoading]];
     
         savedStates = [NSMutableArray arrayWithArray:currentScale.savedStates];
         numberOfSplits = currentScale.splitsNumber;
@@ -220,7 +238,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     else if (sessionIsSaved){
         
         NSInteger currentScaleIndex = [defaults integerForKey:@"currentScaleIndex"];
-        currentScale    = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[currentScaleIndex]];
+        currentScale    = [NSKeyedUnarchiver unarchiveObjectWithData:archivedSessions[currentScaleIndex]];
         savedStates     = [NSMutableArray arrayWithArray:currentScale.savedStates];
         numberOfSplits  = currentScale.splitsNumber;
         frequency       = currentScale.freqInitial;
@@ -236,7 +254,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         saturOfKeys     =  [defaults floatForKey:   @"themeSat"         ];
         brightOfKey     =  [defaults floatForKey:   @"themeBrg"         ];
         
-        NSInteger scalePositionInArray = [archivedScales count];
+        NSInteger scalePositionInArray = [archivedSessions count];
         [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
         NSLog(@"Index passed %li",(long)scalePositionInArray);
         
@@ -247,17 +265,26 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     }
     
     NSLog(@"Received %li splits, %4.1f Hz frequency",(long)numberOfSplits, frequency);
+    
+    /**
+    	- set values for current scale
+     */
     currentScale.freqInitial = frequency;
     currentScale.splitsNumber = numberOfSplits;
     currentScale.hue = hueOfKeys;
     currentScale.brightness = brightOfKey;
     currentScale.saturation = saturOfKeys;
     currentScale.savedStates = savedStates;
+    
     if (sessionIsSaved) {
         [changeOctave setHidden:true];
         [frequencyLabel setHidden:true];
         saveButton.enabled = false;
     }
+    
+    /**
+        - set tint colour for the mainToolbar
+     */
     [self.mainToolbar setBarTintColor:[UIColor colorWithHue:hueOfKeys saturation:(saturOfKeys/4) brightness:brightOfKey alpha:0.1]];
 
 }
@@ -266,22 +293,23 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if (stateSelected){
         NSMutableArray *keysSelected = savedStates[indexOfStateChosen];
 
-        for (MTGKeyObject *key in keysSelected){
+        for (MTGKeyButton *key in keysSelected){
             for(UIButton* button in keyboard){
                 if (button.tag == key.index){
                     button.selected = true;
                     [pressedKeys addObject:key];
                 }
             }
-            [self playNoteLong:key.keyFrequency at:key.index];
-            [startButtonItem setTitle:@"Stop polyphony"];
             
-            creationState = true;
-            if (indexOfStateChosen<([savedStates count]-1)) playNextStateButton.enabled = true;
-            if (indexOfStateChosen>=([savedStates count]-1)) playNextStateButton.enabled = false;
-            if (indexOfStateChosen>0) playPreviousStateButton.enabled = true;
-            if (indexOfStateChosen==0) playPreviousStateButton.enabled = false;
+            [self playNoteLong:key.frequency at:key.index];
         }
+        [startButtonItem setTitle:@"Stop polyphony"];
+        creationState = true;
+        
+        if (indexOfStateChosen<([savedStates count]-1)) playNextStateButton.enabled = true;
+        if (indexOfStateChosen>=([savedStates count]-1)) playNextStateButton.enabled = false;
+        if (indexOfStateChosen>0) playPreviousStateButton.enabled = true;
+        if (indexOfStateChosen==0) playPreviousStateButton.enabled = false;
     }
 }
 
@@ -343,19 +371,33 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 -(void)createButton:(int)index{
 
-    MTGKeyButton* aButton =[[MTGKeyButton alloc]init];
-    [aButton setTag:index];
+    MTGKeyButton* aKey =[[MTGKeyButton alloc]init];
     
-    [aButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
-
+    /**
+    	- set tag and title to each key
+     */
+    [aKey setTag:index];
     NSString* title =[NSString stringWithFormat:@"%d", index];;
-    [aButton setTitle:title forState:UIControlStateNormal];
-    aButton.titleLabel.font =[UIFont fontWithName: @"GillSans" size:30 ];
+    [aKey setTitle:title forState:UIControlStateNormal];
+    aKey.titleLabel.font =[UIFont fontWithName: @"GillSans" size:30 ];
     
-    aButton.hue = hueOfKeys;
-    aButton.saturation = 0.1+saturOfKeys*(index+1)/((float)numberOfSplits+1);;
-    aButton.brightness = brightOfKey;
+    /**
+    	- add action buttonClicked
+     */
+    [aKey addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
     
+    
+    /**
+    	- set colour
+     */
+    aKey.hue = hueOfKeys;
+    aKey.saturation = 0.1+saturOfKeys*(index+1)/((float)numberOfSplits+1);;
+    aKey.brightness = brightOfKey;
+    aKey.index = index;
+    aKey.frequency = calcFreqOfNote(index, numberOfSplits, frequency);;
+    /**
+    	- set position, which is calculated for each key
+     */
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
@@ -372,71 +414,58 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
     yPosition = 120+(index/maxNoKeys)*(keyHeight+difference);
     xPosition = difference+(index%maxNoKeys)*(keyWidth+2*difference);
-    aButton.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
+    aKey.frame = CGRectMake(xPosition, yPosition, keyWidth, keyHeight);
 
-    [keyboard addObject:aButton];
-    [self.view addSubview:aButton];
+    /**
+    	- add key to keyboard array and display on the screen
+     */
+    [keyboard addObject:aKey];
+    [self.view addSubview:aKey];
 }
 
-- (void)buttonClicked:(UIButton*)aButton{
+- (void)buttonClicked:(MTGKeyButton*)aKey{
     
-    NSLog(@"Button %li clicked.",(long)[aButton tag]);
+    NSLog(@"Key %li clicked.",aKey.index);
     
-    float frequencyOfNote = calcFreqOfNote([aButton tag], numberOfSplits, frequency);
-   
-    MTGKeyObject *keyPressed = [[MTGKeyObject alloc]init];
-
     if (creationState){
-        
         saveButton.enabled = true;
 
-        if(!aButton.selected){
-            aButton.selected = true;
-            
-            [keyboard[[aButton tag]] isSelected];
-            
-            [self playNoteLong:frequencyOfNote at:[aButton tag]];
-            
-            keyPressed.index = [aButton tag];
-            keyPressed.keyFrequency = frequencyOfNote;
-            
-            NSLog(@"Index %li, freq %f",(long)keyPressed.index, keyPressed.keyFrequency);
-            [pressedKeys addObject:keyPressed];
+        if(!aKey.selected){
+            // when user select key in polyphony state (creationState) we should add this key to array of pressedKeys
+            aKey.selected = true;
+            [pressedKeys addObject:aKey];
+            // and call the
+            [self playNoteLong:aKey.frequency at:[aKey tag]];
         }
         else{
-            NSLog(@"Patch removed with %li", (long)[aButton tag]);
-            [patches removeObjectAtIndex:[aButton tag]];
-            [pressedKeys removeObject:[NSNumber numberWithInteger:[aButton tag]]];
-            [patches insertObject:@"1" atIndex:[aButton tag]];
-            for (int i=0; i<[pressedKeys count];i++){
-                keyPressed = pressedKeys[i];
-                if (keyPressed.index == [aButton tag]) [pressedKeys removeObjectAtIndex:i];
-            }
-            aButton.selected =!aButton.selected;
+            //
+            [patches removeObjectAtIndex:      [aKey tag]];
+            [patches insertObject:@"1" atIndex:[aKey tag]];
+            
+            [pressedKeys removeObject:aKey];
+            
+            aKey.selected =!aKey.selected;
             if ([pressedKeys count]==0 && sessionIsSaved) saveButton.enabled = false;
         }
     }
-    else{
-        [self playNoteShort:frequencyOfNote];
-        aButton.selected = false;
-    }
+    else [self playNoteShort:aKey.frequency];
 }
 
 #pragma mark - button call back
 
 -(void)playNoteLong:(float)f at:(NSInteger)index{
-        NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
-        PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:bundlePath];
-        if (patchOfKey) {
-            NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
-            NSLog(@"Patches: %li", (unsigned long)[patches count]);
-            [patches removeObjectAtIndex:index];
-            [patches insertObject:patchOfKey atIndex:index];
-        }
-        else {
-            NSLog(@"error: couldn't open patch");
-        }
-        [PdBase sendFloat:f toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
+    PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:[[NSBundle mainBundle] bundlePath]];
+    
+    if (patchOfKey) {
+        NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
+
+        [patches removeObjectAtIndex:            index];
+        [patches insertObject:patchOfKey atIndex:index];
+    }
+    else {
+        NSLog(@"error: couldn't open patch");
+    }
+    [PdBase sendFloat:f toReceiver:[NSString stringWithFormat:@"%d-pitch", [patchOfKey dollarZero]]];
 }
 
 -(void)playNoteShort:(float)freqValue{
@@ -445,6 +474,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [PdBase sendBangToReceiver:@"trigger"];
 }
 
+
+#pragma mark - octave movements
 // right arrow when pressed takes us up an octave
 - (IBAction)rightArrowPressed:(id)sender {
     if (frequency<=600){
@@ -454,7 +485,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     }
     else upTheOctave.enabled= false;
 }
-
+// left arrow when pressed takes us down an octave
 - (IBAction)leftArrowPressed:(UIButton*)sender {
     if (frequency>200){
         upTheOctave.enabled = true;
@@ -464,6 +495,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     else downTheOctave.enabled = false;
 }
 
+
+#pragma mark - saving
 - (IBAction)saveState:(id)sender {
     
     saveButton.enabled = false;

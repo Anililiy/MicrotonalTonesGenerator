@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9502E47C1A0F84BC0007EEF3 /* MTGKeyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502E47B1A0F84BC0007EEF3 /* MTGKeyObject.m */; };
 		950477C51A6871F70098176E /* MTGColourWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 950477C41A6871F70098176E /* MTGColourWheel.m */; };
 		950A28D31A656C11003153C6 /* MTGInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950A28D21A656C11003153C6 /* MTGInformationViewController.m */; };
 		950A28D81A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */; };
@@ -87,8 +86,6 @@
 
 /* Begin PBXFileReference section */
 		9500192F1A06DF0900834493 /* Microtonal Tones Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Microtonal Tones Generator.entitlements"; sourceTree = "<group>"; };
-		9502E47A1A0F84BC0007EEF3 /* MTGKeyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGKeyObject.h; sourceTree = "<group>"; };
-		9502E47B1A0F84BC0007EEF3 /* MTGKeyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKeyObject.m; sourceTree = "<group>"; };
 		950477C31A6871F70098176E /* MTGColourWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTGColourWheel.h; path = "Microtonal Tones Generator/MTGColourWheel.h"; sourceTree = SOURCE_ROOT; };
 		950477C41A6871F70098176E /* MTGColourWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTGColourWheel.m; path = "Microtonal Tones Generator/MTGColourWheel.m"; sourceTree = SOURCE_ROOT; };
 		950A28D11A656C11003153C6 /* MTGInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGInformationViewController.h; sourceTree = "<group>"; };
@@ -206,8 +203,6 @@
 				953943401A0A652200588979 /* Main.storyboard */,
 				954B141B19C4FCB6008FE21B /* MTGViewController.h */,
 				954B141C19C4FCB6008FE21B /* MTGViewController.m */,
-				95DD9B3D1A37415A007C6473 /* MTGKeyButton.h */,
-				95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */,
 				956CF1D31A6879DD0022135D /* Common */,
 			);
 			name = "Main View";
@@ -358,8 +353,8 @@
 		957347941A1B880B0014CDBA /* Model and Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9502E47A1A0F84BC0007EEF3 /* MTGKeyObject.h */,
-				9502E47B1A0F84BC0007EEF3 /* MTGKeyObject.m */,
+				95DD9B3D1A37415A007C6473 /* MTGKeyButton.h */,
+				95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */,
 				955A0B6219F33B3700842D32 /* MTGSavedScale.h */,
 				955A0B6319F33B3700842D32 /* MTGSavedScale.m */,
 			);
@@ -562,7 +557,6 @@
 				954B13E919C4F912008FE21B /* main.m in Sources */,
 				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
 				950A28D31A656C11003153C6 /* MTGInformationViewController.m in Sources */,
-				9502E47C1A0F84BC0007EEF3 /* MTGKeyObject.m in Sources */,
 				95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */,
 				957E295F1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m in Sources */,
 				95DD9B3F1A37415A007C6473 /* MTGKeyButton.m in Sources */,

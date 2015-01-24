@@ -15,6 +15,9 @@
 @property (nonatomic, assign) CGFloat saturation /** hue of keys */;
 @property (nonatomic, assign) CGFloat brightness /** hue of keys */;
 
+@property NSInteger index /** key (button) position in the array created */;
+@property float frequency /** frequency of the key */;
+
 @property UIColor *colourOfScale /** hue of keys */;
 
 /**

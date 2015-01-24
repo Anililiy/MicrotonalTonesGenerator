@@ -84,6 +84,7 @@
 
 /**
 	sends a signal to PD to create sound with specified frequency
+    @param freqValue frequency of the note
  */
 - (void)playNoteShort:(float)freqValue;
 /**
@@ -96,12 +97,12 @@
 	Action of a button which calls for other actions which should be performed when key is pressed
 	@param aButton key button
  */
-- (void)buttonClicked:(UIButton*)aButton;
+- (void)keyPressed:(MTGKeyButton*)aButton;
 /**
 	creates button - key
 	@param index position in the array of keys created
  */
-- (void)createButton:(int)index;
+- (void)createKey:(int)index;
 /**
 	cleans patches,pressedKeys arrays, diselect keyboard keys
  */

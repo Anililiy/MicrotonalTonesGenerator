@@ -39,14 +39,14 @@
 }
 
 -(void)setColour:(UIColor *)colour{
-    _colourOfScale = colour;
     CGFloat alpha;
     BOOL success = [colour getHue:&_hue saturation:&_saturation brightness:&_brightness alpha:&alpha];
-    NSLog(@"COLOUR %d", success);
+    NSLog(@"colour extracted: %i",success);
 }
 
 -(void)drawRect:(CGRect)rect {
-    
+    self.titleLabel.font =[UIFont fontWithName: @"GillSans" size:30 ];
+
     CGFloat actualBrightness = self.brightness;
     if (self.state == UIControlStateHighlighted || self.state == UIControlStateSelected) {
         actualBrightness -= 0.20;

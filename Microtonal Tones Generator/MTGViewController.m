@@ -131,7 +131,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         /** - fill patches array */
         for (int i = 0; i<=numberOfSplits; i++){
             [patches addObject:@"1"];
-             [self createButton: i];
+            [self createKey: i];
         }
         NSLog(@"Patches: %lu", (unsigned long)[patches count]);
 
@@ -206,7 +206,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     currentScale = [[MTGSavedScale alloc]init];
     
     /**
-    	archivedSessions is an array stored in NSUserDefaults which contains all saved sessions
+    	- archivedSessions is an array stored in NSUserDefaults which contains all saved sessions
      */
     NSMutableArray *archivedSessions = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
     sessionIsSaved = [defaults boolForKey:@"saved"];
@@ -293,15 +293,15 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if (stateSelected){
         NSMutableArray *keysSelected = savedStates[indexOfStateChosen];
 
-        for (MTGKeyButton *key in keysSelected){
-            for(UIButton* button in keyboard){
-                if (button.tag == key.index){
-                    button.selected = true;
-                    [pressedKeys addObject:key];
+        for (MTGKeyButton *keyPressed in keysSelected){
+            for(MTGKeyButton* aKey in keyboard){
+                if (aKey.index == keyPressed.index){
+                    aKey.selected = true;
+                    [pressedKeys addObject:keyPressed];
                 }
             }
             
-            [self playNoteLong:key.frequency at:key.index];
+            [self playNoteLong:keyPressed.frequency at:keyPressed.index];
         }
         [startButtonItem setTitle:@"Stop polyphony"];
         creationState = true;
@@ -369,32 +369,28 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [self representStateSeleted];
 }
 
--(void)createButton:(int)index{
+-(void)createKey:(int)index{
 
     MTGKeyButton* aKey =[[MTGKeyButton alloc]init];
     
     /**
-    	- set tag and title to each key
+    	- set title of the key
      */
-    [aKey setTag:index];
-    NSString* title =[NSString stringWithFormat:@"%d", index];;
-    [aKey setTitle:title forState:UIControlStateNormal];
-    aKey.titleLabel.font =[UIFont fontWithName: @"GillSans" size:30 ];
+    [aKey setTitle:[NSString stringWithFormat:@"%d", index] forState:UIControlStateNormal];
     
     /**
     	- add action buttonClicked
      */
-    [aKey addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
-    
+    [aKey addTarget:self action:@selector(keyPressed:) forControlEvents:UIControlEventTouchDown];
     
     /**
-    	- set colour
+    	- set colour and values for index and frequency
      */
     aKey.hue = hueOfKeys;
     aKey.saturation = 0.1+saturOfKeys*(index+1)/((float)numberOfSplits+1);;
     aKey.brightness = brightOfKey;
     aKey.index = index;
-    aKey.frequency = calcFreqOfNote(index, numberOfSplits, frequency);;
+    aKey.frequency = calcFreqOfNote(index, numberOfSplits, frequency);
     /**
     	- set position, which is calculated for each key
      */
@@ -423,32 +419,32 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [self.view addSubview:aKey];
 }
 
-- (void)buttonClicked:(MTGKeyButton*)aKey{
+- (void)keyPressed:(MTGKeyButton*)aKey{
     
-    NSLog(@"Key %li clicked.",aKey.index);
+    NSLog(@"Key %li clicked.",(long)aKey.index);
     
     if (creationState){
         saveButton.enabled = true;
 
         if(!aKey.selected){
-            // when user select key in polyphony state (creationState) we should add this key to array of pressedKeys
-            aKey.selected = true;
+            // when user select key in polyphony state (creationState) we should add this key to the array of pressedKeys
+            aKey.selected = YES;
             [pressedKeys addObject:aKey];
-            // and call the
-            [self playNoteLong:aKey.frequency at:[aKey tag]];
+            // 	sends a signal to PD to create sound with specified frequency which will continue until aKey pressed again
+            [self playNoteLong:aKey.frequency at:aKey.index];
         }
         else{
-            //
-            [patches removeObjectAtIndex:      [aKey tag]];
-            [patches insertObject:@"1" atIndex:[aKey tag]];
-            
+            // when user press already selected key, the key should be decelected nd removed from pressedKeys
+            aKey.selected = NO;
             [pressedKeys removeObject:aKey];
-            
-            aKey.selected =!aKey.selected;
+            // also the sound creation should be finished
+            [patches removeObjectAtIndex:      aKey.index];
+            [patches insertObject:@"1" atIndex:aKey.index];
+            // user cannot save state when there are no pressed keys and session already saved
             if ([pressedKeys count]==0 && sessionIsSaved) saveButton.enabled = false;
         }
     }
-    else [self playNoteShort:aKey.frequency];
+    else [self playNoteShort:aKey.frequency]; //
 }
 
 #pragma mark - button call back
@@ -482,6 +478,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         frequency =2*frequency;
         frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
         downTheOctave.enabled = true;
+        for(MTGKeyButton* aKey in keyboard) aKey.frequency = calcFreqOfNote(aKey.index, numberOfSplits, frequency);
     }
     else upTheOctave.enabled= false;
 }
@@ -491,6 +488,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         upTheOctave.enabled = true;
         frequency=frequency/2;
         frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
+        for(MTGKeyButton* aKey in keyboard) aKey.frequency = calcFreqOfNote(aKey.index, numberOfSplits, frequency);
     }
     else downTheOctave.enabled = false;
 }
@@ -511,10 +509,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     currentScale.savedStates = savedStates;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray* archScales = [NSMutableArray array];
-    NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
+    NSMutableArray* archSessions = [NSMutableArray array];
+    NSData *encodedSession = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
 
-    archScales = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
+    archSessions = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
     
     if  (!sessionIsSaved){
         currentScale.freqInitial = frequency;
@@ -527,21 +525,21 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         
         NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
 
-        [archScales addObject:encodedScale];
-        [defaults setObject:archScales forKey:@"savedSessions"];
+        [archSessions addObject:encodedScale];
+        [defaults setObject:archSessions forKey:@"savedSessions"];
         sessionIsSaved = YES;
         
         if(keys.count>0)self.navigationItem.rightBarButtonItem.enabled = true;
         else self.navigationItem.rightBarButtonItem.enabled = false;
         [self clearUp];
 
-        NSLog(@"Saved");
+        NSLog(@"Saved session");
     }
     else {
         NSInteger indexOfScaleInTheArray = [defaults integerForKey:@"currentScaleIndex"];
-        [archScales replaceObjectAtIndex:indexOfScaleInTheArray withObject:encodedScale];
+        [archSessions replaceObjectAtIndex:indexOfScaleInTheArray withObject:encodedSession];
     }
-    [defaults setObject:archScales forKey:@"savedSessions"];
+    [defaults setObject:archSessions forKey:@"savedSessions"];
     
     NSLog(@"Saved state");
     [defaults synchronize];

@@ -18,19 +18,13 @@
 @property NSInteger index /** key (button) position in the array created */;
 @property float frequency /** frequency of the key */;
 
-@property UIColor *colourOfScale /** hue of keys */;
-
 /**
-	<#Description#>
-	@param colour <#colour description#>
-	@returns <#return value description#>
+	
  */
 -(void)setColour:(UIColor *)colour;
 
 /**
-	<#Description#>
-	@param rect <#rect description#>
-	@returns <#return value description#>
+ 
  */
 -(void)drawRect:(CGRect)rect;
 

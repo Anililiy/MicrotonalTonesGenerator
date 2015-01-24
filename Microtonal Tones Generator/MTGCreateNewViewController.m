@@ -111,7 +111,7 @@
     CGFloat brightness;
     CGFloat alpha;
     BOOL success = [colour getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
-    NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
+    NSLog(@"colour extracted: %i",success);
     
     chooseTheme.hue = hue;
     chooseTheme.saturation = saturation;
@@ -175,7 +175,7 @@
     CGFloat brightness;
     CGFloat alpha;
     BOOL success = [color getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
-    NSLog(@"success: %i hue: %0.2f, saturation: %0.2f, brightness: %0.2f, alpha: %0.2f", success, hue, saturation, brightness, alpha);
+    NSLog(@"colour extracted: %i",success);
     
     colourHue = hue;
     colourSat = saturation;

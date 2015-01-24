@@ -94,25 +94,21 @@
  */
 - (void)playNoteLong:(float)f at:(NSInteger)index;
 /**
-	<#Description#>
-	@param aButton <#aButton description#>
-	@returns <#return value description#>
+	calls for actions which should be performed when key is pressed
+	@param aButton key button
  */
 - (void)buttonClicked:(UIButton*)aButton;
 /**
-	<#Description#>
-	@param index <#index description#>
-	@returns <#return value description#>
+	creates button - key
+	@param index position in the array of keys created
  */
 - (void)createButton:(int)index;
 /**
-	<#Description#>
-	@returns <#return value description#>
+	cleans patches,pressedKeys arrays, diselect keyboard keys
  */
 - (void)clearUp;
 /**
-	<#Description#>
-	@returns <#return value description#>
+	represents state selected by selecting keys with appropriate indexes as well as adding to pressed pressedKeys array and calling playNoteLong:(float)f at:(NSInteger)index
  */
 - (void)representStateSeleted;
 

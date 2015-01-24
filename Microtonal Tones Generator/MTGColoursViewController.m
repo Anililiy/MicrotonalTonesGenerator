@@ -74,7 +74,7 @@
     UILabel *chooseLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 10, 300, 20)];
     chooseLabel.text = @"Press to choose";
     [chooseLabel setTextColor:[UIColor blackColor]];
-    [chooseLabel setFont:[UIFont fontWithName: @"Frangelica" size: 18.0f]];
+    [chooseLabel setFont:[UIFont fontWithName: @"GillSans" size: 20.0f]];
     [_wellView addSubview:chooseLabel];
     [self.view addSubview:_wellView];
 }

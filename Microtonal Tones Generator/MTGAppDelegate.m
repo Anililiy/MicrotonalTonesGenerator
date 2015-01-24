@@ -19,15 +19,15 @@
     [PdBase setDelegate:self];
     [self initAudio];
     
-    //design of application setting: sets main font to be Frangelica in every main object which contains text
+    //design of application setting: sets main font to be GillSans in every main object which contains text
     //set for labels
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"Frangelica" size:18.0]];
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"GillSans" size:23.0]];
     //set for buttons
-    [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setFont:[UIFont fontWithName:@"Frangelica" size:14.0]];
+    [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setFont:[UIFont fontWithName:@"GillSans" size:20.0]];
     //set for navigation bars
-    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Frangelica" size:20.0f]}];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"GillSans" size:23.0f]}];
     //set for bar buttons
-    NSDictionary *barButtonAppearanceDict  = @{NSFontAttributeName : [UIFont fontWithName:@"Frangelica" size:20.0]};
+    NSDictionary *barButtonAppearanceDict  = @{NSFontAttributeName : [UIFont fontWithName:@"GillSans" size:23.0]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
 
     /**

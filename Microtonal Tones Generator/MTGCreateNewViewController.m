@@ -17,6 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"background.jpg"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
     //
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -127,7 +134,7 @@
         for (int i=0;i<maxNCol;i++){
             
             MTGKeyButton *colorButton = [MTGKeyButton buttonWithType:UIButtonTypeCustom];
-            colorButton.frame = CGRectMake(310+i*60, 500, 50, 50);
+            colorButton.frame = CGRectMake(200+i*80, 500, 70, 70);
             
             [colorButton addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
             

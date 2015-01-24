@@ -38,7 +38,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (void)viewDidLoad{
 
     [super viewDidLoad];
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"background1.jpg"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
     /**
        -  check if app loads for the first time or if there has been no saved sessions selected, nor any newly created, but not saved, and if it is true, represent MTGCreateNewViewController
      */
@@ -214,7 +219,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     }
     else if (sessionIsSaved){
         
-        int currentScaleIndex = [defaults integerForKey:@"currentScaleIndex"];
+        NSInteger currentScaleIndex = [defaults integerForKey:@"currentScaleIndex"];
         currentScale    = [NSKeyedUnarchiver unarchiveObjectWithData:archivedScales[currentScaleIndex]];
         savedStates     = [NSMutableArray arrayWithArray:currentScale.savedStates];
         numberOfSplits  = currentScale.splitsNumber;
@@ -231,9 +236,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         saturOfKeys     =  [defaults floatForKey:   @"themeSat"         ];
         brightOfKey     =  [defaults floatForKey:   @"themeBrg"         ];
         
-        int scalePositionInArray = [archivedScales count];
+        NSInteger scalePositionInArray = [archivedScales count];
         [defaults setInteger:scalePositionInArray forKey:@"currentScaleIndex"];
-        NSLog(@"Index passed %i",scalePositionInArray);
+        NSLog(@"Index passed %li",(long)scalePositionInArray);
         
         [defaults synchronize];
 
@@ -241,7 +246,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         savedStates     = [NSMutableArray array];
     }
     
-    NSLog(@"Received %i splits, %4.1f Hz frequency",numberOfSplits, frequency);
+    NSLog(@"Received %li splits, %4.1f Hz frequency",(long)numberOfSplits, frequency);
     currentScale.freqInitial = frequency;
     currentScale.splitsNumber = numberOfSplits;
     currentScale.hue = hueOfKeys;
@@ -292,6 +297,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (void)clearUp{
+    
     for (UIButton* button in keyboard) button.selected = false;
     
     [patches     removeAllObjects];
@@ -344,7 +350,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
     NSString* title =[NSString stringWithFormat:@"%d", index];;
     [aButton setTitle:title forState:UIControlStateNormal];
-    aButton.titleLabel.font =[UIFont fontWithName: @"Frangelica" size:30 ];
+    aButton.titleLabel.font =[UIFont fontWithName: @"GillSans" size:30 ];
     
     aButton.hue = hueOfKeys;
     aButton.saturation = 0.1+saturOfKeys*(index+1)/((float)numberOfSplits+1);;
@@ -384,9 +390,11 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         
         saveButton.enabled = true;
 
-        if(!aButton.selected) {
+        if(!aButton.selected){
             aButton.selected = true;
+            
             [keyboard[[aButton tag]] isSelected];
+            
             [self playNoteLong:frequencyOfNote at:[aButton tag]];
             
             keyPressed.index = [aButton tag];
@@ -411,7 +419,6 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     else{
         [self playNoteShort:frequencyOfNote];
         aButton.selected = false;
-        
     }
 }
 
@@ -498,7 +505,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         NSLog(@"Saved");
     }
     else {
-        int indexOfScaleInTheArray = [defaults integerForKey:@"currentScaleIndex"];
+        NSInteger indexOfScaleInTheArray = [defaults integerForKey:@"currentScaleIndex"];
         [archScales replaceObjectAtIndex:indexOfScaleInTheArray withObject:encodedScale];
     }
     [defaults setObject:archScales forKey:@"savedSessions"];

@@ -38,7 +38,7 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    UIColor *  blackColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.3];
+    UIColor *  blackColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.2];
     UIColor *  highlightStart = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.4];
     UIColor *  highlightStop = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
     UIColor *  shadowColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5];
@@ -49,11 +49,11 @@
     UIColor * innerTop = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.90*actualBrightness alpha:1.0];
     UIColor * innerBottom = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.70*actualBrightness alpha:1.0];
     
-    CGFloat outerMargin = 5.0f;
+    CGFloat outerMargin = 6.0f;
     CGRect outerRect = CGRectInset(self.bounds, outerMargin, outerMargin);
     CGMutablePathRef outerPath = createRoundedRectForRect(outerRect, 6.0);
     
-    CGFloat innerMargin = 3.0f;
+    CGFloat innerMargin = 1.0f;
     CGRect innerRect = CGRectInset(outerRect, innerMargin, innerMargin);
     CGMutablePathRef innerPath = createRoundedRectForRect(innerRect, 6.0);
     

@@ -11,28 +11,44 @@
 
 @class MTGColoursViewController;
 
-@protocol MTGColoursViewControllerDelegate<NSObject>
+@protocol MTGColoursViewControllerDelegate <NSObject>
 
+/**
+	A protocol is used to declare methods and properties that are independent of any specific class.
+	@param colour color chosen
+ */
 - (void)colorPopoverControllerDidSelectColor:(UIColor*)colour;
 
 @end
 
 @interface MTGColoursViewController : UIViewController <MTGColourWheelDelegate>
 {
-    MTGColourWheel* _colorWheel;
-    UISlider* _brightnessSlider;
-    UIView* _wellView;
+    MTGColourWheel* _colorWheel /** colour wheel */;
+    UISlider* _brightnessSlider /** brightness slider */;
+    UIView* _wellView /** colour chosen view */;
 }
+@property (nonatomic, weak) id <MTGColoursViewControllerDelegate> delegate /**  */;
 
+/**
+	Method called after the view controller has loaded its view hierarchy into memory.
+    In this method all main initialization is performed:
+ */
+- (void)viewDidLoad;
 
-@property NSMutableArray *colours;
-@property (nonatomic, strong) NSArray *colorCollection;
-@property UIView* wellView;
+/**
+	The event handling method
+ */
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 
-@property (nonatomic, strong) NSArray* colorButtons;
+/**
+	Updates brightness of the colorWheel
+ */
+- (void)changeBrightness:(UISlider*)sender;
 
-@property (nonatomic, weak) id <MTGColoursViewControllerDelegate> delegate;
-
-@property float colourChosen;
+/**
+	Updates wellView background colour
+	@param colorWheel color wheel
+*/
+- (void)colorWheelDidChangeColor:(MTGColourWheel *)colorWheel;
 
 @end

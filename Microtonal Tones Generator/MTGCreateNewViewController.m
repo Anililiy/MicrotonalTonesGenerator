@@ -181,7 +181,7 @@
         }
     }
 }
--(void) chooseColor:(MTGKeyButton *)button{
+-(void)chooseColor:(MTGKeyButton *)button{
     chooseTheme.hue         = button.hue;
     chooseTheme.saturation  = button.saturation;
     chooseTheme.brightness  = button.brightness;
@@ -272,7 +272,7 @@
 
 - (IBAction)createIt:(id)sender {
    
-    // Store the data
+    // Store the data inputed in NSUserDefaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setInteger: split       forKey:@"numberOfSplits"];
@@ -283,6 +283,7 @@
     [defaults setBool:    YES         forKey:@"authenticated" ];
     [defaults setBool:    NO          forKey:@"saved"         ];
     
+    //update number of sessions created
     long numberOfSession = 0;
     if ([defaults integerForKey:@"noOfScalesCreated"]) numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
     numberOfSession+=1;
@@ -292,6 +293,7 @@
     
     NSLog(@"Data saved");
     
+    // sets MTGViewController as the first view loading in the app - when app is exited and then opened again user sees MTGViewController
     MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
     if (authObj.authenticated == NO)
     {

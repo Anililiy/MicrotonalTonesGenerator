@@ -11,8 +11,9 @@
 #import "MTGSavedScale.h"
 
 
-@interface MTGLoadTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
-    NSMutableArray *scales;
+@interface MTGLoadTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    NSMutableArray *scales ;
     NSArray *tableData;
     NSInteger index;
 }

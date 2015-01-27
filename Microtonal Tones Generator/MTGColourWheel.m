@@ -7,12 +7,14 @@
 //
 
 #import "MTGColourWheel.h"
+/**
+	<#Description#>
+ */
 typedef struct
 {
-    unsigned char r;
-    unsigned char g;
-    unsigned char b;
-    
+	unsigned char r; /**< red */
+	unsigned char g; /**< green */
+	unsigned char b; /**< blue */
 } PixelRGB;
 
 float MTGColourWheel_PointDistance (CGPoint p1, CGPoint p2)
@@ -21,48 +23,56 @@ float MTGColourWheel_PointDistance (CGPoint p1, CGPoint p2)
 }
 
 
-PixelRGB MTGColourWheel_HSBToRGB (float h, float s, float v)
+/**
+	converts hue, saturation, brightness into RGB color
+	@param hue hue
+	@param satur saturation
+	@param brigh brightness
+	@returns pixelRGB
+ */
+PixelRGB MTGColourWheel_HSBToRGB (float hue, float satur, float brigh)
 {
-    h *= 6.0f;
-    int i = floorf(h);
-    float f = h - (float)i;
-    float p = v *  (1.0f - s);
-    float q = v * (1.0f - s * f);
-    float t = v * (1.0f - s * (1.0f - f));
+    hue *= 6.0f;
+    int intValueOfHue = floorf(hue);
+    
+    float f = hue - (float)intValueOfHue;
+    float p = brigh *  (1.0f - satur);
+    float q = brigh * (1.0f - satur * f);
+    float t = brigh * (1.0f - satur * (1.0f - f));
     
     float r;
     float g;
     float b;
     
-    switch (i)
+    switch (intValueOfHue)
     {
         case 0:
-            r = v;
+            r = brigh;
             g = t;
             b = p;
             break;
         case 1:
             r = q;
-            g = v;
+            g = brigh;
             b = p;
             break;
         case 2:
             r = p;
-            g = v;
+            g = brigh;
             b = t;
             break;
         case 3:
             r = p;
             g = q;
-            b = v;
+            b = brigh;
             break;
         case 4:
             r = t;
             g = p;
-            b = v;
+            b = brigh;
             break;
-        default:        // case 5:
-            r = v;
+        default:
+            r = brigh;
             g = p;
             b = q;
             break;
@@ -96,11 +106,11 @@ PixelRGB MTGColourWheel_HSBToRGB (float h, float s, float v)
     if (self = [super initWithFrame:frame])
     {
         _brightness = 1.0;
-        _cursorRadius = 8;
+        _cursorRadius = 10;
         _touchPoint = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0);
         self.backgroundColor = [UIColor clearColor];
         
-        _continuous = false;
+        _continuous = true;
     }
     return self;
 }
@@ -115,7 +125,7 @@ PixelRGB MTGColourWheel_HSBToRGB (float h, float s, float v)
     
     float hue = angle / (M_PI * 2.0f);
     
-    hue = MIN(hue, 1.0f - .0000001f);
+    hue = MIN(hue, 1.0f);
     hue = MAX(hue, 0.0f);
     
     float sat = dist / (_radius);
@@ -186,11 +196,6 @@ PixelRGB MTGColourWheel_HSBToRGB (float h, float s, float v)
 {
     PixelRGB pixel = [self colorAtPoint:[self viewToImageSpace:_touchPoint]];
     return [UIColor colorWithRed:pixel.r / 255.0f green:pixel.g / 255.0f blue:pixel.b / 255.0f alpha:1.0];
-}
-
-- (void)setCurrentColor:(UIColor*)color
-{
-    
 }
 
 - (void)drawRect:(CGRect)rect

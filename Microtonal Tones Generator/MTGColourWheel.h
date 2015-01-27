@@ -13,7 +13,7 @@
 
 @protocol MTGColourWheelDelegate <NSObject>
 @required
-- (void)colorWheelDidChangeColor:(MTGColourWheel*)colorWhee;
+- (void)colorWheelDidChangeColor:(MTGColourWheel*)colorWheel;
 @end
 
 @interface MTGColourWheel : UIView {
@@ -24,7 +24,6 @@
     float _brightness;
     bool _continuous;
     id <MTGColourWheelDelegate> delegate;
-    
 }
 
 @property(nonatomic, assign)float radius;
@@ -37,7 +36,6 @@
 - (void)updateImage;
 - (UIColor*)currentColor;
 - (void)setCurrentColor:(UIColor*)color;
-
 - (void)setTouchPoint:(CGPoint)point;
 
 

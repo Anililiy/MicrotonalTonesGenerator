@@ -7,37 +7,21 @@
 //
 
 #import "MTGColoursViewController.h"
-#import "MTGCreateNewViewController.h"
 
 @implementation MTGColoursViewController
 
-@synthesize colours, wellView;
-@synthesize colourChosen;
 @synthesize delegate;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+    /** - set relative arrangement of colorWheel, brightness slider and wellView  */
     CGSize size = self.view.bounds.size;
-    
     CGSize wheelSize = CGSizeMake(size.width * .9, size.width * .9);
     
     _colorWheel = [[MTGColourWheel alloc] initWithFrame:CGRectMake(size.width / 2 - wheelSize.width / 2,
@@ -71,12 +55,14 @@
 
     _wellView.layer.borderColor = [UIColor blackColor].CGColor;
     _wellView.layer.borderWidth = 0.5;
+    
     UILabel *chooseLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 10, 300, 20)];
     chooseLabel.text = @"Press to choose";
     [chooseLabel setTextColor:[UIColor blackColor]];
     [chooseLabel setFont:[UIFont fontWithName: @"GillSans" size: 20.0f]];
     [_wellView addSubview:chooseLabel];
     [self.view addSubview:_wellView];
+    
 }
 
 //The event handling method
@@ -93,10 +79,9 @@
 
 - (void)colorWheelDidChangeColor:(MTGColourWheel *)colorWheel
 {
-    MTGCreateNewViewController* newView = [[MTGCreateNewViewController alloc] init];
-    newView.colourButton.backgroundColor = _colorWheel.currentColor;
     [_wellView setBackgroundColor:_colorWheel.currentColor];
-}
+    [delegate colorPopoverControllerDidSelectColor:_colorWheel.currentColor];
 
+}
 
 @end

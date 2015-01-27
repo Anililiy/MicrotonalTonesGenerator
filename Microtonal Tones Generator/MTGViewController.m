@@ -15,7 +15,6 @@
 
 NSString *const kTestPatchName   = @"test2.pd";
 NSString *const kShortPatchName  = @"KeyNote.pd";
-NSString *const kShortPatchName2 = @"KeyNote3.pd";
 
 @implementation MTGViewController
 
@@ -508,7 +507,10 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     saveButton.enabled = false;
     currentScale.dateUpdated = [NSDate date];
 
-    if (pressedKeys.count != 0 ) [savedStates addObject:pressedKeys];
+    NSMutableArray *keys =[NSMutableArray array];
+    [keys addObjectsFromArray:pressedKeys];
+    if (keys.count != 0 ) [savedStates addObject:keys];
+
     currentScale.savedStates = savedStates;
 
     NSLog(@"States saved %@", currentScale.savedStates);

@@ -73,48 +73,37 @@
 -(void)chooseColor:(MTGKeyButton *)button;
 
 /**
-	<#Description#>
-	@param color <#color description#>
-	@returns <#return value description#>
+	sets color from popover to chooseTheme button
+	@param color colour chosen in popover
  */
 -(void)setColor:(UIColor*)color;
 /**
-	<#Description#>
-	@returns <#return value description#>
+	fills array of colours - colorCollection - with basic colors
  */
 -(void) createColorsArray;
 /**
-	<#Description#>
-	@param slider <#slider description#>
-	@returns <#return value description#>
+	instanly resieves the change in value in slider
+	@param slider slider with int values from 1 to 32
  */
 - (IBAction)splitInputChanged:(UISlider *)slider;
 /**
-	<#Description#>
-	@param sender <#sender description#>
-	@returns <#return value description#>
+	recieves the input from text field and saves it in float value to frequency
  */
 - (IBAction)frequencyInputTxtField:(id)sender;
 /**
-	<#Description#>
-	@param sender <#sender description#>
-	@returns <#return value description#>
+	if user start inputing frequency in text field no frequency buttons should be selected therefore they are all released on the action
  */
 - (IBAction)releaseFreqBts:(id)sender;
 /**
-	<#Description#>
-	@returns <#return value description#>
+	dismiss the keyboard when user tap outside the textfield
  */
 -(void)dismissKeyboard;
 /**
-	<#Description#>
-	@returns <#return value description#>
+	check if frequency is float and is between 100 and 600
  */
 - (void)validateFreq;
 /**
-	<#Description#>
-	@param sender <#sender description#>
-	@returns <#return value description#>
+    action of the button continueButton that pushes to MTGViewController
  */
 - (IBAction)createIt:(id)sender;
 

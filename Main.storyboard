@@ -264,8 +264,8 @@
                                 <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Colour">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleShadowColor" red="0.49844315465057148" green="0.72807126322751325" blue="0.4105581623960341" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="titleShadowColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="showColourPopup:" destination="5SG-oa-Q8B" eventType="touchUpInside" id="JhX-KV-Hvq"/>
@@ -273,7 +273,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-hM-glq">
                                 <rect key="frame" x="351" y="620" width="322" height="119"/>
-                                <state key="normal" title="Continue" image="continueB.png">
+                                <state key="normal" title="Continue" image="Continue2.png">
                                     <color key="titleColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
@@ -284,9 +284,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create new session" id="DtA-kt-mHT">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="bnR-o1-7Bs"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Create new session" id="DtA-kt-mHT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -297,9 +295,7 @@
                         <outlet property="continueButton" destination="SK7-hM-glq" id="exC-9z-8e6"/>
                         <outlet property="freqTextField" destination="NK2-xL-dVY" id="bSL-KO-xga"/>
                         <outlet property="frequencyLabel" destination="NXi-6C-dZL" id="qVQ-JI-EFG"/>
-                        <outlet property="sidebarButton" destination="bnR-o1-7Bs" id="lnO-8N-6mb"/>
                         <outlet property="splitLabel" destination="jsC-Fh-Mub" id="W90-zm-KiW"/>
-                        <outlet property="splitSlider" destination="q3U-FA-6GU" id="O8s-du-xtA"/>
                         <outletCollection property="freqButtons" destination="6fR-hC-Uxi" id="GBZ-LJ-tRu"/>
                         <outletCollection property="freqButtons" destination="HEf-oM-Qv6" id="iMW-2M-jiv"/>
                         <outletCollection property="freqButtons" destination="jlp-jk-zaY" id="cYM-Uh-ec0"/>
@@ -495,8 +491,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="ViewCover" destination="P16-YL-jkV" id="APn-f1-Av6"/>
-                        <outlet property="ViewCover2" destination="APK-g6-w3e" id="ri5-yC-ZFG"/>
+                        <outlet property="ViewCoverL" destination="P16-YL-jkV" id="pkP-L8-i7z"/>
+                        <outlet property="ViewCoverR" destination="APK-g6-w3e" id="6o1-64-Osg"/>
                         <outlet property="changeOctave" destination="j67-kr-jcD" id="Xnl-3M-rno"/>
                         <outlet property="downTheOctave" destination="C3P-KT-7DV" id="Goe-Kx-Fq2"/>
                         <outlet property="frequencyLabel" destination="7E1-N3-sRk" id="2Qz-hQ-B5Z"/>
@@ -723,10 +719,10 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
         </scene>
     </scenes>
     <resources>
+        <image name="Continue2.png" width="398" height="135"/>
         <image name="Harry_Partch_album_scan_headshot.jpg" width="296" height="407"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
-        <image name="continueB.png" width="398" height="135"/>
         <image name="menu.png" width="28" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

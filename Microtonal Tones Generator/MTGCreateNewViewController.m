@@ -12,26 +12,32 @@
 #import "MTGAppDelegate.h"
 
 @implementation MTGCreateNewViewController
-@synthesize popoverController, colorCollection, frequencyInput;
-@synthesize freqButtons,frequencyLabel,splitLabel,splitSlider,chooseTheme,chosenFrequency,frequency,split,colourHue,colourSat, colourBrg, freqTextField, continueButton;
+@synthesize popoverController, colorCollection;
+@synthesize freqButtons,frequencyLabel,splitLabel,chooseTheme,frequency,split,colourHue,colourSat, colourBrg, freqTextField, continueButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /**
+        -set background image
+     */
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"background.jpg"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-    //
+    
+    /**
+    	- add a gesture recognizer
+     */
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
-    
     [self.view addGestureRecognizer:tap];
     
-    // init
+    /**
+    	- set initial values using NSUserDefaults
+     */
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
    
     split       = [defaults integerForKey:  @"deaultNumberOfSplits" ];
@@ -43,26 +49,31 @@
     splitLabel.text     = [NSString stringWithFormat:@"%li", (long)split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
 
-    chooseTheme.hue = colourHue;
+    chooseTheme.hue        = colourHue;
     chooseTheme.saturation = colourSat;
     chooseTheme.brightness = colourBrg;
     
+    /**
+    	- calls creation of color array
+     */
     [self createColorsArray ];
+    
+    /**
+    	- set ups color button representation
+     */
     [self setupColorButtons ];
-    [self customSetup       ];
+    
+    /**
+    	- sets up menu
+     */
+    [self setupMenuRevelation];
 
     continueButton.enabled = true;
-    
-    [_ViewCover setHidden:true];
-        //The setup code (in viewDidLoad in your view controller)
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(openLeftMenu)];
-    [_ViewCover addGestureRecognizer:singleFingerTap];
-    _menuCalled = false;
-
 }
-- (void)customSetup{
+
+- (void)setupMenuRevelation{
+    /** - allocates Navigation Item Bar Buttons to open and show menus */
+
     SWRevealViewController *revealViewController = self.revealViewController;
     
     if ( revealViewController )
@@ -74,7 +85,18 @@
 
         [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     }
+    /**
+    	- adds Gesture Recognizers to cover view so that if they pressed menu would be closed and if menu opens then the view to be shown
+ 
+     */
+    [_ViewCover setHidden:true];
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(openLeftMenu)];
+    [_ViewCover addGestureRecognizer:singleFingerTap];
+    _menuCalled = false;
 }
+
 -(void)openLeftMenu{
     _menuCalled = !_menuCalled;
     [self.view bringSubviewToFront:_ViewCover];
@@ -105,23 +127,21 @@
 }
 
 -(void)colorPopoverControllerDidSelectColor:(UIColor*) colour{
-    
-    CGFloat hue;
-    CGFloat saturation;
-    CGFloat brightness;
-    CGFloat alpha;
-    BOOL success = [colour getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
-    NSLog(@"colour extracted: %i",success);
-    
-    chooseTheme.hue = hue;
-    chooseTheme.saturation = saturation;
-    chooseTheme.brightness = brightness;
-
+    [self setColor:colour];
     [self.view setNeedsDisplay];
     [popoverController dismissPopoverAnimated:YES];
      popoverController = nil;
-    [self setColor:colour];
 
+}
+
+
+-(void)setColor:(UIColor*)color{
+    CGFloat alpha;
+    BOOL success = [color getHue:&colourHue saturation:&colourSat brightness:&colourBrg alpha:&alpha];
+    NSLog(@"colour extracted: %i",success);
+    chooseTheme.hue = colourHue;
+    chooseTheme.saturation = colourSat;
+    chooseTheme.brightness = colourBrg;
 }
 
 -(void)setupColorButtons{
@@ -136,7 +156,7 @@
             MTGKeyButton *colorButton = [MTGKeyButton buttonWithType:UIButtonTypeCustom];
             colorButton.frame = CGRectMake(200+i*80, 500, 70, 70);
             
-            [colorButton addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
+            [colorButton addTarget:self action:@selector(chooseColor:) forControlEvents:UIControlEventTouchUpInside];
             
             [colorButton setSelected:NO];
             [colorButton setNeedsDisplay];
@@ -161,27 +181,16 @@
         }
     }
 }
-
--(void) buttonPushed:(MTGKeyButton *)button{
+-(void) chooseColor:(MTGKeyButton *)button{
     chooseTheme.hue         = button.hue;
     chooseTheme.saturation  = button.saturation;
     chooseTheme.brightness  = button.brightness;
+    
+    colourHue = button.hue;
+    colourSat = button.saturation;
+    colourBrg = button.brightness;
+}
 
-    [self setColor:[UIColor colorWithHue:button.hue saturation:button.saturation brightness:button.brightness alpha:1.0]];
-}
--(void)setColor:(UIColor*)color{
-    CGFloat hue;
-    CGFloat saturation;
-    CGFloat brightness;
-    CGFloat alpha;
-    BOOL success = [color getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
-    NSLog(@"colour extracted: %i",success);
-    
-    colourHue = hue;
-    colourSat = saturation;
-    colourBrg = brightness;
-    
-}
 -(void) createColorsArray{
     colorCollection = [NSArray arrayWithObjects:
                        [UIColor redColor],
@@ -205,9 +214,8 @@
         else button.selected = false;
     }
     
-    chosenFrequency = buttonName;
-    NSLog(@"Frequency selected: %@", chosenFrequency);
-    frequency = [chosenFrequency floatValue];
+    NSLog(@"Frequency selected: %@", buttonName);
+    frequency = [buttonName floatValue];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
     freqTextField.text  = [NSString stringWithFormat:@"%4.0f", frequency];
     freqTextField.backgroundColor = nil;
@@ -266,21 +274,18 @@
    
     // Store the data
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"firstRun"];
     
-    [defaults setInteger:   split       forKey:@"numberOfSplits"   ];
-    [defaults setFloat:     frequency   forKey:@"frequency"        ];
-    [defaults setFloat:     colourHue   forKey:@"themeHue"         ];
-    [defaults setFloat:     colourSat   forKey:@"themeSat"         ];
-    [defaults setFloat:     colourBrg   forKey:@"themeBrg"         ];
-    [defaults setBool:      false       forKey:@"saved"            ];
+    [defaults setInteger: split       forKey:@"numberOfSplits"];
+    [defaults setFloat:   frequency   forKey:@"frequency"     ];
+    [defaults setFloat:   colourHue   forKey:@"themeHue"      ];
+    [defaults setFloat:   colourSat   forKey:@"themeSat"      ];
+    [defaults setFloat:   colourBrg   forKey:@"themeBrg"      ];
+    [defaults setBool:    YES         forKey:@"authenticated" ];
+    [defaults setBool:    NO          forKey:@"saved"         ];
     
     long numberOfSession = 0;
-    if (![defaults integerForKey:@"noOfScalesCreated"])
-            numberOfSession = [defaults integerForKey:@"initNoOfScalesCreated"];
-    else    numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
+    if ([defaults integerForKey:@"noOfScalesCreated"]) numberOfSession = [defaults integerForKey:@"noOfScalesCreated"];
     numberOfSession+=1;
-    [defaults setInteger:numberOfSession forKey:@"currentScale"];
     [defaults setInteger:numberOfSession forKey:@"noOfScalesCreated"];
     
     [defaults synchronize];

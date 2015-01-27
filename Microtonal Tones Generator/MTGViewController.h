@@ -52,8 +52,8 @@
 @property(nonatomic) BOOL loading /** boolean set true if session is loading from MTGLoadTableViewController*/;
 @property(nonatomic) BOOL stateSelected /** boolean set true if state is loading from MTGSavedStatesTableViewController */;
 
-@property (strong, nonatomic) IBOutlet UIView *ViewCover  /** view on the top of View Controller of a size of iPad screen that, if left menu is called, covers the view */;
-@property (strong, nonatomic) IBOutlet UIView *ViewCover2 /** view on the top of View Controller of a size of iPad screen that, if left menu is called, covers the view */;
+@property (strong, nonatomic) IBOutlet UIView *ViewCoverL  /** view on the top of View Controller of a size of iPad screen that, if left menu is called, covers the view */;
+@property (strong, nonatomic) IBOutlet UIView *ViewCoverR /** view on the top of View Controller of a size of iPad screen that, if left menu is called, covers the view */;
 
 
 /** Move up the octave by multiplying frequency value on 2 */
@@ -95,9 +95,9 @@
 - (void)playNoteLong:(float)f at:(NSInteger)index;
 /**
 	Action of a button which calls for other actions which should be performed when key is pressed
-	@param aButton key button
+	@param aKey key button
  */
-- (void)keyPressed:(MTGKeyButton*)aButton;
+- (void)keyPressed:(MTGKeyButton*)aKey;
 /**
 	creates button - key
 	@param index position in the array of keys created

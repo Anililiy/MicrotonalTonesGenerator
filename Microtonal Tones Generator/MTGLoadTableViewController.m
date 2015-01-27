@@ -145,7 +145,7 @@
             MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
             authObj.authenticated = NO;
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setBool:NO forKey:@"firstRun"];
+            [defaults setBool:NO forKey:@"authenticated"];
 
         }
     }

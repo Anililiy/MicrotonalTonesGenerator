@@ -9,6 +9,9 @@
 #import "MTGKeyButton.h"
 #import "Common.h"
 
+#import "PdFile.h"
+#import "PdBase.h"
+
 @implementation MTGKeyButton
 
 @synthesize index, frequency;
@@ -39,17 +42,38 @@
 }
 
 -(void)setColour:(UIColor *)colour{
-    CGFloat alpha;
-    BOOL success = [colour getHue:&_hue saturation:&_saturation brightness:&_brightness alpha:&alpha];
+    BOOL success = [colour getHue:&_hue saturation:&_saturation brightness:&_brightness alpha:&_alpha];
     NSLog(@"colour extracted: %i",success);
+    [self setNeedsDisplay];
+}
+
+-(void) setHue:(CGFloat)hue
+{
+    _hue = hue;
+    [self setNeedsDisplay];
+}
+
+-(void) setSaturation:(CGFloat)saturation
+{
+    _saturation = saturation;
+    [self setNeedsDisplay];
+}
+
+-(void) setBrightness:(CGFloat)brightness
+{
+    _brightness = brightness;
+    [self setNeedsDisplay];
 }
 
 -(void)drawRect:(CGRect)rect {
     self.titleLabel.font =[UIFont fontWithName: @"GillSans" size:30 ];
 
     CGFloat actualBrightness = self.brightness;
+    CGFloat actualAlpha = self.alpha;
+
     if (self.state == UIControlStateHighlighted || self.state == UIControlStateSelected) {
         actualBrightness -= 0.20;
+        actualAlpha +=1;
     }
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -59,11 +83,11 @@
     UIColor *  highlightStop = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
     UIColor *  shadowColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5];
     
-    UIColor * outerTop = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:1.0*actualBrightness alpha:1.0];
-    UIColor * outerBottom = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.80*actualBrightness alpha:1.0];
-    UIColor * innerStroke = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.80*actualBrightness alpha:1.0];
-    UIColor * innerTop = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.90*actualBrightness alpha:1.0];
-    UIColor * innerBottom = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.70*actualBrightness alpha:1.0];
+    UIColor * outerTop = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:1.0*actualBrightness alpha:actualAlpha];
+    UIColor * outerBottom = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.80*actualBrightness alpha:actualAlpha];
+    UIColor * innerStroke = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.80*actualBrightness alpha:actualAlpha];
+    UIColor * innerTop = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.90*actualBrightness alpha:actualAlpha];
+    UIColor * innerBottom = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.70*actualBrightness alpha:actualAlpha];
     
     CGFloat outerMargin = 6.0f;
     CGRect outerRect = CGRectInset(self.bounds, outerMargin, outerMargin);
@@ -129,29 +153,11 @@
     CFRelease(highlightPath);
 
 }
-
--(void) setHue:(CGFloat)hue
-{
-    _hue = hue;
-    [self setNeedsDisplay];
-}
-
--(void) setSaturation:(CGFloat)saturation
-{
-    _saturation = saturation;
-    [self setNeedsDisplay];
-}
-
--(void) setBrightness:(CGFloat)brightness
-{
-    _brightness = brightness;
-    [self setNeedsDisplay];
-}
 - (void)hesitateUpdate
 {
     [self setNeedsDisplay];
-}
 
+}
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
@@ -178,5 +184,20 @@
     [self setNeedsDisplay];
     [self performSelector:@selector(hesitateUpdate) withObject:nil afterDelay:0.1];
 }
+
+/*
+-(void)play{
+    dispatcher = [[PdDispatcher alloc]init];
+    
+    [PdBase setDelegate:dispatcher];
+    patch = [PdBase openFile:@"KeyNote.pd" path:[[NSBundle mainBundle] resourcePath]];
+    if (!patch) {
+        NSLog(@"Failed to open patch!");
+    }
+    
+    [PdBase sendFloat:frequency toReceiver:@"midinote"];
+    [PdBase sendBangToReceiver:@"trigger"];
+}
+*/
 
 @end

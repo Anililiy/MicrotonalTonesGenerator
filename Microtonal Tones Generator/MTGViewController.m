@@ -21,7 +21,7 @@ NSString *const kShortPatchName2 = @"KeyNote3.pd";
 
 @synthesize loading, indexOfFileLoading, saveButton, startButtonItem;
 @synthesize stateSelected, indexOfStateChosen, frequencyLabel;
-@synthesize playNextStateButton, playPreviousStateButton, ViewCover, ViewCover2;
+@synthesize playNextStateButton, playPreviousStateButton, ViewCoverL, ViewCoverR;
 @synthesize upTheOctave, downTheOctave, changeOctave;
 
 
@@ -65,8 +65,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
            - create two views on the top of View Controller of a size of iPad screen so that in if menus called cover appear initially set hidden because no menu called
          */
         [self changeSize];
-        [ViewCover  setHidden:true];
-        [ViewCover2 setHidden:true];
+        [ViewCoverL  setHidden:true];
+        [ViewCoverR setHidden:true];
         
         /**
             - add Gesture Recognizers to cover views so that if they pressed menus would be closed and if menus open then those views to be shown
@@ -74,12 +74,12 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         UITapGestureRecognizer *singleFingerTap =
         [[UITapGestureRecognizer alloc] initWithTarget:self
                                                 action:@selector(openLeftMenu)];
-        [ViewCover addGestureRecognizer:singleFingerTap];
+        [ViewCoverL addGestureRecognizer:singleFingerTap];
 
         UITapGestureRecognizer *singleFingerTap2 =
         [[UITapGestureRecognizer alloc] initWithTarget:self
                                                 action:@selector(openRightMenu)];
-        [ViewCover2 addGestureRecognizer:singleFingerTap2];
+        [ViewCoverR addGestureRecognizer:singleFingerTap2];
 
         /** - allocate Navigation Item Bar Buttons to open and show menus */
         SWRevealViewController *revealViewController = self.revealViewController;
@@ -146,28 +146,27 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 -(void)changeSize{
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    CGRect frame = ViewCover.frame;
+    CGRect frame = ViewCoverL.frame;
     frame.size.height = screenRect.size.height;
     frame.size.width  = screenRect.size.width;
     frame.origin = CGPointMake (0, 0);
-    ViewCover.frame = frame;
-    ViewCover2.frame = frame;
+    ViewCoverL.frame = frame;
+    ViewCoverR.frame = frame;
     
-    [self.view bringSubviewToFront:ViewCover];
-    [self.view bringSubviewToFront:ViewCover2];
+    [self.view bringSubviewToFront:ViewCoverL];
+    [self.view bringSubviewToFront:ViewCoverR];
 }
 
 -(void)openLeftMenu{
     [self clearUp];
     menuCalled = !menuCalled;
-    [self.view bringSubviewToFront:ViewCover];
+    [self.view bringSubviewToFront:ViewCoverL];
 
-    if (menuCalled)[ViewCover setHidden:false];
-    else [ViewCover setHidden:true];
+    if (menuCalled)[ViewCoverL setHidden:false];
+    else [ViewCoverL setHidden:true];
     
     [startButtonItem setTitle:@"Polyphony"];
     creationState = false;
-    saveButton.enabled = false;
     playPreviousStateButton.enabled = false;
     playNextStateButton.enabled = false;
 
@@ -178,11 +177,11 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 -(void)openRightMenu{
     [self clearUp];
     menuCalled = !menuCalled;
-    [self.view bringSubviewToFront:ViewCover2];
+    [self.view bringSubviewToFront:ViewCoverR];
 
-    if (menuCalled)[ViewCover2 setHidden:false];
+    if (menuCalled)[ViewCoverR setHidden:false];
     else {
-        [ViewCover2 setHidden:true];
+        [ViewCoverR setHidden:true];
         [self initialiseValues];
     }
 
@@ -285,7 +284,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     /**
         - set tint colour for the mainToolbar
      */
-    [self.mainToolbar setBarTintColor:[UIColor colorWithHue:hueOfKeys saturation:(saturOfKeys/4) brightness:brightOfKey alpha:0.1]];
+    [self.mainToolbar setBarTintColor:[UIColor colorWithHue:hueOfKeys saturation:saturOfKeys/2 brightness:brightOfKey alpha:0.1]];
 
 }
 
@@ -387,8 +386,9 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     	- set colour and values for index and frequency
      */
     aKey.hue = hueOfKeys;
-    aKey.saturation = 0.1+saturOfKeys*(index+1)/((float)numberOfSplits+1);;
+    aKey.saturation = saturOfKeys;
     aKey.brightness = brightOfKey;
+    aKey.alpha = 0.1+(index+1)/(2*((float)numberOfSplits+1));
     aKey.index = index;
     aKey.frequency = calcFreqOfNote(index, numberOfSplits, frequency);
     /**
@@ -417,6 +417,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
      */
     [keyboard addObject:aKey];
     [self.view addSubview:aKey];
+    [self takeScreenshot];
 }
 
 - (void)keyPressed:(MTGKeyButton*)aKey{
@@ -430,6 +431,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             // when user select key in polyphony state (creationState) we should add this key to the array of pressedKeys
             aKey.selected = YES;
             [pressedKeys addObject:aKey];
+            
             // 	sends a signal to PD to create sound with specified frequency which will continue until aKey pressed again
             [self playNoteLong:aKey.frequency at:aKey.index];
         }
@@ -437,9 +439,11 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             // when user press already selected key, the key should be decelected nd removed from pressedKeys
             aKey.selected = NO;
             [pressedKeys removeObject:aKey];
+            
             // also the sound creation should be finished
             [patches removeObjectAtIndex:      aKey.index];
             [patches insertObject:@"1" atIndex:aKey.index];
+           
             // user cannot save state when there are no pressed keys and session already saved
             if ([pressedKeys count]==0 && sessionIsSaved) saveButton.enabled = false;
         }
@@ -479,6 +483,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
         downTheOctave.enabled = true;
         for(MTGKeyButton* aKey in keyboard) aKey.frequency = calcFreqOfNote(aKey.index, numberOfSplits, frequency);
+        currentScale.freqInitial = frequency;
     }
     else upTheOctave.enabled= false;
 }
@@ -489,6 +494,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         frequency=frequency/2;
         frequencyLabel.text = [NSString stringWithFormat:@"fo = %2.2f Hz", frequency];
         for(MTGKeyButton* aKey in keyboard) aKey.frequency = calcFreqOfNote(aKey.index, numberOfSplits, frequency);
+        currentScale.freqInitial = frequency;
     }
     else downTheOctave.enabled = false;
 }
@@ -496,57 +502,65 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 #pragma mark - saving
 - (IBAction)saveState:(id)sender {
-    
+    /**
+    	- disables saveButton, sets date of last update and keys pressed
+     */
     saveButton.enabled = false;
     currentScale.dateUpdated = [NSDate date];
 
-    NSMutableArray *keys =[NSMutableArray array];
-    [keys addObjectsFromArray:pressedKeys];
-    if (keys.count != 0 ) [savedStates addObject:keys];
-    
-    NSLog(@"States saved %@", savedStates);
-
+    if (pressedKeys.count != 0 ) [savedStates addObject:pressedKeys];
     currentScale.savedStates = savedStates;
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray* archSessions = [NSMutableArray array];
-    NSData *encodedSession = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
 
-    archSessions = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
+    NSLog(@"States saved %@", currentScale.savedStates);
     
+    /**
+    	- uses NSUserDefaults and NSCoding to get array of already saved sessions
+     */
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* archSessions = [[NSMutableArray alloc] initWithArray:[defaults objectForKey:@"savedSessions"]];
+    
+    /**
+        - if session was not previously saved, sets the date of the creation, boolean value sessionIsSaved to true, and hides navigation bar which is avaliable only before saving and adds new session to the array of savedSessions
+     */
     if  (!sessionIsSaved){
-        currentScale.freqInitial = frequency;
+        
         currentScale.dateCreated = [NSDate date];
-        [self takeScreenshot];
         sessionIsSaved = YES;
         [defaults setBool:sessionIsSaved forKey:@"saved"];
-        [changeOctave setHidden:true];
+        [changeOctave   setHidden:true];
         [frequencyLabel setHidden:true];
         
-        NSData *encodedScale = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
-
-        [archSessions addObject:encodedScale];
-        [defaults setObject:archSessions forKey:@"savedSessions"];
-        sessionIsSaved = YES;
+        NSData *encodedSession = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
+        [archSessions addObject:encodedSession];
         
-        if(keys.count>0)self.navigationItem.rightBarButtonItem.enabled = true;
-        else self.navigationItem.rightBarButtonItem.enabled = false;
-        [self clearUp];
-
-        NSLog(@"Saved session");
+        NSLog(@"Session is saved");
     }
+    /**
+      - if on the other hand the session is saved already data about it should be overwritten in the array of savedSessions
+     */
     else {
-        NSInteger indexOfScaleInTheArray = [defaults integerForKey:@"currentScaleIndex"];
-        [archSessions replaceObjectAtIndex:indexOfScaleInTheArray withObject:encodedSession];
+        NSInteger indexOfSessionInTheArray = [defaults integerForKey:@"currentScaleIndex"];
+        NSData *encodedSession = [NSKeyedArchiver archivedDataWithRootObject:currentScale];
+        [archSessions replaceObjectAtIndex:indexOfSessionInTheArray withObject:encodedSession];
     }
+    /**
+        - loads savedSessions in encoded format to the NSUserDefaults database
+     */
     [defaults setObject:archSessions forKey:@"savedSessions"];
-    
-    NSLog(@"Saved state");
     [defaults synchronize];
+
+    NSLog(@"Saved state");
     
+    /**
+    	- also manages the appearance of right menu - which should only be enabled when there are saved states
+     */
     if(currentScale.savedStates.count>0)self.navigationItem.rightBarButtonItem.enabled = true;
     else self.navigationItem.rightBarButtonItem.enabled = false;
     
+    /**
+    	- turns off all keys pressed before saving
+     */
+    [self clearUp];
 }
 
 - (void)takeScreenshot {

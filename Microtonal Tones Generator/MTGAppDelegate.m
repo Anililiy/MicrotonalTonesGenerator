@@ -45,15 +45,12 @@
     [defaults setFloat:     0.7 forKey:@"initThemeHue"          ];
     [defaults setFloat:     1   forKey:@"initThemeSat"          ];
     [defaults setFloat:     1   forKey:@"initThemeBrg"          ];
-    [defaults setInteger:   0   forKey:@"initScale"             ];
-    [defaults setInteger:   0   forKey:@"initScaleIndex"        ];
-    [defaults setInteger:   0   forKey:@"initNoOfScalesCreated" ];
     
     [defaults synchronize];
     
     NSLog(@"Data saved");
 
-    self.authenticated = [defaults boolForKey:@"firstRun"];
+    self.authenticated = [defaults boolForKey:@"authenticated"];
     
     [self.window makeKeyAndVisible];
    

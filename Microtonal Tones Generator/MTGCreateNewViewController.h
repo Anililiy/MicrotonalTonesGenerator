@@ -11,41 +11,111 @@
 
 #import "MTGKeyButton.h"
 
-@interface MTGCreateNewViewController : UIViewController<UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>
+@interface MTGCreateNewViewController : UIViewController <UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>
 
-@property NSArray *colorCollection;
-@property (nonatomic, strong) NSArray* colorButtons;
+@property NSArray *colorCollection /** array containing primary colours */;
+@property (strong, nonatomic) IBOutlet MTGKeyButton *colourButton /** each button represent one colour from colorCollection*/;
+@property (nonatomic, strong) NSArray* colorButtons /** array of colourButton */;
+@property (strong, nonatomic) IBOutlet MTGKeyButton *chooseTheme /** button which represents colour chosen, when pressed opens popoverController */;
+@property (nonatomic,retain) UIPopoverController *popoverController /** view which represents a colour wheel */;
 
-@property    IBOutletCollection(UIButton) NSArray *freqButtons;
-@property   IBOutlet UILabel *frequencyLabel;
-@property   NSString* chosenFrequency;
-@property   CGFloat frequency;
-@property (strong, nonatomic) IBOutlet UITextField *freqTextField;
-@property (strong, nonatomic) IBOutlet UIButton *continueButton;
+@property BOOL menuCalled /** boolean value which shows if either of menus was called */;
+@property CGFloat colourHue /** hue of the color chosen */;
+@property CGFloat colourSat /** saturation of the color chosen */;
+@property CGFloat colourBrg /** brightness of the color chosen */;
 
-@property BOOL menuCalled, frequencyInput;
+@property IBOutletCollection(UIButton) NSArray *freqButtons /** fiven frequency buttons*/;
+@property IBOutlet UILabel *frequencyLabel /** label representing frequency chosen */;
+@property CGFloat frequency /** initial frequency chosen by user */;
+@property (strong, nonatomic) IBOutlet UITextField *freqTextField /** field allowing to input custom frequency */;
 
-@property   IBOutlet UILabel *splitLabel;
-@property  IBOutlet UISlider *splitSlider;
-    
-@property  IBOutlet MTGKeyButton *chooseTheme;
-   
-@property  NSInteger split;
-@property  CGFloat colourHue;
-@property  CGFloat colourSat;
-@property  CGFloat colourBrg;
+@property NSInteger split /** number of splits chosen */;
+@property  IBOutlet UILabel *splitLabel /** label representing split chosen */;
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) IBOutlet UIButton *continueButton /** button which is when pressed pass user to MTGViewController */;
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property (nonatomic,retain) UIPopoverController *popoverController;
-@property (strong, nonatomic) IBOutlet UIButton *colourButton;
-@property (strong, nonatomic) IBOutlet UIView *ViewCover;
+@property (strong, nonatomic) IBOutlet UIView *ViewCover /** view on the top of View Controller of a size of iPad screen that, if menu is called, covers the view */;
 
-- (IBAction)createIt:(id)sender;
+/**
+	Method called after the view controller has loaded its view hierarchy into memory.
+    In this method all main initialization is performed:
+	@returns nothing
+ */
+- (void)viewDidLoad;
+/**
+    Sets up SWRevealViewController to be called
+ */
+- (void)setupMenuRevelation;
+/**
+	calls for SWRevealViewController to open left menu - MTGSidebarTableViewController
+    also turns off all sound production and releasing all keys pressed
+    makes ViewCover visible, so it covers all view 
+ */
+-(void)openLeftMenu;
+/**
+	shows colour popup
+*/
 - (IBAction)showColourPopup:(id)sender;
+
+/**
+	receive information from popup
+ */
+-(void)colorPopoverControllerDidSelectColor:(UIColor*) colour;
+
+/**
+	set up color buttons
+ */
+-(void)setupColorButtons;
+
+/**
+   when colour button pressed color is chosen
+ */
+-(void)chooseColor:(MTGKeyButton *)button;
+
+/**
+	<#Description#>
+	@param color <#color description#>
+	@returns <#return value description#>
+ */
+-(void)setColor:(UIColor*)color;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+-(void) createColorsArray;
+/**
+	<#Description#>
+	@param slider <#slider description#>
+	@returns <#return value description#>
+ */
 - (IBAction)splitInputChanged:(UISlider *)slider;
+/**
+	<#Description#>
+	@param sender <#sender description#>
+	@returns <#return value description#>
+ */
 - (IBAction)frequencyInputTxtField:(id)sender;
+/**
+	<#Description#>
+	@param sender <#sender description#>
+	@returns <#return value description#>
+ */
 - (IBAction)releaseFreqBts:(id)sender;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+-(void)dismissKeyboard;
+/**
+	<#Description#>
+	@returns <#return value description#>
+ */
+- (void)validateFreq;
+/**
+	<#Description#>
+	@param sender <#sender description#>
+	@returns <#return value description#>
+ */
+- (IBAction)createIt:(id)sender;
 
 @end

@@ -10,4 +10,16 @@
 
 @interface MTGInformationViewController : UIViewController
 
+/**
+	loads view
+ */
+- (void)viewDidLoad;
+
+/**
+	calls for SWRevealViewController to open left menu - MTGSidebarTableViewController
+    also turns off all sound production and releasing all keys pressed
+    makes ViewCover visible, so it covers all view
+ */
+-(void)openLeftMenu;
+
 @end

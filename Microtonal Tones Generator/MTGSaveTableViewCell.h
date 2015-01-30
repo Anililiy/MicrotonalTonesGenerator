@@ -10,12 +10,12 @@
 
 @interface MTGSaveTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *freqLabel;
-@property (weak, nonatomic) IBOutlet UILabel *splitLabel;
-@property (strong, nonatomic) IBOutlet UILabel *nameOfScale;
-@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UILabel *lastUpdateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *freqLabel   /** frequency label */;
+@property (strong, nonatomic) IBOutlet UILabel *splitLabel /** split label */;
+@property (strong, nonatomic) IBOutlet UILabel *nameOfScale /** label representing the name of the session */;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView /** image of the session */;
 
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel /** date created label */;
+@property (strong, nonatomic) IBOutlet UILabel *lastUpdateLabel /** date last updated label */;
 
 @end

@@ -27,15 +27,15 @@
     //
     NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
 
-    NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
-    MTGSavedScale *scale;
-    scales = [NSMutableArray array];
-    for (NSData *data in archivedScales){
-        scale = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        [scales addObject:scale];
+    NSMutableArray *archivedSessions = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
+    MTGSavedScale *session;
+    sessions = [NSMutableArray array];
+    for (NSData *data in archivedSessions){
+        session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [sessions addObject:session];
     }
     
-    NSLog(@"Saved %@, count %lu", scales, (unsigned long)[scales count]);
+    NSLog(@"Saved %@, count %lu", sessions, (unsigned long)[sessions count]);
 
 }
 
@@ -56,13 +56,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [scales count];
+    return [sessions count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MTGSavedScale *scale = [scales objectAtIndex:indexPath.row];
+    MTGSavedScale *scale = [sessions objectAtIndex:indexPath.row];
     
     static NSString *CellIdentifier = @"chooseScale";
    
@@ -116,29 +116,33 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [scales removeObjectAtIndex:indexPath.row];
+        /** - Delete the row from the data source */
+        
+        [sessions removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
+        /** - Remove the session from saved sessions */
         NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
-        NSMutableArray *archivedScales = [NSMutableArray array];
+        NSMutableArray *archivedSessions = [NSMutableArray array];
         
-        MTGSavedScale *scale;
-        for (NSData *data in scales){
-            scale = [NSKeyedArchiver archivedDataWithRootObject:data];
-            [archivedScales addObject:scale];
+        for( NSData *data in sessions){
+            NSData *encodedSession = [NSKeyedArchiver archivedDataWithRootObject:data];
+            [archivedSessions addObject:encodedSession];
         }
-        [savedSettings setObject:archivedScales forKey:@"savedSessions"];
-        int currentIndex = [savedSettings integerForKey:@"currentScaleIndex"];
+        [savedSettings setObject:archivedSessions forKey:@"savedSessions"];
+        
+        /** - update current index of the session */
+        long currentIndex = [savedSettings integerForKey:@"currentScaleIndex"];
         if (currentIndex>=1) currentIndex-=1;
         [savedSettings setInteger:currentIndex forKey:@"currentScaleIndex"];
         [savedSettings synchronize];
-        if ([scales count] == 0) {
+        
+        /** set app unauthenticated if there is no session saved left */
+        if ([sessions count] == 0) {
             MTGAppDelegate *authObj = (MTGAppDelegate*)[[UIApplication sharedApplication] delegate];
             authObj.authenticated = NO;
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setBool:NO forKey:@"authenticated"];
-
         }
     }
 }

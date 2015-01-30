@@ -9,52 +9,44 @@
 #import "MTGSavedStatesTableViewController.h"
 
 @implementation MTGSavedStatesTableViewController
-@synthesize savedStates,str, indexOfScaleSelected, scales, indexOfScale, scaleUsed;
+@synthesize savedStates, indexOfStateSelected, indexOfSession, sessionUsed;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 -(void)viewDidAppear:(BOOL)animated{
     [self dataFill];
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    NSLog(@"Input %@", str);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    //self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-
+    [super viewDidLoad];    
     [self dataFill];
 }
 
 -(void)dataFill{
-    scales = [NSMutableArray array];
+    NSMutableArray* sessions = [NSMutableArray array];
     savedStates = [NSMutableArray array];
+    
     NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
-    
-    NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
-    //MTGSavedScale *scaleUsed;
-    for (NSData *data in archivedScales){
-        scaleUsed = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        [scales addObject:scaleUsed];
+    NSMutableArray *archivedSessions = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
+
+    for (NSData *data in archivedSessions){
+        sessionUsed = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [sessions addObject:sessionUsed];
     }
-    indexOfScale = [savedSettings integerForKey:@"currentScaleIndex"];
-    scaleUsed = [scales objectAtIndex:indexOfScale];
-    savedStates = scaleUsed.savedStates;
     
-    //[savedStates addObjectsFromArray:@[@"12",@"14"]];
-    NSLog(@"We are given: %@", savedStates);
+    indexOfSession = [savedSettings integerForKey:@"currentScaleIndex"];
+    
+    sessionUsed = [sessions objectAtIndex:indexOfSession];
+    
+    savedStates = sessionUsed.savedStates;
     [self.tableView reloadData];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,14 +111,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"didSelectRowAtIndexPath %li", (long)indexPath.row);
-    indexOfScaleSelected = indexPath.row;
+    indexOfStateSelected = indexPath.row;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    indexOfScaleSelected = indexPath.row;
+    indexOfStateSelected = indexPath.row;
     return indexPath;
 }
 
@@ -151,22 +143,18 @@
        
         [savedStates removeObjectAtIndex:[indexPath row]];
         NSLog(@"states afrer deletion %@",savedStates);
-        scaleUsed.savedStates = savedStates;
+        sessionUsed.savedStates = savedStates;
         NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
-        NSMutableArray *archivedScales = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
+        NSMutableArray *archivedSessions = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
         
-        NSData * archivedScale = [NSKeyedArchiver archivedDataWithRootObject:scaleUsed];
-        [archivedScales replaceObjectAtIndex:indexOfScale withObject:archivedScale];
+        NSData * archivedSessoin = [NSKeyedArchiver archivedDataWithRootObject:sessionUsed];
+        [archivedSessions replaceObjectAtIndex:indexOfSession withObject:archivedSessoin];
         
-        [savedSettings setObject:archivedScales forKey:@"savedSessions"];
+        [savedSettings setObject:archivedSessions forKey:@"savedSessions"];
         [savedSettings synchronize];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-       // [self.tableView reloadData];
-
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    } 
 }
 
 #pragma mark - Navigation
@@ -178,7 +166,7 @@
     {
         UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
         MTGViewController *detailViewController = (MTGViewController *)navController.topViewController;
-        detailViewController.indexOfStateChosen = indexOfScaleSelected;
+        detailViewController.indexOfStateChosen = indexOfStateSelected;
         detailViewController.stateSelected = true;
     }
 }

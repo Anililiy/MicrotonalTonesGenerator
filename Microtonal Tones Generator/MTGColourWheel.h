@@ -35,7 +35,6 @@
 
 - (void)updateImage;
 - (UIColor*)currentColor;
-- (void)setCurrentColor:(UIColor*)color;
 - (void)setTouchPoint:(CGPoint)point;
 
 

@@ -11,31 +11,19 @@
 
 @implementation MTGSidebarTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.navigationItem.title = @"MENU";
-    //self
-    menuItems = @[ @"new", @"load"]; //@"settings"
-    section2 =  @[@"information"];
+    
+    menuItems = @[ @"new", @"load"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 50;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 50;
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +45,7 @@
     switch(section) {
         case 1: return [menuItems count];
             break;
-        case 2: return [section2 count];
+        case 2: return 1;
             break;
         case 0: return 1;
     }
@@ -75,12 +63,12 @@
             return cell0;
         }break;
         case 1:{
-            NSString *CellIdentifier = [menuItems objectAtIndex:indexPath.row];
-            UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            NSString *CellIdentifier1 = [menuItems objectAtIndex:indexPath.row];
+            UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPath];
             return cell1;
         }break;
         case 2:{
-            NSString *CellIdentifier2 = [section2 objectAtIndex:indexPath.row];
+            NSString *CellIdentifier2 = @"information";
             UITableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2 forIndexPath:indexPath];
             return cell2;
         }break;

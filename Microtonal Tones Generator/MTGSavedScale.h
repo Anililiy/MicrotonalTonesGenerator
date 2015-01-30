@@ -20,12 +20,13 @@
                                        each saved state is holding array of keys pressed in polyfony */;
 @property float freqInitial /** initial frequency chosen by user */;
 
+
 /** theme of each session's keys is created using hue, saturation and brightness, therefore those 3 values are stored */
 @property float hue;
 @property float saturation;
 @property float brightness;
 
-@property UIImage* imageOfScale /** image of how created scale looks like */;
+@property UIImage*imageOfScale /** image of how created scale looks like */;
 @property NSDate *dateCreated /** date on which the session was created */;
 @property NSDate *dateUpdated /** date on which the session was last updated */;
 

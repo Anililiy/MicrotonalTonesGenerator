@@ -9,15 +9,17 @@
 /* Begin PBXBuildFile section */
 		950477C51A6871F70098176E /* MTGColourWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 950477C41A6871F70098176E /* MTGColourWheel.m */; };
 		950A28D31A656C11003153C6 /* MTGInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950A28D21A656C11003153C6 /* MTGInformationViewController.m */; };
-		950A28D81A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */; };
 		951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */; };
 		951942C619F6EFD100F510FE /* MTGSaveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 951942C419F6EFD100F510FE /* MTGSaveTableViewCell.m */; };
 		951CCBBA1A73058F0019BBB8 /* GillSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBB91A7305700019BBB8 /* GillSans.ttc */; };
-		951CCBBE1A73120F0019BBB8 /* continueB.png in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBBD1A73120F0019BBB8 /* continueB.png */; };
-		951CCBCE1A731C840019BBB8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBCD1A731C840019BBB8 /* background.jpg */; };
-		951CCBD41A731F2D0019BBB8 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBD31A731F2D0019BBB8 /* background1.jpg */; };
-		951CCBD71A75B0FE0019BBB8 /* Continue2.png in Resources */ = {isa = PBXBuildFile; fileRef = 951CCBD61A75B0FE0019BBB8 /* Continue2.png */; };
 		951CCE401A77ECEE0019BBB8 /* test3.pd in Resources */ = {isa = PBXBuildFile; fileRef = 951CCE3F1A77ECEE0019BBB8 /* test3.pd */; };
+		951CCE4A1A7B9C790019BBB8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 951CCE431A7B9C780019BBB8 /* background.jpg */; };
+		951CCE4B1A7B9C790019BBB8 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 951CCE441A7B9C780019BBB8 /* background1.jpg */; };
+		951CCE4D1A7B9C790019BBB8 /* background3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 951CCE461A7B9C780019BBB8 /* background3.jpg */; };
+		951CCE4E1A7B9C790019BBB8 /* Continue2.png in Resources */ = {isa = PBXBuildFile; fileRef = 951CCE471A7B9C780019BBB8 /* Continue2.png */; };
+		951CCE4F1A7B9C790019BBB8 /* continueB.png in Resources */ = {isa = PBXBuildFile; fileRef = 951CCE481A7B9C780019BBB8 /* continueB.png */; };
+		951CCE501A7B9C790019BBB8 /* Harry_Partch_album_scan_headshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 951CCE491A7B9C790019BBB8 /* Harry_Partch_album_scan_headshot.jpg */; };
+		951CCE531A7B9DBC0019BBB8 /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 951CCE521A7B9DBC0019BBB8 /* background2.jpg */; };
 		953943411A0A652200588979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953943401A0A652200588979 /* Main.storyboard */; };
 		953943441A0A659100588979 /* arrow-big-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 953943421A0A659100588979 /* arrow-big-03.png */; };
 		953943451A0A659100588979 /* arrow-big-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 953943431A0A659100588979 /* arrow-big-04.png */; };
@@ -92,17 +94,19 @@
 		950477C41A6871F70098176E /* MTGColourWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTGColourWheel.m; path = "Microtonal Tones Generator/MTGColourWheel.m"; sourceTree = SOURCE_ROOT; };
 		950A28D11A656C11003153C6 /* MTGInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGInformationViewController.h; sourceTree = "<group>"; };
 		950A28D21A656C11003153C6 /* MTGInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGInformationViewController.m; sourceTree = "<group>"; };
-		950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Harry_Partch_album_scan_headshot.jpg; sourceTree = "<group>"; };
 		9510589E19C59BA7008F5F76 /* MTGLoadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGLoadTableViewController.h; sourceTree = "<group>"; };
 		9510589F19C59BA7008F5F76 /* MTGLoadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGLoadTableViewController.m; sourceTree = "<group>"; };
 		951942C319F6EFD100F510FE /* MTGSaveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSaveTableViewCell.h; sourceTree = "<group>"; };
 		951942C419F6EFD100F510FE /* MTGSaveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSaveTableViewCell.m; sourceTree = "<group>"; };
 		951CCBB91A7305700019BBB8 /* GillSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = GillSans.ttc; path = ../SWRevealViewController/GillSans.ttc; sourceTree = "<group>"; };
-		951CCBBD1A73120F0019BBB8 /* continueB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = continueB.png; sourceTree = "<group>"; };
-		951CCBCD1A731C840019BBB8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		951CCBD31A731F2D0019BBB8 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
-		951CCBD61A75B0FE0019BBB8 /* Continue2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Continue2.png; sourceTree = "<group>"; };
 		951CCE3F1A77ECEE0019BBB8 /* test3.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test3.pd; path = "Supporting Files/test3.pd"; sourceTree = "<group>"; };
+		951CCE431A7B9C780019BBB8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = "Supporting Files/background.jpg"; sourceTree = "<group>"; };
+		951CCE441A7B9C780019BBB8 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background1.jpg; path = "Supporting Files/background1.jpg"; sourceTree = "<group>"; };
+		951CCE461A7B9C780019BBB8 /* background3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background3.jpg; path = "Supporting Files/background3.jpg"; sourceTree = "<group>"; };
+		951CCE471A7B9C780019BBB8 /* Continue2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Continue2.png; path = "Supporting Files/Continue2.png"; sourceTree = "<group>"; };
+		951CCE481A7B9C780019BBB8 /* continueB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = continueB.png; path = "Supporting Files/continueB.png"; sourceTree = "<group>"; };
+		951CCE491A7B9C790019BBB8 /* Harry_Partch_album_scan_headshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Harry_Partch_album_scan_headshot.jpg; path = "Supporting Files/Harry_Partch_album_scan_headshot.jpg"; sourceTree = "<group>"; };
+		951CCE521A7B9DBC0019BBB8 /* background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background2.jpg; path = "Supporting Files/background2.jpg"; sourceTree = "<group>"; };
 		953943401A0A652200588979 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		953943421A0A659100588979 /* arrow-big-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-big-03.png"; path = "Supporting Files/arrow-big-03.png"; sourceTree = "<group>"; };
 		953943431A0A659100588979 /* arrow-big-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-big-04.png"; path = "Supporting Files/arrow-big-04.png"; sourceTree = "<group>"; };
@@ -268,12 +272,14 @@
 			children = (
 				954B13E419C4F912008FE21B /* Microtonal Tones Generator-Info.plist */,
 				95A2BFA21A64348F00A02D3E /* pd files */,
-				951CCBBD1A73120F0019BBB8 /* continueB.png */,
-				951CCBD61A75B0FE0019BBB8 /* Continue2.png */,
-				951CCBCD1A731C840019BBB8 /* background.jpg */,
-				951CCBD31A731F2D0019BBB8 /* background1.jpg */,
+				951CCE431A7B9C780019BBB8 /* background.jpg */,
+				951CCE441A7B9C780019BBB8 /* background1.jpg */,
+				951CCE521A7B9DBC0019BBB8 /* background2.jpg */,
+				951CCE461A7B9C780019BBB8 /* background3.jpg */,
+				951CCE471A7B9C780019BBB8 /* Continue2.png */,
+				951CCE481A7B9C780019BBB8 /* continueB.png */,
+				951CCE491A7B9C790019BBB8 /* Harry_Partch_album_scan_headshot.jpg */,
 				951CCBB91A7305700019BBB8 /* GillSans.ttc */,
-				950A28D71A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg */,
 				953943421A0A659100588979 /* arrow-big-03.png */,
 				953943431A0A659100588979 /* arrow-big-04.png */,
 				9540DF0319DB0C22001C1CC1 /* menu.png */,
@@ -526,23 +532,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				951CCBBA1A73058F0019BBB8 /* GillSans.ttc in Resources */,
-				950A28D81A65713E003153C6 /* Harry_Partch_album_scan_headshot.jpg in Resources */,
+				951CCE4A1A7B9C790019BBB8 /* background.jpg in Resources */,
+				951CCE4D1A7B9C790019BBB8 /* background3.jpg in Resources */,
 				953943411A0A652200588979 /* Main.storyboard in Resources */,
+				951CCE501A7B9C790019BBB8 /* Harry_Partch_album_scan_headshot.jpg in Resources */,
+				951CCE4F1A7B9C790019BBB8 /* continueB.png in Resources */,
 				9540DF1019DB0C22001C1CC1 /* menu@2x.png in Resources */,
-				951CCBCE1A731C840019BBB8 /* background.jpg in Resources */,
+				951CCE4E1A7B9C790019BBB8 /* Continue2.png in Resources */,
 				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
 				953943451A0A659100588979 /* arrow-big-04.png in Resources */,
-				951CCBD71A75B0FE0019BBB8 /* Continue2.png in Resources */,
 				95A2BFAC1A64361000A02D3E /* KeyNote2.pd in Resources */,
 				951CCE401A77ECEE0019BBB8 /* test3.pd in Resources */,
 				95A2BFAD1A64361000A02D3E /* KeyNote3.pd in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
-				951CCBD41A731F2D0019BBB8 /* background1.jpg in Resources */,
 				953943441A0A659100588979 /* arrow-big-03.png in Resources */,
 				9540DF1519DB0C22001C1CC1 /* test2.pd in Resources */,
+				951CCE531A7B9DBC0019BBB8 /* background2.jpg in Resources */,
 				954B13E719C4F912008FE21B /* InfoPlist.strings in Resources */,
-				951CCBBE1A73120F0019BBB8 /* continueB.png in Resources */,
 				954B13EF19C4F912008FE21B /* Images.xcassets in Resources */,
+				951CCE4B1A7B9C790019BBB8 /* background1.jpg in Resources */,
 				95A2BFAB1A64361000A02D3E /* KeyNote.pd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

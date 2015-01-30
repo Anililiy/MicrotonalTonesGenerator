@@ -42,7 +42,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     	- manage a background picture
      */
     UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"background1.jpg"] drawInRect:self.view.bounds];
+    [[UIImage imageNamed:@"background2.jpg"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     

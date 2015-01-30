@@ -147,8 +147,6 @@
 		957347571A125DD70014CDBA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		957E295B1A0A63F500D494E7 /* MTGSavedStatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSavedStatesTableViewController.h; sourceTree = "<group>"; };
 		957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedStatesTableViewController.m; sourceTree = "<group>"; };
-		959BBB4A1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		959BBB4B1A5B42B600C43616 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		95A2BF951A6433FF00A02D3E /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = ../libpd/libpd.xcodeproj; sourceTree = "<group>"; };
 		95A2BFA71A64361000A02D3E /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeyNote.pd; path = "Supporting Files/KeyNote.pd"; sourceTree = "<group>"; };
 		95A2BFA81A64361000A02D3E /* KeyNote2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeyNote2.pd; path = "Supporting Files/KeyNote2.pd"; sourceTree = "<group>"; };
@@ -490,7 +488,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				ru,
 			);
 			mainGroup = 954B13D019C4F912008FE21B;
 			productRefGroup = 954B13DA19C4F912008FE21B /* Products */;
@@ -616,7 +613,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				954B13E619C4F912008FE21B /* en */,
-				959BBB4A1A5B42B600C43616 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -625,7 +621,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				954B13FF19C4F913008FE21B /* en */,
-				959BBB4B1A5B42B600C43616 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

@@ -25,7 +25,7 @@
 {
     MTGColourWheel* _colorWheel /** colour wheel */;
     UISlider* _brightnessSlider /** brightness slider */;
-    UIView* _wellView /** colour chosen view */;
+   // UIView* _wellView /** colour chosen view */;
 }
 @property (nonatomic, weak) id <MTGColoursViewControllerDelegate> delegate /**  */;
 

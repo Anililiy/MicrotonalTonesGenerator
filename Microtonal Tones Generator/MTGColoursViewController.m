@@ -20,20 +20,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     /** - set relative arrangement of colorWheel, brightness slider and wellView  */
     CGSize size = self.view.bounds.size;
     CGSize wheelSize = CGSizeMake(size.width * .9, size.width * .9);
     
-    _colorWheel = [[MTGColourWheel alloc] initWithFrame:CGRectMake(size.width / 2 - wheelSize.width / 2,
-                                                                 size.height * .2,
+    _colorWheel = [[MTGColourWheel alloc] initWithFrame:CGRectMake(size.width / 2 - wheelSize. width / 2,
+                                                                 size.height * .01,
                                                                  wheelSize.width,
                                                                  wheelSize.height*0.9)];
     _colorWheel.delegate = self;
     _colorWheel.continuous = true;
+    
     [self.view addSubview:_colorWheel];
     
     _brightnessSlider = [[UISlider alloc] initWithFrame:CGRectMake(0.1,
-                                                                   size.height * .9,
+                                                                   size.height * .7,
                                                                    size.width,
                                                                    size.height * .1)];
     _brightnessSlider.minimumValue = 0.3;
@@ -43,6 +45,7 @@
     [_brightnessSlider addTarget:self action:@selector(changeBrightness:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_brightnessSlider];
     
+    /*
     _wellView = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                          10,
                                                          size.width,
@@ -62,7 +65,7 @@
     [chooseLabel setFont:[UIFont fontWithName: @"GillSans" size: 20.0f]];
     [_wellView addSubview:chooseLabel];
     [self.view addSubview:_wellView];
-    
+    */
 }
 
 //The event handling method
@@ -74,12 +77,12 @@
 {
     [_colorWheel setBrightness:_brightnessSlider.value];
     [_colorWheel updateImage];
-    [_wellView setBackgroundColor:_colorWheel.currentColor];
+  //  [_wellView setBackgroundColor:_colorWheel.currentColor];
 }
 
 - (void)colorWheelDidChangeColor:(MTGColourWheel *)colorWheel
 {
-    [_wellView setBackgroundColor:_colorWheel.currentColor];
+  //  [_wellView setBackgroundColor:_colorWheel.currentColor];
     [delegate colorPopoverControllerDidSelectColor:_colorWheel.currentColor];
 
 }

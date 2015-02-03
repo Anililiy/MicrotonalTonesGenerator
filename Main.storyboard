@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="GillSans.ttc">
@@ -150,42 +151,166 @@
         <!--Help-->
         <scene sceneID="YNk-cO-M1k">
             <objects>
-                <viewController id="mwQ-ni-lxD" customClass="MTGHelpViewController" sceneMemberID="viewController">
+                <viewController title="Help" id="mwQ-ni-lxD" customClass="MTGHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OzB-ve-InI"/>
-                        <viewControllerLayoutGuide type="bottom" id="McM-sS-oBc"/>
+                        <viewControllerLayoutGuide type="top" id="lqJ-jb-g4x"/>
+                        <viewControllerLayoutGuide type="bottom" id="kXY-wu-Ixd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vaI-nN-ov5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="336"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iX-k3-Fe3">
-                                <rect key="frame" x="16" y="0.0" width="568" height="500"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JrO-Tv-rlm">
+                                <rect key="frame" x="11" y="8" width="489" height="328"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JrO-Tv-rlm" secondAttribute="height" multiplier="489:328" id="9uy-eQ-fvm"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Key definitions:
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <real key="NSStrokeWidth" value="3"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Number of splits">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> — number of parts in which octave will be divided to. If you select number of splits 2, for example, there will be 3 buttons in the session, two of one octave and the last one of the next octave so that there is one complete octave presented.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Initial frequency">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> — a frequency of the first key in the session.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Session">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> — a particular arrangement of selected information in form of the window where the set of keys, devoted to production of the sound of particular frequencies, is represented.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Key">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> — a button, which is when pressed produces sound of particular frequency.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Polyphony">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> — a state of the application when you can select several keys so that their sounds add up together into one. When you are in polyphony state, you can save the sound produced by hitting Save on the right top of the screen.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="State">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" — a number of pressed keys in the Polyphony which produce a specific sound. ">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" calendarEvent="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JrO-Tv-rlm" secondAttribute="trailing" id="Bo9-2t-SUW"/>
+                            <constraint firstItem="JrO-Tv-rlm" firstAttribute="width" secondItem="vaI-nN-ov5" secondAttribute="width" constant="-11" id="GwU-s5-OGB"/>
+                            <constraint firstItem="JrO-Tv-rlm" firstAttribute="height" secondItem="vaI-nN-ov5" secondAttribute="height" constant="-8" id="Z6V-T8-eWJ"/>
+                            <constraint firstItem="JrO-Tv-rlm" firstAttribute="top" secondItem="lqJ-jb-g4x" secondAttribute="bottom" constant="8" symbolic="YES" id="b0w-xz-1eu"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Help" id="b47-FQ-dtk"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="500"/>
+                    <size key="freeformSize" width="500" height="400"/>
                     <connections>
-                        <outlet property="helpLabel" destination="8iX-k3-Fe3" id="crm-E8-jI7"/>
+                        <outlet property="helpTextView" destination="JrO-Tv-rlm" id="Kn1-75-fPR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1d-N8-HvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="429" y="-5148"/>
+            <point key="canvasLocation" x="291" y="-5332"/>
         </scene>
         <!--Create new scale-->
         <scene sceneID="Kx1-uc-KIX">
             <objects>
                 <viewController storyboardIdentifier="myViewController" title="Create new scale" id="5SG-oa-Q8B" customClass="MTGCreateNewViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Eqz-RG-JS9"/>
-                        <viewControllerLayoutGuide type="bottom" id="7xN-XZ-OUi"/>
+                        <viewControllerLayoutGuide type="top" id="C8Q-Vm-OAV"/>
+                        <viewControllerLayoutGuide type="bottom" id="FEU-hm-qPd"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="3Ex-o6-Y0M">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -319,7 +444,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create new session" id="DtA-kt-mHT">
-                        <barButtonItem key="rightBarButtonItem" image="question.png" id="iAN-YH-cML">
+                        <barButtonItem key="rightBarButtonItem" title="Help" width="10" style="done" id="iAN-YH-cML">
+                            <inset key="imageInsets" minX="15" minY="18" maxX="15" maxY="10"/>
                             <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
                                 <segue destination="mwQ-ni-lxD" kind="popover" identifier="newHelp" popoverAnchorBarButtonItem="iAN-YH-cML" id="1DT-zB-8LV">
@@ -417,8 +543,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem image="question.png" id="qWe-j3-LjJ">
-                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <barButtonItem title="Help" id="qWe-j3-LjJ">
                             <connections>
                                 <segue destination="mwQ-ni-lxD" kind="popover" identifier="savedHelp" popoverAnchorBarButtonItem="qWe-j3-LjJ" id="7Qt-YN-t2f">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -426,7 +551,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Title" id="VPY-Vs-CoD"/>
+                    <navigationItem key="navigationItem" title="Saved sessions" id="VPY-Vs-CoD"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -442,8 +567,8 @@
             <objects>
                 <viewController storyboardIdentifier="frontViewController" extendedLayoutIncludesOpaqueBars="YES" id="ijD-Df-uuV" customClass="MTGViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hwm-L1-tnF"/>
-                        <viewControllerLayoutGuide type="bottom" id="A9k-ju-Ipm"/>
+                        <viewControllerLayoutGuide type="top" id="472-cM-o0g"/>
+                        <viewControllerLayoutGuide type="bottom" id="PWS-Xp-rTX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hSa-Pi-3od">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -491,7 +616,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
                                 <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
                                 <items>
-                                    <barButtonItem image="question.png" id="4aN-H4-Ceg">
+                                    <barButtonItem title="Help" style="plain" id="4aN-H4-Ceg">
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <connections>
                                             <segue destination="mwQ-ni-lxD" kind="popover" identifier="sessionHelp" popoverAnchorBarButtonItem="4aN-H4-Ceg" id="B2g-dQ-OSf">
@@ -649,8 +774,8 @@
             <objects>
                 <viewController id="hHS-Ev-s8w" customClass="MTGInformationViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vt0-pv-WVJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gsg-4y-ewz"/>
+                        <viewControllerLayoutGuide type="top" id="o30-qS-8YF"/>
+                        <viewControllerLayoutGuide type="bottom" id="arB-T4-lgw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2lT-Ns-KJy">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
@@ -781,6 +906,7 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6E-ls-Tc1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="d5Y-Y2-d5d"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Edi-3Q-iQ1">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -800,7 +926,6 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
         <image name="Harry_Partch_album_scan_headshot.jpg" width="296" height="407"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
-        <image name="question.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -808,9 +933,9 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="B2g-dQ-OSf"/>
-        <segue reference="SqA-3s-bFS"/>
         <segue reference="eiG-kh-lQ6"/>
         <segue reference="Rde-gQ-pRX"/>
+        <segue reference="1DT-zB-8LV"/>
+        <segue reference="BnV-kE-afT"/>
     </inferredMetricsTieBreakers>
 </document>

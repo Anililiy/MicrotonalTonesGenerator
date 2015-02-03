@@ -20,8 +20,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupMenuRevelation];
+    helpLabel.text =@"Something should be written in here.";
    // informationText.text = text;
-    helpLabel.text = text;
+    if (text){
+        helpLabel.text = text;
+        _helpTextView.text =text;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -590,7 +590,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     if([segue.identifier isEqualToString:@"sessionHelp"])
     {
         MTGHelpViewController *detailViewController = [segue destinationViewController];
-        detailViewController.text = @"Save button allows to save session as well as state.\n\nPolyphony button start/stop polyphony.\n\nWhen polyphony started, you can press several keys and they will play together, this is called state and you can save it.\n\nRewind button switches to the previous state (if such exists), it is enabled when you select state.\nFast forward button switches to the next state(if such exists), it is enabled when you select state.\n";
+        detailViewController.text = @"Save button allows to save session as well as state.\n\nWhile session is not saved you can change initial frequency, moving up and down the octave with the buttons on the bottom.\n\nPolyphony button starts/stops polyphony.\n\nWhen polyphony started, you can press several keys and they will play together, this is called state and you can save it.\n\nRewind button switches to the previous state (if such exists).\nFast forward button switches to the next state(if such exists). Both are enabled when you select state from the right hand side menu in the top right corner.\n";
     }
 }
 

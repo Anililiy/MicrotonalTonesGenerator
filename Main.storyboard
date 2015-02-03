@@ -156,11 +156,11 @@
                         <viewControllerLayoutGuide type="bottom" id="McM-sS-oBc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vaI-nN-ov5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iX-k3-Fe3">
-                                <rect key="frame" x="23" y="15" width="568" height="372"/>
+                                <rect key="frame" x="16" y="0.0" width="568" height="500"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -170,7 +170,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="b47-FQ-dtk"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="400"/>
+                    <size key="freeformSize" width="600" height="500"/>
                     <connections>
                         <outlet property="helpLabel" destination="8iX-k3-Fe3" id="crm-E8-jI7"/>
                     </connections>

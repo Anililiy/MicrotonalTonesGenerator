@@ -363,7 +363,7 @@
     if([segue.identifier isEqualToString:@"newHelp"])
     {
         MTGHelpViewController *detailViewController = [segue destinationViewController];
-        detailViewController.text = @"You can select number of splits by moving the slider.\n\nTo select initial frequency press either one of 3 buttons presented or input your own in the text field, just remember that the frequency should be in the range from 100 to 600 Hz.\n\nThe last thing is to choose colour.  You can either choose one of the color given or choose your own by pressing on the Colour button and selecting color in color wheel.\n\nWhen you have completed configuration press Continue to create new Session.";
+        detailViewController.text = @"You can select number of splits by moving the slider.\n\nTo select initial frequency press either one of 3 buttons presented or input your own in the text field, just remember that the frequency should be in the range from 100 to 600 Hz.\n\nYou can either choose one of the given colors or choose your own by pressing on the Colour button and selecting color in color wheel.\nWhen you have completed configuration press Continue to create new Session.";
     }
 }
 

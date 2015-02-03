@@ -10,7 +10,6 @@
 
 @interface MTGHelpViewController : UIViewController
 @property NSString* text;
-@property (strong, nonatomic) IBOutlet UILabel *helpLabel;
 @property (strong, nonatomic) IBOutlet UITextView *helpTextView;
 
 @end

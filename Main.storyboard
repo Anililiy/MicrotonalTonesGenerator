@@ -151,20 +151,20 @@
         <!--Help-->
         <scene sceneID="YNk-cO-M1k">
             <objects>
-                <viewController title="Help" id="mwQ-ni-lxD" customClass="MTGHelpViewController" sceneMemberID="viewController">
+                <viewController title="Help" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="currentContext" id="mwQ-ni-lxD" customClass="MTGHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lqJ-jb-g4x"/>
                         <viewControllerLayoutGuide type="bottom" id="kXY-wu-Ixd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vaI-nN-ov5">
-                        <rect key="frame" x="0.0" y="0.0" width="500" height="336"/>
+                        <rect key="frame" x="0.0" y="64" width="500" height="236"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JrO-Tv-rlm">
-                                <rect key="frame" x="11" y="8" width="489" height="328"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" showsHorizontalScrollIndicator="NO" maximumZoomScale="4" keyboardDismissMode="interactive" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JrO-Tv-rlm">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="JrO-Tv-rlm" secondAttribute="height" multiplier="489:328" id="9uy-eQ-fvm"/>
+                                    <constraint firstAttribute="width" secondItem="JrO-Tv-rlm" secondAttribute="height" multiplier="2:1" id="nCh-KT-h2R"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -281,21 +281,23 @@ Cg
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" calendarEvent="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mwQ-ni-lxD" id="GxN-jb-fUA"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="JrO-Tv-rlm" secondAttribute="trailing" id="Bo9-2t-SUW"/>
-                            <constraint firstItem="JrO-Tv-rlm" firstAttribute="width" secondItem="vaI-nN-ov5" secondAttribute="width" constant="-11" id="GwU-s5-OGB"/>
-                            <constraint firstItem="JrO-Tv-rlm" firstAttribute="height" secondItem="vaI-nN-ov5" secondAttribute="height" constant="-8" id="Z6V-T8-eWJ"/>
-                            <constraint firstItem="JrO-Tv-rlm" firstAttribute="top" secondItem="lqJ-jb-g4x" secondAttribute="bottom" constant="8" symbolic="YES" id="b0w-xz-1eu"/>
+                            <constraint firstItem="JrO-Tv-rlm" firstAttribute="leading" secondItem="vaI-nN-ov5" secondAttribute="leading" id="56Y-RW-jvH"/>
+                            <constraint firstAttribute="trailing" secondItem="JrO-Tv-rlm" secondAttribute="trailing" id="agl-Tl-6rN"/>
+                            <constraint firstItem="JrO-Tv-rlm" firstAttribute="top" secondItem="lqJ-jb-g4x" secondAttribute="bottom" id="rXc-bw-owj"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Help" id="b47-FQ-dtk"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="500" height="400"/>
+                    <size key="freeformSize" width="500" height="300"/>
                     <connections>
                         <outlet property="helpTextView" destination="JrO-Tv-rlm" id="Kn1-75-fPR"/>
                     </connections>

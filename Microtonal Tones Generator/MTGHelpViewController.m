@@ -14,18 +14,13 @@
 @end
 
 @implementation MTGHelpViewController
-@synthesize text,helpLabel;
+@synthesize text;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupMenuRevelation];
-    helpLabel.text =@"Something should be written in here.";
-   // informationText.text = text;
-    if (text){
-        helpLabel.text = text;
-        _helpTextView.text =text;
-    }
+    if (text)_helpTextView.text =text;
 }
 
 - (void)didReceiveMemoryWarning {

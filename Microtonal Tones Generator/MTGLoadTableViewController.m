@@ -191,7 +191,7 @@
     if([segue.identifier isEqualToString:@"savedHelp"])
         {
             MTGHelpViewController *detailViewController = [segue destinationViewController];
-            detailViewController.text = @"INFO ABOUT Saved view controller \n Press to select button!!\n ";
+            detailViewController.text = @"Here all of saved sessions are displayed.\n\nYou can delete any of them by swiping to the left and pressing Delete.";
         }
 }
 

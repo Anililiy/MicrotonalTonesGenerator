@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ja2-cR-yTs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -54,7 +54,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Z-jT-sWK">
-                                            <rect key="frame" x="26" y="12" width="250" height="20"/>
+                                            <rect key="frame" x="26" y="13" width="217" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="0.43529412150382996" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,20 +81,23 @@
                                     <segue destination="cLj-6T-1fI" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="4PS-UW-OKR"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settings" id="umn-wA-Ezt">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="help" id="umn-wA-Ezt">
                                 <rect key="frame" x="0.0" y="110" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umn-wA-Ezt" id="fKo-ve-ZLu">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozs-G1-Ehh">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozs-G1-Ehh">
                                             <rect key="frame" x="25" y="12" width="146" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="d6E-ls-Tc1" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="sJ8-wE-aMS"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="new" id="LbJ-fT-x9I">
                                 <rect key="frame" x="0.0" y="154" width="768" height="44"/>
@@ -103,8 +106,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8t-cZ-FNh">
-                                            <rect key="frame" x="25" y="12" width="80" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New session" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8t-cZ-FNh">
+                                            <rect key="frame" x="25" y="13" width="279" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -142,7 +145,39 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzW-T5-Cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2117" y="-2335"/>
+            <point key="canvasLocation" x="-2117" y="-2341"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="YNk-cO-M1k">
+            <objects>
+                <viewController id="mwQ-ni-lxD" customClass="MTGHelpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OzB-ve-InI"/>
+                        <viewControllerLayoutGuide type="bottom" id="McM-sS-oBc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vaI-nN-ov5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iX-k3-Fe3">
+                                <rect key="frame" x="23" y="15" width="568" height="372"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="b47-FQ-dtk"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="400"/>
+                    <connections>
+                        <outlet property="helpLabel" destination="8iX-k3-Fe3" id="crm-E8-jI7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1d-N8-HvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429" y="-5148"/>
         </scene>
         <!--Create new scale-->
         <scene sceneID="Kx1-uc-KIX">
@@ -283,7 +318,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create new session" id="DtA-kt-mHT"/>
+                    <navigationItem key="navigationItem" title="Create new session" id="DtA-kt-mHT">
+                        <barButtonItem key="rightBarButtonItem" image="question.png" id="iAN-YH-cML">
+                            <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
+                            <connections>
+                                <segue destination="mwQ-ni-lxD" kind="popover" identifier="newHelp" popoverAnchorBarButtonItem="iAN-YH-cML" id="1DT-zB-8LV">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -307,7 +351,7 @@
         <!--Saved sessions-->
         <scene sceneID="bLh-Ua-feL">
             <objects>
-                <tableViewController id="pgH-QK-fhb" customClass="MTGLoadTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Saved sessions" id="pgH-QK-fhb" customClass="MTGLoadTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="BMe-Gx-WGK">
                         <rect key="frame" x="0.0" y="94" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,20 +416,22 @@
                             <outlet property="delegate" destination="pgH-QK-fhb" id="keX-pw-oHt"/>
                         </connections>
                     </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Saved sessions" id="TN5-bN-pEU">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="N9V-rs-SSJ">
-                            <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <toolbarItems>
+                        <barButtonItem image="question.png" id="qWe-j3-LjJ">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="mwQ-ni-lxD" kind="popover" identifier="savedHelp" popoverAnchorBarButtonItem="qWe-j3-LjJ" id="7Qt-YN-t2f">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
                         </barButtonItem>
-                    </navigationItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="VPY-Vs-CoD"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="sidebarButton" destination="N9V-rs-SSJ" id="O66-R5-Gs6"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bho-hL-15n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -445,6 +491,14 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67t-FB-cdE">
                                 <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
                                 <items>
+                                    <barButtonItem image="question.png" id="4aN-H4-Ceg">
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <connections>
+                                            <segue destination="mwQ-ni-lxD" kind="popover" identifier="sessionHelp" popoverAnchorBarButtonItem="4aN-H4-Ceg" id="B2g-dQ-OSf">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="81" style="plain" systemItem="fixedSpace" id="3OH-2P-OZH"/>
                                     <barButtonItem enabled="NO" systemItem="rewind" id="fJF-NT-mKb">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -459,7 +513,7 @@
                                             <action selector="playNextStateAction:" destination="ijD-Df-uuV" id="2hz-iZ-pwV"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="200" style="plain" systemItem="fixedSpace" id="1ti-4a-2te"/>
+                                    <barButtonItem width="161" style="plain" systemItem="fixedSpace" id="1ti-4a-2te"/>
                                     <barButtonItem title="Polyphony" width="183" style="plain" id="4gs-Yq-Jui">
                                         <color key="tintColor" red="0.031372550870000002" green="0.058823533359999999" blue="0.023529414089999999" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
@@ -654,16 +708,20 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
         <!--Navigation Controller-->
         <scene sceneID="zJH-Qn-ieo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLj-6T-1fI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" hidesBarsOnSwipe="YES" id="cLj-6T-1fI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dpn-K2-CzK">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uQh-75-wK3">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="pgH-QK-fhb" kind="relationship" relationship="rootViewController" id="iaG-j9-A1i"/>
                     </connections>
@@ -717,13 +775,32 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
             </objects>
             <point key="canvasLocation" x="-731" y="-2647"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tyj-8H-RsN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6E-ls-Tc1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="d5Y-Y2-d5d"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Edi-3Q-iQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mwQ-ni-lxD" kind="relationship" relationship="rootViewController" id="qUZ-fZ-PL6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMr-VF-bQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543" y="-5148"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Continue2.png" width="398" height="135"/>
         <image name="Harry_Partch_album_scan_headshot.jpg" width="296" height="407"/>
         <image name="arrow-big-03.png" width="30" height="30"/>
         <image name="arrow-big-04.png" width="30" height="30"/>
-        <image name="menu.png" width="28" height="20"/>
+        <image name="question.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -731,8 +808,9 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="B2g-dQ-OSf"/>
+        <segue reference="SqA-3s-bFS"/>
         <segue reference="eiG-kh-lQ6"/>
         <segue reference="Rde-gQ-pRX"/>
-        <segue reference="BnV-kE-afT"/>
     </inferredMetricsTieBreakers>
 </document>

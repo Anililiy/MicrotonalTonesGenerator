@@ -9,6 +9,7 @@
 #import "MTGLoadTableViewController.h"
 #import "MTGSaveTableViewCell.h"
 #import "MTGViewController.h"
+#import "MTGHelpViewController.h"
 #import "MTGAppDelegate.h"
 
 @implementation MTGLoadTableViewController
@@ -19,10 +20,12 @@
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [self setupMenuRevelation];
+
     //set the slide bar button action. When it is tapped, it will show up the slidebar.
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
-    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    //_sidebarButton.target = self.revealViewController;
+   // _sidebarButton.action = @selector(revealToggle:);
+   // [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
 
     //
     NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
@@ -44,6 +47,33 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)setupMenuRevelation{
+    /** - allocates Navigation Item Bar Buttons to open and show menus */
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    
+    if ( revealViewController )
+    {
+        UIBarButtonItem *barBtnMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openLeftMenu)];
+        barBtnMenu.tintColor = [UIColor colorWithWhite:0.2f alpha:0.7f];
+        
+        self.navigationItem.leftBarButtonItem = barBtnMenu;
+        
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+}
+-(void)openLeftMenu{
+    //_menuCalled = !_menuCalled;
+    //[self.view bringSubviewToFront:_ViewCover];
+    
+    //if (_menuCalled)[_ViewCover setHidden:false];
+    //else            [_ViewCover setHidden:true];
+    
+    SWRevealViewController *reveal = self.revealViewController;
+    [reveal revealToggleAnimated:YES];
+}
+
 
 #pragma mark - Table view data source
 
@@ -158,6 +188,11 @@
         detailViewController.indexOfFileLoading = index;
         detailViewController.loading = true;
     }
+    if([segue.identifier isEqualToString:@"savedHelp"])
+        {
+            MTGHelpViewController *detailViewController = [segue destinationViewController];
+            detailViewController.text = @"INFO ABOUT Saved view controller \n Press to select button!!\n ";
+        }
 }
 
 

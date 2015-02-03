@@ -49,6 +49,8 @@
 		956CF1D61A6879DD0022135D /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 956CF1D51A6879DD0022135D /* Common.m */; };
 		957347581A125DD70014CDBA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 957347571A125DD70014CDBA /* CoreData.framework */; };
 		957E295F1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */; };
+		958387401A80FC6D0073E9BB /* MTGHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9583873F1A80FC6D0073E9BB /* MTGHelpViewController.m */; };
+		958387441A80FE860073E9BB /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 958387431A80FE860073E9BB /* question.png */; };
 		95A2BFA01A64340E00A02D3E /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A2BF9B1A6433FF00A02D3E /* libpd-ios.a */; };
 		95A2BFAB1A64361000A02D3E /* KeyNote.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95A2BFA71A64361000A02D3E /* KeyNote.pd */; };
 		95A2BFAC1A64361000A02D3E /* KeyNote2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95A2BFA81A64361000A02D3E /* KeyNote2.pd */; };
@@ -147,6 +149,9 @@
 		957347571A125DD70014CDBA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		957E295B1A0A63F500D494E7 /* MTGSavedStatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGSavedStatesTableViewController.h; sourceTree = "<group>"; };
 		957E295C1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGSavedStatesTableViewController.m; sourceTree = "<group>"; };
+		9583873E1A80FC6D0073E9BB /* MTGHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGHelpViewController.h; sourceTree = "<group>"; };
+		9583873F1A80FC6D0073E9BB /* MTGHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGHelpViewController.m; sourceTree = "<group>"; };
+		958387431A80FE860073E9BB /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = question.png; path = "Supporting Files/question.png"; sourceTree = "<group>"; };
 		95A2BF951A6433FF00A02D3E /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = ../libpd/libpd.xcodeproj; sourceTree = "<group>"; };
 		95A2BFA71A64361000A02D3E /* KeyNote.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeyNote.pd; path = "Supporting Files/KeyNote.pd"; sourceTree = "<group>"; };
 		95A2BFA81A64361000A02D3E /* KeyNote2.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeyNote2.pd; path = "Supporting Files/KeyNote2.pd"; sourceTree = "<group>"; };
@@ -257,6 +262,7 @@
 				951058C019C5BDFF008F5F76 /* Main View */,
 				950A28D41A656C1C003153C6 /* Intormation */,
 				9552A2421A067D6B00A8B694 /* New Session */,
+				958387421A80FC740073E9BB /* Help */,
 				9552A2411A067D1200A8B694 /* Saved scales */,
 				951058BF19C5BBC8008F5F76 /* Slidebars */,
 				955F98C51A01A54100007D9E /* SWRevealViewController */,
@@ -282,6 +288,7 @@
 				953943431A0A659100588979 /* arrow-big-04.png */,
 				9540DF0319DB0C22001C1CC1 /* menu.png */,
 				9540DF0419DB0C22001C1CC1 /* menu@2x.png */,
+				958387431A80FE860073E9BB /* question.png */,
 				954B13E519C4F912008FE21B /* InfoPlist.strings */,
 				954B13E819C4F912008FE21B /* main.m */,
 				954B13EA19C4F912008FE21B /* Microtonal Tones Generator-Prefix.pch */,
@@ -368,6 +375,15 @@
 				955A0B6319F33B3700842D32 /* MTGSavedScale.m */,
 			);
 			name = "Model and Model Classes";
+			sourceTree = "<group>";
+		};
+		958387421A80FC740073E9BB /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				9583873E1A80FC6D0073E9BB /* MTGHelpViewController.h */,
+				9583873F1A80FC6D0073E9BB /* MTGHelpViewController.m */,
+			);
+			name = Help;
 			sourceTree = "<group>";
 		};
 		95A2BF961A6433FF00A02D3E /* Products */ = {
@@ -539,6 +555,7 @@
 				9540DF0F19DB0C22001C1CC1 /* menu.png in Resources */,
 				953943451A0A659100588979 /* arrow-big-04.png in Resources */,
 				95A2BFAC1A64361000A02D3E /* KeyNote2.pd in Resources */,
+				958387441A80FE860073E9BB /* question.png in Resources */,
 				951CCE401A77ECEE0019BBB8 /* test3.pd in Resources */,
 				95A2BFAD1A64361000A02D3E /* KeyNote3.pd in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
@@ -569,6 +586,7 @@
 			files = (
 				954B13E919C4F912008FE21B /* main.m in Sources */,
 				954B141E19C4FCB6008FE21B /* MTGViewController.m in Sources */,
+				958387401A80FC6D0073E9BB /* MTGHelpViewController.m in Sources */,
 				950A28D31A656C11003153C6 /* MTGInformationViewController.m in Sources */,
 				95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */,
 				957E295F1A0A63F500D494E7 /* MTGSavedStatesTableViewController.m in Sources */,

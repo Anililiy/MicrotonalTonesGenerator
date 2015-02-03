@@ -15,7 +15,7 @@
 {
     [super viewDidLoad];
     
-    menuItems = @[ @"new", @"load"];
+    menuItems = @[ @"new", @"load", @"help"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {

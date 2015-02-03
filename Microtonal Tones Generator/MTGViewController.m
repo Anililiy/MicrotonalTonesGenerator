@@ -9,6 +9,7 @@
 #import "MTGViewController.h"
 #import "MTGAppDelegate.h"
 #import "MTGCreateNewViewController.h"
+#import "MTGHelpViewController.h"
 
 #import "PdFile.h"
 #import "PdBase.h"
@@ -581,6 +582,16 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     UIGraphicsEndImageContext();
     /** - set the image of the session*/
     currentScale.imageOfScale = newImage;
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"sessionHelp"])
+    {
+        MTGHelpViewController *detailViewController = [segue destinationViewController];
+        detailViewController.text = @"Save button allows to save session as well as state.\n\nPolyphony button start/stop polyphony.\n\nWhen polyphony started, you can press several keys and they will play together, this is called state and you can save it.\n\nRewind button switches to the previous state (if such exists), it is enabled when you select state.\nFast forward button switches to the next state(if such exists), it is enabled when you select state.\n";
+    }
 }
 
 @end

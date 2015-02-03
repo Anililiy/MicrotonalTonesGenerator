@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 
 #import "MTGAppDelegate.h"
+#import "MTGHelpViewController.h"
 
 @implementation MTGCreateNewViewController
 @synthesize popoverController, colorCollection;
@@ -355,6 +356,17 @@
         [revealViewController setFrontViewController:frontNavigationController animated:YES];
     }
 }
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"newHelp"])
+    {
+        MTGHelpViewController *detailViewController = [segue destinationViewController];
+        detailViewController.text = @"INFO ABOUT new view controller \n Press colour button!!\n 2323232323";
+    }
+}
+
 
 
 @end

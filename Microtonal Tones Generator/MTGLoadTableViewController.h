@@ -17,14 +17,20 @@
     NSInteger index /** index of session which will be loaded */;
 }
 
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton /** array containing primary colours */;
-
 /**
     Method called after the view controller has loaded its view hierarchy into memory.
     In this method all main initialization is performed.
 	@returns nothing
  */
 - (void)viewDidLoad;
+/**
+ Sets up SWRevealViewController to be called
+ */
+- (void)setupMenuRevelation;
+/**
+	calls for SWRevealViewController to open left menu - MTGSidebarTableViewController
+ */
+-(void)openLeftMenu;
 
 /**
     Return the number of sections.

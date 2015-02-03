@@ -9,7 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface MTGHelpViewController : UIViewController
-@property NSString* text;
-@property (strong, nonatomic) IBOutlet UITextView *helpTextView;
+@property NSString* text /**information about different parts of the system*/;
+@property (strong, nonatomic) IBOutlet UITextView *helpTextView /** text view representing the information*/;
+
+/**
+   Sets up SWRevealViewController to be called
+ */
+- (void)setupMenuRevelation;
+/**
+	calls for SWRevealViewController to open left menu - MTGSidebarTableViewController
+ */
+-(void)openLeftMenu;
 
 @end

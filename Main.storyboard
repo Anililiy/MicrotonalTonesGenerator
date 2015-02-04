@@ -193,7 +193,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content"> — number of parts in which octave will be divided to. If you select number of splits 2, for example, there will be 3 buttons in the session, two of one octave and the last one of the next octave so that there is one complete octave presented.
+                                        <string key="content"> — number of parts in which octave will be divided to. 
 
 </string>
                                         <attributes>
@@ -208,13 +208,30 @@ Cg
                                             <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
+                                    <fragment content=" — the frequency of the lowest note.">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
                                     <fragment>
-                                        <string key="content"> — a frequency of the first key in the session.
-
+                                        <string key="content" base64-UTF8="YES">
+Cg
 </string>
                                         <attributes>
                                             <font key="NSFont" size="22" name="GillSans"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <color key="NSUnderlineColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <color key="NSUnderlineColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Session">
@@ -233,22 +250,6 @@ Cg
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Key">
-                                        <attributes>
-                                            <font key="NSFont" size="22" name="GillSans"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <integer key="NSUnderline" value="1"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> — a button, which is when pressed produces sound of particular frequency.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="22" name="GillSans"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
                                     <fragment content="Polyphony">
                                         <attributes>
                                             <font key="NSFont" size="22" name="GillSans"/>
@@ -257,22 +258,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content"> — a state of the application when you can select several keys so that their sounds add up together into one. When you are in polyphony state, you can save the sound produced by hitting Save on the right top of the screen.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="22" name="GillSans"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="State">
-                                        <attributes>
-                                            <font key="NSFont" size="22" name="GillSans"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <integer key="NSUnderline" value="1"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" — a number of pressed keys in the Polyphony which produce a specific sound. ">
+                                        <string key="content"> —  When polyphony is selected you can save the save the sound produced by hitting Save on the right top of the screen. Each saved combination of sounds is a state. The states for the current session are accessed by pressing the the right menu.</string>
                                         <attributes>
                                             <font key="NSFont" size="22" name="GillSans"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>

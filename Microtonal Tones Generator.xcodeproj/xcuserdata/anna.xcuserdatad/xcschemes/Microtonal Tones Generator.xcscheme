@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Microtonal Tones Generator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9570EA9B1A82625700094D2E"
+               BuildableName = "Microtonal Tones Generator Tests.xctest"
+               BlueprintName = "Microtonal Tones Generator Tests"
+               ReferencedContainer = "container:Microtonal Tones Generator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -35,6 +49,16 @@
                BlueprintIdentifier = "954B13F319C4F912008FE21B"
                BuildableName = "Microtonal Tones GeneratorTests.xctest"
                BlueprintName = "Microtonal Tones GeneratorTests"
+               ReferencedContainer = "container:Microtonal Tones Generator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9570EA9B1A82625700094D2E"
+               BuildableName = "Microtonal Tones Generator Tests.xctest"
+               BlueprintName = "Microtonal Tones Generator Tests"
                ReferencedContainer = "container:Microtonal Tones Generator.xcodeproj">
             </BuildableReference>
          </TestableReference>

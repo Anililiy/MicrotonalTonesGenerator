@@ -19,11 +19,17 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    if (indexPath.section == 0) {
+        return 50;
+    }
+    return 100;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    if (indexPath.section == 0) {
+        return 50;
+    }
+    return 100;
 }
 
 - (void)didReceiveMemoryWarning

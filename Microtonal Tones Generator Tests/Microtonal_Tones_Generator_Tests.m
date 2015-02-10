@@ -1,6 +1,6 @@
 //
-//  MTGKeyTestCase.m
-//  Microtonal Tones Generator
+//  Microtonal_Tones_Generator_Tests.m
+//  Microtonal Tones Generator Tests
 //
 //  Created by Anna on 04/02/2015.
 //  Copyright (c) 2015 Anna. All rights reserved.
@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "MTGKeyButton.h"
 
-@interface MTGKeyTestCase : XCTestCase
+@interface Microtonal_Tones_Generator_Tests : XCTestCase
 
 @end
 
-@implementation MTGKeyTestCase
+@implementation Microtonal_Tones_Generator_Tests
 
 - (void)setUp {
     [super setUp];

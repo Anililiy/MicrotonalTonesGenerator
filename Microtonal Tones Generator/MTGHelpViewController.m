@@ -21,6 +21,8 @@
     // Do any additional setup after loading the view.
     [self setupMenuRevelation];
     if (text)_helpTextView.text =text;
+    NSLog(@"\n");
+    NSLog(@"Help is opened");
 }
 
 - (void)didReceiveMemoryWarning {

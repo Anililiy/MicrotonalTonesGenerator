@@ -42,7 +42,7 @@
 	sets values to hue, saturation, brightness and alpha of the key
 	@param colour colour chosen by user in MTGCreateNewViewController
  */
--(void)setColour:(UIColor *)colour;
+-(void)setColourOfTheButton:(UIColor *)colour;
 /**
 	sets hue of the key
 	@param hue hue of the key

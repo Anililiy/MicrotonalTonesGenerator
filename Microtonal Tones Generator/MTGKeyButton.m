@@ -41,9 +41,10 @@
     return self;
 }
 
--(void)setColour:(UIColor *)colour{
+-(void)setColourOfTheButton:(UIColor *)colour{
     BOOL success = [colour getHue:&_hue saturation:&_saturation brightness:&_brightness alpha:&_alpha];
-    NSLog(@"colour extracted: %i",success);
+    
+    NSLog(@"colour extracted and set to the button: %i",success);
     [self setNeedsDisplay];
 }
 

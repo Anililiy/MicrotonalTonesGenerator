@@ -13,6 +13,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Information view is opened");
     // Do any additional setup after loading the view.
     SWRevealViewController *revealViewController = self.revealViewController;
     
@@ -31,6 +32,7 @@
 -(void)openLeftMenu{
     SWRevealViewController *reveal = self.revealViewController;
     [reveal revealToggleAnimated:YES];
+    NSLog(@"Opens menu - main menu");
 }
 
 

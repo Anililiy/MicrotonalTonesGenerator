@@ -18,7 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"\n");
+    NSLog(@"Create New Session View is opened");
+
     /**
         -set background image
      */
@@ -53,7 +55,8 @@
     chooseTheme.hue        = colourHue;
     chooseTheme.saturation = colourSat;
     chooseTheme.brightness = colourBrg;
-    
+    NSLog(@"Initial values set");
+
     /**
     	- calls creation of color array
      */
@@ -99,6 +102,8 @@
 }
 
 -(void)openLeftMenu{
+    NSLog(@"Opens main menu");
+
     _menuCalled = !_menuCalled;
     [self.view bringSubviewToFront:_ViewCover];
     
@@ -115,7 +120,7 @@
 
 
 - (IBAction)showColourPopup:(id)sender {
-    
+    NSLog(@"Colour pop-up appears");
     MTGColoursViewController *newViewController = [[MTGColoursViewController alloc] initWithNibName:@"MTGColoursViewController" bundle:nil];
     
     newViewController.delegate = self;
@@ -132,6 +137,7 @@
     [self.view setNeedsDisplay];
     [popoverController dismissPopoverAnimated:YES];
      popoverController = nil;
+    NSLog(@"Colour pop-up dismissed");
 
 }
 
@@ -139,7 +145,7 @@
 -(void)setColor:(UIColor*)color{
     CGFloat alpha;
     BOOL success = [color getHue:&colourHue saturation:&colourSat brightness:&colourBrg alpha:&alpha];
-    NSLog(@"colour extracted: %i",success);
+    NSLog(@"colour extracted and set to the chooseTheme button: %i",success);
     chooseTheme.hue = colourHue;
     chooseTheme.saturation = colourSat;
     chooseTheme.brightness = colourBrg;
@@ -162,7 +168,7 @@
             [colorButton setSelected:NO];
             [colorButton setNeedsDisplay];
             
-            [colorButton setColour:[self.colorCollection objectAtIndex:colorNumber]];
+            [colorButton setColourOfTheButton:[self.colorCollection objectAtIndex:colorNumber]];
             colorButton.tag = colorNumber;
             
             colorNumber ++;
@@ -181,6 +187,7 @@
             colorButton.frame = CGRectMake(10+(i%4)*52, 10+(i/4)*27, 50, 25);
         }
     }
+    NSLog(@"Colour buttons represented.");
 }
 -(void)chooseColor:(MTGKeyButton *)button{
     chooseTheme.hue         = button.hue;
@@ -190,7 +197,8 @@
     colourHue = button.hue;
     colourSat = button.saturation;
     colourBrg = button.brightness;
-    
+    NSLog(@"Colour chosen by pressing one of the colour buttons");
+
     /*
     UIImage *img = [UIImage imageNamed:@"background1.jpg"];
     
@@ -217,6 +225,7 @@
                        [UIColor brownColor],
                        [UIColor lightGrayColor],
                        nil];
+    NSLog(@"Array of main colours created.");
 }
 /*
 -(UIImage *)imageNamed:(NSString *)name withColor:(UIColor *)color {
@@ -362,6 +371,7 @@
     
     if([segue.identifier isEqualToString:@"newHelp"])
     {
+        NSLog(@"Help is opened.");
         MTGHelpViewController *detailViewController = [segue destinationViewController];
         detailViewController.text = @"Select the number of splits by moving the slider.\n\nSelect a frequency either by clicking on one of the 3 suggested frequencies or by inputing your own frequency in the  custom text box. Note that frequency should be between 100 Hz and 600 Hz.\n\nChoose a colour by ether selecting one of the suggested colours or by selecting a custom colour using a colour wheel, which you can select by pressing the Colour button.\n\nPress continue to create the new session.";
     }

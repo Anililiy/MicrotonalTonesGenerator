@@ -66,6 +66,8 @@
     [_wellView addSubview:chooseLabel];
     [self.view addSubview:_wellView];
     */
+    NSLog(@"\n");
+    NSLog(@"Popup is opened");
 }
 
 //The event handling method

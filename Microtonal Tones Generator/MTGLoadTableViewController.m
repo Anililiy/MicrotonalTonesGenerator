@@ -17,17 +17,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"\n");
+    NSLog(@"Load Saved Session View is opened");
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self setupMenuRevelation];
-
-    //set the slide bar button action. When it is tapped, it will show up the slidebar.
-    //_sidebarButton.target = self.revealViewController;
-   // _sidebarButton.action = @selector(revealToggle:);
-   // [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-
-    //
+//
     NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
 
     NSMutableArray *archivedSessions = [[NSMutableArray alloc] initWithArray:[savedSettings objectForKey:@"savedSessions"]];
@@ -64,14 +60,9 @@
     }
 }
 -(void)openLeftMenu{
-    //_menuCalled = !_menuCalled;
-    //[self.view bringSubviewToFront:_ViewCover];
-    
-    //if (_menuCalled)[_ViewCover setHidden:false];
-    //else            [_ViewCover setHidden:true];
-    
     SWRevealViewController *reveal = self.revealViewController;
     [reveal revealToggleAnimated:YES];
+    NSLog(@"Opens main menu");
 }
 
 
@@ -150,7 +141,7 @@
         
         [sessions removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
+        NSLog(@"Session %i is removed", indexPath.row);
         /** - Remove the session from saved sessions */
         NSUserDefaults *savedSettings = [NSUserDefaults standardUserDefaults];
         NSMutableArray *archivedSessions = [NSMutableArray array];
@@ -173,7 +164,9 @@
             authObj.authenticated = NO;
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setBool:NO forKey:@"authenticated"];
+            NSLog(@"Sets unauthenticated.");
         }
+        
     }
 }
 
@@ -184,12 +177,14 @@
 {
     if([segue.identifier isEqualToString:@"loadSaved"])
     {
+        NSLog(@"Loads saved session.");
         MTGViewController *detailViewController = [segue destinationViewController];
         detailViewController.indexOfFileLoading = index;
         detailViewController.loading = true;
     }
     if([segue.identifier isEqualToString:@"savedHelp"])
         {
+            NSLog(@"Opens help.");
             MTGHelpViewController *detailViewController = [segue destinationViewController];
             detailViewController.text = @"Here all of saved sessions are displayed.\n\nYou can delete any of them by swiping to the left and pressing Delete.";
         }

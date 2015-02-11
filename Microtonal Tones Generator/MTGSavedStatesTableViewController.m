@@ -19,6 +19,8 @@
 {
     [super viewDidLoad];    
     [self dataFill];
+    NSLog(@"\n");
+    NSLog(@"Saved States View is opened");
 }
 
 -(void)dataFill{

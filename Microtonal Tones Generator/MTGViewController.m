@@ -38,7 +38,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 - (void)viewDidLoad{
 
     [super viewDidLoad];
-    
+    NSLog(@"Session View is opened.");
+
     /**
     	- manage a background picture
      */
@@ -133,8 +134,8 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             [patches addObject:@"1"];
             [self createKey: i];
         }
-        NSLog(@"Patches: %lu", (unsigned long)[patches count]);
-
+        NSLog(@"Number of patches: %lu", (unsigned long)[patches count]);
+        [self takeScreenshot];
         /**  - represent selected state when passing from saved states menu */
         [self representStateSeleted];
         
@@ -162,8 +163,15 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     menuCalled = !menuCalled;
     [self.view bringSubviewToFront:ViewCoverL];
 
-    if (menuCalled)[ViewCoverL setHidden:false];
-    else [ViewCoverL setHidden:true];
+    if (menuCalled){
+        [ViewCoverL setHidden:false];
+        NSLog(@"Open left menu.");
+    }
+    else {
+        [ViewCoverL setHidden:true];
+        NSLog(@"Close left menu.");
+        NSLog(@"\n");
+    }
     
     [startButtonItem setTitle:@"Polyphony"];
     creationState = false;
@@ -179,10 +187,15 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     menuCalled = !menuCalled;
     [self.view bringSubviewToFront:ViewCoverR];
 
-    if (menuCalled)[ViewCoverR setHidden:false];
+    if (menuCalled){
+        [ViewCoverR setHidden:false];
+        NSLog(@"Open states menu.");
+    }
     else {
         [ViewCoverR setHidden:true];
         [self initialiseValues];
+        NSLog(@"Close states menu.");
+        NSLog(@"\n");
     }
 
     [startButtonItem setTitle:@"Polyphony"];
@@ -193,6 +206,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     SWRevealViewController *reveal = self.revealViewController;
     [reveal rightRevealToggleAnimated:YES];
+
 }
 
 - (void)initialiseValues{
@@ -290,6 +304,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 
 -(void)representStateSeleted{
     if (stateSelected){
+        NSLog(@"Represent state selected");
         NSMutableArray *keysSelected = savedStates[indexOfStateChosen];
 
         for (MTGKeyButton *keyPressed in keysSelected){
@@ -331,7 +346,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     [pressedKeys removeAllObjects];
     
     for (int i = 0; i<=numberOfSplits; i++) [patches addObject:@"1"];
-    
+    NSLog(@"Cleans patches, pressedKeys arrays, diselect keyboard keys");
 }
 
 #pragma mark - buttons regulation
@@ -341,6 +356,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         [startButtonItem setTitle:@"Stop polyphony"];
         creationState = true;
         [changeOctave setHidden:YES];
+        NSLog(@"Polyphony state is ON");
     }
     else
     {
@@ -353,16 +369,19 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
         playPreviousStateButton.enabled = false;
         playNextStateButton.enabled = false;
         [self clearUp];
+        NSLog(@"Polyphony state is OFF");
     }
 }
 
 - (IBAction)playNextStateAction:(id)sender {
+    NSLog(@"Plays next state");
     indexOfStateChosen +=1;
     [self clearUp];
     [self representStateSeleted];
 }
 
 - (IBAction)playPreviousStateAction:(id)sender {
+    NSLog(@"Plays previous state");
     indexOfStateChosen -=1;
     [self clearUp];
     [self representStateSeleted];
@@ -417,7 +436,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
      */
     [keyboard addObject:aKey];
     [self.view addSubview:aKey];
-    [self takeScreenshot];
+    NSLog(@"key № %li created",(long)aKey.index);
 }
 
 - (void)keyPressed:(MTGKeyButton*)aKey{
@@ -439,13 +458,14 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
             // when user press already selected key, the key should be decelected nd removed from pressedKeys
             aKey.selected = NO;
             [pressedKeys removeObject:aKey];
-            
+
             // also the sound creation should be finished
             [patches removeObjectAtIndex:      aKey.index];
             [patches insertObject:@"1" atIndex:aKey.index];
            
             // user cannot save state when there are no pressed keys and session already saved
             if ([pressedKeys count]==0 && sessionIsSaved) saveButton.enabled = false;
+            NSLog(@"patch is removed");
         }
     }
     else [self playNoteShort:aKey.frequency]; //
@@ -454,10 +474,11 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 #pragma mark - button call back
 
 -(void)playNoteLong:(float)f at:(NSInteger)index{
+    NSLog(@"Plays note %i continiously", index);
     PdFile *patchOfKey = [PdFile openFileNamed:kTestPatchName path:[[NSBundle mainBundle] bundlePath]];
     
     if (patchOfKey) {
-        NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
+       // NSLog(@"opened patch with $0 = %d", [patchOfKey dollarZero]);
 
         [patches removeObjectAtIndex:            index];
         [patches insertObject:patchOfKey atIndex:index];
@@ -469,7 +490,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 -(void)playNoteShort:(float)freqValue{
-    
+    NSLog(@"Plays note short");
     [PdBase sendFloat:freqValue toReceiver:@"midinote"];
     [PdBase sendBangToReceiver:@"trigger"];
 }
@@ -567,6 +588,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
 }
 
 - (void)takeScreenshot {
+    NSLog(@"Screenshot");
     /** - define the dimensions of the screenshot */
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
@@ -589,6 +611,7 @@ float calcFreqOfNote (NSInteger position, NSInteger splits, float f0){
     
     if([segue.identifier isEqualToString:@"sessionHelp"])
     {
+        NSLog(@"Help is opened.");
         MTGHelpViewController *detailViewController = [segue destinationViewController];
         detailViewController.text = @"Save button allows to save session as well as state.\n\nWhile session is not saved you can change initial frequency, moving up and down the octave with the buttons on the bottom.\n\nPolyphony button starts/stops polyphony.\n\nWhen polyphony started, you can press several keys and they will play together, this is called state and you can save it.\n\nRewind button switches to the previous state (if such exists).\nFast forward button switches to the next state(if such exists). Both are enabled when you select state from the right hand side menu in the top right corner.\n";
     }

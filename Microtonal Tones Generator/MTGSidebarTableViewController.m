@@ -14,7 +14,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    NSLog(@"\n");
+    NSLog(@"Main menu is opened");
     menuItems = @[ @"new", @"load", @"help"];
 }
 

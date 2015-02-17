@@ -21,8 +21,10 @@
                     <keyCommands>
                         <keyCommand/>
                     </keyCommands>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="qYl-Ea-1T4" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="QK2-H1-fqF"/>
                         <segue destination="k8k-uI-Tfn" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="CAD-vI-ghq"/>
@@ -913,9 +915,9 @@ Encouraged by his mother, Partch learned several instruments at a young age. By 
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eiG-kh-lQ6"/>
-        <segue reference="Rde-gQ-pRX"/>
+        <segue reference="ghe-CW-ClF"/>
         <segue reference="SqA-3s-bFS"/>
-        <segue reference="7Qt-YN-t2f"/>
+        <segue reference="B2g-dQ-OSf"/>
+        <segue reference="eiG-kh-lQ6"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface MTGHelpViewController : UIViewController
 @property NSString* text /**information about different parts of the system*/;
@@ -20,5 +21,8 @@
 	calls for SWRevealViewController to open left menu - MTGSidebarTableViewController
  */
 -(void)openLeftMenu;
+
+@property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+- (void)playMovie;
 
 @end

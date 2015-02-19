@@ -12,8 +12,6 @@
 #import "MTGAppDelegate.h"
 #import "MTGHelpViewController.h"
 
-#import <MediaPlayer/MediaPlayer.h>
-
 @implementation MTGCreateNewViewController
 @synthesize popoverController, colorCollection;
 @synthesize freqButtons,frequencyLabel,splitLabel,chooseTheme,frequency,split,colourHue,colourSat, colourBrg, freqTextField, continueButton;

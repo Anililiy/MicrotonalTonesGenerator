@@ -21,6 +21,7 @@
     // Do any additional setup after loading the view.
     [self setupMenuRevelation];
     if (text)_helpTextView.text =text;
+    else [self playMovie];
     NSLog(@"\n");
     NSLog(@"Help is opened");
 }
@@ -49,6 +50,22 @@
 -(void)openLeftMenu{
     SWRevealViewController *reveal = self.revealViewController;
     [reveal revealToggleAnimated:YES];
+}
+-(void)playMovie
+{
+    // NSURL *url = [NSURL URLWithString:@"http://www.ebookfrenzy.com/ios_book/movie/movie.mov"];
+    NSURL *url= [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"App Preview" ofType:@"mp4"]];
+    _moviePlayer =  [[MPMoviePlayerController alloc] initWithContentURL:url];
+    
+    _moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
+    _moviePlayer.shouldAutoplay = NO;
+    _moviePlayer.backgroundView.backgroundColor = [UIColor clearColor];
+    
+    
+    _moviePlayer.view.frame = CGRectMake(10, 400, self.view.bounds.size.width/3, self.view.bounds.size.height/3);
+    
+    [self.view addSubview:_moviePlayer.view];
+    [_moviePlayer setFullscreen:YES animated:YES];
 }
 
 @end

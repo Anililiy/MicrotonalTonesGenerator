@@ -10,8 +10,13 @@
 #import "MTGColoursViewController.h"
 
 #import "MTGKeyButton.h"
+@import MediaPlayer;
 
 @interface MTGCreateNewViewController : UIViewController <UIPopoverControllerDelegate, MTGColoursViewControllerDelegate>
+
+@property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+- (void)playMovie;
+@property (strong, nonatomic) UIWebView* videoView;
 
 @property NSArray *colorCollection /** array containing primary colours */;
 @property (strong, nonatomic) IBOutlet MTGKeyButton *colourButton /** each button represent one colour from colorCollection*/;

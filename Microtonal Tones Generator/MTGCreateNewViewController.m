@@ -12,12 +12,14 @@
 #import "MTGAppDelegate.h"
 #import "MTGHelpViewController.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
 @implementation MTGCreateNewViewController
 @synthesize popoverController, colorCollection;
 @synthesize freqButtons,frequencyLabel,splitLabel,chooseTheme,frequency,split,colourHue,colourSat, colourBrg, freqTextField, continueButton;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+   [super viewDidLoad];
     NSLog(@"\n");
     NSLog(@"Create New Session View is opened");
 
@@ -51,7 +53,15 @@
     
     splitLabel.text     = [NSString stringWithFormat:@"%li", (long)split];
     frequencyLabel.text = [NSString stringWithFormat:@"%4.0f Hz", frequency];
-
+    bool tutorial = [defaults boolForKey:@"seenTutorial"];
+    tutorial = YES;
+    if(!tutorial){
+        [self playMovie];
+        [self.navigationController setNavigationBarHidden:YES];
+        [defaults setBool:YES forKey:@"seenTutorial"];
+    }
+    [defaults synchronize];
+    
     chooseTheme.hue        = colourHue;
     chooseTheme.saturation = colourSat;
     chooseTheme.brightness = colourBrg;
@@ -73,6 +83,87 @@
     [self setupMenuRevelation];
 
     continueButton.enabled = true;
+
+    //[self embedYouTube:[self getYTUrlStr:@"https://www.youtube.com/watch?v=Zq4o_Ca14aw"] frame:CGRectMake(0,40,200,200)];
+
+
+}
+
+
+/*- (NSString*)getYTUrlStr:(NSString*)url {
+    if (url == nil)
+        return nil;
+    
+    NSString *retVal = [url stringByReplacingOccurrencesOfString:@"watch?v=" withString:@"v/"];
+    
+    NSRange pos=[retVal rangeOfString:@"version"];
+    if(pos.location == NSNotFound)
+    {
+        retVal = [retVal stringByAppendingString:@"?version=3&hl=en_EN"];
+    }
+    return retVal;
+}
+- (void)embedYouTube:(NSString*)url frame:(CGRect)frame {
+    
+    NSString* embedHTML = @"\
+    <html><head>\
+    <style type=\"text/css\">\
+    body {\
+    background-color: transparent;\
+    color: white;\
+    }\
+    </style>\
+    </head><body style=\"margin:0\">\
+    <embed id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \
+    width=\"%0.0f\" height=\"%0.0f\"></embed>\
+    </body></html>";
+    NSString* html = [NSString stringWithFormat:embedHTML, url, frame.size.width, frame.size.height];
+    if(_videoView == nil) {
+        _videoView = [[UIWebView alloc] initWithFrame:frame];
+        [self.view addSubview:_videoView];
+    }
+    
+    _videoView.mediaPlaybackAllowsAirPlay=YES;
+    _videoView.allowsInlineMediaPlayback=YES;
+    [_videoView loadHTMLString:html baseURL:nil];
+    
+}
+*/
+-(void)playMovie
+{
+   // NSURL *url = [NSURL URLWithString:@"http://www.ebookfrenzy.com/ios_book/movie/movie.mov"];
+    NSURL *url= [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"App Preview" ofType:@"mp4"]];
+    _moviePlayer =  [[MPMoviePlayerController alloc] initWithContentURL:url];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:_moviePlayer];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:MPMoviePlayerDidExitFullscreenNotification
+                                               object:_moviePlayer];
+    _moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
+    _moviePlayer.shouldAutoplay = YES;
+    _moviePlayer.backgroundView.backgroundColor = [UIColor clearColor];
+    
+    _moviePlayer.view.frame = self.view.bounds;
+
+    [self.view addSubview:_moviePlayer.view];
+    [_moviePlayer setFullscreen:YES animated:YES];
+}
+
+- (void) moviePlayBackDidFinish:(NSNotification*)notification {
+    MPMoviePlayerController *player = [notification object];
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:MPMoviePlayerPlaybackDidFinishNotification
+     object:player];
+   // if ([player respondsToSelector:@selector(setFullscreen:animated:)])
+    {
+        [player.view removeFromSuperview];
+        [self.navigationController setNavigationBarHidden:NO];
+    }
 }
 
 - (void)setupMenuRevelation{

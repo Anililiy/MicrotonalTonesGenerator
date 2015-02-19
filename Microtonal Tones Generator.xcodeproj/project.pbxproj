@@ -47,11 +47,29 @@
 		95A2BFAC1A64361000A02D3E /* KeyNote2.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95A2BFA81A64361000A02D3E /* KeyNote2.pd */; };
 		95A2BFAD1A64361000A02D3E /* KeyNote3.pd in Resources */ = {isa = PBXBuildFile; fileRef = 95A2BFA91A64361000A02D3E /* KeyNote3.pd */; };
 		95AAB6E519EE8680002A53F7 /* MTGCreateNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */; };
-		95C892EB1A8413F10071A7ED /* MTGTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C892EA1A8413F10071A7ED /* MTGTutorialViewController.m */; };
+		95CD251F1A9549CC00077F56 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CD251E1A9549CC00077F56 /* MediaPlayer.framework */; };
+		95CD25231A955E8600077F56 /* App Preview.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 95CD25221A955E8600077F56 /* App Preview.mp4 */; };
 		95DD9B3F1A37415A007C6473 /* MTGKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */; };
 		95F07C451A93DE040050DABF /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F07C441A93DE040050DABF /* libpd-ios.a */; };
 		95F07C471A93DEED0050DABF /* GillSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 95F07C461A93DEED0050DABF /* GillSans.ttc */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95F07C4B1A93E03F0050DABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95A2BF951A6433FF00A02D3E /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = "libpd-ios";
+		};
+		95F07C4D1A93E13F0050DABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95A2BF951A6433FF00A02D3E /* libpd.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "libpd-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9500192F1A06DF0900834493 /* Microtonal Tones Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Microtonal Tones Generator.entitlements"; sourceTree = "<group>"; };
@@ -113,12 +131,14 @@
 		95A2BFA91A64361000A02D3E /* KeyNote3.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = KeyNote3.pd; path = "Supporting Files/KeyNote3.pd"; sourceTree = "<group>"; };
 		95AAB6E319EE8680002A53F7 /* MTGCreateNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGCreateNewViewController.h; sourceTree = "<group>"; };
 		95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGCreateNewViewController.m; sourceTree = "<group>"; };
-		95C892E91A8413F10071A7ED /* MTGTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGTutorialViewController.h; sourceTree = "<group>"; };
-		95C892EA1A8413F10071A7ED /* MTGTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGTutorialViewController.m; sourceTree = "<group>"; };
+		95CD251E1A9549CC00077F56 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		95CD25221A955E8600077F56 /* App Preview.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "App Preview.mp4"; sourceTree = "<group>"; };
 		95DD9B3D1A37415A007C6473 /* MTGKeyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGKeyButton.h; sourceTree = "<group>"; };
 		95DD9B3E1A37415A007C6473 /* MTGKeyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGKeyButton.m; sourceTree = "<group>"; };
 		95F07C441A93DE040050DABF /* libpd-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpd-ios.a"; path = "../libpd/build/Debug-iphoneos/libpd-ios.a"; sourceTree = "<group>"; };
 		95F07C461A93DEED0050DABF /* GillSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = GillSans.ttc; path = "Supporting Files/GillSans.ttc"; sourceTree = "<group>"; };
+		95F07C4F1A93E3D10050DABF /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		95F07C511A93E3DE0050DABF /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CD251F1A9549CC00077F56 /* MediaPlayer.framework in Frameworks */,
 				95F07C451A93DE040050DABF /* libpd-ios.a in Frameworks */,
 				957347581A125DD70014CDBA /* CoreData.framework in Frameworks */,
 				954B141A19C4FC7E008FE21B /* AudioToolbox.framework in Frameworks */,
@@ -188,6 +209,9 @@
 		954B13DB19C4F912008FE21B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95CD251E1A9549CC00077F56 /* MediaPlayer.framework */,
+				95F07C511A93E3DE0050DABF /* VideoToolbox.framework */,
+				95F07C4F1A93E3D10050DABF /* MultipeerConnectivity.framework */,
 				95F07C441A93DE040050DABF /* libpd-ios.a */,
 				957347571A125DD70014CDBA /* CoreData.framework */,
 				954B141919C4FC7E008FE21B /* AudioToolbox.framework */,
@@ -207,7 +231,6 @@
 				954B13EC19C4F912008FE21B /* MTGAppDelegate.m */,
 				957347941A1B880B0014CDBA /* Model and Model Classes */,
 				951058C019C5BDFF008F5F76 /* Main View */,
-				95C892E81A8413890071A7ED /* Tutorial */,
 				950A28D41A656C1C003153C6 /* Intormation */,
 				9552A2421A067D6B00A8B694 /* New Session */,
 				958387421A80FC740073E9BB /* Help */,
@@ -259,6 +282,7 @@
 			children = (
 				95AAB6E319EE8680002A53F7 /* MTGCreateNewViewController.h */,
 				95AAB6E419EE8680002A53F7 /* MTGCreateNewViewController.m */,
+				95CD25221A955E8600077F56 /* App Preview.mp4 */,
 				95AAB6E819EEA655002A53F7 /* ColourPopup */,
 			);
 			name = "New Session";
@@ -355,13 +379,12 @@
 			name = ColourPopup;
 			sourceTree = "<group>";
 		};
-		95C892E81A8413890071A7ED /* Tutorial */ = {
+		95F07C481A93E03F0050DABF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95C892E91A8413F10071A7ED /* MTGTutorialViewController.h */,
-				95C892EA1A8413F10071A7ED /* MTGTutorialViewController.m */,
+				95F07C4C1A93E03F0050DABF /* libpd-ios.a */,
 			);
-			name = Tutorial;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +401,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				95F07C4E1A93E13F0050DABF /* PBXTargetDependency */,
 			);
 			name = "Microtonal Tones Generator";
 			productName = "Microtonal Tones Generator";
@@ -414,12 +438,28 @@
 			mainGroup = 954B13D019C4F912008FE21B;
 			productRefGroup = 954B13DA19C4F912008FE21B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 95F07C481A93E03F0050DABF /* Products */;
+					ProjectRef = 95A2BF951A6433FF00A02D3E /* libpd.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				954B13D819C4F912008FE21B /* Microtonal Tones Generator */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		95F07C4C1A93E03F0050DABF /* libpd-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-ios.a";
+			remoteRef = 95F07C4B1A93E03F0050DABF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		954B13D719C4F912008FE21B /* Resources */ = {
@@ -436,6 +476,7 @@
 				953943451A0A659100588979 /* arrow-big-04.png in Resources */,
 				95A2BFAC1A64361000A02D3E /* KeyNote2.pd in Resources */,
 				951CCE401A77ECEE0019BBB8 /* test3.pd in Resources */,
+				95CD25231A955E8600077F56 /* App Preview.mp4 in Resources */,
 				95A2BFAD1A64361000A02D3E /* KeyNote3.pd in Resources */,
 				9540DF1619DB0C22001C1CC1 /* tuner.pd in Resources */,
 				953943441A0A659100588979 /* arrow-big-03.png in Resources */,
@@ -470,13 +511,20 @@
 				954B13ED19C4F912008FE21B /* MTGAppDelegate.m in Sources */,
 				956CF1D61A6879DD0022135D /* Common.m in Sources */,
 				950477C51A6871F70098176E /* MTGColourWheel.m in Sources */,
-				95C892EB1A8413F10071A7ED /* MTGTutorialViewController.m in Sources */,
 				955A0B6419F33B3700842D32 /* MTGSavedScale.m in Sources */,
 				951058A019C59BA7008F5F76 /* MTGLoadTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95F07C4E1A93E13F0050DABF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libpd-ios";
+			targetProxy = 95F07C4D1A93E13F0050DABF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		954B13E519C4F912008FE21B /* InfoPlist.strings */ = {
